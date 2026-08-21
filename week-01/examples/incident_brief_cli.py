@@ -17,7 +17,7 @@ SECRET_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
     (re.compile(r"(?i)(authorization\s*:\s*bearer\s+)[^\s,;]+"), r"\1[REDACTED]"),
     (
         re.compile(
-            r"(?i)\b(password|passwd|pwd|api[_-]?key|client[_-]?secret|secret|access[_-]?token|token)"
+            r"(?i)\b(password|passwd|pass|pwd|api[_-]?key|client[_-]?secret|secret|access[_-]?token|token)"
             r"\s*[:=]\s*([^\s,;]+)"
         ),
         r"\1=[REDACTED]",
