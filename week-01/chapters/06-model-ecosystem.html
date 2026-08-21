@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="«بهترین مدل» وجود ندارد؛ مدل مناسب برای یک Workload مشخص وجود دارد">
+  <title>اکوسیستم مدل‌ها — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 06</div>
+    <h2>اکوسیستم مدل‌ها</h2>
+    <p>«بهترین مدل» وجود ندارد؛ مدل مناسب برای یک Workload مشخص وجود دارد</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست هفتهٔ اول</a>
+      <a class="pill" href="../../index.html">صفحهٔ اصلی پروژه</a>
+      <button class="icon-button" type="button" data-action="theme">تغییر پوسته</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="اکوسیستم مدل ها hosted open weight embedding multimodal" id="ecosystem">
+<div class="chapter-header">
+<div class="chapter-number">۶</div>
+<div>
+<h2>اکوسیستم مدل‌ها</h2>
+<p>«بهترین مدل» وجود ندارد؛ مدل مناسب برای یک Workload مشخص وجود دارد</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="ecosystem" type="checkbox"/> خواندم</label>
+</div>
+<p class="lead">
+          هنگام انتخاب مدل، فقط نام Provider یا عدد Benchmark را نگاه نکن. انتخاب مدل یک تصمیم معماری است و باید با
+          <strong>کیفیت، Latency، هزینه، حریم خصوصی، قابلیت‌های Tool Use، Context Window و عملیات نگهداری</strong> سنجیده شود.
+        </p>
+<h3>اول سه چیز را از هم جدا کن</h3>
+<div class="grid-3">
+<article class="card">
+<h4>Model</h4>
+<p>خود شبکهٔ عصبی و رفتار آن؛ مثلاً یک مدل سریع، Reasoning، Multimodal یا Embedding.</p>
+</article>
+<article class="card">
+<h4>Provider</h4>
+<p>سرویسی که مدل را با API، ظرفیت، Billing، Policy و SLA در اختیار می‌گذارد. یک مدل ممکن است از چند Provider قابل دریافت باشد.</p>
+</article>
+<article class="card">
+<h4>Application / Gateway</h4>
+<p>لایهٔ خودت برای Prompt، Routing، Retry، Cache، Audit، Evaluation و کنترل دسترسی. این لایه نباید بی‌دلیل به یک Provider قفل شود.</p>
+</article>
+</div>
+<h3>دسته‌بندی مدل‌ها بر اساس کاری که انجام می‌دهند</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>نوع مدل</th><th>کار اصلی</th><th>نمونهٔ استفاده</th><th>اشتباه رایج</th></tr></thead>
+<tbody>
+<tr><td>Generative / Chat</td><td>تولید، خلاصه‌سازی، استخراج و بازنویسی متن</td><td>Incident Summary، پاسخ به سؤال، تولید Draft</td><td>استفاده به‌عنوان Database حقیقت</td></tr>
+<tr><td>Reasoning</td><td>حل مسئله‌های چندمرحله‌ای دشوارتر</td><td>تحلیل Trade-off، برنامه‌ریزی، Debug پیچیده</td><td>استفاده برای هر کار ساده و پرداخت Cost/Latency اضافه</td></tr>
+<tr><td>Fast / Small</td><td>کارهای پرتعداد با پاسخ کوتاه و ساختار روشن</td><td>Classification، Routing، Tagging، استخراج فیلد</td><td>سپردن مسئله‌ای فراتر از ظرفیت مدل بدون Evaluation</td></tr>
+<tr><td>Embedding</td><td>تبدیل متن به Vector برای سنجش شباهت معنایی</td><td>Semantic Search و Retrieval در RAG</td><td>انتظار تولید متن از مدل Embedding</td></tr>
+<tr><td>Reranker</td><td>مرتب‌سازی دوبارهٔ نتایج Retrieval بر اساس ارتباط</td><td>بهبود Top-K اسناد بازیابی‌شده</td><td>جایگزین دانستن آن با Generator</td></tr>
+<tr><td>Multimodal</td><td>کار با ترکیبی از متن، تصویر، صوت یا ویدئو</td><td>خواندن Screenshot، توضیح Diagram، تحلیل صوت</td><td>فرض دقت صددرصد در OCR یا جزئیات تصویری</td></tr>
+<tr><td>Moderation / Guard</td><td>تشخیص محتوای پرخطر یا نقض Policy</td><td>فیلتر ورودی و خروجی</td><td>تکیه به آن به‌عنوان تنها کنترل امنیتی</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Hosted API در برابر Open-weight و Self-hosted</h3>
+<div class="grid-2">
+<article class="card">
+<h4>Hosted API</h4>
+<p><strong>مزیت:</strong> شروع سریع، بدون GPU Ops، Scaling و به‌روزرسانی ساده‌تر، دسترسی به مدل‌های قوی.</p>
+<p><strong>هزینه:</strong> وابستگی به Provider، ملاحظات Data Residency، Rate Limit، Billing و تغییر نسخه.</p>
+</article>
+<article class="card">
+<h4>Open-weight / Self-hosted</h4>
+<p><strong>مزیت:</strong> کنترل بیشتر روی داده، Deployment، Version، Quantization و شبکهٔ بسته.</p>
+<p><strong>هزینه:</strong> GPU Capacity، Runtime، Scheduling، Autoscaling، Model Serving، Patch، Benchmark و On-call واقعی.</p>
+</article>
+</div>
+<div class="callout warning">
+<strong>Open-source و Open-weight یکی نیستند.</strong>
+          ممکن است وزن‌های مدل منتشر شده باشند اما Training Data، کد کامل یا License آن کاملاً باز نباشد. قبل از Production،
+          Model Card، License، محدودیت استفادهٔ تجاری و شرایط توزیع را بخوان.
+        </div>
+<h3>Model Serving در شبکهٔ سازمانی</h3>
+<p>
+          ابزارهایی مانند <strong>vLLM</strong> می‌توانند برای برخی مدل‌های Open-weight یک API سازگار با قرارداد OpenAI ارائه کنند.
+          این سازگاری به معنی رفتار یکسان مدل‌ها نیست؛ فقط شکل Endpoint و Request تا حدی مشابه می‌شود. Prompt، Tool Calling،
+          Structured Output، Tokenizer و محدودیت‌ها باید جداگانه تست شوند.
+        </p>
+<div aria-label="نمودار انتخاب و مسیریابی مدل" class="diagram">
+<div class="flow">
+<div class="flow-node">User Request</div><div class="flow-arrow">→</div>
+<div class="flow-node">Policy &amp; Router</div><div class="flow-arrow">→</div>
+<div class="flow-node">Fast Model<br/><small>کار ساده</small></div><div class="flow-arrow">یا</div>
+<div class="flow-node">Reasoning Model<br/><small>کار دشوار</small></div><div class="flow-arrow">یا</div>
+<div class="flow-node">Self-hosted Model<br/><small>دادهٔ حساس</small></div>
+</div>
+</div>
+<h3>روال درست انتخاب مدل</h3>
+<ol>
+<li><strong>Task را دقیق تعریف کن:</strong> ورودی، خروجی، زبان، اندازه، خطر و معیار موفقیت.</li>
+<li><strong>Golden Set بساز:</strong> ۲۰ تا ۵۰ نمونهٔ واقعی با جواب یا معیار مورد انتظار.</li>
+<li><strong>اول کیفیت را ثابت کن:</strong> مدل‌های کاندید را روی همان Dataset مقایسه کن.</li>
+<li><strong>بعد Cost و Latency را کم کن:</strong> مدل کوچک‌تر، Prompt کوتاه‌تر، Cache یا Routing.</li>
+<li><strong>نسخه را Pin و پایش کن:</strong> تغییر Model Snapshot یا Prompt می‌تواند Regression ایجاد کند.</li>
+</ol>
+<div class="analogy">
+<p>
+            انتخاب مدل شبیه انتخاب Database است. نمی‌گویی «قوی‌ترین Database دنیا را بده»؛ می‌پرسی Workload چیست، Consistency چقدر مهم است،
+            Query Pattern چیست، چه SLA و چه تیم عملیاتی داریم. مدل هم همین‌طور است.
+          </p>
+</div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="05-llm-limitations.html">فصل قبل: محدودیت‌ها و Failure Modeها</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="07-tokens-context.html">فصل بعد: Token و Context Window</a>
+  </nav>
+  <footer class="footer">جزوهٔ فارسی پروژه‌محور هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

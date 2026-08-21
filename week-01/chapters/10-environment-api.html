@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Config را از Code جدا کن و Request را خط‌به‌خط بفهم">
+  <title>Environment Variables و اولین API Call — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 10</div>
+    <h2>Environment Variables و اولین API Call</h2>
+    <p>Config را از Code جدا کن و Request را خط‌به‌خط بفهم</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست هفتهٔ اول</a>
+      <a class="pill" href="../../index.html">صفحهٔ اصلی پروژه</a>
+      <button class="icon-button" type="button" data-action="theme">تغییر پوسته</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="environment variable api key sdk request response dotenv kubernetes secret" id="env-api">
+<div class="chapter-header">
+<div class="chapter-number">۱۰</div>
+<div>
+<h2>Environment Variables و اولین API Call</h2>
+<p>Config را از Code جدا کن و Request را خط‌به‌خط بفهم</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="env-api" type="checkbox"/> خواندم</label>
+</div>
+<h3>چرا API Key نباید داخل کد باشد؟</h3>
+<p>
+          Hardcode کردن Secret در Source Code باعث نشت از Git History، Log، Screenshot، Artifact و Code Review می‌شود. Config متغیر مانند Model، Base URL و Timeout نیز بهتر است خارج از کد باشد تا برای Local، CI و Production بدون Patch کردن برنامه تغییر کند.
+        </p>
+<h3>سه روش تنظیم Environment Variable</h3>
+<div class="grid-3">
+<article class="card">
+<h4>Linux / Bash</h4>
+<pre><code>export OPENAI_API_KEY='...'
+export OPENAI_MODEL='gpt-5.6'</code></pre>
+</article>
+<article class="card">
+<h4>Windows PowerShell</h4>
+<pre><code>$env:OPENAI_API_KEY = '...'
+$env:OPENAI_MODEL = 'gpt-5.6'</code></pre>
+</article>
+<article class="card">
+<h4>فایل Local به نام .env</h4>
+<pre><code>OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-5.6</code></pre>
+<p class="small">فقط برای Development؛ حتماً داخل <code>.gitignore</code>.</p>
+</article>
+</div>
+<h3>خواندن Config در Python</h3>
+<pre><code>import os
+from dotenv import load_dotenv
+
+load_dotenv()  # در Local فایل .env را می‌خواند؛ در Production لازم نیست
+
+api_key = os.getenv("OPENAI_API_KEY")
+model = os.getenv("OPENAI_MODEL", "gpt-5.6")
+
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set")</code></pre>
+<p>
+<code>os.getenv</code> در نبود متغیر مقدار <code>None</code> یا Default می‌دهد. برای Secret بهتر است نبودن مقدار را Fail-fast کنی؛
+          اما برای Config غیرحساس می‌توان Default منطقی داشت.
+        </p>
+<h3>اولین Call با SDK</h3>
+<pre><code>import os
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+response = client.responses.create(
+    model=os.getenv("OPENAI_MODEL", "gpt-5.6"),
+    instructions=(
+        "You are an SRE assistant. Summarize only the supplied evidence. "
+        "Do not invent commands, hosts, or causes."
+    ),
+    input="The pod restarted 4 times after a failed liveness probe.",
+)
+
+print(response.output_text)</code></pre>
+<h3>هر خط چه می‌کند؟</h3>
+<ol>
+<li><code>OpenAI(...)</code> یک Client می‌سازد؛ تنظیم Auth، Timeout و Retry در این لایه قرار می‌گیرد.</li>
+<li><code>responses.create(...)</code> یک Request شبکه‌ای می‌فرستد.</li>
+<li><code>model</code> مدل انتخابی را از Config می‌گیرد.</li>
+<li><code>instructions</code> رفتار و محدودیت‌های کلی را مشخص می‌کند.</li>
+<li><code>input</code> داده یا درخواست جاری است.</li>
+<li><code>response.output_text</code> متن خروجی را از ساختار Response جمع می‌کند.</li>
+</ol>
+<div class="callout warning">
+<strong>Prompt امنیت ایجاد نمی‌کند.</strong> جملهٔ «Secret را چاپ نکن» جای IAM، Network Policy، Secret Store، Redaction و Least Privilege را نمی‌گیرد. Prompt فقط یکی از کنترل‌هاست.
+        </div>
+<h3>چرخهٔ کامل Request</h3>
+<div class="diagram">
+<div class="flow">
+<div class="flow-node">Read Config</div><div class="flow-arrow">→</div>
+<div class="flow-node">Validate Input</div><div class="flow-arrow">→</div>
+<div class="flow-node">Build Instructions</div><div class="flow-arrow">→</div>
+<div class="flow-node">API Request</div><div class="flow-arrow">→</div>
+<div class="flow-node">Validate Response</div><div class="flow-arrow">→</div>
+<div class="flow-node">Log Metrics / Return</div>
+</div>
+</div>
+<h3>در Kubernetes</h3>
+<p>Secret را در Manifest خام Git نگه ندار. بسته به زیرساخت از External Secrets، Vault، Sealed Secrets یا مکانیزم سازمانی استفاده کن. شکل تزریق در Pod می‌تواند چنین باشد:</p>
+<pre><code>env:
+  - name: OPENAI_API_KEY
+    valueFrom:
+      secretKeyRef:
+        name: llm-provider-credentials
+        key: api-key
+  - name: OPENAI_MODEL
+    value: "gpt-5.6"</code></pre>
+<p>
+          Environment Variable برای شروع ساده است، اما Process Inspection، Crash Dump و Debug ممکن است آن را در معرض دید قرار دهد. Permission دسترسی به Pod،
+          Log Policy و Secret Rotation همچنان لازم‌اند.
+        </p>
+<h3>OpenAI-compatible Endpoint</h3>
+<p>
+          برخی Gatewayها یا Runtimeهای Self-hosted همان شکل API را ارائه می‌کنند. در این حالت ممکن است <code>base_url</code> نیز Config شود؛
+          اما سازگاری Endpoint را با سازگاری Capability اشتباه نگیر.
+        </p>
+<pre><code>client = OpenAI(
+    api_key=os.environ["LLM_API_KEY"],
+    base_url=os.getenv("LLM_BASE_URL"),
+)</code></pre>
+<div class="callout success">
+<strong>فایل آماده:</strong> نمونهٔ کامل در <a href="../examples/02_first_llm_call.py">02_first_llm_call.py</a> قرار دارد. بدون Key، برنامه با پیام روشن متوقف می‌شود و Secret را چاپ نمی‌کند.
+        </div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="09-python-api-refresher.html">فصل قبل: مرور Python برای کار با API</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="11-error-handling.html">فصل بعد: Error Handling، Timeout و Retry</a>
+  </nav>
+  <footer class="footer">جزوهٔ فارسی پروژه‌محور هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>
