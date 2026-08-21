@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="برای هر جلسه چه فایل‌هایی ساخته می‌شود و چه چیزهایی استخراج خواهد شد؟">
+  <title>ساختار تحلیل ویدئوهای کلاس — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 17</div>
+    <h2>ساختار تحلیل ویدئوهای کلاس</h2>
+    <p>برای هر جلسه چه فایل‌هایی ساخته می‌شود و چه چیزهایی استخراج خواهد شد؟</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست هفتهٔ اول</a>
+      <a class="pill" href="../../index.html">صفحهٔ اصلی پروژه</a>
+      <button class="icon-button" type="button" data-action="theme">تغییر پوسته</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="ویدئو تحلیل جلسه transcript timestamp پوشه بندی" id="video-workflow">
+<div class="chapter-header">
+<div class="chapter-number">۱۷</div>
+<div>
+<h2>ساختار تحلیل ویدئوهای کلاس</h2>
+<p>برای هر جلسه چه فایل‌هایی ساخته می‌شود و چه چیزهایی استخراج خواهد شد؟</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="video-workflow" type="checkbox"/> خواندم</label>
+</div>
+<p>
+          فایل‌های ویدئو هنوز در این گفت‌وگو در دسترس نیستند؛ بنابراین هیچ محتوایی را به مدرس نسبت نداده‌ام و برای Sessionها یادداشت ساختگی نساخته‌ام.
+          پوشهٔ ورودی و Template تحلیل آماده است تا ویدئوهای واقعی جلسه‌به‌جلسه در آن بررسی شوند.
+        </p>
+<h3>پوشه‌بندی</h3>
+<pre><code>week-01/
+├── video-inbox/
+│   └── README.md
+└── video-notes/
+    ├── README.md
+    ├── session-template.html
+    ├── session-01/
+    │   └── README.md
+    └── session-02/
+        └── README.md</code></pre>
+<h3>نام‌گذاری فایل‌ها</h3>
+<pre><code>session-01-part-01.mp4
+session-01-part-02.mp4
+session-01-slides.pdf
+session-01-code.zip
+session-01-transcript.txt</code></pre>
+<h3>خروجی تحلیل هر ویدئو</h3>
+<ol>
+<li><strong>خلاصهٔ جلسه:</strong> مسیر کلی تدریس در چند پاراگراف.</li>
+<li><strong>Timeline:</strong> موضوع هر بازه با Timestamp دقیق.</li>
+<li><strong>پیش‌فرض‌های پنهان مدرس:</strong> مفاهیم Python/AI که بدون توضیح استفاده شده‌اند.</li>
+<li><strong>توضیح فارسی ساده:</strong> بازسازی بخش دشوار با مثال نزدیک به DevOps.</li>
+<li><strong>کدهای Demo:</strong> بازنویسی تمیز، توضیح خط‌به‌خط و رفع خطاهای احتمالی.</li>
+<li><strong>نقشهٔ ابهام:</strong> چه چیزی واقعاً گفته شده، چه چیزی برداشت ماست و چه چیزی هنوز نیاز به سؤال از مدرس دارد.</li>
+<li><strong>تمرین و Quiz:</strong> برای تثبیت همان جلسه.</li>
+</ol>
+<h3>Template Timeline</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>زمان</th><th>موضوع مدرس</th><th>ترجمهٔ ساده</th><th>پیش‌نیاز جاافتاده</th><th>وضعیت فهم</th></tr></thead>
+<tbody>
+<tr><td class="ltr">00:00–00:12</td><td>پس از دریافت ویدئو تکمیل می‌شود</td><td>—</td><td>—</td><td>در انتظار فایل</td></tr>
+<tr><td class="ltr">00:12–00:25</td><td>پس از دریافت ویدئو تکمیل می‌شود</td><td>—</td><td>—</td><td>در انتظار فایل</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout">
+<strong>ورودی لازم:</strong> ویدئوها را در همین گفت‌وگو جلسه‌به‌جلسه یا به‌صورت ZIP بارگذاری کن. فایل Transcript، Slide و Code مدرس نیز کنار ویدئو دقت تحلیل را بالاتر می‌برد. برای فایل حجیم، تقسیم به Partهای شماره‌دار مشکلی ایجاد نمی‌کند.
+        </div>
+<p>
+          فایل <a href="../video-notes/session-template.html">session-template.html</a> قالب HTML آمادهٔ هر جلسه است و
+          <a href="../video-inbox/README.md">video-inbox/README.md</a> روش تحویل فایل را توضیح می‌دهد.
+        </p>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="16-glossary.html">فصل قبل: واژه‌نامهٔ هفتهٔ اول</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="18-sources.html">فصل بعد: منابع و حدود این جزوه</a>
+  </nav>
+  <footer class="footer">جزوهٔ فارسی پروژه‌محور هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

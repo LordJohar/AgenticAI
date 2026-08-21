@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="کجا واقعاً ارزش ایجاد می‌کند؟">
+  <title>توانایی‌های LLM — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 04</div>
+    <h2>توانایی‌های LLM</h2>
+    <p>کجا واقعاً ارزش ایجاد می‌کند؟</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست هفتهٔ اول</a>
+      <a class="pill" href="../../index.html">صفحهٔ اصلی پروژه</a>
+      <button class="icon-button" type="button" data-action="theme">تغییر پوسته</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="توانایی های LLM" id="capabilities">
+<div class="chapter-header">
+<div class="chapter-number">۴</div>
+<div>
+<h2>توانایی‌های LLM</h2>
+<p>کجا واقعاً ارزش ایجاد می‌کند؟</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="capabilities" type="checkbox"/> خواندم</label>
+</div>
+<div class="grid-3">
+<article class="card"><h3>Transformation</h3><p>بازنویسی، ترجمه، تغییر لحن، تبدیل متن آزاد به قالب مشخص و توضیح یک مفهوم برای مخاطب متفاوت.</p></article>
+<article class="card"><h3>Summarization</h3><p>فشرده‌سازی گزارش، Ticket، Meeting Notes یا Logهای از قبل پاک‌سازی‌شده؛ با خطر حذف جزئیات مهم.</p></article>
+<article class="card"><h3>Extraction</h3><p>استخراج Entity، تاریخ، رخداد، IP، Component، Severity یا Action Item از متن نیمه‌ساخت‌یافته.</p></article>
+<article class="card"><h3>Classification</h3><p>دسته‌بندی Incident، Intent، Sentiment، نوع درخواست یا Route مناسب؛ باید با Dataset ارزیابی شود.</p></article>
+<article class="card"><h3>Generation</h3><p>ساخت Draft، Runbook، Query، Test Case، کد اولیه یا توضیح؛ خروجی نیازمند Review است.</p></article>
+<article class="card"><h3>Reasoning-like Work</h3><p>تقسیم مسئله، مقایسهٔ گزینه‌ها، پیشنهاد Plan و تحلیل چندمرحله‌ای؛ نه به معنای تضمین استدلال درست.</p></article>
+<article class="card"><h3>Code Assistance</h3><p>توضیح کد، Refactor، تولید تست و یافتن Bug؛ ممکن است API یا Flag خیالی بسازد.</p></article>
+<article class="card"><h3>Multimodal</h3><p>بسته به مدل: فهم تصویر، صوت، ویدئو یا تولید رسانه؛ هر نوع Input هزینه و Limit خاص دارد.</p></article>
+<article class="card"><h3>Tool Selection</h3><p>در Agent می‌تواند تشخیص دهد کدام Tool را با چه Argumentی فراخوانی کند؛ اجرای واقعی را برنامه انجام می‌دهد.</p></article>
+</div>
+<h3>مسئلهٔ مناسب برای LLM چه ویژگی دارد؟</h3>
+<ul>
+<li>ورودی یا خروجی آن زبان طبیعی، تصویر یا دادهٔ نیمه‌ساخت‌یافته است.</li>
+<li>چند پاسخ قابل قبول وجود دارد و کیفیت را می‌توان با Rubric یا Evaluation سنجید.</li>
+<li>خطا قابل کشف، قابل اصلاح یا در سطح ریسک پذیرفتنی است.</li>
+<li>می‌توان Context معتبر، Tool یا Retrieval فراهم کرد.</li>
+<li>ارزش انعطاف‌پذیری از نیاز به قطعیت بیت‌به‌بیت بیشتر است.</li>
+</ul>
+<h3>کجا نباید مستقیم به LLM تکیه کرد؟</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>نوع کار</th><th>چرا LLM انتخاب اول نیست؟</th><th>راه بهتر</th></tr></thead>
+<tbody>
+<tr><td>محاسبهٔ قطعی و مالی</td><td>مدل ممکن است عدد یا فرمول را اشتباه تولید کند.</td><td>کد Deterministic یا Calculator Tool؛ مدل فقط توضیح دهد.</td></tr>
+<tr><td>بررسی وجود رکورد</td><td>مدل Database نیست و ممکن است رکورد خیالی بسازد.</td><td>Query مستقیم به Source of Truth.</td></tr>
+<tr><td>Policy Enforcement</td><td>رفتار احتمالاتی برای Allow/Deny حساس خطرناک است.</td><td>Policy Engine قطعی؛ مدل فقط پیشنهاد یا طبقه‌بندی کم‌ریسک.</td></tr>
+<tr><td>اجرای Command مخرب</td><td>Prompt Injection یا برداشت غلط می‌تواند اثر واقعی ایجاد کند.</td><td>Allowlist، Dry-run، Human Approval و محدودیت Permission.</td></tr>
+<tr><td>دانش کاملاً به‌روز</td><td>Training cutoff و Context ممکن است قدیمی باشد.</td><td>Search/Retrieval/API زنده با Citation.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout success">
+<strong>قاعدهٔ طراحی:</strong> LLM را برای بخش‌های مبهم و زبانی استفاده کن؛ بخش‌های قطعی، محاسباتی، امنیتی و اجرایی را به Tool یا Code قابل آزمون بسپار.
+        </div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="03-llm-mental-model.html">فصل قبل: مدل ذهنی درست از LLM</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="05-llm-limitations.html">فصل بعد: محدودیت‌ها و Failure Modeها</a>
+  </nav>
+  <footer class="footer">جزوهٔ فارسی پروژه‌محور هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>
