@@ -7,6 +7,7 @@ Run from any directory:
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import re
 
@@ -43,6 +44,8 @@ def main() -> int:
 
     css = (BASE / "assets/css/course.css").read_text(encoding="utf-8")
     js = (BASE / "assets/js/course.js").read_text(encoding="utf-8")
+    progress = json.loads((BASE / "progress.json").read_text(encoding="utf-8"))
+    embedded_progress = json.dumps(progress, ensure_ascii=False).replace("</", "<\\/")
     sections = [
         extract_section(path.read_text(encoding="utf-8"))
         .replace('href="../', 'href="')
@@ -77,6 +80,7 @@ def main() -> int:
   <section class="chapter"><h2>فهرست</h2><ol>{toc}</ol></section>
   {''.join(sections)}
 </main>
+<script>window.AGENTIC_AI_DEFAULT_PROGRESS = {embedded_progress};</script>
 <script>{js}</script>
 </body>
 </html>

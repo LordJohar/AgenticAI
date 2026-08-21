@@ -1,5 +1,6 @@
 (() => {
   const root = document.documentElement;
+  const scriptUrl = document.currentScript?.src;
   const storageGet = (key) => {
     try { return window.localStorage.getItem(key); } catch (_) { return null; }
   };
@@ -64,8 +65,9 @@
   }
 
   const progressKey = 'agentic-ai-week-01-progress-v1';
+  let localProgress = {};
+  try { localProgress = JSON.parse(storageGet(progressKey) || '{}'); } catch (_) { localProgress = {}; }
   let progressState = {};
-  try { progressState = JSON.parse(storageGet(progressKey) || '{}'); } catch (_) { progressState = {}; }
 
   function updateProgress() {
     const complete = progressBoxes.filter((box) => box.checked).length;
@@ -75,15 +77,30 @@
     if (progressText) progressText.textContent = `${pct}٪`;
   }
 
-  progressBoxes.forEach((box) => {
-    box.checked = Boolean(progressState[box.dataset.progressId]);
-    box.addEventListener('change', () => {
-      progressState[box.dataset.progressId] = box.checked;
-      storageSet(progressKey, JSON.stringify(progressState));
-      updateProgress();
+  async function loadPublicProgress() {
+    if (window.AGENTIC_AI_DEFAULT_PROGRESS) return window.AGENTIC_AI_DEFAULT_PROGRESS;
+    if (!scriptUrl) return {};
+    try {
+      const response = await fetch(new URL('../../progress.json', scriptUrl), { cache: 'no-store' });
+      if (!response.ok) return {};
+      return await response.json();
+    } catch (_) {
+      return {};
+    }
+  }
+
+  loadPublicProgress().then((publicProgress) => {
+    progressState = { ...publicProgress, ...localProgress };
+    progressBoxes.forEach((box) => {
+      box.checked = Boolean(progressState[box.dataset.progressId]);
+      box.addEventListener('change', () => {
+        progressState[box.dataset.progressId] = box.checked;
+        storageSet(progressKey, JSON.stringify(progressState));
+        updateProgress();
+      });
     });
+    updateProgress();
   });
-  updateProgress();
 
   const sections = [...document.querySelectorAll('section.chapter[id]')];
   if ('IntersectionObserver' in window) {
