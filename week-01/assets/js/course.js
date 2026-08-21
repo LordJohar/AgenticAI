@@ -1,6 +1,84 @@
 (() => {
   const root = document.documentElement;
   const scriptUrl = document.currentScript?.src;
+  const chapters = [
+    ['orientation', '00-orientation', 'چرا کلاس دور به نظر رسید؟'],
+    ['roadmap', '01-roadmap', 'نقشهٔ هفتهٔ اول'],
+    ['bridge', '02-programming-api-bridge', 'پل ورود: برنامه‌نویسی و API'],
+    ['mental-model', '03-llm-mental-model', 'مدل ذهنی درست از LLM'],
+    ['capabilities', '04-llm-capabilities', 'توانایی‌های LLM'],
+    ['limits', '05-llm-limitations', 'محدودیت‌ها و Failure Modeها'],
+    ['ecosystem', '06-model-ecosystem', 'اکوسیستم مدل‌ها'],
+    ['tokens', '07-tokens-context', 'Token و Context Window'],
+    ['cost-latency', '08-cost-latency', 'Cost و Latency'],
+    ['python', '09-python-api-refresher', 'مرور Python برای API'],
+    ['env-api', '10-environment-api', 'Environment و اولین API Call'],
+    ['errors', '11-error-handling', 'Error Handling و Retry'],
+    ['observability', '12-observability-evaluation', 'Observability و Evaluation'],
+    ['mini-project', '13-incident-brief-project', 'مینی‌پروژه Incident Brief'],
+    ['exercises', '14-exercises', 'تمرین‌ها و پاسخ‌ها'],
+    ['study-plan', '15-study-plan', 'برنامهٔ جبران هفتهٔ اول'],
+    ['glossary', '16-glossary', 'واژه‌نامهٔ هفتهٔ اول'],
+    ['video-workflow', '17-video-workflow', 'ساختار تحلیل ویدئوها'],
+    ['sources', '18-sources', 'منابع و حدود جزوه'],
+  ];
+  const progressIds = [
+    ...chapters.map(([id]) => id),
+    'goal-1', 'goal-2', 'goal-3', 'goal-4', 'goal-5',
+    'project-1', 'project-2', 'project-3', 'project-4', 'project-5',
+  ];
+
+  function installAppShell() {
+    const content = document.querySelector('main.content');
+    if (!content || content.closest('.app-shell')) return;
+
+    const pageSections = [...document.querySelectorAll('section.chapter[id]')];
+    const isStandalone = pageSections.length > 1;
+    const isChapter = pageSections.length === 1;
+    const currentChapterId = isChapter ? pageSections[0].id : null;
+    const chapterHref = (id, file) => {
+      if (isStandalone) return `#${id}`;
+      if (isChapter) return `${file}.html`;
+      return `chapters/${file}.html`;
+    };
+    const indexHref = isChapter ? '../index.html' : (isStandalone ? '#main-content' : 'index.html');
+    const toc = chapters.map(([id, file, title], index) => (
+      `<a href="${chapterHref(id, file)}" data-chapter-id="${id}"${id === currentChapterId ? ' class="active" aria-current="page"' : ''}>${index.toLocaleString('fa-IR')}. ${title}</a>`
+    )).join('');
+
+    const shell = document.createElement('div');
+    shell.className = 'app-shell';
+    shell.innerHTML = `
+      <aside class="sidebar" aria-label="راهنمای مطالعه">
+        <a class="brand" href="${indexHref}">
+          <span class="brand-mark">AI</span>
+          <span><h1>Agentic AI</h1><small>هفتهٔ اول · مسیر مطالعه</small></span>
+        </a>
+        <div class="progress-wrap" aria-label="پیشرفت مطالعه">
+          <div class="progress-label"><span>پیشرفت کل</span><strong data-progress-text>۰٪</strong></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-bar"></div></div>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">جست‌وجوی فصل</span>
+          <input id="toc-search" type="search" placeholder="جست‌وجوی فصل…" autocomplete="off">
+        </label>
+        <nav class="toc" aria-label="فصل‌ها">${toc}</nav>
+        <div class="sidebar-actions">
+          <button class="icon-button" type="button" data-action="theme">تغییر پوسته</button>
+          <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="mobile-bar">
+          <button class="icon-button" type="button" data-action="menu" aria-label="باز کردن فهرست">فهرست</button>
+          <strong data-progress-text>۰٪</strong>
+        </div>
+      </div>`;
+    content.before(shell);
+    shell.querySelector('.main').appendChild(content);
+  }
+
+  installAppShell();
   const storageGet = (key) => {
     try { return window.localStorage.getItem(key); } catch (_) { return null; }
   };
@@ -14,8 +92,8 @@
   const search = document.querySelector('#toc-search');
   const tocLinks = [...document.querySelectorAll('.toc a')];
   const progressBoxes = [...document.querySelectorAll('[data-progress-id]')];
-  const progressBar = document.querySelector('.progress-bar');
-  const progressText = document.querySelector('[data-progress-text]');
+  const progressBars = document.querySelectorAll('.progress-bar');
+  const progressTexts = document.querySelectorAll('[data-progress-text]');
 
   const storedTheme = storageGet('agentic-ai-theme');
   if (storedTheme) root.dataset.theme = storedTheme;
@@ -70,11 +148,11 @@
   let progressState = {};
 
   function updateProgress() {
-    const complete = progressBoxes.filter((box) => box.checked).length;
-    const total = progressBoxes.length || 1;
+    const complete = progressIds.filter((id) => Boolean(progressState[id])).length;
+    const total = progressIds.length;
     const pct = Math.round((complete / total) * 100);
-    if (progressBar) progressBar.style.width = `${pct}%`;
-    if (progressText) progressText.textContent = `${pct}٪`;
+    progressBars.forEach((bar) => { bar.style.width = `${pct}%`; });
+    progressTexts.forEach((text) => { text.textContent = `${pct}٪`; });
   }
 
   async function loadPublicProgress() {
