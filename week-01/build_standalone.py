@@ -42,7 +42,11 @@ def main() -> int:
     if len(chapter_files) != 19:
         raise RuntimeError(f"expected 19 chapter pages, found {len(chapter_files)}")
 
-    css = (BASE / "assets/css/course.css").read_text(encoding="utf-8")
+    font_css = (BASE.parent / "assets/css/vazirmatn.css").read_text(encoding="utf-8")
+    font_css = font_css.replace('url("../fonts/', 'url("../assets/fonts/')
+    course_css = (BASE / "assets/css/course.css").read_text(encoding="utf-8")
+    course_css = re.sub(r'^@import url\("../../../assets/css/vazirmatn.css"\);\s*', '', course_css)
+    css = f"{font_css}\n\n{course_css}"
     js = (BASE / "assets/js/course.js").read_text(encoding="utf-8")
     progress = json.loads((BASE / "progress.json").read_text(encoding="utf-8"))
     embedded_progress = json.dumps(progress, ensure_ascii=False).replace("</", "<\\/")

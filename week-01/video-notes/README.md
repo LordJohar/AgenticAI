@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../../assets/css/vazirmatn.css">
+
+<div dir="rtl" lang="fa" class="vazirmatn">
+
 # Video Notes — Week 01
 
 برای هر جلسه پس از دریافت فایل واقعی، یک پوشهٔ مستقل ساخته می‌شود. هیچ یادداشتی پیش از مشاهدهٔ ویدئو به مدرس نسبت داده نمی‌شود.
@@ -15,3 +19,5 @@ session-NN/
 ```
 
 قالب اولیه در `session-template.html` قرار دارد.
+
+</div>

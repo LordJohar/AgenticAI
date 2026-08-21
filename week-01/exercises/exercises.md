@@ -1,4 +1,6 @@
-<div dir="rtl">
+<link rel="stylesheet" href="../../assets/css/vazirmatn.css">
+
+<div dir="rtl" lang="fa" class="vazirmatn">
 
 # تمرین‌های هفتهٔ اول Agentic AI
 

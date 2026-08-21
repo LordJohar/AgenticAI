@@ -1,3 +1,5 @@
+@import url("../../../assets/css/vazirmatn.css");
+
 :root {
   --bg: #f5f7fb;
   --surface: #ffffff;
@@ -40,7 +42,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Vazirmatn, Estedad, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
   line-height: 1.95;
   direction: rtl;
 }
