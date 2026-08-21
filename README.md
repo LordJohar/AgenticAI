@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="assets/css/vazirmatn.css">
+
+<div dir="rtl" lang="fa" class="vazirmatn">
+
 # Agentic AI Learning Workspace
 
 فضای آموزشی فارسی و پروژه‌محور برای بوت‌کمپ Agentic AI.
@@ -21,3 +25,5 @@ python week-01/build_standalone.py
 
 - هفتهٔ اول: جزوه، تمرین و مثال‌های پایه تکمیل شده‌اند.
 - تحلیل ویدئوها: در انتظار Upload فایل واقعی جلسه‌ها.
+
+</div>

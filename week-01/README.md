@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../assets/css/vazirmatn.css">
+
+<div dir="rtl" lang="fa" class="vazirmatn">
+
 # Week 01 — LLM & Python Application Foundations
 
 ## محتوای آموزشی
@@ -19,3 +23,5 @@
 ```bash
 python build_standalone.py
 ```
+
+</div>

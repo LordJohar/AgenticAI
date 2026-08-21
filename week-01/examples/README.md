@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../../assets/css/vazirmatn.css">
+
+<div dir="rtl" lang="fa" class="vazirmatn">
+
 # Week 01 Python Examples
 
 این پوشه مثال‌های اجرایی جزوهٔ هفتهٔ اول را نگه می‌دارد. تمام Commandها را از داخل همین پوشه اجرا کنید.
@@ -83,3 +87,5 @@ python incident_brief_cli.py --file sample_incident.log
 - Regex موجود فقط برای آموزش است و DLP کامل محسوب نمی‌شود.
 - Log واقعی Production را بدون مجوز، Classification، Masking و قرارداد مناسب به Provider خارجی نفرستید.
 - Secret، Prompt حساس و محتوای خام را در Log برنامه ثبت نکنید.
+
+</div>
