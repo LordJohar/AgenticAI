@@ -361,7 +361,7 @@ tr:last-child td { border-bottom: 0; }
   align-items: center;
   justify-content: center;
   gap: .6rem;
-  min-width: 700px;
+  min-width: 1200px;
 }
 .flow-node {
   flex: 0 0 auto;
