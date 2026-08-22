@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../../../assets/fonts/vazirmatn/webfonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../../../assets/fonts/vazirmatn/webfonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../../../assets/fonts/vazirmatn/webfonts/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../../../assets/fonts/vazirmatn/webfonts/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  color-scheme: dark;
+  --bg: #0b1020;
+  --panel: #121a2d;
+  --panel-2: #18233b;
+  --text: #eaf0ff;
+  --muted: #aab8d6;
+  --line: #2a3a5e;
+  --accent: #78e0c1;
+  --accent-2: #91b7ff;
+  --warn: #ffd479;
+  --danger: #ff9caa;
+  --code: #070b14;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  line-height: 1.9;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 80% -10%, #193c54 0, transparent 32rem),
+    radial-gradient(circle at -10% 30%, #24254f 0, transparent 28rem),
+    var(--bg);
+}
+a { color: var(--accent-2); }
+.shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 80px; }
+.hero, .section, .card {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 94%, transparent);
+  box-shadow: 0 18px 60px rgb(0 0 0 / 20%);
+}
+.hero { border-radius: 28px; padding: clamp(24px, 5vw, 56px); margin-bottom: 24px; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; }
+h1, h2, h3 { line-height: 1.45; margin-top: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3.6rem); margin-bottom: 12px; }
+h2 { font-size: clamp(1.35rem, 3vw, 2rem); }
+h3 { color: var(--accent-2); }
+.lead { color: var(--muted); font-size: 1.08rem; max-width: 76ch; }
+.meta, .grid, .toc { display: grid; gap: 14px; }
+.meta { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 26px; }
+.meta > div, .card { border-radius: 18px; padding: 18px; background: var(--panel-2); border: 1px solid var(--line); }
+.meta small { display: block; color: var(--muted); }
+.section { border-radius: 24px; padding: clamp(22px, 4vw, 42px); margin-top: 22px; }
+.grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.toc { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); padding: 0; list-style: none; }
+.toc a { display: block; border: 1px solid var(--line); background: var(--panel-2); padding: 12px 16px; border-radius: 14px; text-decoration: none; }
+.callout { border-right: 4px solid var(--accent); padding: 12px 18px; background: rgb(120 224 193 / 8%); border-radius: 12px; }
+.warning { border-right-color: var(--warn); background: rgb(255 212 121 / 8%); }
+.danger { border-right-color: var(--danger); background: rgb(255 156 170 / 8%); }
+.timeline { width: 100%; border-collapse: collapse; }
+.timeline th, .timeline td { border-bottom: 1px solid var(--line); padding: 12px; vertical-align: top; }
+.timeline th { color: var(--accent); text-align: right; }
+.timeline tr:last-child td { border-bottom: 0; }
+.ltr, code, pre, kbd, samp {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+  font-family: Consolas, "Courier New", monospace;
+}
+code { color: #ffdca1; background: var(--code); border-radius: 6px; padding: 2px 6px; }
+pre { overflow: auto; background: var(--code); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+pre code { padding: 0; }
+.formula { direction: ltr; text-align: center; font-family: Cambria, Georgia, serif; font-size: 1.15rem; background: var(--code); padding: 16px; border-radius: 14px; }
+details { border: 1px solid var(--line); background: var(--panel-2); border-radius: 14px; padding: 12px 16px; margin: 10px 0; }
+summary { cursor: pointer; font-weight: 700; color: var(--accent-2); }
+li + li { margin-top: 6px; }
+.tag { display: inline-block; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; margin: 3px; font-size: .9rem; }
+.footer { color: var(--muted); text-align: center; margin-top: 28px; }
+@media (max-width: 700px) {
+  .shell { width: min(100% - 18px, 1120px); padding-top: 10px; }
+  .hero, .section { border-radius: 18px; }
+  .timeline { display: block; overflow-x: auto; }
+}

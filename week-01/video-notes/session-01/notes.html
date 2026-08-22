@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>جلسهٔ اول — از Word2Vec تا Transformer</title>
+  <link rel="stylesheet" href="../assets/notes.css">
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="eyebrow">SESSION 01 · ۱۴۰۵/۰۵/۲۹</div>
+    <h1>از Word2Vec تا Transformer</h1>
+    <p class="lead">داستان این جلسه یک سؤال واحد است: «چطور متن را به بردارهایی تبدیل کنیم که هم معنا را حمل کنند و هم وابستگی هر کلمه به جمله را؟» پاسخ از embedding ثابت شروع می‌شود، از گلوگاه RNN عبور می‌کند و به Attention و Transformer می‌رسد.</p>
+    <div class="meta">
+      <div><small>ویدئوها</small><strong class="ltr">1405-05-29-01 / 02</strong></div>
+      <div><small>سطح</small><strong>مفهومی + معماری</strong></div>
+      <div><small>خروجی مطلوب</small><strong>توضیح Attention با زبان خودت</strong></div>
+      <div><small>وضعیت</small><strong>بازنویسی‌شده از منبع خصوصی</strong></div>
+    </div>
+  </header>
+
+  <nav class="section" aria-label="فهرست">
+    <h2>فهرست سریع</h2>
+    <ul class="toc">
+      <li><a href="#timeline">تایم‌لاین ویدئو</a></li>
+      <li><a href="#story">داستان مسئله</a></li>
+      <li><a href="#word2vec">Word2Vec و Skip-gram</a></li>
+      <li><a href="#rnn">چرا RNN کافی نبود؟</a></li>
+      <li><a href="#attention">Attention و Q/K/V</a></li>
+      <li><a href="#transformer">Transformer</a></li>
+      <li><a href="#mistakes">خطاهای رایج</a></li>
+      <li><a href="#practice">تمرین و خودآزمایی</a></li>
+    </ul>
+  </nav>
+
+  <section class="section" id="timeline">
+    <h2>۱. تایم‌لاین آموزشی</h2>
+    <p class="callout">تایم‌کدها مربوط به هر فایل جداگانه‌اند. رونویسی خودکار برای یافتن بازه استفاده شده و عنوان‌ها پس از تطبیق با اسلایدها بازنویسی شده‌اند.</p>
+    <h3>بخش اول — <span class="ltr">1405-05-29-01.ts</span></h3>
+    <table class="timeline">
+      <thead><tr><th>بازه</th><th>موضوع</th><th>نکتهٔ یادگیری</th></tr></thead>
+      <tbody>
+        <tr><td class="ltr">00:01–00:15</td><td>شروع و نقشهٔ جلسه</td><td>اتصال embedding، RNN، Attention و Transformer در یک مسیر تاریخی.</td></tr>
+        <tr><td class="ltr">00:15–00:28</td><td>Word embedding</td><td>چرا one-hot معنا ندارد و چرا بردار نزدیک برای واژه‌های مشابه می‌خواهیم.</td></tr>
+        <tr><td class="ltr">00:28–00:43</td><td>Word2Vec و Skip-gram</td><td>یادگیری نمایش واژه از یک مسئلهٔ جانبی: پیش‌بینی همسایه‌های کلمه.</td></tr>
+        <tr><td class="ltr">00:45–00:55</td><td>محدودیت embedding ثابت</td><td>یک بردار برای هر واژه، مستقل از جمله، چندمعنایی را حل نمی‌کند.</td></tr>
+        <tr><td class="ltr">00:55–01:07</td><td>RNN و گلوگاه توالی</td><td>پردازش ترتیبی، حافظهٔ فشرده و دشواری وابستگی‌های دور.</td></tr>
+        <tr><td class="ltr">01:07–01:27</td><td>شهود Attention</td><td>برای هر کلمه، ترکیبی وزن‌دار از اطلاعات مرتبط جمله بساز.</td></tr>
+      </tbody>
+    </table>
+    <h3>بخش دوم — <span class="ltr">1405-05-29-02.ts</span></h3>
+    <table class="timeline">
+      <thead><tr><th>بازه</th><th>موضوع</th><th>نکتهٔ یادگیری</th></tr></thead>
+      <tbody>
+        <tr><td class="ltr">00:00–00:07</td><td>Position و ورودی Attention</td><td>Attention به‌تنهایی ترتیب را نمی‌شناسد؛ اطلاعات موقعیت باید اضافه شود.</td></tr>
+        <tr><td class="ltr">00:07–00:13</td><td>Self-Attention</td><td>Q، K و V از همان توالی ساخته می‌شوند.</td></tr>
+        <tr><td class="ltr">00:13–00:18</td><td>Multi-Head Attention</td><td>چند فضای ارتباطی موازی به‌جای یک نوع شباهت.</td></tr>
+        <tr><td class="ltr">00:18–00:28</td><td>Scaled dot-product</td><td>ضرب داخلی، softmax و دلیل مقیاس‌کردن با ریشهٔ بعد کلید.</td></tr>
+        <tr><td class="ltr">00:28–00:36</td><td>اتصال headها</td><td>خروجی headها concatenate و دوباره projection می‌شود.</td></tr>
+        <tr><td class="ltr">00:35–00:40</td><td>Self در برابر Cross</td><td>منبع Q و منبع K/V تعیین می‌کند Attention از چه نوعی باشد.</td></tr>
+        <tr><td class="ltr">00:39–01:24</td><td>معماری Transformer و بحث تکمیلی</td><td>قرارگیری Attention داخل بلوک‌ها و کاربرد آن فراتر از متن.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="story">
+    <h2>۲. داستان مسئله در یک نگاه</h2>
+    <div class="grid">
+      <article class="card"><h3>گام ۱: عددی‌کردن</h3><p>مدل با رشته کار نمی‌کند. ابتدا هر token باید به بردار تبدیل شود.</p></article>
+      <article class="card"><h3>گام ۲: واردکردن معنا</h3><p>بردار باید از توزیع واژه‌ها یاد بگیرد؛ کلماتی که در بافت مشابه‌اند معمولاً معنای مرتبط دارند.</p></article>
+      <article class="card"><h3>گام ۳: واردکردن context</h3><p>بردار «شیر» در «شیر آب» نباید همان بازنمایی «شیر جنگل» باقی بماند.</p></article>
+      <article class="card"><h3>گام ۴: ارتباط مستقیم</h3><p>هر token باید بتواند بدون عبور ترتیبی از همهٔ گام‌ها، مستقیماً به tokenهای مرتبط نگاه کند.</p></article>
+    </div>
+    <p class="callout"><strong>مدل ذهنی:</strong> Word2Vec به هر واژه یک آدرس نسبتاً خوب می‌دهد؛ Attention برای همان واژه و در همان جمله یک «آدرس وابسته به context» می‌سازد.</p>
+  </section>
+
+  <section class="section" id="word2vec">
+    <h2>۳. Word2Vec: معنا از همسایگی</h2>
+    <p>در one-hot، هر واژه فقط یک شناسه است. فاصلهٔ «گربه» و «سگ» همان‌قدر بی‌معناست که فاصلهٔ «گربه» و «دیتابیس». Word2Vec به‌جای تعریف دستی معنا، یک شبکهٔ کوچک را روی یک کار جانبی آموزش می‌دهد و وزن میانی شبکه را به‌عنوان embedding برمی‌دارد.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Skip-gram</h3>
+        <p>ورودی کلمهٔ مرکزی است و مدل کلمه‌های اطراف را پیش‌بینی می‌کند.</p>
+        <pre><code>"مدل زبان بزرگ است"
+center = "زبان"
+targets = ["مدل", "بزرگ"]</code></pre>
+      </article>
+      <article class="card">
+        <h3>CBOW</h3>
+        <p>جهت معکوس: context اطراف وارد می‌شود و کلمهٔ مرکزی پیش‌بینی می‌شود.</p>
+        <pre><code>context = ["مدل", "بزرگ"]
+target = "زبان"</code></pre>
+      </article>
+    </div>
+    <h3>چرا این ترفند جواب می‌دهد؟</h3>
+    <p>برای پیش‌بینی همسایه‌ها، مدل مجبور می‌شود واژه‌هایی با الگوی مصرف مشابه را در فضای برداری نزدیک قرار دهد. هدف اصلی ما classifier نهایی نیست؛ بازنمایی میانی‌ای است که شبکه برای حل مسئله یاد گرفته.</p>
+    <p class="warning callout"><strong>محدودیت اصلی:</strong> embedding کلاسیک static است. واژهٔ «شیر» یک بردار دارد، حتی اگر معنایش با جمله عوض شود. همچنین واژهٔ خارج از واژگان، ترتیب و وابستگی دور را خوب پوشش نمی‌دهد.</p>
+  </section>
+
+  <section class="section" id="rnn">
+    <h2>۴. RNN: context داریم، اما با هزینه</h2>
+    <p>RNN جمله را token به token می‌خواند. وضعیت پنهان <code>h_t</code> خلاصه‌ای از گذشته است:</p>
+    <div class="formula">h<sub>t</sub> = f(x<sub>t</sub>, h<sub>t-1</sub>)</div>
+    <p>این روش context می‌سازد، اما سه مشکل مهم دارد:</p>
+    <ol>
+      <li><strong>ترتیبی‌بودن محاسبه:</strong> گام ۱۰ منتظر گام ۹ می‌ماند؛ parallelization محدود می‌شود.</li>
+      <li><strong>گلوگاه حافظه:</strong> تمام گذشته باید در یک state فشرده شود.</li>
+      <li><strong>وابستگی دور:</strong> مسیر اطلاعات طولانی است و gradient ممکن است محو یا منفجر شود. LSTM/GRU آن را کاهش می‌دهند، نه اینکه کاملاً حذف کنند.</li>
+    </ol>
+    <p class="callout"><strong>گذار کلیدی:</strong> به‌جای حمل همهٔ گذشته در یک کوله‌پشتی، اجازه بده token فعلی مستقیم به بخش‌های مرتبط حافظه مراجعه کند. این همان شهود Attention است.</p>
+  </section>
+
+  <section class="section" id="attention">
+    <h2>۵. Attention: جست‌وجوی نرم در حافظه</h2>
+    <p>بهترین تشبیه برای ذهن DevOps/مهندسی: Attention شبیه retrieval روی یک جدول key-value است، با این تفاوت که به‌جای انتخاب دقیق یک ردیف، از همهٔ ردیف‌ها ترکیبی وزن‌دار می‌سازد.</p>
+    <div class="grid">
+      <article class="card"><h3>Query (Q)</h3><p>الان دنبال چه اطلاعاتی هستم؟ نمایندهٔ نیاز token فعلی.</p></article>
+      <article class="card"><h3>Key (K)</h3><p>هر token با چه «برچسب قابل جست‌وجویی» معرفی می‌شود؟</p></article>
+      <article class="card"><h3>Value (V)</h3><p>اگر این token مرتبط بود، چه محتوایی از آن بردارم؟</p></article>
+    </div>
+    <p>برای هر Query، شباهت آن با همهٔ Keyها محاسبه می‌شود. softmax امتیازها را به وزن تبدیل می‌کند و خروجی جمع وزن‌دار Valueهاست:</p>
+    <div class="formula">Attention(Q, K, V) = softmax(QKᵀ / √d<sub>k</sub>) V</div>
+    <h3>چرا تقسیم بر <span class="ltr">√d<sub>k</sub></span>؟</h3>
+    <p>با بزرگ‌شدن بعد بردار، dot product معمولاً بزرگ‌تر می‌شود. softmax روی اعداد خیلی بزرگ اشباع می‌شود و gradient ضعیف می‌گردد. scaling توزیع امتیازها را کنترل می‌کند.</p>
+    <h3>سه نوع مهم</h3>
+    <table class="timeline">
+      <thead><tr><th>نوع</th><th>Q از کجا؟</th><th>K و V از کجا؟</th><th>کاربرد ذهنی</th></tr></thead>
+      <tbody>
+        <tr><td>Self-Attention</td><td>همان توالی</td><td>همان توالی</td><td>هر کلمه context جملهٔ خودش را می‌گیرد.</td></tr>
+        <tr><td>Cross-Attention</td><td>توالی/مدال مقصد</td><td>منبع دیگر</td><td>decoder به خروجی encoder یا متن به تصویر نگاه می‌کند.</td></tr>
+        <tr><td>Causal Self-Attention</td><td>همان توالی</td><td>فقط tokenهای قبلی و خود token</td><td>مدل زبانی اجازه ندارد آینده را ببیند.</td></tr>
+      </tbody>
+    </table>
+    <h3>چرا Multi-Head؟</h3>
+    <p>یک شباهت واحد مجبور است همهٔ رابطه‌ها را در یک فضا یاد بگیرد. چند head می‌توانند هم‌زمان رابطهٔ فاعل و فعل، ارجاع ضمیر، نزدیکی موضعی یا وابستگی معنایی را دنبال کنند. سپس خروجی headها کنار هم قرار می‌گیرد و projection می‌شود.</p>
+    <p class="warning callout">نباید نتیجه گرفت هر head حتماً یک مفهوم انسانی و ثابت دارد؛ این فقط یک مدل ذهنی مفید است. تفسیر headها همیشه شفاف نیست.</p>
+  </section>
+
+  <section class="section" id="transformer">
+    <h2>۶. Transformer: Attention به‌تنهایی معماری کامل نیست</h2>
+    <p>یک بلوک Transformer معمولاً این اجزا را ترکیب می‌کند:</p>
+    <ol>
+      <li><strong>Token embedding</strong> برای برداری‌کردن token.</li>
+      <li><strong>اطلاعات موقعیت</strong> چون Self-Attention بدون آن نسبت به جابه‌جایی ترتیب حساسیت کافی ندارد.</li>
+      <li><strong>Multi-Head Attention</strong> برای تبادل اطلاعات بین tokenها.</li>
+      <li><strong>Feed-Forward Network</strong> برای پردازش غیرخطی هر موقعیت.</li>
+      <li><strong>Residual connection و normalization</strong> برای جریان بهتر اطلاعات و آموزش پایدارتر.</li>
+    </ol>
+    <pre><code>tokens
+  → token embedding + positional information
+  → multi-head attention
+  → add & norm
+  → feed-forward network
+  → add & norm
+  → contextual representations</code></pre>
+    <p class="callout"><strong>نکتهٔ کلیدی:</strong> خروجی هر token بعد از بلوک، دیگر فقط معنای لغت نیست؛ معنای آن token در context همان ورودی است.</p>
+  </section>
+
+  <section class="section" id="mistakes">
+    <h2>۷. خطاهای رایج و اصلاح آن‌ها</h2>
+    <div class="grid">
+      <article class="card"><h3>«Attention یعنی تمرکز روی یک کلمه»</h3><p>معمولاً یک توزیع نرم روی چند token است، نه انتخاب صفر و یک.</p></article>
+      <article class="card"><h3>«Q/K/V خود کلمه‌اند»</h3><p>آن‌ها projectionهای آموختنی از representation ورودی‌اند: <span class="ltr">Q=XWq, K=XWk, V=XWv</span>.</p></article>
+      <article class="card"><h3>«Position داخل Self-Attention معلوم است»</h3><p>Self-Attention خام ترتیب را به‌صورت ذاتی کد نمی‌کند؛ باید positional information اضافه شود.</p></article>
+      <article class="card"><h3>«Transformer فقط Attention است»</h3><p>Attention جزء مرکزی است، اما FFN، residual، normalization، embedding و objective هم حیاتی‌اند.</p></article>
+      <article class="card"><h3>«Word2Vec دیگر هیچ کاربردی ندارد»</h3><p>برای baseline سبک و مسائل کم‌هزینه هنوز مفید است؛ فقط contextual نیست.</p></article>
+      <article class="card"><h3>«Multi-Head فقط تکرار محاسبه است»</h3><p>هر head projectionهای مستقل دارد و در زیرفضای متفاوتی رابطه‌ها را می‌آموزد.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="practice">
+    <h2>۸. تمرین و خودآزمایی</h2>
+    <h3>تمرین‌های توضیحی</h3>
+    <ol>
+      <li>با مثال «شیر آب خراب شد» و «شیر شکار کرد» توضیح بده چرا embedding ثابت کافی نیست.</li>
+      <li>Attention را با یک query به دیتابیس مقایسه کن؛ بگو این تشبیه دقیقاً کجا می‌شکند.</li>
+      <li>برای جملهٔ «علی کتاب را برداشت چون او به آن نیاز داشت» حدس بزن دو head متفاوت چه رابطه‌هایی را دنبال می‌کنند.</li>
+      <li>توضیح بده چرا حذف positional information می‌تواند «سگ مرد را گاز گرفت» و «مرد سگ را گاز گرفت» را مبهم کند.</li>
+      <li>از حفظ مسیر <span class="ltr">embedding → Q/K/V → scores → softmax → weighted sum</span> را روی کاغذ بکش.</li>
+    </ol>
+    <h3>پرسش‌های تستی</h3>
+    <details><summary>۱. در Skip-gram چه چیزی پیش‌بینی می‌شود؟</summary><p>کلمه‌های context پیرامون یک کلمهٔ مرکزی. embedding محصول میانی آموزش این مسئله است.</p></details>
+    <details><summary>۲. فرق Self-Attention و Cross-Attention چیست؟</summary><p>در Self-Attention، Q/K/V از یک توالی می‌آیند؛ در Cross-Attention، Q از مقصد و K/V از منبع دیگری می‌آیند.</p></details>
+    <details><summary>۳. scaling چه مشکلی را کم می‌کند؟</summary><p>بزرگ‌شدن variance امتیازهای dot product و اشباع softmax در ابعاد بالا.</p></details>
+    <details><summary>۴. چرا Transformer راحت‌تر از RNN موازی می‌شود؟</summary><p>representation موقعیت‌ها در هر لایه می‌تواند هم‌زمان محاسبه شود؛ وابستگی قدم‌به‌قدم recurrent وجود ندارد.</p></details>
+    <details><summary>۵. خروجی Attention چیست؟</summary><p>برای هر Query، جمع وزن‌دار Valueها؛ وزن‌ها از شباهت Query و Key پس از softmax می‌آیند.</p></details>
+    <h3>معیار تسلط</h3>
+    <p>اگر بتوانی بدون نگاه‌کردن به جزوه، تفاوت <span class="ltr">static embedding</span> و <span class="ltr">contextual representation</span> را بگویی، فرمول Attention را جزءبه‌جزء توضیح بدهی و Self/Cross/Causal را با مثال تفکیک کنی، هستهٔ جلسه را یاد گرفته‌ای.</p>
+  </section>
+
+  <footer class="footer"><a href="../index.html">بازگشت به فهرست جزوه‌ها</a> · جزوه منتشرشده؛ ویدئو و transcript خام خارج از Git</footer>
+</main>
+</body>
+</html>

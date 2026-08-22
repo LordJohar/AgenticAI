@@ -2,8 +2,8 @@
 
 <div dir="rtl" lang="fa" class="vazirmatn">
 
-# Session 02 — Waiting for Source Video
+# Session 02 — BERT to LoRA and QLoRA
 
-ویدئو/Transcript این جلسه هنوز در گفت‌وگو دریافت نشده است. پس از دریافت، Timeline، توضیح فارسی، کدهای Demo، ابهام‌ها و Quiz در همین پوشه قرار می‌گیرد.
+جزوهٔ بازنویسی‌شدهٔ جلسه در [notes.html](notes.html) قرار دارد. ویدئو و Transcript خام خصوصی و خارج از Git نگه‌داری می‌شوند.
 
 </div>
