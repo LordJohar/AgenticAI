@@ -46,10 +46,37 @@ button, input { font: inherit; }
 .callout.warning { border-right-color: var(--warning); }
 .callout.success { border-right-color: var(--accent); }
 .formula { direction: ltr; text-align: center; overflow-x: auto; padding: 1rem; margin: 1rem 0; border-radius: 14px; color: var(--code-text); background: var(--code-bg); font-family: Consolas, "Courier New", monospace; }
-.diagram { direction: ltr; overflow-x: auto; padding: 1rem; margin: 1rem 0; border: 1px solid var(--line); border-radius: 15px; background: var(--bg); }
-.flow { display: flex; align-items: center; justify-content: center; gap: .55rem; min-width: 760px; }
-.flow-node { min-width: 120px; padding: .7rem; text-align: center; direction: rtl; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-.flow-arrow { color: var(--primary); font-size: 1.35rem; font-weight: 900; }
+.diagram { direction: ltr; overflow: visible; padding: 1rem; margin: 1rem 0; border: 1px solid var(--line); border-radius: 15px; background: var(--bg); }
+.flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  align-items: stretch;
+  gap: .7rem;
+  min-width: 0;
+  counter-reset: flow-step;
+}
+.flow-node {
+  position: relative;
+  min-width: 0;
+  min-height: 88px;
+  padding: 2.25rem .7rem .75rem;
+  text-align: center;
+  direction: rtl;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.flow-node::before {
+  counter-increment: flow-step;
+  content: "گام " counter(flow-step);
+  position: absolute;
+  top: .5rem;
+  right: .6rem;
+  color: var(--primary);
+  font-size: .75rem;
+  font-weight: 900;
+}
+.flow-arrow { display: none; }
 .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 14px; }
 .table-wrap table { min-width: 690px; }
 .lab { padding: 1rem; border: 1px dashed var(--primary); border-radius: 15px; background: var(--bg); }
@@ -86,4 +113,6 @@ button, input { font: inherit; }
   .content { width: 100%; padding: 0; }
   .hero, .chapter { box-shadow: none; }
   .chapter { page-break-before: always; }
+  .diagram { overflow: visible; break-inside: avoid; }
+  .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
