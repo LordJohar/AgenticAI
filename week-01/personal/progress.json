@@ -1,0 +1,15 @@
+{
+  "orientation": true,
+  "roadmap": true,
+  "goal-1": false,
+  "goal-4": true,
+  "bridge": true,
+  "mental-model": true,
+  "capabilities": true,
+  "limits": true,
+  "ecosystem": true,
+  "tokens": true,
+  "cost-latency": true,
+  "python": true,
+  "env-api": true
+}

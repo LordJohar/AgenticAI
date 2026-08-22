@@ -1,0 +1,27 @@
+README.md
+TREE.txt
+index.html
+assets/
+└── fonts and shared CSS
+week-01/
+├── README.md
+├── index.html
+├── class-notes/
+│   ├── README.md
+│   ├── index.html
+│   ├── session-01/
+│   └── session-02/
+├── personal/
+│   ├── README.md
+│   ├── index.html
+│   ├── standalone.html
+│   ├── chapters/
+│   ├── examples/
+│   ├── exercises/
+│   └── assets/
+├── docs/
+│   └── media-workflow.md
+└── sources/
+    ├── README.md
+    ├── references.md
+    └── syllabus-snapshot.md

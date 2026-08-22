@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="حداقل لازم برای اینکه کد کلاس را بخوانی، تغییر بدهی و از خطا نترسی">
+  <title>مرور Python برای کار با API — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 09</div>
+    <h2>مرور Python برای کار با API</h2>
+    <p>حداقل لازم برای اینکه کد کلاس را بخوانی، تغییر بدهی و از خطا نترسی</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="مرور پایتون venv pip dict list function json file typing" id="python">
+<div class="chapter-header">
+<div class="chapter-number">۹</div>
+<div>
+<h2>مرور Python برای کار با API</h2>
+<p>حداقل لازم برای اینکه کد کلاس را بخوانی، تغییر بدهی و از خطا نترسی</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="python" type="checkbox"/> خواندم</label>
+</div>
+<h3>ساخت محیط پروژه</h3>
+<p>از Python 3.10 یا جدیدتر استفاده کن. در مسیر <code>examples</code> این بسته:</p>
+<h4>Linux / macOS</h4>
+<pre><code>cd agentic-ai-learning/week-01/personal/examples
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt</code></pre>
+<h4>Windows PowerShell</h4>
+<pre><code>cd agentic-ai-learning\week-01\personal\examples
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt</code></pre>
+<div class="callout">
+<strong>چرا venv؟</strong> Dependencyهای این پروژه از Python سیستم و پروژه‌های دیگر جدا می‌شوند. این جداسازی شبیه Image/Container کامل نیست، اما جلوی بخش بزرگی از تداخل Versionها را می‌گیرد.
+        </div>
+<h3>متغیرها و Typeهای پرکاربرد</h3>
+<pre><code>service_name = "nezarat-dashboard"   # str
+replicas = 3                          # int
+error_rate = 0.021                    # float
+healthy = True                        # bool
+nodes = ["kw4", "kw5", "kw6"]       # list[str]
+incident = {                          # dict[str, object]
+    "service": service_name,
+    "severity": "high",
+    "events": 12,
+}</code></pre>
+<p>
+          در Python، <code>dict</code> پایهٔ بسیاری از داده‌های JSON است. به کلید با <code>incident["service"]</code> دسترسی می‌گیری؛
+          یا با <code>incident.get("owner")</code> که در نبود کلید به‌جای Exception مقدار <code>None</code> می‌دهد.
+        </p>
+<h3>شرط و Loop</h3>
+<pre><code>if error_rate &gt; 0.05:
+    severity = "critical"
+elif error_rate &gt; 0.01:
+    severity = "high"
+else:
+    severity = "normal"
+
+for node in nodes:
+    print(f"checking {node}")</code></pre>
+<h3>Function: کوچک‌ترین واحد قابل آزمون</h3>
+<pre><code>def calculate_error_rate(errors: int, total: int) -&gt; float:
+    """Return errors / total and avoid division by zero."""
+    if total &lt;= 0:
+        return 0.0
+    return errors / total
+
+rate = calculate_error_rate(errors=21, total=1000)</code></pre>
+<p>
+          Type Hintها مانند <code>int</code> و <code>float</code> الزام Runtime نیستند، ولی خوانایی، IDE و Static Analysis را بهتر می‌کنند.
+          Docstring نیز قرارداد Function را توضیح می‌دهد.
+        </p>
+<h3>خواندن فایل با Encoding صحیح</h3>
+<pre><code>from pathlib import Path
+
+log_path = Path("sample_incident.log")
+text = log_path.read_text(encoding="utf-8")
+print(text[:500])</code></pre>
+<h3>JSON: تبدیل میان متن و Object</h3>
+<pre><code>import json
+
+payload = {
+    "model": "configured-model",
+    "input": "Summarize this incident",
+}
+
+json_text = json.dumps(payload, ensure_ascii=False, indent=2)
+restored = json.loads(json_text)
+print(restored["input"])</code></pre>
+<h3>Import و نقطهٔ شروع برنامه</h3>
+<pre><code>import os
+from pathlib import Path
+
+
+def main() -&gt; int:
+    print("program started")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())</code></pre>
+<p>
+          الگوی <code>if __name__ == "__main__"</code> باعث می‌شود <code>main()</code> فقط هنگام اجرای مستقیم فایل اجرا شود، نه وقتی فایل از برنامهٔ دیگری Import می‌شود.
+          خروجی عددی نیز Exit Code برنامه است؛ <code>0</code> یعنی موفقیت.
+        </p>
+<h3>چطور یک تکه کد Python را بخوانی؟</h3>
+<ol>
+<li>از پایین فایل، نقطهٔ اجرای <code>main()</code> را پیدا کن.</li>
+<li>ورودی‌ها را پیدا کن: Argument، Environment Variable، File یا API.</li>
+<li>Functionها را یکی‌یکی بر اساس ورودی و خروجی بخوان.</li>
+<li>مسیر خطا را جدا از مسیر موفقیت دنبال کن.</li>
+<li>در پایان Side Effectها را مشخص کن: File Write، Network Call، Database یا Command.</li>
+</ol>
+<div class="callout success">
+<strong>تمرین فوری:</strong> فایل <a href="../examples/01_python_api_refresher.py">01_python_api_refresher.py</a> را اجرا کن، سپس نام Service و تعداد Eventها را تغییر بده و خروجی را پیش‌بینی کن.
+        </div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="08-cost-latency.html">فصل قبل: Cost و Latency</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="10-environment-api.html">فصل بعد: Environment Variables و اولین API Call</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

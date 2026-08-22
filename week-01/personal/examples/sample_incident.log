@@ -1,0 +1,9 @@
+2026-08-21T18:41:02Z namespace=training-app type=Warning reason=Unhealthy object=pod/api-7d9f message="Liveness probe failed: HTTP probe returned statuscode: 500" count=4
+2026-08-21T18:41:11Z namespace=training-app type=Normal reason=Killing object=pod/api-7d9f message="Container api failed liveness probe, will be restarted" count=4
+2026-08-21T18:42:03Z namespace=training-app type=Normal reason=Pulled object=pod/api-7d9f message="Container image already present on machine" count=1
+2026-08-21T18:42:07Z namespace=training-app type=Normal reason=Started object=pod/api-7d9f message="Started container api" count=1
+2026-08-21T18:44:29Z namespace=training-app type=Warning reason=BackOff object=pod/worker-22bc message="Back-off restarting failed container worker" count=7
+2026-08-21T18:45:00Z note="No application logs, deployment revision, node metrics, or dependency health were included in this evidence."
+# Synthetic secret-like values below exist only to test local redaction:
+Authorization: Bearer demo-token-that-must-not-leave-the-client
+client_secret=demo-secret-value

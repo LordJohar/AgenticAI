@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="برای هر جلسه چه فایل‌هایی ساخته می‌شود و چه چیزهایی استخراج خواهد شد؟">
+  <title>ساختار تحلیل ویدئوهای کلاس — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 17</div>
+    <h2>ساختار تحلیل ویدئوهای کلاس</h2>
+    <p>برای هر جلسه چه فایل‌هایی ساخته می‌شود و چه چیزهایی استخراج خواهد شد؟</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="ویدئو تحلیل جلسه transcript timestamp پوشه بندی" id="video-workflow">
+<div class="chapter-header">
+<div class="chapter-number">۱۷</div>
+<div>
+<h2>ساختار تحلیل ویدئوهای کلاس</h2>
+<p>برای هر جلسه چه فایل‌هایی ساخته می‌شود و چه چیزهایی استخراج خواهد شد؟</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="video-workflow" type="checkbox"/> خواندم</label>
+</div>
+<p>
+          دو جلسهٔ هفتهٔ اول اکنون در بخش مشترک کلاس بازنویسی شده‌اند. ویدئوها، Transcript خام، مدل‌ها و ابزارهای اجرایی محلی خارج از Git باقی می‌مانند؛ فقط نتیجهٔ آموزشی قابل بازبینی منتشر می‌شود.
+        </p>
+<h3>مرز محتوای مشترک و شخصی</h3>
+<pre><code>week-01/
+├── class-notes/             # جزوهٔ مشترک همکلاسی‌ها
+│   ├── session-01/notes.html
+│   └── session-02/notes.html
+├── personal/                # آموزش تکمیلی شخصی‌سازی‌شده
+└── docs/media-workflow.md   # روش عمومی ابزارها، بدون فایل محلی</code></pre>
+<h3>خروجی استاندارد تحلیل هر جلسه</h3>
+<ol>
+<li><strong>خلاصهٔ جلسه:</strong> مسیر کلی تدریس در چند پاراگراف.</li>
+<li><strong>Timeline:</strong> موضوع هر بازه با Timestamp دقیق.</li>
+<li><strong>پیش‌فرض‌های پنهان مدرس:</strong> مفاهیم Python/AI که بدون توضیح استفاده شده‌اند.</li>
+<li><strong>توضیح فارسی ساده:</strong> بازسازی بخش دشوار با مثال مهندسی روشن.</li>
+<li><strong>کدهای Demo:</strong> بازنویسی تمیز، توضیح خط‌به‌خط و رفع خطاهای احتمالی.</li>
+<li><strong>نقشهٔ ابهام:</strong> چه چیزی واقعاً گفته شده، چه چیزی برداشت ماست و چه چیزی هنوز نیاز به سؤال از مدرس دارد.</li>
+<li><strong>تمرین و Quiz:</strong> برای تثبیت همان جلسه.</li>
+</ol>
+<h3>کنترل کیفیت</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>مرحله</th><th>کنترل</th><th>خروجی</th></tr></thead>
+<tbody>
+<tr><td>رونویسی</td><td>اصطلاحات فنی با اسلاید و صوت تطبیق داده شوند</td><td>Transcript فقط شاهد است، نه متن نهایی</td></tr>
+<tr><td>بازنویسی</td><td>گفتهٔ مدرس از توضیح تکمیلی جدا باشد</td><td>جزوهٔ قابل استناد و خوانا</td></tr>
+<tr><td>انتشار</td><td>رسانه، Secret، مسیر محلی و مشخصات دستگاه در stage نباشد</td><td>Patch امن برای Git</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout">
+<strong>اصل مهم:</strong> عمومی‌بودن روش تولید به معنی عمومی‌بودن فایل ورودی نیست. ابزارها و قرارداد را مستند کن، اما رسانه و محیط اجرایی را محلی نگه دار.
+        </div>
+<p>
+          <a href="../../class-notes/index.html">جزوهٔ مشترک جلسات</a> آمادهٔ مطالعه است و
+          <a href="../../docs/media-workflow.md">راهنمای عمومی پردازش رسانه</a> ابزارها و مرز حریم خصوصی را توضیح می‌دهد.
+        </p>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="16-glossary.html">فصل قبل: واژه‌نامهٔ هفتهٔ اول</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="18-sources.html">فصل بعد: منابع و حدود این جزوه</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+@import url("vazirmatn.css");
+
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef2ff;
+  --text: #182033;
+  --muted: #5c667a;
+  --line: #dce2ee;
+  --primary: #3a5ccc;
+  --primary-2: #213d98;
+  --accent: #0c7b67;
+  --warning: #8a5a00;
+  --danger: #a12a2a;
+  --code-bg: #101522;
+  --code-text: #edf3ff;
+  --shadow: 0 12px 32px rgba(30, 42, 78, .10);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  line-height: 1.9;
+  color: var(--text);
+  background: var(--bg);
+}
+a { color: var(--primary-2); }
+h1, h2, h3 { line-height: 1.45; }
+
+.site-shell {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+.site-hero, .site-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+.site-hero { padding: clamp(24px, 5vw, 48px); }
+.site-card { padding: clamp(20px, 4vw, 30px); }
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.site-tag, .eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.site-muted, .lead { color: var(--muted); }
+.site-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.button, .pill {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 9px 15px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.button { background: var(--primary); color: #fff; }
+.button.secondary { background: var(--accent); }
+.pill { border: 1px solid var(--line); color: var(--muted); background: var(--surface); }
+
+.ltr, pre, code, kbd, samp {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+  font-family: Consolas, "Courier New", monospace;
+}
+code:not(pre code) { background: var(--surface-2); color: var(--primary-2); padding: 2px 6px; border-radius: 6px; }
+pre { overflow: auto; background: var(--code-bg); color: var(--code-text); border-radius: 14px; padding: 18px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid var(--line); padding: 12px; vertical-align: top; }
+th { color: var(--primary-2); text-align: right; background: var(--surface-2); }
+details { border: 1px solid var(--line); background: var(--surface-2); border-radius: 14px; padding: 12px 16px; margin: 10px 0; }
+summary { cursor: pointer; font-weight: 700; color: var(--primary-2); }
+
+@media (max-width: 700px) {
+  .site-shell { width: min(100% - 18px, 1040px); padding-top: 10px; }
+  .site-hero, .site-card { border-radius: 16px; }
+}

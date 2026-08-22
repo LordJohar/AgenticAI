@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="از «API جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای SLO">
+  <title>Cost و Latency — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 08</div>
+    <h2>Cost و Latency</h2>
+    <p>از «API جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای SLO</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="هزینه تاخیر latency ttft token per second cost" id="cost-latency">
+<div class="chapter-header">
+<div class="chapter-number">۸</div>
+<div>
+<h2>Cost و Latency</h2>
+<p>از «API جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای SLO</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="cost-latency" type="checkbox"/> خواندم</label>
+</div>
+<h3>هزینهٔ یک Request</h3>
+<p>در مدل‌های Metered، ورودی و خروجی معمولاً نرخ جدا دارند. فرمول پایه:</p>
+<div class="formula">request_cost = (input_tokens / 1,000,000 × input_price) + (output_tokens / 1,000,000 × output_price)</div>
+<div class="callout warning">
+<strong>اعداد زیر فقط مثال آموزشی‌اند.</strong> قیمت واقعی Provider و Model تغییر می‌کند؛ همیشه Pricing روز را بررسی و قیمت را Configurable نگه دار.
+        </div>
+<p>
+          مثال: اگر نرخ فرضی ورودی <span class="ltr">$2 / 1M</span> و خروجی <span class="ltr">$8 / 1M</span> باشد،
+          برای ۸٬۰۰۰ Token ورودی و ۱٬۲۰۰ Token خروجی:
+        </p>
+<div class="formula">(8,000 / 1,000,000 × $2) + (1,200 / 1,000,000 × $8) = $0.0256</div>
+<p>
+          عدد یک Request کوچک به نظر می‌رسد، اما با ۱۰۰٬۰۰۰ Request در ماه حدود <span class="ltr">$2,560</span> می‌شود؛ قبل از Retry،
+          Evaluation، Development Traffic و Tool Callهای اضافی. برای همین Cost یک Metric عملیاتی است، نه موضوع صرفاً مالی.
+        </p>
+<h3>Cost Driverهای پنهان</h3>
+<ul>
+<li>ارسال دوبارهٔ تاریخچهٔ طولانی در هر Turn.</li>
+<li>Retrieval بیش از حد و Chunkهای تکراری.</li>
+<li>خروجی‌های Verbose یا سقف خروجی نامحدود.</li>
+<li>Retry بی‌قاعده روی خطاهای غیرقابل Retry.</li>
+<li>استفاده از مدل بزرگ برای Classification ساده.</li>
+<li>Agent Loop بدون سقف Step، Time و Budget.</li>
+<li>Evaluation و Shadow Traffic که در Forecast لحاظ نشده‌اند.</li>
+</ul>
+<h3>Latency از چه بخش‌هایی تشکیل می‌شود؟</h3>
+<div class="diagram">
+<div class="flow">
+<div class="flow-node">DNS / Connect / TLS</div><div class="flow-arrow">→</div>
+<div class="flow-node">Provider Queue</div><div class="flow-arrow">→</div>
+<div class="flow-node">Input Processing<br/><small>Prefill</small></div><div class="flow-arrow">→</div>
+<div class="flow-node">First Token<br/><small>TTFT</small></div><div class="flow-arrow">→</div>
+<div class="flow-node">Output Generation<br/><small>Decode</small></div><div class="flow-arrow">→</div>
+<div class="flow-node">Tool / App Processing</div>
+</div>
+</div>
+<dl class="term-list">
+<div class="term"><dt>TTFT</dt><dd><span class="ltr">Time To First Token</span>؛ زمان تا اولین بخش پاسخ، مخصوصاً در Streaming.</dd></div>
+<div class="term"><dt>Total Latency</dt><dd>زمان کامل از شروع Request تا دریافت پایان پاسخ و پردازش Application.</dd></div>
+<div class="term"><dt>Tokens/sec</dt><dd>سرعت تولید خروجی پس از شروع پاسخ.</dd></div>
+<div class="term"><dt>p50 / p95 / p99</dt><dd>صدک‌های Latency؛ Average به‌تنهایی Tail Latency را پنهان می‌کند.</dd></div>
+</dl>
+<h3>ترتیب بهینه‌سازی</h3>
+<ol>
+<li><strong>اول معیار کیفیت بساز.</strong> بهینه‌سازی بدون Golden Set ممکن است پاسخ سریع و ارزان اما بی‌فایده تولید کند.</li>
+<li><strong>خروجی را کوتاه کن.</strong> تولید Output معمولاً بخش مهمی از زمان است؛ قالب و سقف روشن بده.</li>
+<li><strong>ورودی را تمیز کن.</strong> تاریخچه، Tool Output و Retrieval را خلاصه و Deduplicate کن.</li>
+<li><strong>تعداد Round-trip را کم کن.</strong> چند Call سریالی، Latency و Failure Probability را جمع می‌کنند.</li>
+<li><strong>کارهای مستقل را موازی کن.</strong> مثلاً دو Retrieval مستقل، نه Stepهایی که Dependency دارند.</li>
+<li><strong>مدل کوچک‌تر را پس از اثبات کیفیت امتحان کن.</strong></li>
+<li><strong>Cache و Prefix Reuse را بررسی کن.</strong> مخصوصاً Instructions ثابت یا پاسخ‌های تکراری.</li>
+<li><strong>هر چیزی را LLM نکن.</strong> Regex، SQL، Calculator یا Rule Engine برای کار قطعی بهتر است.</li>
+</ol>
+<h3>نمونهٔ SLO برای یک LLM Feature</h3>
+<pre><code># مثال آموزشی، نه نسخهٔ نهایی Production
+Availability:      99.5% successful application responses / 30d
+Latency:           p95 &lt; 8s for interactive summaries
+Quality:           ≥ 90% pass rate on versioned golden set
+Citation accuracy: ≥ 98% for evidence-backed answers
+Safety:            0 unauthorized tool actions
+Cost guardrail:    ≤ $0.04 per successful request at p95</code></pre>
+<div class="analogy">
+<p>
+            همان‌طور که CPU/RAM Request و Limit را بدون Profiling تعیین نمی‌کنی، Token Budget و Model Tier را هم بدون Trace و Evaluation حدس نزن.
+          </p>
+</div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="07-tokens-context.html">فصل قبل: Token و Context Window</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="09-python-api-refresher.html">فصل بعد: مرور Python برای کار با API</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

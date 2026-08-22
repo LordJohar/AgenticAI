@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="فهم واقعی با توضیح دادن، پیش‌بینی خروجی و تغییر کد ساخته می‌شود">
+  <title>تمرین‌ها و پاسخ‌ها — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 14</div>
+    <h2>تمرین‌ها و پاسخ‌ها</h2>
+    <p>فهم واقعی با توضیح دادن، پیش‌بینی خروجی و تغییر کد ساخته می‌شود</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="تمرین آزمون پاسخ quiz lab" id="exercises">
+<div class="chapter-header">
+<div class="chapter-number">۱۴</div>
+<div>
+<h2>تمرین‌ها و پاسخ‌ها</h2>
+<p>فهم واقعی با توضیح دادن، پیش‌بینی خروجی و تغییر کد ساخته می‌شود</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="exercises" type="checkbox"/> خواندم</label>
+</div>
+<h3>تمرین مفهومی ۱</h3>
+<p>چرا یک LLM می‌تواند پاسخ بسیار روان اما اشتباه بدهد؟</p>
+<details><summary>پاسخ پیشنهادی</summary><p>هدف پایهٔ مدل تولید دنبالهٔ محتمل Tokenها بر اساس الگوهای یادگرفته‌شده است، نه اجرای Query قطعی روی Database حقیقت. روان بودن و درست بودن دو Metric متفاوت‌اند؛ برای Fact باید Evidence، Retrieval، Tool و Evaluation اضافه شود.</p></details>
+<h3>تمرین مفهومی ۲</h3>
+<p>فرق Context با Memory چیست؟</p>
+<details><summary>پاسخ پیشنهادی</summary><p>Context اطلاعات داخل Request جاری است. Memory معمولاً خارج از مدل در Database یا Store نگه داشته می‌شود و Application هنگام نیاز بخشی از آن را دوباره به Context می‌آورد.</p></details>
+<h3>تمرین مفهومی ۳</h3>
+<p>برای Classification ساده، چرا شروع مستقیم با بزرگ‌ترین Reasoning Model تصمیم خوبی نیست؟</p>
+<details><summary>پاسخ پیشنهادی</summary><p>ممکن است Latency و Cost اضافه بدهد بدون افزایش ارزش. ابتدا معیار کیفیت و Dataset می‌سازیم، سپس کوچک‌ترین مدلی را انتخاب می‌کنیم که Threshold را پاس کند.</p></details>
+<h3>تمرین محاسباتی</h3>
+<p>
+          با نرخ فرضی <span class="ltr">$3 / 1M input tokens</span> و <span class="ltr">$12 / 1M output tokens</span>،
+          هزینهٔ Request دارای ۱۰٬۰۰۰ Token ورودی و ۲٬۰۰۰ Token خروجی چقدر است؟
+        </p>
+<details><summary>پاسخ پیشنهادی</summary><div class="formula">(10,000 / 1,000,000 × 3) + (2,000 / 1,000,000 × 12) = $0.054</div></details>
+<h3>تمرین Retry</h3>
+<p>برای هر مورد بگو Retry می‌کنی یا نه: Key اشتباه، Timeout، HTTP 503، Quota تمام‌شده، JSON ورودی خراب.</p>
+<details><summary>پاسخ پیشنهادی</summary><p>Key اشتباه: خیر؛ Timeout: محدود و با Backoff؛ 503: محدود و با Jitter؛ Quota تمام‌شده: خیر؛ JSON خراب: خیر. قبل از Retry باید Idempotency و سقف زمان/هزینه نیز بررسی شود.</p></details>
+<h3>Labهای عملی</h3>
+<ol>
+<li><code>01_python_api_refresher.py</code> را اجرا و یک فیلد تازه به خروجی اضافه کن.</li>
+<li><code>cost_calculator.py</code> را با سه سناریوی کم، متوسط و پرترافیک اجرا کن.</li>
+<li>در <code>incident_brief_cli.py --dry-run</code> یک Secret ساختگی به Log اضافه و بررسی کن Mask شده است.</li>
+<li>Timeout را عمداً بسیار کوتاه کن و مسیر Error را مشاهده کن؛ بعد مقدار منطقی را برگردان.</li>
+<li>قالب Output Prompt را تغییر بده تا خروجی JSON بخواهد؛ سپس فکر کن چگونه JSON را Validate می‌کنی.</li>
+</ol>
+<p>
+          نسخهٔ قابل چاپ تمرین‌ها در <a href="../exercises/exercises.md">exercises.md</a> و پاسخ تشریحی در
+          <a href="../exercises/answers.md">answers.md</a> قرار دارد. ابتدا بدون نگاه کردن به پاسخ‌ها حل کن.
+        </p>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="13-incident-brief-project.html">فصل قبل: مینی‌پروژه: Incident Brief CLI</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="15-study-plan.html">فصل بعد: برنامهٔ جبران هفتهٔ اول</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

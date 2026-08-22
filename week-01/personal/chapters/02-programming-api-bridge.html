@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="چیزهایی که کلاس معمولاً سریع از کنارشان رد می‌شود">
+  <title>پل ورود: واژه‌های برنامه‌نویسی و API — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 02</div>
+    <h2>پل ورود: واژه‌های برنامه‌نویسی و API</h2>
+    <p>چیزهایی که کلاس معمولاً سریع از کنارشان رد می‌شود</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="پل ورود واژه های برنامه نویسی API" id="bridge">
+<div class="chapter-header">
+<div class="chapter-number">۲</div>
+<div>
+<h2>پل ورود: واژه‌های برنامه‌نویسی و API</h2>
+<p>چیزهایی که کلاس معمولاً سریع از کنارشان رد می‌شود</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="bridge" type="checkbox"/> خواندم</label>
+</div>
+<p>
+          یک LLM Application در ساده‌ترین حالت، یک برنامهٔ Python است که داده را آماده می‌کند، یک Request به یک سرویس می‌فرستد،
+          Response را می‌گیرد و آن را به فرم قابل استفاده تبدیل می‌کند. مدل ممکن است بسیار پیچیده باشد، اما Glue Code اطرافش معمولاً از همین مفاهیم تشکیل شده است.
+        </p>
+<dl class="term-list">
+<div class="term"><dt>Program / Script</dt><dd>فایل یا مجموعه فایل‌هایی که دستورهای قابل اجرا دارند؛ مثلاً <code>incident_brief.py</code>.</dd></div>
+<div class="term"><dt>Module</dt><dd>یک فایل Python قابل Import. مثلاً <code>sanitizer.py</code> که تابع حذف Secret دارد.</dd></div>
+<div class="term"><dt>Package</dt><dd>مجموعه‌ای از Moduleها که با <code>pip</code> نصب می‌شود؛ مانند <code>openai</code> یا <code>python-dotenv</code>.</dd></div>
+<div class="term"><dt>Virtual Environment</dt><dd>محیط ایزولهٔ Dependencyها؛ شبیه Namespace کوچک برای پکیج‌های Python یک پروژه.</dd></div>
+<div class="term"><dt>API</dt><dd>قرارداد ارتباط بین دو نرم‌افزار: Endpoint، روش احراز هویت، شکل Request، شکل Response و Errorها.</dd></div>
+<div class="term"><dt>SDK</dt><dd>کتابخانه‌ای که جزئیات خام HTTP را برای یک API ساده می‌کند؛ مثلاً به‌جای ساخت Header و JSON دستی، تابع Python صدا می‌زنی.</dd></div>
+<div class="term"><dt>JSON</dt><dd>فرمت متنی برای تبادل داده؛ Object شبیه <code>dict</code> و Array شبیه <code>list</code> در Python است.</dd></div>
+<div class="term"><dt>Request / Response</dt><dd>درخواست ارسالی و پاسخ دریافتی. هر دو می‌توانند Header، Body، Status Code و شناسهٔ ردیابی داشته باشند.</dd></div>
+<div class="term"><dt>Exception</dt><dd>شیء نشان‌دهندهٔ خطا در زمان اجرا؛ با <code>try/except</code> مدیریت می‌شود.</dd></div>
+<div class="term"><dt>Sync / Async</dt><dd>در Sync برنامه تا جواب منتظر می‌ماند؛ در Async می‌تواند هم‌زمان کارهای دیگر را جلو ببرد. هفتهٔ اول با Sync شروع می‌کنیم.</dd></div>
+</dl>
+<div class="analogy">
+<p>
+<strong>API Contract</strong> شبیه Contract یک Kubernetes CRD یا Schema یک Helm Values است. اگر فیلد اشتباه، نوع دادهٔ غلط یا Credential نامعتبر بدهی،
+            سرویس با Status مشخص رد می‌کند. SDK فقط Client خوش‌دست‌تری برای همین قرارداد است؛ جادو نیست.
+          </p>
+</div>
+<h3>آناتومی یک Request</h3>
+<div class="diagram">
+<div class="flow">
+<div class="flow-node"><strong>Python App</strong><br/><small>Prompt + Config</small></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><strong>SDK</strong><br/><small>Serialize / Auth</small></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><strong>HTTPS API</strong><br/><small>POST /v1/...</small></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><strong>Model Inference</strong><br/><small>Tokens In/Out</small></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><strong>Response</strong><br/><small>Text + Usage + ID</small></div>
+</div>
+</div>
+<div class="code-block-placeholder">
+<pre><code># شکل مفهومی، نه کد نهایی
+request = {
+    "model": "MODEL_NAME",
+    "input": "متن کاربر",
+}
+
+response = api.send(request)
+print(response.output_text)</code></pre>
+</div>
+<div class="callout warning">
+<strong>نکته:</strong> در کلاس ممکن است مدرس مستقیم سراغ یک Framework مانند LangChain یا Agents SDK برود.
+          تا وقتی Request/Response خام، State، Retry و Error را نفهمیده‌ای، Framework می‌تواند مسئله را مبهم‌تر کند. اول لایهٔ پایه را یاد بگیر.
+        </div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="01-roadmap.html">فصل قبل: نقشهٔ هفتهٔ اول</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="03-llm-mental-model.html">فصل بعد: مدل ذهنی درست از LLM</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

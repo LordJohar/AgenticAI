@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>جلسهٔ دوم — از BERT تا LoRA و QLoRA</title>
+  <link rel="stylesheet" href="../assets/notes.css">
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="eyebrow">SESSION 02 · ۱۴۰۵/۰۵/۳۰</div>
+    <h1>از BERT تا LoRA و QLoRA</h1>
+    <p class="lead">این جلسه نشان می‌دهد چگونه همان بلوک Transformer با objective و mask متفاوت به خانواده‌های متفاوت مدل تبدیل می‌شود؛ سپس از «مدل آماده» به مسئلهٔ عملی adaptation می‌رسیم: چه زمانی fine-tune کنیم و چگونه LoRA/QLoRA هزینه را پایین می‌آورند.</p>
+    <div class="meta">
+      <div><small>ویدئوها</small><strong class="ltr">1405-05-30-01 / 02</strong></div>
+      <div><small>محور نخست</small><strong>BERT و pre-training</strong></div>
+      <div><small>محور دوم</small><strong>Llama، LoRA و QLoRA</strong></div>
+      <div><small>دمو</small><strong>Fine-tuning برای JSON output</strong></div>
+    </div>
+  </header>
+
+  <nav class="section" aria-label="فهرست">
+    <h2>فهرست سریع</h2>
+    <ul class="toc">
+      <li><a href="#timeline">تایم‌لاین ویدئو</a></li>
+      <li><a href="#map">نقشهٔ خانواده‌ها</a></li>
+      <li><a href="#bert">BERT</a></li>
+      <li><a href="#pretraining">Pre-training و taskها</a></li>
+      <li><a href="#llama">Decoder-only و Llama</a></li>
+      <li><a href="#lora">LoRA</a></li>
+      <li><a href="#qlora">QLoRA</a></li>
+      <li><a href="#decision">چه زمانی fine-tune؟</a></li>
+      <li><a href="#demo">بازسازی ذهنی دمو</a></li>
+      <li><a href="#practice">تمرین و خودآزمایی</a></li>
+    </ul>
+  </nav>
+
+  <section class="section" id="timeline">
+    <h2>۱. تایم‌لاین آموزشی</h2>
+    <p class="callout">در فایل دوم حدود ۲۰ دقیقهٔ نخست از نظر تصویر محتوای اصلی کمی دارد؛ صوت شامل ادامهٔ بحث و پرسش‌وپاسخ است. مرزهای زیر برای مطالعهٔ مؤثر تنظیم شده‌اند.</p>
+    <h3>بخش اول — <span class="ltr">1405-05-30-01.ts</span></h3>
+    <table class="timeline">
+      <thead><tr><th>بازه</th><th>موضوع</th><th>نکتهٔ یادگیری</th></tr></thead>
+      <tbody>
+        <tr><td class="ltr">00:01–00:12</td><td>مرور Word2Vec</td><td>بازنمایی ثابت و مسیر رسیدن به representation وابسته به context.</td></tr>
+        <tr><td class="ltr">00:12–00:18</td><td>مرور RNN</td><td>پردازش ترتیبی و دلیل نیاز به مسیر ارتباطی کوتاه‌تر.</td></tr>
+        <tr><td class="ltr">00:17–00:25</td><td>Self-Attention و Position</td><td>Q/K/V، positional information و Multi-Head.</td></tr>
+        <tr><td class="ltr">00:24–00:38</td><td>معماری Transformer</td><td>encoder/decoder، بلوک‌های تکراری و نقش mask.</td></tr>
+        <tr><td class="ltr">00:38–00:52</td><td>ورود به BERT</td><td>Encoder-only و بازنمایی دوطرفه برای فهم متن.</td></tr>
+        <tr><td class="ltr">00:52–01:10</td><td>BERT و pre-training</td><td>BERT Base، Masked LM، سپس آماده‌سازی برای downstream task.</td></tr>
+        <tr><td class="ltr">01:10–01:30</td><td>نسخه‌ها و اثر اکوسیستمی</td><td>Self-supervision، خانواده‌های بعدی و تغییر مقیاس NLP.</td></tr>
+      </tbody>
+    </table>
+    <h3>بخش دوم — <span class="ltr">1405-05-30-02.ts</span></h3>
+    <table class="timeline">
+      <thead><tr><th>بازه</th><th>موضوع</th><th>نکتهٔ یادگیری</th></tr></thead>
+      <tbody>
+        <tr><td class="ltr">00:00–00:22</td><td>پل بحث و پرسش‌وپاسخ</td><td>مرور خانواده‌ها و آماده‌شدن اسلاید/اتصال جلسه.</td></tr>
+        <tr><td class="ltr">00:22–00:32</td><td>پارادایم مدل زبان</td><td>تفاوت فهم دوطرفه با تولید autoregressive.</td></tr>
+        <tr><td class="ltr">00:32–00:48</td><td>معماری Llama 2</td><td>نمونه‌ای از decoder-only Transformer و مرور کد معماری.</td></tr>
+        <tr><td class="ltr">00:48–00:59</td><td>LoRA</td><td>فریزکردن وزن پایه و آموزش update کم‌رتبه.</td></tr>
+        <tr><td class="ltr">00:59–01:05</td><td>QLoRA</td><td>Quantization مدل پایه + adapterهای قابل‌آموزش.</td></tr>
+        <tr><td class="ltr">01:15–01:28</td><td>آماده‌سازی دمو</td><td>انتخاب مدل، دادهٔ آموزشی و هدف structured JSON.</td></tr>
+        <tr><td class="ltr">01:28–01:37</td><td>اجرای fine-tuning</td><td>بارگذاری مدل quantized، آموزش adapter و مشاهدهٔ epoch/loss.</td></tr>
+        <tr><td class="ltr">01:37–01:45</td><td>نتیجه و تصمیم مهندسی</td><td>مقایسهٔ خروجی، محدودیت دادهٔ کم و اینکه همیشه fine-tuning لازم نیست.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="map">
+    <h2>۲. یک بلوک، سه خانواده</h2>
+    <table class="timeline">
+      <thead><tr><th>خانواده</th><th>دسترسی Attention</th><th>قوت اصلی</th><th>نمونه</th></tr></thead>
+      <tbody>
+        <tr><td>Encoder-only</td><td>دوطرفه؛ tokenها context چپ و راست را می‌بینند</td><td>فهم و representation</td><td>BERT</td></tr>
+        <tr><td>Decoder-only</td><td>Causal؛ فقط گذشته و token جاری</td><td>تولید token بعدی</td><td>GPT، Llama</td></tr>
+        <tr><td>Encoder–Decoder</td><td>Self-Attention در هر سمت + Cross-Attention</td><td>تبدیل sequence به sequence</td><td>T5 و Transformer اصلی</td></tr>
+      </tbody>
+    </table>
+    <p class="callout"><strong>نقطهٔ مهم:</strong> تفاوت فقط «تعداد لایه» نیست. mask، جهت دسترسی، objective آموزشی و شیوهٔ استفاده از خروجی تعیین می‌کند مدل چه رفتاری یاد بگیرد.</p>
+  </section>
+
+  <section class="section" id="bert">
+    <h2>۳. BERT: بازنمایی دوطرفه برای فهم متن</h2>
+    <p>BERT از stack انکودر Transformer استفاده می‌کند. چون قرار نیست token بعدی را به‌شکل autoregressive تولید کند، هر token می‌تواند context هر دو سمت را ببیند. خروجی هر موقعیت یک contextual representation است.</p>
+    <div class="grid">
+      <article class="card"><h3>Token-level task</h3><p>برای هر token خروجی می‌خواهیم؛ مانند Named Entity Recognition. representation همان موقعیت به classifier داده می‌شود.</p></article>
+      <article class="card"><h3>Sequence-level task</h3><p>برای کل جمله یک برچسب می‌خواهیم؛ مانند sentiment. معمولاً representation تجمیعی یا token ویژه به head طبقه‌بندی می‌رود.</p></article>
+      <article class="card"><h3>Span task</h3><p>برای سؤال‌وجواب extractive، شروع و پایان پاسخ در متن پیش‌بینی می‌شود.</p></article>
+    </div>
+    <p>در نسخهٔ Base، عددهای کلاسیک برای مدل ذهنی عبارت‌اند از ۱۲ لایه، hidden size برابر ۷۶۸ و ۱۲ head. حفظ عددها هدف اصلی نیست؛ مهم این است که بفهمیم «Base» یک stack تکراری از encoder blockهاست.</p>
+  </section>
+
+  <section class="section" id="pretraining">
+    <h2>۴. Pre-training: برچسب را از خود داده بساز</h2>
+    <h3>Masked Language Modeling (MLM)</h3>
+    <p>بخشی از tokenها پنهان یا خراب می‌شوند و مدل باید آن‌ها را با استفاده از context دوطرفه بازسازی کند:</p>
+    <pre><code>ورودی:  «مدل [MASK] را پردازش می‌کند»
+هدف:   «زبان»</code></pre>
+    <p>این self-supervised است: انسان برای هر جمله label دستی ننوشته؛ label از خود متن تولید شده است.</p>
+    <h3>Next Sentence Prediction (در BERT اصلی)</h3>
+    <p>مدل تشخیص می‌دهد آیا جملهٔ دوم واقعاً ادامهٔ جملهٔ اول بوده است. مدل‌های بعدی نشان دادند این objective همیشه لازم نیست و روش‌های pre-training تغییر کردند.</p>
+    <h3>Pre-train و fine-tune چه فرقی دارند؟</h3>
+    <table class="timeline">
+      <thead><tr><th>مرحله</th><th>داده</th><th>هدف</th><th>هزینه</th></tr></thead>
+      <tbody>
+        <tr><td>Pre-training</td><td>حجم عظیم متن عمومی</td><td>یادگیری الگو و representation عمومی</td><td>بسیار زیاد</td></tr>
+        <tr><td>Fine-tuning</td><td>دادهٔ کوچک‌تر و دامنه‌ای</td><td>تطبیق رفتار با task یا domain</td><td>کمتر، ولی بسته به روش هنوز سنگین</td></tr>
+        <tr><td>Inference</td><td>ورودی واقعی</td><td>استفاده از مدل آموزش‌دیده</td><td>به طول و اندازهٔ مدل وابسته</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="llama">
+    <h2>۵. از BERT به Llama: هدف تولید، معماری decoder-only</h2>
+    <p>برای مدل زبانی مولد، objective ساده است: با دانستن tokenهای قبل، token بعدی را پیش‌بینی کن. causal mask جلوی دیدن آینده را می‌گیرد.</p>
+    <pre><code>P(x₁, x₂, …, xₙ) = ∏ P(xₜ | x₁, …, xₜ₋₁)</code></pre>
+    <p>Llama 2 در جلسه به‌عنوان نمونهٔ قابل‌مشاهدهٔ یک decoder-only Transformer بررسی شد: token embedding، بلوک‌های تکراری با causal self-attention و MLP، normalization و head خروجی. جزئیات پیاده‌سازی مثل positional strategy یا نوع activation می‌تواند بین خانواده‌ها تغییر کند، اما قرارداد autoregressive ثابت می‌ماند.</p>
+    <p class="warning callout"><strong>اشتباه رایج:</strong> decoder-only بودن به معنی «فقط تولید و بدون فهم» نیست. مدل برای پیش‌بینی خوب ناچار است الگوهای نحوی، معنایی و دانشی زیادی بیاموزد؛ تفاوت در objective و interface غالب است.</p>
+  </section>
+
+  <section class="section" id="lora">
+    <h2>۶. LoRA: به‌جای تغییر کل وزن، یک update کم‌رتبه یاد بگیر</h2>
+    <p>در full fine-tuning همهٔ پارامترهای مدل تغییر می‌کنند؛ optimizer state و gradient حافظهٔ زیادی می‌خواهند. ایدهٔ LoRA این است که وزن اصلی <code>W</code> فریز بماند و تغییر آن با حاصل‌ضرب دو ماتریس کوچک نمایش داده شود:</p>
+    <div class="formula">W′ = W + ΔW &nbsp;&nbsp; , &nbsp;&nbsp; ΔW = B A &nbsp;&nbsp; , &nbsp;&nbsp; rank(A,B)=r ≪ d</div>
+    <div class="grid">
+      <article class="card"><h3>چه چیزی train می‌شود؟</h3><p>فقط پارامترهای A و B در adapter؛ وزن پایه gradient نمی‌گیرد.</p></article>
+      <article class="card"><h3>چه چیزی ذخیره می‌شود؟</h3><p>adapter کوچک، نه یک نسخهٔ کامل تازه از کل مدل.</p></article>
+      <article class="card"><h3>مزیت عملی</h3><p>حافظه و storage کمتر؛ امکان نگه‌داری چند رفتار روی یک base model.</p></article>
+    </div>
+    <p>LoRA معمولاً روی projectionهای مشخصی از Attention و گاهی MLP اعمال می‌شود. انتخاب target module، rank، alpha، dropout و کیفیت داده روی نتیجه اثر مستقیم دارد.</p>
+  </section>
+
+  <section class="section" id="qlora">
+    <h2>۷. QLoRA: مدل پایه کم‌حافظه، محاسبهٔ adapter با دقت مناسب</h2>
+    <p>QLoRA دو ایده را ترکیب می‌کند:</p>
+    <ol>
+      <li>وزن‌های <strong>مدل پایه</strong> به‌شکل quantized، معمولاً ۴ بیتی، در حافظه نگه‌داری می‌شوند.</li>
+      <li>مدل پایه فریز است و فقط LoRA adapterها train می‌شوند؛ محاسبات حساس می‌توانند با دقت بالاتر انجام شوند.</li>
+    </ol>
+    <p class="callout"><strong>مدل ذهنی:</strong> LoRA تعداد پارامترهای قابل‌آموزش را کم می‌کند؛ QLoRA علاوه بر آن، footprint نگه‌داری مدل پایه را هم کم می‌کند.</p>
+    <p class="danger callout"><strong>نکته:</strong> «۴ بیت» به این معنی نیست که همهٔ عملیات و optimizer دقیقاً ۴ بیتی‌اند. storage وزن پایه، dtype محاسبه و dtype adapter سه موضوع جدا هستند.</p>
+  </section>
+
+  <section class="section" id="decision">
+    <h2>۸. آیا اصلاً باید fine-tune کنیم؟</h2>
+    <p>ترتیب تصمیم‌گیری پیشنهادی برای پروژهٔ واقعی:</p>
+    <ol>
+      <li><strong>Prompt و few-shot:</strong> آیا با دستور و چند مثال رفتار پایدار می‌شود؟</li>
+      <li><strong>Structured output / constrained decoding:</strong> اگر مسئله فقط JSON معتبر است، ابزار خروجی ساختاریافته را امتحان کن.</li>
+      <li><strong>Retrieval:</strong> اگر مشکل دانش تازه/خصوصی است، اطلاعات را هنگام درخواست وارد context کن.</li>
+      <li><strong>Tool use:</strong> اگر مدل باید واقعیت خارجی را بخواند یا عملی انجام دهد، ابزار بده.</li>
+      <li><strong>Fine-tuning:</strong> وقتی رفتار، سبک یا الگوی task با مثال‌های فراوان و پایدار باید در وزن‌ها جا بیفتد.</li>
+    </ol>
+    <table class="timeline">
+      <thead><tr><th>نیاز</th><th>راه نخست</th><th>چرا؟</th></tr></thead>
+      <tbody>
+        <tr><td>دانش شرکت هر روز عوض می‌شود</td><td>RAG / Retrieval</td><td>وزن مدل پایگاه دادهٔ تازه و قابل‌ردیابی نیست.</td></tr>
+        <tr><td>لحن و قالب ثابت در مقیاس زیاد</td><td>Fine-tuning پس از baseline</td><td>الگوی رفتاری تکراری می‌تواند در وزن‌ها تثبیت شود.</td></tr>
+        <tr><td>فقط JSON معتبر</td><td>Schema / constrained output</td><td>ارزان‌تر و قابل‌کنترل‌تر از آموزش است.</td></tr>
+        <tr><td>دامنهٔ تخصصی + دادهٔ کافی</td><td>RAG و سپس ارزیابی fine-tune</td><td>دانش و رفتار دو مسئلهٔ جدا هستند.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="demo">
+    <h2>۹. بازسازی ذهنی دموی QLoRA و JSON</h2>
+    <p>دموی انتهای جلسه یک مدل Llama را برای خروجی JSON روی مجموعه‌ای کوچک از مثال‌ها تطبیق می‌دهد. جریان مهندسی درست را می‌توان این‌طور خلاصه کرد:</p>
+    <pre><code>1. Define task contract and JSON schema
+2. Split examples into train / validation / test
+3. Load tokenizer and quantized base model
+4. Attach LoRA adapters to selected modules
+5. Format each example exactly like inference input
+6. Train adapters; watch train and validation loss
+7. Test on unseen examples
+8. Validate JSON mechanically, not by eye
+9. Save adapter + tokenizer + config + evaluation report</code></pre>
+    <h3>ریسک دادهٔ خیلی کم</h3>
+    <p>چند مثال یا چند epoch ممکن است برای نمایش مکانیزم مناسب باشد، اما اثبات کیفیت نیست. مدل می‌تواند نمونه‌ها را حفظ کند. معیار باید روی دادهٔ دیده‌نشده باشد:</p>
+    <ul>
+      <li>درصد JSON قابل parse؛</li>
+      <li>انطباق با schema؛</li>
+      <li>دقت fieldها؛</li>
+      <li>مقایسه با base model و prompt-only baseline؛</li>
+      <li>latency، VRAM و هزینهٔ inference.</li>
+    </ul>
+    <p class="warning callout">اگر فقط training loss پایین بیاید ولی validation بدتر شود، احتمال overfitting بالاست. پنج epoch روی دیتاست بسیار کوچک لزوماً بهتر از یک epoch نیست.</p>
+  </section>
+
+  <section class="section" id="practice">
+    <h2>۱۰. تمرین و خودآزمایی</h2>
+    <h3>تمرین‌های توضیحی</h3>
+    <ol>
+      <li>با یک شکل توضیح بده چرا BERT می‌تواند token سمت راست را ببیند ولی Llama هنگام تولید token جاری نباید آینده را ببیند.</li>
+      <li>برای weight matrix با ابعاد <span class="ltr">4096×4096</span> و rank برابر ۸، تعداد پارامتر full و LoRA update را مقایسه کن.</li>
+      <li>سه سناریو بنویس: یکی مناسب RAG، یکی مناسب LoRA، یکی که فقط با structured output حل می‌شود.</li>
+      <li>برای task استخراج incident از log، schema و پنج معیار ارزیابی تعریف کن.</li>
+      <li>توضیح بده چرا fine-tune راه خوبی برای «آخرین وضعیت سرورها» نیست.</li>
+    </ol>
+    <h3>پاسخ محاسبهٔ LoRA</h3>
+    <details><summary>ماتریس ۴۰۹۶×۴۰۹۶ با rank=8 چند پارامتر دارد؟</summary><p>وزن کامل ۱۶٬۷۷۷٬۲۱۶ پارامتر دارد. دو ماتریس LoRA جمعاً <span class="ltr">4096×8 + 8×4096 = 65,536</span> پارامتر دارند؛ حدود ۰٫۳۹٪ وزن کامل برای همان projection.</p></details>
+    <h3>پرسش‌های تستی</h3>
+    <details><summary>۱. چرا BERT برای MLM به causal mask نیاز ندارد؟</summary><p>هدف بازسازی token پنهان با context دوطرفه است، پس دیدن سمت چپ و راست مجاز است؛ فقط خود پاسخ باید از ورودی حذف/خراب شده باشد.</p></details>
+    <details><summary>۲. LoRA دقیقاً چه چیزی را فریز می‌کند؟</summary><p>وزن‌های pretrained مدل پایه. gradient فقط برای adapterهای کم‌رتبه محاسبه می‌شود.</p></details>
+    <details><summary>۳. تفاوت LoRA و QLoRA در یک جمله چیست؟</summary><p>LoRA update کم‌رتبه را آموزش می‌دهد؛ QLoRA همان کار را روی یک base model quantized و فریز انجام می‌دهد تا حافظهٔ کمتری مصرف شود.</p></details>
+    <details><summary>۴. چه زمانی retrieval بهتر از fine-tuning است؟</summary><p>وقتی مشکل، دسترسی به واقعیت‌های تازه، خصوصی یا قابل‌استناد است؛ دانش هنگام درخواست وارد context می‌شود و به بازآموزی نیاز ندارد.</p></details>
+    <details><summary>۵. پایین‌بودن training loss چه چیزی را ثابت نمی‌کند؟</summary><p>تعمیم روی دادهٔ جدید، صحت JSON، دقت fieldها یا بهترشدن نسبت به baseline را ثابت نمی‌کند.</p></details>
+    <h3>معیار تسلط</h3>
+    <p>اگر بتوانی BERT و Llama را با mask/objective توضیح بدهی، فرمول LoRA را از حفظ بنویسی، QLoRA را بدون گفتن «همه‌چیز ۴ بیتی است» شرح دهی و برای یک مسئله بین Prompt/RAG/Tool/Fine-tune تصمیم بگیری، هستهٔ جلسه را یاد گرفته‌ای.</p>
+  </section>
+
+  <footer class="footer"><a href="../index.html">بازگشت به فهرست جزوه‌ها</a> · جزوه منتشرشده؛ ویدئو و transcript خام خارج از Git</footer>
+</main>
+</body>
+</html>

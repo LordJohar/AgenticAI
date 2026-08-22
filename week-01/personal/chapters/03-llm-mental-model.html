@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="مدل زبان چه کاری انجام می‌دهد و چه کاری انجام نمی‌دهد؟">
+  <title>مدل ذهنی درست از LLM — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 03</div>
+    <h2>مدل ذهنی درست از LLM</h2>
+    <p>مدل زبان چه کاری انجام می‌دهد و چه کاری انجام نمی‌دهد؟</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="مدل ذهنی درست از LLM" id="mental-model">
+<div class="chapter-header">
+<div class="chapter-number">۳</div>
+<div>
+<h2>مدل ذهنی درست از LLM</h2>
+<p>مدل زبان چه کاری انجام می‌دهد و چه کاری انجام نمی‌دهد؟</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="mental-model" type="checkbox"/> خواندم</label>
+</div>
+<p class="lead">
+          LLM یا <span class="ltr">Large Language Model</span> مدلی است که با دیدن حجم بزرگی از داده، الگوهای آماری زبان و انواع ساختارها را یاد گرفته
+          و هنگام اجرا، دنبالهٔ Tokenهای بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
+        </p>
+<h3>Training در برابر Inference</h3>
+<div class="grid-2">
+<article class="card">
+<h4>Training / Post-training</h4>
+<p>مرحله‌ای پرهزینه که وزن‌های مدل با داده به‌روزرسانی می‌شوند. Pre-training الگوهای عمومی را می‌آموزد؛ Post-training رفتار مدل را برای دنبال کردن دستور، ایمنی و ترجیحات انسانی تنظیم می‌کند.</p>
+</article>
+<article class="card">
+<h4>Inference</h4>
+<p>همان چیزی که با API مصرف می‌کنی. ورودی Tokenize می‌شود، مدل خروجی را Token به Token می‌سازد و هزینه/Latency ایجاد می‌شود. Request تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
+</article>
+</div>
+<div class="analogy">
+<p>
+            Training شبیه ساخت و Bake کردن یک Image بزرگ است؛ Inference شبیه اجرای Container از آن Image با Config و Input مشخص.
+            Request عادی تو Image را دوباره Build نمی‌کند، فقط یک اجرای جدید با ورودی جدید است.
+          </p>
+</div>
+<h3>Transformer را چقدر باید بفهمی؟</h3>
+<p>
+          برای هفتهٔ اول همین مدل ذهنی کافی است: Transformer با سازوکار <strong>Attention</strong> می‌تواند رابطهٔ بخش‌های مختلف ورودی را وزن‌دهی کند؛
+          یعنی هنگام پردازش یک Token، به Tokenهای مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های Query/Key/Value را محاسبه کنی،
+          اما باید بدانی Context به مدل اجازه می‌دهد روابط داخل همان ورودی را ببیند.
+        </p>
+<div class="callout">
+<strong>اصل طلایی:</strong> خروجی LLM «بازیابی مستقیم یک رکورد حقیقت» نیست؛ تولید محتمل‌ترین ادامه بر اساس Training، Instruction و Context است.
+          بنابراین روان بودن متن هیچ تضمینی برای درست بودن آن نیست.
+        </div>
+<h3>از LLM تا Agent</h3>
+<div class="diagram">
+<div class="flow">
+<div class="flow-node"><strong>User Goal</strong><br/><small>هدف</small></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><strong>Agent Loop</strong><br/><small>Plan / Decide</small></div>
+<div class="flow-arrow">↔</div>
+<div class="flow-node"><strong>LLM</strong><br/><small>Reason / Generate</small></div>
+<div class="flow-arrow">↔</div>
+<div class="flow-node"><strong>Tools</strong><br/><small>API / DB / Shell</small></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><strong>State &amp; Guardrails</strong><br/><small>Memory / Policy</small></div>
+</div>
+</div>
+<p>
+          مدل به‌تنهایی فقط خروجی تولید می‌کند. Agent زمانی شکل می‌گیرد که برنامه‌ای اطراف مدل تصمیم بگیرد چه زمانی مدل را صدا بزند،
+          چه Toolهایی در اختیارش باشد، نتیجهٔ Tool را چگونه برگرداند، چه زمانی متوقف شود و کجا Human Approval لازم باشد.
+        </p>
+<h3>Stateless بودن را فراموش نکن</h3>
+<p>
+          بسیاری از API Callها ذاتاً مستقل‌اند. اگر می‌خواهی مدل «گفت‌وگوی قبلی» را بداند، باید History یا شناسهٔ State را طبق قرارداد API بفرستی.
+          تصور اینکه مدل پشت صحنه همهٔ مکالمه‌ها و فایل‌های تو را همیشه به یاد دارد، یک خطای طراحی است.
+        </p>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="02-programming-api-bridge.html">فصل قبل: پل ورود: واژه‌های برنامه‌نویسی و API</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="04-llm-capabilities.html">فصل بعد: توانایی‌های LLM</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

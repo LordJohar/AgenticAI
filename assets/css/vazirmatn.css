@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../fonts/vazirmatn/webfonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../fonts/vazirmatn/webfonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../fonts/vazirmatn/webfonts/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../fonts/vazirmatn/webfonts/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body,
+[lang="fa"],
+[dir="rtl"],
+.vazirmatn {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+}
+
+html[dir="rtl"],
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+  line-height: 1.85;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] td,
+[dir="rtl"] th,
+[dir="rtl"] blockquote {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+}
+
+pre,
+code,
+kbd,
+samp {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+table { width: 100%; }

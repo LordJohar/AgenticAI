@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="همهٔ خطاها Retryable نیستند و «پنج بار امتحان کن» استراتژی نیست">
+  <title>Error Handling، Timeout و Retry — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 11</div>
+    <h2>Error Handling، Timeout و Retry</h2>
+    <p>همهٔ خطاها Retryable نیستند و «پنج بار امتحان کن» استراتژی نیست</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="error handling exception timeout rate limit retry backoff jitter 429 500" id="errors">
+<div class="chapter-header">
+<div class="chapter-number">۱۱</div>
+<div>
+<h2>Error Handling، Timeout و Retry</h2>
+<p>همهٔ خطاها Retryable نیستند و «پنج بار امتحان کن» استراتژی نیست</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="errors" type="checkbox"/> خواندم</label>
+</div>
+<h3>لایه‌های خطا را جدا کن</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>دسته</th><th>مثال</th><th>Retry؟</th><th>اقدام اصلی</th></tr></thead>
+<tbody>
+<tr><td>Local / Code</td><td>فایل پیدا نشد، JSON خراب، TypeError</td><td>معمولاً خیر</td><td>اصلاح ورودی یا Bug؛ پیام دقیق و Exit Code مناسب.</td></tr>
+<tr><td>Authentication</td><td>Key اشتباه یا منقضی</td><td>خیر</td><td>توقف، Rotation/Config Fix؛ Secret را Log نکن.</td></tr>
+<tr><td>Validation / Bad Request</td><td>Model نامعتبر، پارامتر یا Schema غلط</td><td>خیر</td><td>اصلاح Request.</td></tr>
+<tr><td>Rate Limit</td><td>تعداد درخواست بیش از ظرفیت کوتاه‌مدت</td><td>گاهی</td><td>احترام به <code>Retry-After</code>، Backoff، Queue و Concurrency Limit.</td></tr>
+<tr><td>Quota / Billing</td><td>Credit یا سقف مصرف تمام شده</td><td>خیر</td><td>رفع Quota/Billing؛ Retry فقط فشار و Cost را بیشتر می‌کند.</td></tr>
+<tr><td>Timeout / Connection</td><td>قطع شبکه، Connect/Read Timeout</td><td>گاهی</td><td>Retry محدود با Backoff؛ بررسی Idempotency و Network.</td></tr>
+<tr><td>Server Error</td><td><span class="ltr">HTTP 5xx</span></td><td>اغلب محدود</td><td>Retry با Jitter و سقف؛ Circuit Breaker در مقیاس بالاتر.</td></tr>
+<tr><td>Safety / Policy</td><td>درخواست یا خروجی مسدود</td><td>نه با همان ورودی</td><td>رفتار Product و مسیر Escalation را مشخص کن.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>چرا Timeout اجباری است؟</h3>
+<p>
+          بدون Timeout، Worker ممکن است مدت طولانی منتظر بماند، Connection Pool اشغال شود، Queue رشد کند و Failure به سرویس‌های دیگر سرایت کند.
+          Timeout باید بر اساس SLO و نوع Request تنظیم شود؛ نه آن‌قدر کوتاه که پاسخ‌های سالم را قطع کند و نه آن‌قدر بلند که Failure را مخفی کند.
+        </p>
+<h3>Exponential Backoff با Jitter</h3>
+<div class="formula">delay = min(max_delay, base_delay × 2^attempt + random_jitter)</div>
+<p>
+          اگر صدها Client هم‌زمان Failure ببینند و دقیقاً در ثانیهٔ یکسان Retry کنند، Thundering Herd می‌سازند. Jitter زمان Retryها را پخش می‌کند.
+        </p>
+<pre><code>import random
+import time
+
+for attempt in range(3):
+    try:
+        return call_api()
+    except RetryableError:
+        if attempt == 2:
+            raise
+        delay = min(8.0, 0.5 * (2 ** attempt) + random.uniform(0, 0.25))
+        time.sleep(delay)</code></pre>
+<div class="callout warning">
+<strong>Retry Budget داشته باش.</strong> سقف Attempt، سقف زمان کل و سقف هزینه را مشخص کن. SDK ممکن است خودش Retry پیش‌فرض داشته باشد؛ اگر روی آن Retry Application هم بگذاری، تعداد واقعی Callها چند برابر می‌شود.
+        </div>
+<h3>نمونهٔ Error Handling با SDK</h3>
+<pre><code>from openai import (
+    APIConnectionError,
+    APIStatusError,
+    APITimeoutError,
+    AuthenticationError,
+    BadRequestError,
+    RateLimitError,
+)
+
+try:
+    response = client.responses.create(model=model, input=user_input)
+except AuthenticationError:
+    raise SystemExit("authentication failed; check credential configuration")
+except BadRequestError as exc:
+    raise SystemExit(f"invalid request: {exc}")
+except RateLimitError as exc:
+    # فقط پس از تشخیص rate-limit موقت؛ quota/billing را retry نکن
+    handle_rate_limit(exc)
+except (APIConnectionError, APITimeoutError) as exc:
+    handle_transient_failure(exc)
+except APIStatusError as exc:
+    print(f"provider status={exc.status_code} request_id={exc.request_id}")
+    raise</code></pre>
+<h3>Request ID، بهترین سرنخ Debug</h3>
+<p>
+          شناسهٔ Request را در Log ساختاریافته ثبت کن تا خطای Client، Provider و Support قابل Correlation باشد. Secret، Prompt کامل یا دادهٔ حساس را برای رسیدن به همین هدف Log نکن.
+        </p>
+<h3>Idempotency و Agent Tool</h3>
+<p>
+          Retry یک درخواست صرفاً خواندنی معمولاً کم‌خطرتر از Retry عملیاتی مانند «ساخت Ticket»، «ارسال Email» یا «Restart Deployment» است.
+          در Toolهای Side-effect دار از Idempotency Key، Check-before-act، Transaction یا ثبت State استفاده کن تا یک Failure مبهم باعث اجرای دوبارهٔ عمل نشود.
+        </p>
+<div class="analogy">
+<p>
+            این همان تفاوت Retry کردن <code>GET</code> با Retry کورکورانهٔ یک Job غیر Idempotent است. LLM بودن سرویس هیچ‌کدام از اصول Distributed Systems را لغو نمی‌کند.
+          </p>
+</div>
+<div class="callout success">
+<strong>فایل آماده:</strong> <a href="../examples/resilient_llm_client.py">resilient_llm_client.py</a> نمونهٔ Retry محدود، Timeout، Jitter و تفکیک خطاهای غیرقابل Retry را نشان می‌دهد.
+        </div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="10-environment-api.html">فصل قبل: Environment Variables و اولین API Call</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="12-observability-evaluation.html">فصل بعد: Observability برای LLM Application</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

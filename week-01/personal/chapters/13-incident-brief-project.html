@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="تمام مفاهیم هفتهٔ اول در یک ابزار کوچک و نزدیک به کار واقعی تو">
+  <title>مینی‌پروژه: Incident Brief CLI — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 13</div>
+    <h2>مینی‌پروژه: Incident Brief CLI</h2>
+    <p>تمام مفاهیم هفتهٔ اول در یک ابزار کوچک و نزدیک به کار واقعی تو</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="مینی پروژه incident brief cli log sanitizer prompt" id="mini-project">
+<div class="chapter-header">
+<div class="chapter-number">۱۳</div>
+<div>
+<h2>مینی‌پروژه: Incident Brief CLI</h2>
+<p>تمام مفاهیم هفتهٔ اول در یک ابزار کوچک و نزدیک به کار واقعی تو</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="mini-project" type="checkbox"/> خواندم</label>
+</div>
+<h3>هدف</h3>
+<p>
+          یک فایل Log نمونه را بخوانیم، الگوهای واضح Secret را Mask کنیم، از مدل بخواهیم فقط بر اساس Evidence خلاصه تولید کند،
+          Timeout/Retry محدود داشته باشیم و Metadata درخواست را بدون ذخیرهٔ محتوای حساس ثبت کنیم.
+        </p>
+<div class="diagram">
+<div class="flow">
+<div class="flow-node">sample_incident.log</div><div class="flow-arrow">→</div>
+<div class="flow-node">Read &amp; Validate</div><div class="flow-arrow">→</div>
+<div class="flow-node">Redact Secrets</div><div class="flow-arrow">→</div>
+<div class="flow-node">Build Prompt</div><div class="flow-arrow">→</div>
+<div class="flow-node">LLM API</div><div class="flow-arrow">→</div>
+<div class="flow-node">Incident Brief + Metrics</div>
+</div>
+</div>
+<h3>خروجی مورد انتظار</h3>
+<ol>
+<li><strong>Facts:</strong> فقط واقعیت‌های موجود در Log.</li>
+<li><strong>Likely impact:</strong> اثر محتمل با برچسب «استنباط»، نه Fact قطعی.</li>
+<li><strong>Unknowns:</strong> چیزهایی که Evidence کافی ندارند.</li>
+<li><strong>Safe next checks:</strong> بررسی‌های Read-only و بدون ساختن Command خیالی.</li>
+<li><strong>Confidence:</strong> سطح اطمینان و دلیل آن.</li>
+</ol>
+<h3>اجرای Dry-run بدون API</h3>
+<pre><code>cd agentic-ai-learning/week-01/personal/examples
+python incident_brief_cli.py --file sample_incident.log --dry-run</code></pre>
+<p>
+          Dry-run متن Sanitized و Prompt نهایی را نشان می‌دهد اما هیچ Request شبکه‌ای نمی‌فرستد. این بهترین نقطه برای فهمیدن Glue Code و بررسی اینکه چه داده‌ای قرار است از سیستم خارج شود است.
+        </p>
+<h3>اجرای واقعی</h3>
+<pre><code># Linux / Bash
+export OPENAI_API_KEY='...'
+export OPENAI_MODEL='gpt-5.6'
+python incident_brief_cli.py --file sample_incident.log
+
+# Windows PowerShell
+$env:OPENAI_API_KEY = '...'
+$env:OPENAI_MODEL = 'gpt-5.6'
+python .\incident_brief_cli.py --file .\sample_incident.log</code></pre>
+<h3>مرزهای امنیتی پروژه</h3>
+<ul>
+<li>فقط از Log نمونه استفاده کن؛ Log Production را بدون Data Classification و مجوز به Provider خارجی نفرست.</li>
+<li>Regex نمونه تمام انواع Secret/PII را پیدا نمی‌کند؛ این یک Demo است، نه DLP سازمانی.</li>
+<li>Tool اجرایی به پروژه وصل نشده؛ مدل فقط متن تولید می‌کند.</li>
+<li>Output را Evidence قطعی فرض نکن؛ Unknownها و Citation داخلی Log را بررسی کن.</li>
+<li>فایل <code>.env</code> و خروجی‌های حساس داخل Git نروند.</li>
+</ul>
+<h3>فایل‌های پروژه</h3>
+<div class="grid-2">
+<article class="card"><h4><a href="../examples/incident_brief_cli.py">incident_brief_cli.py</a></h4><p>CLI اصلی، خواندن فایل، Redaction، ساخت Prompt و نمایش خروجی.</p></article>
+<article class="card"><h4><a href="../examples/resilient_llm_client.py">resilient_llm_client.py</a></h4><p>Client مقاوم با Timeout و Retry محدود.</p></article>
+<article class="card"><h4><a href="../examples/sample_incident.log">sample_incident.log</a></h4><p>Log آموزشی Kubernetes بدون دادهٔ واقعی.</p></article>
+<article class="card"><h4><a href="../examples/cost_calculator.py">cost_calculator.py</a></h4><p>محاسبهٔ هزینه با نرخ‌های ورودی‌شده توسط خودت.</p></article>
+</div>
+<h3>چه چیزی باید بتوانی توضیح بدهی؟</h3>
+<ul class="checklist">
+<li><label><input data-progress-id="project-1" type="checkbox"/><span>ورودی برنامه از کجا می‌آید و کجا Validate می‌شود؟</span></label></li>
+<li><label><input data-progress-id="project-2" type="checkbox"/><span>کدام قسمت قطعی و کدام قسمت احتمالاتی است؟</span></label></li>
+<li><label><input data-progress-id="project-3" type="checkbox"/><span>Secret چگونه وارد Client می‌شود و چرا چاپ نمی‌شود؟</span></label></li>
+<li><label><input data-progress-id="project-4" type="checkbox"/><span>کدام خطاها Retry می‌شوند و سقف Retry کجاست؟</span></label></li>
+<li><label><input data-progress-id="project-5" type="checkbox"/><span>برای Production چه کنترل‌هایی هنوز کم است؟</span></label></li>
+</ul>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="12-observability-evaluation.html">فصل قبل: Observability برای LLM Application</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="14-exercises.html">فصل بعد: تمرین‌ها و پاسخ‌ها</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>

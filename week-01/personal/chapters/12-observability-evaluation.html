@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Latency و Error کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم">
+  <title>Observability برای LLM Application — هفتهٔ اول Agentic AI</title>
+  <link rel="stylesheet" href="../assets/css/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<main class="content" id="main-content">
+  <header class="hero">
+    <div class="eyebrow">Agentic AI · Week 01 · Chapter 12</div>
+    <h2>Observability برای LLM Application</h2>
+    <p>Latency و Error کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
+    <div class="hero-meta">
+      <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
+      <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
+      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+    </div>
+  </header>
+
+  <section class="chapter" data-title="observability metrics logs traces evaluation request id quality" id="observability">
+<div class="chapter-header">
+<div class="chapter-number">۱۲</div>
+<div>
+<h2>Observability برای LLM Application</h2>
+<p>Latency و Error کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
+</div>
+<label class="chapter-complete"><input data-progress-id="observability" type="checkbox"/> خواندم</label>
+</div>
+<h3>چه چیزی Log شود؟</h3>
+<div class="grid-2">
+<article class="card">
+<h4>Metadata مفید</h4>
+<ul>
+<li>Timestamp و Correlation ID</li>
+<li>Provider، Model و Model/Prompt Version</li>
+<li>Operation یا Feature Name</li>
+<li>Duration، Retry Count و Status</li>
+<li>Input/Output Token و Cost Estimate</li>
+<li>Tool Name، Tool Duration و Result Status</li>
+<li>Request ID سرویس‌دهنده</li>
+</ul>
+</article>
+<article class="card">
+<h4>چیزی که پیش‌فرض Log نشود</h4>
+<ul>
+<li>API Key، Token، Cookie و Authorization Header</li>
+<li>Prompt یا فایل کامل حاوی دادهٔ محرمانه</li>
+<li>PII بدون Masking و Purpose روشن</li>
+<li>Tool Arguments حساس</li>
+<li>Chain-of-thought خصوصی یا داده‌ای که Product نیاز ندارد</li>
+</ul>
+</article>
+</div>
+<h3>نمونهٔ Log ساختاریافته</h3>
+<pre><code>{
+  "event": "llm_request_completed",
+  "trace_id": "tr-20260821-00142",
+  "feature": "incident_brief",
+  "model": "configured-model",
+  "prompt_version": "incident-brief-v1",
+  "status": "ok",
+  "duration_ms": 4210,
+  "input_tokens": 3820,
+  "output_tokens": 530,
+  "retry_count": 0,
+  "provider_request_id": "req_...",
+  "content_logged": false
+}</code></pre>
+<h3>Metricهای عملیاتی</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Metric</th><th>چرا مهم است؟</th></tr></thead>
+<tbody>
+<tr><td><code>llm_requests_total</code></td><td>Traffic بر اساس Feature، Model و Status.</td></tr>
+<tr><td><code>llm_request_duration_seconds</code></td><td>p50/p95/p99 و Tail Latency.</td></tr>
+<tr><td><code>llm_input_tokens_total</code> / <code>output_tokens_total</code></td><td>Capacity و Cost Driver.</td></tr>
+<tr><td><code>llm_retry_total</code></td><td>تشخیص Rate Limit، Network Instability یا Retry Storm.</td></tr>
+<tr><td><code>llm_estimated_cost_total</code></td><td>Budget، Forecast و Anomaly Detection.</td></tr>
+<tr><td><code>llm_eval_pass_ratio</code></td><td>کیفیت واقعی روی Dataset نسخه‌بندی‌شده.</td></tr>
+<tr><td><code>tool_call_failures_total</code></td><td>خطاهای Agent خارج از خود مدل.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Trace یک Agent</h3>
+<pre><code>trace: user-request-42
+  span: input-validation                  8ms
+  span: retrieve-runbook                92ms
+  span: llm-plan                       2100ms
+  span: tool-k8s-get-events             340ms
+  span: llm-final-answer               2850ms
+  span: output-policy-check              40ms</code></pre>
+<p>
+          Trace نشان می‌دهد تأخیر یا خطا دقیقاً در Retrieval، Model، Tool یا Validation رخ داده است. اما برای AI یک بعد دیگر داریم:
+          پاسخ ممکن است از نظر HTTP و Latency سالم باشد ولی از نظر معنا غلط باشد. اینجا <strong>Evaluation</strong> وارد می‌شود.
+        </p>
+<h3>Evaluation چیست؟</h3>
+<p>
+          مجموعه‌ای از نمونه‌های نسخه‌بندی‌شده و معیارهایی برای سنجش خروجی. بخشی از معیارها قطعی‌اند، مانند JSON Validity یا وجود Citation؛
+          بخشی نیاز به Rubric، Model Judge کنترل‌شده یا Human Review دارند، مانند «آیا خلاصه علت را درست و بدون حدس بیان کرده؟».
+        </p>
+<div class="callout danger">
+<strong>Dashboard سبز می‌تواند دروغ بگوید.</strong> اگر فقط HTTP 200، Error Rate و Latency را مانیتور کنی، Semantic Regression دیده نمی‌شود. Prompt و Model را مثل Code Version کن و Evaluation را در Release Gate قرار بده.
+        </div>
+</section>
+
+  <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
+    <a class="pill" href="11-error-handling.html">فصل قبل: Error Handling، Timeout و Retry</a>
+    <a class="pill" href="../index.html">فهرست</a>
+    <a class="pill" href="13-incident-brief-project.html">فصل بعد: مینی‌پروژه: Incident Brief CLI</a>
+  </nav>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+</main>
+<script src="../assets/js/course.js"></script>
+</body>
+</html>
