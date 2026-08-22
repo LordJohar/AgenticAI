@@ -11,13 +11,13 @@
 <a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
 <main class="content" id="main-content">
   <header class="hero">
-    <div class="eyebrow">Agentic AI · Week 01 · Chapter 03</div>
-    <h2>مدل ذهنی درست از LLM</h2>
+    <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 03</div>
+    <h2>مدل ذهنی درست از <bdi class="term-en" dir="ltr">LLM</bdi></h2>
     <p>مدل زبان چه کاری انجام می‌دهد و چه کاری انجام نمی‌دهد؟</p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
       <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
-      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button>
     </div>
   </header>
 
@@ -25,73 +25,73 @@
 <div class="chapter-header">
 <div class="chapter-number">۳</div>
 <div>
-<h2>مدل ذهنی درست از LLM</h2>
+<h2>مدل ذهنی درست از <bdi class="term-en" dir="ltr">LLM</bdi></h2>
 <p>مدل زبان چه کاری انجام می‌دهد و چه کاری انجام نمی‌دهد؟</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="mental-model" type="checkbox"/> خواندم</label>
 </div>
 <p class="lead">
-          LLM یا <span class="ltr">Large Language Model</span> مدلی است که با دیدن حجم بزرگی از داده، الگوهای آماری زبان و انواع ساختارها را یاد گرفته
-          و هنگام اجرا، دنبالهٔ Tokenهای بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
+          <bdi class="term-en" dir="ltr">LLM</bdi> یا <span class="ltr">Large Language Model</span> مدلی است که با دیدن حجم بزرگی از داده، الگوهای آماری زبان و انواع ساختارها را یاد گرفته
+          و هنگام اجرا، دنبالهٔ <bdi class="term-en" dir="ltr">Token</bdi>های بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
         </p>
-<h3>Training در برابر Inference</h3>
+<h3><bdi class="term-en" dir="ltr">Training</bdi> در برابر <bdi class="term-en" dir="ltr">Inference</bdi></h3>
 <div class="grid-2">
 <article class="card">
-<h4>Training / Post-training</h4>
-<p>مرحله‌ای پرهزینه که وزن‌های مدل با داده به‌روزرسانی می‌شوند. Pre-training الگوهای عمومی را می‌آموزد؛ Post-training رفتار مدل را برای دنبال کردن دستور، ایمنی و ترجیحات انسانی تنظیم می‌کند.</p>
+<h4><bdi class="term-en" dir="ltr">Training / Post-training</bdi></h4>
+<p>مرحله‌ای پرهزینه که وزن‌های مدل با داده به‌روزرسانی می‌شوند. <bdi class="term-en" dir="ltr">Pre-training</bdi> الگوهای عمومی را می‌آموزد؛ <bdi class="term-en" dir="ltr">Post-training</bdi> رفتار مدل را برای دنبال کردن دستور، ایمنی و ترجیحات انسانی تنظیم می‌کند.</p>
 </article>
 <article class="card">
-<h4>Inference</h4>
-<p>همان چیزی که با API مصرف می‌کنی. ورودی Tokenize می‌شود، مدل خروجی را Token به Token می‌سازد و هزینه/Latency ایجاد می‌شود. Request تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
+<h4><bdi class="term-en" dir="ltr">Inference</bdi></h4>
+<p>همان چیزی که با <bdi class="term-en" dir="ltr">API</bdi> مصرف می‌کنی. ورودی <bdi class="term-en" dir="ltr">Tokenize</bdi> می‌شود، مدل خروجی را <bdi class="term-en" dir="ltr">Token</bdi> به <bdi class="term-en" dir="ltr">Token</bdi> می‌سازد و هزینه/Latency ایجاد می‌شود. <bdi class="term-en" dir="ltr">Request</bdi> تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
 </article>
 </div>
 <div class="analogy">
 <p>
-            Training شبیه ساخت و Bake کردن یک Image بزرگ است؛ Inference شبیه اجرای Container از آن Image با Config و Input مشخص.
-            Request عادی تو Image را دوباره Build نمی‌کند، فقط یک اجرای جدید با ورودی جدید است.
+            <bdi class="term-en" dir="ltr">Training</bdi> شبیه ساخت و <bdi class="term-en" dir="ltr">Bake</bdi> کردن یک <bdi class="term-en" dir="ltr">Image</bdi> بزرگ است؛ <bdi class="term-en" dir="ltr">Inference</bdi> شبیه اجرای <bdi class="term-en" dir="ltr">Container</bdi> از آن <bdi class="term-en" dir="ltr">Image</bdi> با <bdi class="term-en" dir="ltr">Config</bdi> و <bdi class="term-en" dir="ltr">Input</bdi> مشخص.
+            <bdi class="term-en" dir="ltr">Request</bdi> عادی تو <bdi class="term-en" dir="ltr">Image</bdi> را دوباره <bdi class="term-en" dir="ltr">Build</bdi> نمی‌کند، فقط یک اجرای جدید با ورودی جدید است.
           </p>
 </div>
-<h3>Transformer را چقدر باید بفهمی؟</h3>
+<h3><bdi class="term-en" dir="ltr">Transformer</bdi> را چقدر باید بفهمی؟</h3>
 <p>
-          برای هفتهٔ اول همین مدل ذهنی کافی است: Transformer با سازوکار <strong>Attention</strong> می‌تواند رابطهٔ بخش‌های مختلف ورودی را وزن‌دهی کند؛
-          یعنی هنگام پردازش یک Token، به Tokenهای مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های Query/Key/Value را محاسبه کنی،
-          اما باید بدانی Context به مدل اجازه می‌دهد روابط داخل همان ورودی را ببیند.
+          برای هفتهٔ اول همین مدل ذهنی کافی است: <bdi class="term-en" dir="ltr">Transformer</bdi> با سازوکار <strong><bdi class="term-en" dir="ltr">Attention</bdi></strong> می‌تواند رابطهٔ بخش‌های مختلف ورودی را وزن‌دهی کند؛
+          یعنی هنگام پردازش یک <bdi class="term-en" dir="ltr">Token</bdi>، به <bdi class="term-en" dir="ltr">Token</bdi>های مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های <bdi class="term-en" dir="ltr">Query/Key/Value</bdi> را محاسبه کنی،
+          اما باید بدانی <bdi class="term-en" dir="ltr">Context</bdi> به مدل اجازه می‌دهد روابط داخل همان ورودی را ببیند.
         </p>
 <div class="callout">
-<strong>اصل طلایی:</strong> خروجی LLM «بازیابی مستقیم یک رکورد حقیقت» نیست؛ تولید محتمل‌ترین ادامه بر اساس Training، Instruction و Context است.
+<strong>اصل طلایی:</strong> خروجی <bdi class="term-en" dir="ltr">LLM</bdi> «بازیابی مستقیم یک رکورد حقیقت» نیست؛ تولید محتمل‌ترین ادامه بر اساس <bdi class="term-en" dir="ltr">Training</bdi>، <bdi class="term-en" dir="ltr">Instruction</bdi> و <bdi class="term-en" dir="ltr">Context</bdi> است.
           بنابراین روان بودن متن هیچ تضمینی برای درست بودن آن نیست.
         </div>
-<h3>از LLM تا Agent</h3>
+<h3>از <bdi class="term-en" dir="ltr">LLM</bdi> تا <bdi class="term-en" dir="ltr">Agent</bdi></h3>
 <div class="diagram">
 <div class="flow">
-<div class="flow-node"><strong>User Goal</strong><br/><small>هدف</small></div>
+<div class="flow-node"><strong><bdi class="term-en" dir="ltr">User Goal</bdi></strong><br/><small>هدف</small></div>
 <div class="flow-arrow">→</div>
-<div class="flow-node"><strong>Agent Loop</strong><br/><small>Plan / Decide</small></div>
+<div class="flow-node"><strong><bdi class="term-en" dir="ltr">Agent Loop</bdi></strong><br/><small><bdi class="term-en" dir="ltr">Plan / Decide</bdi></small></div>
 <div class="flow-arrow">↔</div>
-<div class="flow-node"><strong>LLM</strong><br/><small>Reason / Generate</small></div>
+<div class="flow-node"><strong><bdi class="term-en" dir="ltr">LLM</bdi></strong><br/><small><bdi class="term-en" dir="ltr">Reason / Generate</bdi></small></div>
 <div class="flow-arrow">↔</div>
-<div class="flow-node"><strong>Tools</strong><br/><small>API / DB / Shell</small></div>
+<div class="flow-node"><strong><bdi class="term-en" dir="ltr">Tools</bdi></strong><br/><small><bdi class="term-en" dir="ltr">API / DB / Shell</bdi></small></div>
 <div class="flow-arrow">→</div>
-<div class="flow-node"><strong>State &amp; Guardrails</strong><br/><small>Memory / Policy</small></div>
+<div class="flow-node"><strong><bdi class="term-en" dir="ltr">State</bdi> &amp; <bdi class="term-en" dir="ltr">Guardrails</bdi></strong><br/><small><bdi class="term-en" dir="ltr">Memory / Policy</bdi></small></div>
 </div>
 </div>
 <p>
-          مدل به‌تنهایی فقط خروجی تولید می‌کند. Agent زمانی شکل می‌گیرد که برنامه‌ای اطراف مدل تصمیم بگیرد چه زمانی مدل را صدا بزند،
-          چه Toolهایی در اختیارش باشد، نتیجهٔ Tool را چگونه برگرداند، چه زمانی متوقف شود و کجا Human Approval لازم باشد.
+          مدل به‌تنهایی فقط خروجی تولید می‌کند. <bdi class="term-en" dir="ltr">Agent</bdi> زمانی شکل می‌گیرد که برنامه‌ای اطراف مدل تصمیم بگیرد چه زمانی مدل را صدا بزند،
+          چه <bdi class="term-en" dir="ltr">Tool</bdi>هایی در اختیارش باشد، نتیجهٔ <bdi class="term-en" dir="ltr">Tool</bdi> را چگونه برگرداند، چه زمانی متوقف شود و کجا <bdi class="term-en" dir="ltr">Human Approval</bdi> لازم باشد.
         </p>
-<h3>Stateless بودن را فراموش نکن</h3>
+<h3><bdi class="term-en" dir="ltr">Stateless</bdi> بودن را فراموش نکن</h3>
 <p>
-          بسیاری از API Callها ذاتاً مستقل‌اند. اگر می‌خواهی مدل «گفت‌وگوی قبلی» را بداند، باید History یا شناسهٔ State را طبق قرارداد API بفرستی.
+          بسیاری از <bdi class="term-en" dir="ltr">API Call</bdi>ها ذاتاً مستقل‌اند. اگر می‌خواهی مدل «گفت‌وگوی قبلی» را بداند، باید <bdi class="term-en" dir="ltr">History</bdi> یا شناسهٔ <bdi class="term-en" dir="ltr">State</bdi> را طبق قرارداد <bdi class="term-en" dir="ltr">API</bdi> بفرستی.
           تصور اینکه مدل پشت صحنه همهٔ مکالمه‌ها و فایل‌های تو را همیشه به یاد دارد، یک خطای طراحی است.
         </p>
 </section>
 
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
-    <a class="pill" href="02-programming-api-bridge.html">فصل قبل: پل ورود: واژه‌های برنامه‌نویسی و API</a>
+    <a class="pill" href="02-programming-api-bridge.html">فصل قبل: پل ورود: واژه‌های برنامه‌نویسی و <bdi class="term-en" dir="ltr">API</bdi></a>
     <a class="pill" href="../index.html">فهرست</a>
-    <a class="pill" href="04-llm-capabilities.html">فصل بعد: توانایی‌های LLM</a>
+    <a class="pill" href="04-llm-capabilities.html">فصل بعد: توانایی‌های <bdi class="term-en" dir="ltr">LLM</bdi></a>
   </nav>
-  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
 </main>
 <script src="../assets/js/course.js"></script>
 </body>

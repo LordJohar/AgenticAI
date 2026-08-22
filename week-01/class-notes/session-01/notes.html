@@ -9,13 +9,13 @@
 <body>
 <main class="shell">
   <header class="hero">
-    <div class="eyebrow">SESSION 01 · ۱۴۰۵/۰۵/۲۹</div>
-    <h1>از Word2Vec تا Transformer</h1>
-    <p class="lead">داستان این جلسه یک سؤال واحد است: «چطور متن را به بردارهایی تبدیل کنیم که هم معنا را حمل کنند و هم وابستگی هر کلمه به جمله را؟» پاسخ از embedding ثابت شروع می‌شود، از گلوگاه RNN عبور می‌کند و به Attention و Transformer می‌رسد.</p>
+    <div class="eyebrow"><bdi class="term-en" dir="ltr">SESSION</bdi> 01 · ۱۴۰۵/۰۵/۲۹</div>
+    <h1>از <bdi class="term-en" dir="ltr">Word2Vec</bdi> تا <bdi class="term-en" dir="ltr">Transformer</bdi></h1>
+    <p class="lead">داستان این جلسه یک سؤال واحد است: «چطور متن را به بردارهایی تبدیل کنیم که هم معنا را حمل کنند و هم وابستگی هر کلمه به جمله را؟» پاسخ از <bdi class="term-en" dir="ltr">embedding</bdi> ثابت شروع می‌شود، از گلوگاه <bdi class="term-en" dir="ltr">RNN</bdi> عبور می‌کند و به <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">Transformer</bdi> می‌رسد.</p>
     <div class="meta">
       <div><small>ویدئوها</small><strong class="ltr">1405-05-29-01 / 02</strong></div>
       <div><small>سطح</small><strong>مفهومی + معماری</strong></div>
-      <div><small>خروجی مطلوب</small><strong>توضیح Attention با زبان خودت</strong></div>
+      <div><small>خروجی مطلوب</small><strong>توضیح <bdi class="term-en" dir="ltr">Attention</bdi> با زبان خودت</strong></div>
       <div><small>وضعیت</small><strong>بازنویسی‌شده از منبع خصوصی</strong></div>
     </div>
   </header>
@@ -25,10 +25,10 @@
     <ul class="toc">
       <li><a href="#timeline">تایم‌لاین ویدئو</a></li>
       <li><a href="#story">داستان مسئله</a></li>
-      <li><a href="#word2vec">Word2Vec و Skip-gram</a></li>
-      <li><a href="#rnn">چرا RNN کافی نبود؟</a></li>
-      <li><a href="#attention">Attention و Q/K/V</a></li>
-      <li><a href="#transformer">Transformer</a></li>
+      <li><a href="#word2vec"><bdi class="term-en" dir="ltr">Word2Vec</bdi> و <bdi class="term-en" dir="ltr">Skip-gram</bdi></a></li>
+      <li><a href="#rnn">چرا <bdi class="term-en" dir="ltr">RNN</bdi> کافی نبود؟</a></li>
+      <li><a href="#attention"><bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">Q/K/V</bdi></a></li>
+      <li><a href="#transformer"><bdi class="term-en" dir="ltr">Transformer</bdi></a></li>
       <li><a href="#mistakes">خطاهای رایج</a></li>
       <li><a href="#practice">تمرین و خودآزمایی</a></li>
     </ul>
@@ -41,25 +41,25 @@
     <table class="timeline">
       <thead><tr><th>بازه</th><th>موضوع</th><th>نکتهٔ یادگیری</th></tr></thead>
       <tbody>
-        <tr><td class="ltr">00:01–00:15</td><td>شروع و نقشهٔ جلسه</td><td>اتصال embedding، RNN، Attention و Transformer در یک مسیر تاریخی.</td></tr>
-        <tr><td class="ltr">00:15–00:28</td><td>Word embedding</td><td>چرا one-hot معنا ندارد و چرا بردار نزدیک برای واژه‌های مشابه می‌خواهیم.</td></tr>
-        <tr><td class="ltr">00:28–00:43</td><td>Word2Vec و Skip-gram</td><td>یادگیری نمایش واژه از یک مسئلهٔ جانبی: پیش‌بینی همسایه‌های کلمه.</td></tr>
-        <tr><td class="ltr">00:45–00:55</td><td>محدودیت embedding ثابت</td><td>یک بردار برای هر واژه، مستقل از جمله، چندمعنایی را حل نمی‌کند.</td></tr>
-        <tr><td class="ltr">00:55–01:07</td><td>RNN و گلوگاه توالی</td><td>پردازش ترتیبی، حافظهٔ فشرده و دشواری وابستگی‌های دور.</td></tr>
-        <tr><td class="ltr">01:07–01:27</td><td>شهود Attention</td><td>برای هر کلمه، ترکیبی وزن‌دار از اطلاعات مرتبط جمله بساز.</td></tr>
+        <tr><td class="ltr">00:01–00:15</td><td>شروع و نقشهٔ جلسه</td><td>اتصال <bdi class="term-en" dir="ltr">embedding</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi>، <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">Transformer</bdi> در یک مسیر تاریخی.</td></tr>
+        <tr><td class="ltr">00:15–00:28</td><td><bdi class="term-en" dir="ltr">Word embedding</bdi></td><td>چرا <bdi class="term-en" dir="ltr">one-hot</bdi> معنا ندارد و چرا بردار نزدیک برای واژه‌های مشابه می‌خواهیم.</td></tr>
+        <tr><td class="ltr">00:28–00:43</td><td><bdi class="term-en" dir="ltr">Word2Vec</bdi> و <bdi class="term-en" dir="ltr">Skip-gram</bdi></td><td>یادگیری نمایش واژه از یک مسئلهٔ جانبی: پیش‌بینی همسایه‌های کلمه.</td></tr>
+        <tr><td class="ltr">00:45–00:55</td><td>محدودیت <bdi class="term-en" dir="ltr">embedding</bdi> ثابت</td><td>یک بردار برای هر واژه، مستقل از جمله، چندمعنایی را حل نمی‌کند.</td></tr>
+        <tr><td class="ltr">00:55–01:07</td><td><bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه توالی</td><td>پردازش ترتیبی، حافظهٔ فشرده و دشواری وابستگی‌های دور.</td></tr>
+        <tr><td class="ltr">01:07–01:27</td><td>شهود <bdi class="term-en" dir="ltr">Attention</bdi></td><td>برای هر کلمه، ترکیبی وزن‌دار از اطلاعات مرتبط جمله بساز.</td></tr>
       </tbody>
     </table>
     <h3>بخش دوم — <span class="ltr">1405-05-29-02.ts</span></h3>
     <table class="timeline">
       <thead><tr><th>بازه</th><th>موضوع</th><th>نکتهٔ یادگیری</th></tr></thead>
       <tbody>
-        <tr><td class="ltr">00:00–00:07</td><td>Position و ورودی Attention</td><td>Attention به‌تنهایی ترتیب را نمی‌شناسد؛ اطلاعات موقعیت باید اضافه شود.</td></tr>
-        <tr><td class="ltr">00:07–00:13</td><td>Self-Attention</td><td>Q، K و V از همان توالی ساخته می‌شوند.</td></tr>
-        <tr><td class="ltr">00:13–00:18</td><td>Multi-Head Attention</td><td>چند فضای ارتباطی موازی به‌جای یک نوع شباهت.</td></tr>
-        <tr><td class="ltr">00:18–00:28</td><td>Scaled dot-product</td><td>ضرب داخلی، softmax و دلیل مقیاس‌کردن با ریشهٔ بعد کلید.</td></tr>
-        <tr><td class="ltr">00:28–00:36</td><td>اتصال headها</td><td>خروجی headها concatenate و دوباره projection می‌شود.</td></tr>
-        <tr><td class="ltr">00:35–00:40</td><td>Self در برابر Cross</td><td>منبع Q و منبع K/V تعیین می‌کند Attention از چه نوعی باشد.</td></tr>
-        <tr><td class="ltr">00:39–01:24</td><td>معماری Transformer و بحث تکمیلی</td><td>قرارگیری Attention داخل بلوک‌ها و کاربرد آن فراتر از متن.</td></tr>
+        <tr><td class="ltr">00:00–00:07</td><td><bdi class="term-en" dir="ltr">Position</bdi> و ورودی <bdi class="term-en" dir="ltr">Attention</bdi></td><td><bdi class="term-en" dir="ltr">Attention</bdi> به‌تنهایی ترتیب را نمی‌شناسد؛ اطلاعات موقعیت باید اضافه شود.</td></tr>
+        <tr><td class="ltr">00:07–00:13</td><td><bdi class="term-en" dir="ltr">Self-Attention</bdi></td><td><bdi class="term-en" dir="ltr">Q</bdi>، <bdi class="term-en" dir="ltr">K</bdi> و <bdi class="term-en" dir="ltr">V</bdi> از همان توالی ساخته می‌شوند.</td></tr>
+        <tr><td class="ltr">00:13–00:18</td><td><bdi class="term-en" dir="ltr">Multi-Head Attention</bdi></td><td>چند فضای ارتباطی موازی به‌جای یک نوع شباهت.</td></tr>
+        <tr><td class="ltr">00:18–00:28</td><td><bdi class="term-en" dir="ltr">Scaled dot-product</bdi></td><td>ضرب داخلی، <bdi class="term-en" dir="ltr">softmax</bdi> و دلیل مقیاس‌کردن با ریشهٔ بعد کلید.</td></tr>
+        <tr><td class="ltr">00:28–00:36</td><td>اتصال <bdi class="term-en" dir="ltr">head</bdi>ها</td><td>خروجی <bdi class="term-en" dir="ltr">head</bdi>ها <bdi class="term-en" dir="ltr">concatenate</bdi> و دوباره <bdi class="term-en" dir="ltr">projection</bdi> می‌شود.</td></tr>
+        <tr><td class="ltr">00:35–00:40</td><td><bdi class="term-en" dir="ltr">Self</bdi> در برابر <bdi class="term-en" dir="ltr">Cross</bdi></td><td>منبع <bdi class="term-en" dir="ltr">Q</bdi> و منبع <bdi class="term-en" dir="ltr">K/V</bdi> تعیین می‌کند <bdi class="term-en" dir="ltr">Attention</bdi> از چه نوعی باشد.</td></tr>
+        <tr><td class="ltr">00:39–01:24</td><td>معماری <bdi class="term-en" dir="ltr">Transformer</bdi> و بحث تکمیلی</td><td>قرارگیری <bdi class="term-en" dir="ltr">Attention</bdi> داخل بلوک‌ها و کاربرد آن فراتر از متن.</td></tr>
       </tbody>
     </table>
   </section>
@@ -67,85 +67,85 @@
   <section class="section" id="story">
     <h2>۲. داستان مسئله در یک نگاه</h2>
     <div class="grid">
-      <article class="card"><h3>گام ۱: عددی‌کردن</h3><p>مدل با رشته کار نمی‌کند. ابتدا هر token باید به بردار تبدیل شود.</p></article>
+      <article class="card"><h3>گام ۱: عددی‌کردن</h3><p>مدل با رشته کار نمی‌کند. ابتدا هر <bdi class="term-en" dir="ltr">token</bdi> باید به بردار تبدیل شود.</p></article>
       <article class="card"><h3>گام ۲: واردکردن معنا</h3><p>بردار باید از توزیع واژه‌ها یاد بگیرد؛ کلماتی که در بافت مشابه‌اند معمولاً معنای مرتبط دارند.</p></article>
-      <article class="card"><h3>گام ۳: واردکردن context</h3><p>بردار «شیر» در «شیر آب» نباید همان بازنمایی «شیر جنگل» باقی بماند.</p></article>
-      <article class="card"><h3>گام ۴: ارتباط مستقیم</h3><p>هر token باید بتواند بدون عبور ترتیبی از همهٔ گام‌ها، مستقیماً به tokenهای مرتبط نگاه کند.</p></article>
+      <article class="card"><h3>گام ۳: واردکردن <bdi class="term-en" dir="ltr">context</bdi></h3><p>بردار «شیر» در «شیر آب» نباید همان بازنمایی «شیر جنگل» باقی بماند.</p></article>
+      <article class="card"><h3>گام ۴: ارتباط مستقیم</h3><p>هر <bdi class="term-en" dir="ltr">token</bdi> باید بتواند بدون عبور ترتیبی از همهٔ گام‌ها، مستقیماً به <bdi class="term-en" dir="ltr">token</bdi>های مرتبط نگاه کند.</p></article>
     </div>
-    <p class="callout"><strong>مدل ذهنی:</strong> Word2Vec به هر واژه یک آدرس نسبتاً خوب می‌دهد؛ Attention برای همان واژه و در همان جمله یک «آدرس وابسته به context» می‌سازد.</p>
+    <p class="callout"><strong>مدل ذهنی:</strong> <bdi class="term-en" dir="ltr">Word2Vec</bdi> به هر واژه یک آدرس نسبتاً خوب می‌دهد؛ <bdi class="term-en" dir="ltr">Attention</bdi> برای همان واژه و در همان جمله یک «آدرس وابسته به <bdi class="term-en" dir="ltr">context</bdi>» می‌سازد.</p>
   </section>
 
   <section class="section" id="word2vec">
-    <h2>۳. Word2Vec: معنا از همسایگی</h2>
-    <p>در one-hot، هر واژه فقط یک شناسه است. فاصلهٔ «گربه» و «سگ» همان‌قدر بی‌معناست که فاصلهٔ «گربه» و «دیتابیس». Word2Vec به‌جای تعریف دستی معنا، یک شبکهٔ کوچک را روی یک کار جانبی آموزش می‌دهد و وزن میانی شبکه را به‌عنوان embedding برمی‌دارد.</p>
+    <h2>۳. <bdi class="term-en" dir="ltr">Word2Vec:</bdi> معنا از همسایگی</h2>
+    <p>در <bdi class="term-en" dir="ltr">one-hot</bdi>، هر واژه فقط یک شناسه است. فاصلهٔ «گربه» و «سگ» همان‌قدر بی‌معناست که فاصلهٔ «گربه» و «دیتابیس». <bdi class="term-en" dir="ltr">Word2Vec</bdi> به‌جای تعریف دستی معنا، یک شبکهٔ کوچک را روی یک کار جانبی آموزش می‌دهد و وزن میانی شبکه را به‌عنوان <bdi class="term-en" dir="ltr">embedding</bdi> برمی‌دارد.</p>
     <div class="grid">
       <article class="card">
-        <h3>Skip-gram</h3>
+        <h3><bdi class="term-en" dir="ltr">Skip-gram</bdi></h3>
         <p>ورودی کلمهٔ مرکزی است و مدل کلمه‌های اطراف را پیش‌بینی می‌کند.</p>
         <pre><code>"مدل زبان بزرگ است"
 center = "زبان"
 targets = ["مدل", "بزرگ"]</code></pre>
       </article>
       <article class="card">
-        <h3>CBOW</h3>
-        <p>جهت معکوس: context اطراف وارد می‌شود و کلمهٔ مرکزی پیش‌بینی می‌شود.</p>
+        <h3><bdi class="term-en" dir="ltr">CBOW</bdi></h3>
+        <p>جهت معکوس: <bdi class="term-en" dir="ltr">context</bdi> اطراف وارد می‌شود و کلمهٔ مرکزی پیش‌بینی می‌شود.</p>
         <pre><code>context = ["مدل", "بزرگ"]
 target = "زبان"</code></pre>
       </article>
     </div>
     <h3>چرا این ترفند جواب می‌دهد؟</h3>
-    <p>برای پیش‌بینی همسایه‌ها، مدل مجبور می‌شود واژه‌هایی با الگوی مصرف مشابه را در فضای برداری نزدیک قرار دهد. هدف اصلی ما classifier نهایی نیست؛ بازنمایی میانی‌ای است که شبکه برای حل مسئله یاد گرفته.</p>
-    <p class="warning callout"><strong>محدودیت اصلی:</strong> embedding کلاسیک static است. واژهٔ «شیر» یک بردار دارد، حتی اگر معنایش با جمله عوض شود. همچنین واژهٔ خارج از واژگان، ترتیب و وابستگی دور را خوب پوشش نمی‌دهد.</p>
+    <p>برای پیش‌بینی همسایه‌ها، مدل مجبور می‌شود واژه‌هایی با الگوی مصرف مشابه را در فضای برداری نزدیک قرار دهد. هدف اصلی ما <bdi class="term-en" dir="ltr">classifier</bdi> نهایی نیست؛ بازنمایی میانی‌ای است که شبکه برای حل مسئله یاد گرفته.</p>
+    <p class="warning callout"><strong>محدودیت اصلی:</strong> <bdi class="term-en" dir="ltr">embedding</bdi> کلاسیک <bdi class="term-en" dir="ltr">static</bdi> است. واژهٔ «شیر» یک بردار دارد، حتی اگر معنایش با جمله عوض شود. همچنین واژهٔ خارج از واژگان، ترتیب و وابستگی دور را خوب پوشش نمی‌دهد.</p>
   </section>
 
   <section class="section" id="rnn">
-    <h2>۴. RNN: context داریم، اما با هزینه</h2>
-    <p>RNN جمله را token به token می‌خواند. وضعیت پنهان <code>h_t</code> خلاصه‌ای از گذشته است:</p>
+    <h2>۴. <bdi class="term-en" dir="ltr">RNN:</bdi> <bdi class="term-en" dir="ltr">context</bdi> داریم، اما با هزینه</h2>
+    <p><bdi class="term-en" dir="ltr">RNN</bdi> جمله را <bdi class="term-en" dir="ltr">token</bdi> به <bdi class="term-en" dir="ltr">token</bdi> می‌خواند. وضعیت پنهان <code>h_t</code> خلاصه‌ای از گذشته است:</p>
     <div class="formula">h<sub>t</sub> = f(x<sub>t</sub>, h<sub>t-1</sub>)</div>
-    <p>این روش context می‌سازد، اما سه مشکل مهم دارد:</p>
+    <p>این روش <bdi class="term-en" dir="ltr">context</bdi> می‌سازد، اما سه مشکل مهم دارد:</p>
     <ol>
-      <li><strong>ترتیبی‌بودن محاسبه:</strong> گام ۱۰ منتظر گام ۹ می‌ماند؛ parallelization محدود می‌شود.</li>
-      <li><strong>گلوگاه حافظه:</strong> تمام گذشته باید در یک state فشرده شود.</li>
-      <li><strong>وابستگی دور:</strong> مسیر اطلاعات طولانی است و gradient ممکن است محو یا منفجر شود. LSTM/GRU آن را کاهش می‌دهند، نه اینکه کاملاً حذف کنند.</li>
+      <li><strong>ترتیبی‌بودن محاسبه:</strong> گام ۱۰ منتظر گام ۹ می‌ماند؛ <bdi class="term-en" dir="ltr">parallelization</bdi> محدود می‌شود.</li>
+      <li><strong>گلوگاه حافظه:</strong> تمام گذشته باید در یک <bdi class="term-en" dir="ltr">state</bdi> فشرده شود.</li>
+      <li><strong>وابستگی دور:</strong> مسیر اطلاعات طولانی است و <bdi class="term-en" dir="ltr">gradient</bdi> ممکن است محو یا منفجر شود. <bdi class="term-en" dir="ltr">LSTM/GRU</bdi> آن را کاهش می‌دهند، نه اینکه کاملاً حذف کنند.</li>
     </ol>
-    <p class="callout"><strong>گذار کلیدی:</strong> به‌جای حمل همهٔ گذشته در یک کوله‌پشتی، اجازه بده token فعلی مستقیم به بخش‌های مرتبط حافظه مراجعه کند. این همان شهود Attention است.</p>
+    <p class="callout"><strong>گذار کلیدی:</strong> به‌جای حمل همهٔ گذشته در یک کوله‌پشتی، اجازه بده <bdi class="term-en" dir="ltr">token</bdi> فعلی مستقیم به بخش‌های مرتبط حافظه مراجعه کند. این همان شهود <bdi class="term-en" dir="ltr">Attention</bdi> است.</p>
   </section>
 
   <section class="section" id="attention">
-    <h2>۵. Attention: جست‌وجوی نرم در حافظه</h2>
-    <p>یک تشبیه مهندسی مفید این است که Attention را شبیه retrieval روی یک جدول key-value ببینیم؛ با این تفاوت که به‌جای انتخاب دقیق یک ردیف، از همهٔ ردیف‌ها ترکیبی وزن‌دار ساخته می‌شود.</p>
+    <h2>۵. <bdi class="term-en" dir="ltr">Attention:</bdi> جست‌وجوی نرم در حافظه</h2>
+    <p>یک تشبیه مهندسی مفید این است که <bdi class="term-en" dir="ltr">Attention</bdi> را شبیه <bdi class="term-en" dir="ltr">retrieval</bdi> روی یک جدول <bdi class="term-en" dir="ltr">key-value</bdi> ببینیم؛ با این تفاوت که به‌جای انتخاب دقیق یک ردیف، از همهٔ ردیف‌ها ترکیبی وزن‌دار ساخته می‌شود.</p>
     <div class="grid">
-      <article class="card"><h3>Query (Q)</h3><p>الان دنبال چه اطلاعاتی هستم؟ نمایندهٔ نیاز token فعلی.</p></article>
-      <article class="card"><h3>Key (K)</h3><p>هر token با چه «برچسب قابل جست‌وجویی» معرفی می‌شود؟</p></article>
-      <article class="card"><h3>Value (V)</h3><p>اگر این token مرتبط بود، چه محتوایی از آن بردارم؟</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Query</bdi> (<bdi class="term-en" dir="ltr">Q</bdi>)</h3><p>الان دنبال چه اطلاعاتی هستم؟ نمایندهٔ نیاز <bdi class="term-en" dir="ltr">token</bdi> فعلی.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Key</bdi> (<bdi class="term-en" dir="ltr">K</bdi>)</h3><p>هر <bdi class="term-en" dir="ltr">token</bdi> با چه «برچسب قابل جست‌وجویی» معرفی می‌شود؟</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Value</bdi> (<bdi class="term-en" dir="ltr">V</bdi>)</h3><p>اگر این <bdi class="term-en" dir="ltr">token</bdi> مرتبط بود، چه محتوایی از آن بردارم؟</p></article>
     </div>
-    <p>برای هر Query، شباهت آن با همهٔ Keyها محاسبه می‌شود. softmax امتیازها را به وزن تبدیل می‌کند و خروجی جمع وزن‌دار Valueهاست:</p>
+    <p>برای هر <bdi class="term-en" dir="ltr">Query</bdi>، شباهت آن با همهٔ <bdi class="term-en" dir="ltr">Key</bdi>ها محاسبه می‌شود. <bdi class="term-en" dir="ltr">softmax</bdi> امتیازها را به وزن تبدیل می‌کند و خروجی جمع وزن‌دار <bdi class="term-en" dir="ltr">Value</bdi>هاست:</p>
     <div class="formula">Attention(Q, K, V) = softmax(QKᵀ / √d<sub>k</sub>) V</div>
     <h3>چرا تقسیم بر <span class="ltr">√d<sub>k</sub></span>؟</h3>
-    <p>با بزرگ‌شدن بعد بردار، dot product معمولاً بزرگ‌تر می‌شود. softmax روی اعداد خیلی بزرگ اشباع می‌شود و gradient ضعیف می‌گردد. scaling توزیع امتیازها را کنترل می‌کند.</p>
+    <p>با بزرگ‌شدن بعد بردار، <bdi class="term-en" dir="ltr">dot product</bdi> معمولاً بزرگ‌تر می‌شود. <bdi class="term-en" dir="ltr">softmax</bdi> روی اعداد خیلی بزرگ اشباع می‌شود و <bdi class="term-en" dir="ltr">gradient</bdi> ضعیف می‌گردد. <bdi class="term-en" dir="ltr">scaling</bdi> توزیع امتیازها را کنترل می‌کند.</p>
     <h3>سه نوع مهم</h3>
     <table class="timeline">
-      <thead><tr><th>نوع</th><th>Q از کجا؟</th><th>K و V از کجا؟</th><th>کاربرد ذهنی</th></tr></thead>
+      <thead><tr><th>نوع</th><th><bdi class="term-en" dir="ltr">Q</bdi> از کجا؟</th><th><bdi class="term-en" dir="ltr">K</bdi> و <bdi class="term-en" dir="ltr">V</bdi> از کجا؟</th><th>کاربرد ذهنی</th></tr></thead>
       <tbody>
-        <tr><td>Self-Attention</td><td>همان توالی</td><td>همان توالی</td><td>هر کلمه context جملهٔ خودش را می‌گیرد.</td></tr>
-        <tr><td>Cross-Attention</td><td>توالی/مدال مقصد</td><td>منبع دیگر</td><td>decoder به خروجی encoder یا متن به تصویر نگاه می‌کند.</td></tr>
-        <tr><td>Causal Self-Attention</td><td>همان توالی</td><td>فقط tokenهای قبلی و خود token</td><td>مدل زبانی اجازه ندارد آینده را ببیند.</td></tr>
+        <tr><td><bdi class="term-en" dir="ltr">Self-Attention</bdi></td><td>همان توالی</td><td>همان توالی</td><td>هر کلمه <bdi class="term-en" dir="ltr">context</bdi> جملهٔ خودش را می‌گیرد.</td></tr>
+        <tr><td><bdi class="term-en" dir="ltr">Cross-Attention</bdi></td><td>توالی/مدال مقصد</td><td>منبع دیگر</td><td><bdi class="term-en" dir="ltr">decoder</bdi> به خروجی <bdi class="term-en" dir="ltr">encoder</bdi> یا متن به تصویر نگاه می‌کند.</td></tr>
+        <tr><td><bdi class="term-en" dir="ltr">Causal Self-Attention</bdi></td><td>همان توالی</td><td>فقط <bdi class="term-en" dir="ltr">token</bdi>های قبلی و خود <bdi class="term-en" dir="ltr">token</bdi></td><td>مدل زبانی اجازه ندارد آینده را ببیند.</td></tr>
       </tbody>
     </table>
-    <h3>چرا Multi-Head؟</h3>
-    <p>یک شباهت واحد مجبور است همهٔ رابطه‌ها را در یک فضا یاد بگیرد. چند head می‌توانند هم‌زمان رابطهٔ فاعل و فعل، ارجاع ضمیر، نزدیکی موضعی یا وابستگی معنایی را دنبال کنند. سپس خروجی headها کنار هم قرار می‌گیرد و projection می‌شود.</p>
-    <p class="warning callout">نباید نتیجه گرفت هر head حتماً یک مفهوم انسانی و ثابت دارد؛ این فقط یک مدل ذهنی مفید است. تفسیر headها همیشه شفاف نیست.</p>
+    <h3>چرا <bdi class="term-en" dir="ltr">Multi-Head</bdi>؟</h3>
+    <p>یک شباهت واحد مجبور است همهٔ رابطه‌ها را در یک فضا یاد بگیرد. چند <bdi class="term-en" dir="ltr">head</bdi> می‌توانند هم‌زمان رابطهٔ فاعل و فعل، ارجاع ضمیر، نزدیکی موضعی یا وابستگی معنایی را دنبال کنند. سپس خروجی <bdi class="term-en" dir="ltr">head</bdi>ها کنار هم قرار می‌گیرد و <bdi class="term-en" dir="ltr">projection</bdi> می‌شود.</p>
+    <p class="warning callout">نباید نتیجه گرفت هر <bdi class="term-en" dir="ltr">head</bdi> حتماً یک مفهوم انسانی و ثابت دارد؛ این فقط یک مدل ذهنی مفید است. تفسیر <bdi class="term-en" dir="ltr">head</bdi>ها همیشه شفاف نیست.</p>
   </section>
 
   <section class="section" id="transformer">
-    <h2>۶. Transformer: Attention به‌تنهایی معماری کامل نیست</h2>
-    <p>یک بلوک Transformer معمولاً این اجزا را ترکیب می‌کند:</p>
+    <h2>۶. <bdi class="term-en" dir="ltr">Transformer:</bdi> <bdi class="term-en" dir="ltr">Attention</bdi> به‌تنهایی معماری کامل نیست</h2>
+    <p>یک بلوک <bdi class="term-en" dir="ltr">Transformer</bdi> معمولاً این اجزا را ترکیب می‌کند:</p>
     <ol>
-      <li><strong>Token embedding</strong> برای برداری‌کردن token.</li>
-      <li><strong>اطلاعات موقعیت</strong> چون Self-Attention بدون آن نسبت به جابه‌جایی ترتیب حساسیت کافی ندارد.</li>
-      <li><strong>Multi-Head Attention</strong> برای تبادل اطلاعات بین tokenها.</li>
-      <li><strong>Feed-Forward Network</strong> برای پردازش غیرخطی هر موقعیت.</li>
-      <li><strong>Residual connection و normalization</strong> برای جریان بهتر اطلاعات و آموزش پایدارتر.</li>
+      <li><strong><bdi class="term-en" dir="ltr">Token embedding</bdi></strong> برای برداری‌کردن <bdi class="term-en" dir="ltr">token</bdi>.</li>
+      <li><strong>اطلاعات موقعیت</strong> چون <bdi class="term-en" dir="ltr">Self-Attention</bdi> بدون آن نسبت به جابه‌جایی ترتیب حساسیت کافی ندارد.</li>
+      <li><strong><bdi class="term-en" dir="ltr">Multi-Head Attention</bdi></strong> برای تبادل اطلاعات بین <bdi class="term-en" dir="ltr">token</bdi>ها.</li>
+      <li><strong><bdi class="term-en" dir="ltr">Feed-Forward Network</bdi></strong> برای پردازش غیرخطی هر موقعیت.</li>
+      <li><strong><bdi class="term-en" dir="ltr">Residual connection</bdi> و <bdi class="term-en" dir="ltr">normalization</bdi></strong> برای جریان بهتر اطلاعات و آموزش پایدارتر.</li>
     </ol>
     <pre><code>tokens
   → token embedding + positional information
@@ -154,18 +154,18 @@ target = "زبان"</code></pre>
   → feed-forward network
   → add & norm
   → contextual representations</code></pre>
-    <p class="callout"><strong>نکتهٔ کلیدی:</strong> خروجی هر token بعد از بلوک، دیگر فقط معنای لغت نیست؛ معنای آن token در context همان ورودی است.</p>
+    <p class="callout"><strong>نکتهٔ کلیدی:</strong> خروجی هر <bdi class="term-en" dir="ltr">token</bdi> بعد از بلوک، دیگر فقط معنای لغت نیست؛ معنای آن <bdi class="term-en" dir="ltr">token</bdi> در <bdi class="term-en" dir="ltr">context</bdi> همان ورودی است.</p>
   </section>
 
   <section class="section" id="mistakes">
     <h2>۷. خطاهای رایج و اصلاح آن‌ها</h2>
     <div class="grid">
-      <article class="card"><h3>«Attention یعنی تمرکز روی یک کلمه»</h3><p>معمولاً یک توزیع نرم روی چند token است، نه انتخاب صفر و یک.</p></article>
-      <article class="card"><h3>«Q/K/V خود کلمه‌اند»</h3><p>آن‌ها projectionهای آموختنی از representation ورودی‌اند: <span class="ltr">Q=XWq, K=XWk, V=XWv</span>.</p></article>
-      <article class="card"><h3>«Position داخل Self-Attention معلوم است»</h3><p>Self-Attention خام ترتیب را به‌صورت ذاتی کد نمی‌کند؛ باید positional information اضافه شود.</p></article>
-      <article class="card"><h3>«Transformer فقط Attention است»</h3><p>Attention جزء مرکزی است، اما FFN، residual، normalization، embedding و objective هم حیاتی‌اند.</p></article>
-      <article class="card"><h3>«Word2Vec دیگر هیچ کاربردی ندارد»</h3><p>برای baseline سبک و مسائل کم‌هزینه هنوز مفید است؛ فقط contextual نیست.</p></article>
-      <article class="card"><h3>«Multi-Head فقط تکرار محاسبه است»</h3><p>هر head projectionهای مستقل دارد و در زیرفضای متفاوتی رابطه‌ها را می‌آموزد.</p></article>
+      <article class="card"><h3>«<bdi class="term-en" dir="ltr">Attention</bdi> یعنی تمرکز روی یک کلمه»</h3><p>معمولاً یک توزیع نرم روی چند <bdi class="term-en" dir="ltr">token</bdi> است، نه انتخاب صفر و یک.</p></article>
+      <article class="card"><h3>«<bdi class="term-en" dir="ltr">Q/K/V</bdi> خود کلمه‌اند»</h3><p>آن‌ها <bdi class="term-en" dir="ltr">projection</bdi>های آموختنی از <bdi class="term-en" dir="ltr">representation</bdi> ورودی‌اند: <span class="ltr">Q=XWq, K=XWk, V=XWv</span>.</p></article>
+      <article class="card"><h3>«<bdi class="term-en" dir="ltr">Position</bdi> داخل <bdi class="term-en" dir="ltr">Self-Attention</bdi> معلوم است»</h3><p><bdi class="term-en" dir="ltr">Self-Attention</bdi> خام ترتیب را به‌صورت ذاتی کد نمی‌کند؛ باید <bdi class="term-en" dir="ltr">positional information</bdi> اضافه شود.</p></article>
+      <article class="card"><h3>«<bdi class="term-en" dir="ltr">Transformer</bdi> فقط <bdi class="term-en" dir="ltr">Attention</bdi> است»</h3><p><bdi class="term-en" dir="ltr">Attention</bdi> جزء مرکزی است، اما <bdi class="term-en" dir="ltr">FFN</bdi>، <bdi class="term-en" dir="ltr">residual</bdi>، <bdi class="term-en" dir="ltr">normalization</bdi>، <bdi class="term-en" dir="ltr">embedding</bdi> و <bdi class="term-en" dir="ltr">objective</bdi> هم حیاتی‌اند.</p></article>
+      <article class="card"><h3>«<bdi class="term-en" dir="ltr">Word2Vec</bdi> دیگر هیچ کاربردی ندارد»</h3><p>برای <bdi class="term-en" dir="ltr">baseline</bdi> سبک و مسائل کم‌هزینه هنوز مفید است؛ فقط <bdi class="term-en" dir="ltr">contextual</bdi> نیست.</p></article>
+      <article class="card"><h3>«<bdi class="term-en" dir="ltr">Multi-Head</bdi> فقط تکرار محاسبه است»</h3><p>هر <bdi class="term-en" dir="ltr">head projection</bdi>های مستقل دارد و در زیرفضای متفاوتی رابطه‌ها را می‌آموزد.</p></article>
     </div>
   </section>
 
@@ -173,23 +173,23 @@ target = "زبان"</code></pre>
     <h2>۸. تمرین و خودآزمایی</h2>
     <h3>تمرین‌های توضیحی</h3>
     <ol>
-      <li>با مثال «شیر آب خراب شد» و «شیر شکار کرد» توضیح بده چرا embedding ثابت کافی نیست.</li>
-      <li>Attention را با یک query به دیتابیس مقایسه کن؛ بگو این تشبیه دقیقاً کجا می‌شکند.</li>
-      <li>برای جملهٔ «علی کتاب را برداشت چون او به آن نیاز داشت» حدس بزن دو head متفاوت چه رابطه‌هایی را دنبال می‌کنند.</li>
-      <li>توضیح بده چرا حذف positional information می‌تواند «سگ مرد را گاز گرفت» و «مرد سگ را گاز گرفت» را مبهم کند.</li>
+      <li>با مثال «شیر آب خراب شد» و «شیر شکار کرد» توضیح بده چرا <bdi class="term-en" dir="ltr">embedding</bdi> ثابت کافی نیست.</li>
+      <li><bdi class="term-en" dir="ltr">Attention</bdi> را با یک <bdi class="term-en" dir="ltr">query</bdi> به دیتابیس مقایسه کن؛ بگو این تشبیه دقیقاً کجا می‌شکند.</li>
+      <li>برای جملهٔ «علی کتاب را برداشت چون او به آن نیاز داشت» حدس بزن دو <bdi class="term-en" dir="ltr">head</bdi> متفاوت چه رابطه‌هایی را دنبال می‌کنند.</li>
+      <li>توضیح بده چرا حذف <bdi class="term-en" dir="ltr">positional information</bdi> می‌تواند «سگ مرد را گاز گرفت» و «مرد سگ را گاز گرفت» را مبهم کند.</li>
       <li>از حفظ مسیر <span class="ltr">embedding → Q/K/V → scores → softmax → weighted sum</span> را روی کاغذ بکش.</li>
     </ol>
     <h3>پرسش‌های تستی</h3>
-    <details><summary>۱. در Skip-gram چه چیزی پیش‌بینی می‌شود؟</summary><p>کلمه‌های context پیرامون یک کلمهٔ مرکزی. embedding محصول میانی آموزش این مسئله است.</p></details>
-    <details><summary>۲. فرق Self-Attention و Cross-Attention چیست؟</summary><p>در Self-Attention، Q/K/V از یک توالی می‌آیند؛ در Cross-Attention، Q از مقصد و K/V از منبع دیگری می‌آیند.</p></details>
-    <details><summary>۳. scaling چه مشکلی را کم می‌کند؟</summary><p>بزرگ‌شدن variance امتیازهای dot product و اشباع softmax در ابعاد بالا.</p></details>
-    <details><summary>۴. چرا Transformer راحت‌تر از RNN موازی می‌شود؟</summary><p>representation موقعیت‌ها در هر لایه می‌تواند هم‌زمان محاسبه شود؛ وابستگی قدم‌به‌قدم recurrent وجود ندارد.</p></details>
-    <details><summary>۵. خروجی Attention چیست؟</summary><p>برای هر Query، جمع وزن‌دار Valueها؛ وزن‌ها از شباهت Query و Key پس از softmax می‌آیند.</p></details>
+    <details><summary>۱. در <bdi class="term-en" dir="ltr">Skip-gram</bdi> چه چیزی پیش‌بینی می‌شود؟</summary><p>کلمه‌های <bdi class="term-en" dir="ltr">context</bdi> پیرامون یک کلمهٔ مرکزی. <bdi class="term-en" dir="ltr">embedding</bdi> محصول میانی آموزش این مسئله است.</p></details>
+    <details><summary>۲. فرق <bdi class="term-en" dir="ltr">Self-Attention</bdi> و <bdi class="term-en" dir="ltr">Cross-Attention</bdi> چیست؟</summary><p>در <bdi class="term-en" dir="ltr">Self-Attention</bdi>، <bdi class="term-en" dir="ltr">Q/K/V</bdi> از یک توالی می‌آیند؛ در <bdi class="term-en" dir="ltr">Cross-Attention</bdi>، <bdi class="term-en" dir="ltr">Q</bdi> از مقصد و <bdi class="term-en" dir="ltr">K/V</bdi> از منبع دیگری می‌آیند.</p></details>
+    <details><summary>۳. <bdi class="term-en" dir="ltr">scaling</bdi> چه مشکلی را کم می‌کند؟</summary><p>بزرگ‌شدن <bdi class="term-en" dir="ltr">variance</bdi> امتیازهای <bdi class="term-en" dir="ltr">dot product</bdi> و اشباع <bdi class="term-en" dir="ltr">softmax</bdi> در ابعاد بالا.</p></details>
+    <details><summary>۴. چرا <bdi class="term-en" dir="ltr">Transformer</bdi> راحت‌تر از <bdi class="term-en" dir="ltr">RNN</bdi> موازی می‌شود؟</summary><p><bdi class="term-en" dir="ltr">representation</bdi> موقعیت‌ها در هر لایه می‌تواند هم‌زمان محاسبه شود؛ وابستگی قدم‌به‌قدم <bdi class="term-en" dir="ltr">recurrent</bdi> وجود ندارد.</p></details>
+    <details><summary>۵. خروجی <bdi class="term-en" dir="ltr">Attention</bdi> چیست؟</summary><p>برای هر <bdi class="term-en" dir="ltr">Query</bdi>، جمع وزن‌دار <bdi class="term-en" dir="ltr">Value</bdi>ها؛ وزن‌ها از شباهت <bdi class="term-en" dir="ltr">Query</bdi> و <bdi class="term-en" dir="ltr">Key</bdi> پس از <bdi class="term-en" dir="ltr">softmax</bdi> می‌آیند.</p></details>
     <h3>معیار تسلط</h3>
-    <p>اگر بتوانی بدون نگاه‌کردن به جزوه، تفاوت <span class="ltr">static embedding</span> و <span class="ltr">contextual representation</span> را بگویی، فرمول Attention را جزءبه‌جزء توضیح بدهی و Self/Cross/Causal را با مثال تفکیک کنی، هستهٔ جلسه را یاد گرفته‌ای.</p>
+    <p>اگر بتوانی بدون نگاه‌کردن به جزوه، تفاوت <span class="ltr">static embedding</span> و <span class="ltr">contextual representation</span> را بگویی، فرمول <bdi class="term-en" dir="ltr">Attention</bdi> را جزءبه‌جزء توضیح بدهی و <bdi class="term-en" dir="ltr">Self/Cross/Causal</bdi> را با مثال تفکیک کنی، هستهٔ جلسه را یاد گرفته‌ای.</p>
   </section>
 
-  <footer class="footer"><a href="../index.html">بازگشت به فهرست جزوه‌ها</a> · جزوه منتشرشده؛ ویدئو و transcript خام خارج از Git</footer>
+  <footer class="footer"><a href="../index.html">بازگشت به فهرست جزوه‌ها</a> · جزوه منتشرشده؛ ویدئو و <bdi class="term-en" dir="ltr">transcript</bdi> خام خارج از <bdi class="term-en" dir="ltr">Git</bdi></footer>
 </main>
 </body>
 </html>

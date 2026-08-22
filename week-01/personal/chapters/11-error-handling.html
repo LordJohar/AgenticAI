@@ -11,13 +11,13 @@
 <a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
 <main class="content" id="main-content">
   <header class="hero">
-    <div class="eyebrow">Agentic AI · Week 01 · Chapter 11</div>
-    <h2>Error Handling، Timeout و Retry</h2>
-    <p>همهٔ خطاها Retryable نیستند و «پنج بار امتحان کن» استراتژی نیست</p>
+    <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 11</div>
+    <h2><bdi class="term-en" dir="ltr">Error Handling</bdi>، <bdi class="term-en" dir="ltr">Timeout</bdi> و <bdi class="term-en" dir="ltr">Retry</bdi></h2>
+    <p>همهٔ خطاها <bdi class="term-en" dir="ltr">Retryable</bdi> نیستند و «پنج بار امتحان کن» استراتژی نیست</p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
       <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
-      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button>
     </div>
   </header>
 
@@ -25,36 +25,36 @@
 <div class="chapter-header">
 <div class="chapter-number">۱۱</div>
 <div>
-<h2>Error Handling، Timeout و Retry</h2>
-<p>همهٔ خطاها Retryable نیستند و «پنج بار امتحان کن» استراتژی نیست</p>
+<h2><bdi class="term-en" dir="ltr">Error Handling</bdi>، <bdi class="term-en" dir="ltr">Timeout</bdi> و <bdi class="term-en" dir="ltr">Retry</bdi></h2>
+<p>همهٔ خطاها <bdi class="term-en" dir="ltr">Retryable</bdi> نیستند و «پنج بار امتحان کن» استراتژی نیست</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="errors" type="checkbox"/> خواندم</label>
 </div>
 <h3>لایه‌های خطا را جدا کن</h3>
 <div class="table-wrap">
 <table>
-<thead><tr><th>دسته</th><th>مثال</th><th>Retry؟</th><th>اقدام اصلی</th></tr></thead>
+<thead><tr><th>دسته</th><th>مثال</th><th><bdi class="term-en" dir="ltr">Retry</bdi>؟</th><th>اقدام اصلی</th></tr></thead>
 <tbody>
-<tr><td>Local / Code</td><td>فایل پیدا نشد، JSON خراب، TypeError</td><td>معمولاً خیر</td><td>اصلاح ورودی یا Bug؛ پیام دقیق و Exit Code مناسب.</td></tr>
-<tr><td>Authentication</td><td>Key اشتباه یا منقضی</td><td>خیر</td><td>توقف، Rotation/Config Fix؛ Secret را Log نکن.</td></tr>
-<tr><td>Validation / Bad Request</td><td>Model نامعتبر، پارامتر یا Schema غلط</td><td>خیر</td><td>اصلاح Request.</td></tr>
-<tr><td>Rate Limit</td><td>تعداد درخواست بیش از ظرفیت کوتاه‌مدت</td><td>گاهی</td><td>احترام به <code>Retry-After</code>، Backoff، Queue و Concurrency Limit.</td></tr>
-<tr><td>Quota / Billing</td><td>Credit یا سقف مصرف تمام شده</td><td>خیر</td><td>رفع Quota/Billing؛ Retry فقط فشار و Cost را بیشتر می‌کند.</td></tr>
-<tr><td>Timeout / Connection</td><td>قطع شبکه، Connect/Read Timeout</td><td>گاهی</td><td>Retry محدود با Backoff؛ بررسی Idempotency و Network.</td></tr>
-<tr><td>Server Error</td><td><span class="ltr">HTTP 5xx</span></td><td>اغلب محدود</td><td>Retry با Jitter و سقف؛ Circuit Breaker در مقیاس بالاتر.</td></tr>
-<tr><td>Safety / Policy</td><td>درخواست یا خروجی مسدود</td><td>نه با همان ورودی</td><td>رفتار Product و مسیر Escalation را مشخص کن.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Local / Code</bdi></td><td>فایل پیدا نشد، <bdi class="term-en" dir="ltr">JSON</bdi> خراب، <bdi class="term-en" dir="ltr">TypeError</bdi></td><td>معمولاً خیر</td><td>اصلاح ورودی یا <bdi class="term-en" dir="ltr">Bug</bdi>؛ پیام دقیق و <bdi class="term-en" dir="ltr">Exit Code</bdi> مناسب.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Authentication</bdi></td><td><bdi class="term-en" dir="ltr">Key</bdi> اشتباه یا منقضی</td><td>خیر</td><td>توقف، <bdi class="term-en" dir="ltr">Rotation/Config Fix</bdi>؛ <bdi class="term-en" dir="ltr">Secret</bdi> را <bdi class="term-en" dir="ltr">Log</bdi> نکن.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Validation / Bad Request</bdi></td><td><bdi class="term-en" dir="ltr">Model</bdi> نامعتبر، پارامتر یا <bdi class="term-en" dir="ltr">Schema</bdi> غلط</td><td>خیر</td><td>اصلاح <bdi class="term-en" dir="ltr">Request</bdi>.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Rate Limit</bdi></td><td>تعداد درخواست بیش از ظرفیت کوتاه‌مدت</td><td>گاهی</td><td>احترام به <code>Retry-After</code>، <bdi class="term-en" dir="ltr">Backoff</bdi>، <bdi class="term-en" dir="ltr">Queue</bdi> و <bdi class="term-en" dir="ltr">Concurrency Limit</bdi>.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Quota / Billing</bdi></td><td><bdi class="term-en" dir="ltr">Credit</bdi> یا سقف مصرف تمام شده</td><td>خیر</td><td>رفع <bdi class="term-en" dir="ltr">Quota/Billing</bdi>؛ <bdi class="term-en" dir="ltr">Retry</bdi> فقط فشار و <bdi class="term-en" dir="ltr">Cost</bdi> را بیشتر می‌کند.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Timeout / Connection</bdi></td><td>قطع شبکه، <bdi class="term-en" dir="ltr">Connect/Read Timeout</bdi></td><td>گاهی</td><td><bdi class="term-en" dir="ltr">Retry</bdi> محدود با <bdi class="term-en" dir="ltr">Backoff</bdi>؛ بررسی <bdi class="term-en" dir="ltr">Idempotency</bdi> و <bdi class="term-en" dir="ltr">Network</bdi>.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Server Error</bdi></td><td><span class="ltr">HTTP 5xx</span></td><td>اغلب محدود</td><td><bdi class="term-en" dir="ltr">Retry</bdi> با <bdi class="term-en" dir="ltr">Jitter</bdi> و سقف؛ <bdi class="term-en" dir="ltr">Circuit Breaker</bdi> در مقیاس بالاتر.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Safety / Policy</bdi></td><td>درخواست یا خروجی مسدود</td><td>نه با همان ورودی</td><td>رفتار <bdi class="term-en" dir="ltr">Product</bdi> و مسیر <bdi class="term-en" dir="ltr">Escalation</bdi> را مشخص کن.</td></tr>
 </tbody>
 </table>
 </div>
-<h3>چرا Timeout اجباری است؟</h3>
+<h3>چرا <bdi class="term-en" dir="ltr">Timeout</bdi> اجباری است؟</h3>
 <p>
-          بدون Timeout، Worker ممکن است مدت طولانی منتظر بماند، Connection Pool اشغال شود، Queue رشد کند و Failure به سرویس‌های دیگر سرایت کند.
-          Timeout باید بر اساس SLO و نوع Request تنظیم شود؛ نه آن‌قدر کوتاه که پاسخ‌های سالم را قطع کند و نه آن‌قدر بلند که Failure را مخفی کند.
+          بدون <bdi class="term-en" dir="ltr">Timeout</bdi>، <bdi class="term-en" dir="ltr">Worker</bdi> ممکن است مدت طولانی منتظر بماند، <bdi class="term-en" dir="ltr">Connection Pool</bdi> اشغال شود، <bdi class="term-en" dir="ltr">Queue</bdi> رشد کند و <bdi class="term-en" dir="ltr">Failure</bdi> به سرویس‌های دیگر سرایت کند.
+          <bdi class="term-en" dir="ltr">Timeout</bdi> باید بر اساس <bdi class="term-en" dir="ltr">SLO</bdi> و نوع <bdi class="term-en" dir="ltr">Request</bdi> تنظیم شود؛ نه آن‌قدر کوتاه که پاسخ‌های سالم را قطع کند و نه آن‌قدر بلند که <bdi class="term-en" dir="ltr">Failure</bdi> را مخفی کند.
         </p>
-<h3>Exponential Backoff با Jitter</h3>
+<h3><bdi class="term-en" dir="ltr">Exponential Backoff</bdi> با <bdi class="term-en" dir="ltr">Jitter</bdi></h3>
 <div class="formula">delay = min(max_delay, base_delay × 2^attempt + random_jitter)</div>
 <p>
-          اگر صدها Client هم‌زمان Failure ببینند و دقیقاً در ثانیهٔ یکسان Retry کنند، Thundering Herd می‌سازند. Jitter زمان Retryها را پخش می‌کند.
+          اگر صدها <bdi class="term-en" dir="ltr">Client</bdi> هم‌زمان <bdi class="term-en" dir="ltr">Failure</bdi> ببینند و دقیقاً در ثانیهٔ یکسان <bdi class="term-en" dir="ltr">Retry</bdi> کنند، <bdi class="term-en" dir="ltr">Thundering Herd</bdi> می‌سازند. <bdi class="term-en" dir="ltr">Jitter</bdi> زمان <bdi class="term-en" dir="ltr">Retry</bdi>ها را پخش می‌کند.
         </p>
 <pre><code>import random
 import time
@@ -68,9 +68,9 @@ for attempt in range(3):
         delay = min(8.0, 0.5 * (2 ** attempt) + random.uniform(0, 0.25))
         time.sleep(delay)</code></pre>
 <div class="callout warning">
-<strong>Retry Budget داشته باش.</strong> سقف Attempt، سقف زمان کل و سقف هزینه را مشخص کن. SDK ممکن است خودش Retry پیش‌فرض داشته باشد؛ اگر روی آن Retry Application هم بگذاری، تعداد واقعی Callها چند برابر می‌شود.
+<strong><bdi class="term-en" dir="ltr">Retry Budget</bdi> داشته باش.</strong> سقف <bdi class="term-en" dir="ltr">Attempt</bdi>، سقف زمان کل و سقف هزینه را مشخص کن. <bdi class="term-en" dir="ltr">SDK</bdi> ممکن است خودش <bdi class="term-en" dir="ltr">Retry</bdi> پیش‌فرض داشته باشد؛ اگر روی آن <bdi class="term-en" dir="ltr">Retry Application</bdi> هم بگذاری، تعداد واقعی <bdi class="term-en" dir="ltr">Call</bdi>ها چند برابر می‌شود.
         </div>
-<h3>نمونهٔ Error Handling با SDK</h3>
+<h3>نمونهٔ <bdi class="term-en" dir="ltr">Error Handling</bdi> با <bdi class="term-en" dir="ltr">SDK</bdi></h3>
 <pre><code>from openai import (
     APIConnectionError,
     APIStatusError,
@@ -94,31 +94,31 @@ except (APIConnectionError, APITimeoutError) as exc:
 except APIStatusError as exc:
     print(f"provider status={exc.status_code} request_id={exc.request_id}")
     raise</code></pre>
-<h3>Request ID، بهترین سرنخ Debug</h3>
+<h3><bdi class="term-en" dir="ltr">Request ID</bdi>، بهترین سرنخ <bdi class="term-en" dir="ltr">Debug</bdi></h3>
 <p>
-          شناسهٔ Request را در Log ساختاریافته ثبت کن تا خطای Client، Provider و Support قابل Correlation باشد. Secret، Prompt کامل یا دادهٔ حساس را برای رسیدن به همین هدف Log نکن.
+          شناسهٔ <bdi class="term-en" dir="ltr">Request</bdi> را در <bdi class="term-en" dir="ltr">Log</bdi> ساختاریافته ثبت کن تا خطای <bdi class="term-en" dir="ltr">Client</bdi>، <bdi class="term-en" dir="ltr">Provider</bdi> و <bdi class="term-en" dir="ltr">Support</bdi> قابل <bdi class="term-en" dir="ltr">Correlation</bdi> باشد. <bdi class="term-en" dir="ltr">Secret</bdi>، <bdi class="term-en" dir="ltr">Prompt</bdi> کامل یا دادهٔ حساس را برای رسیدن به همین هدف <bdi class="term-en" dir="ltr">Log</bdi> نکن.
         </p>
-<h3>Idempotency و Agent Tool</h3>
+<h3><bdi class="term-en" dir="ltr">Idempotency</bdi> و <bdi class="term-en" dir="ltr">Agent Tool</bdi></h3>
 <p>
-          Retry یک درخواست صرفاً خواندنی معمولاً کم‌خطرتر از Retry عملیاتی مانند «ساخت Ticket»، «ارسال Email» یا «Restart Deployment» است.
-          در Toolهای Side-effect دار از Idempotency Key، Check-before-act، Transaction یا ثبت State استفاده کن تا یک Failure مبهم باعث اجرای دوبارهٔ عمل نشود.
+          <bdi class="term-en" dir="ltr">Retry</bdi> یک درخواست صرفاً خواندنی معمولاً کم‌خطرتر از <bdi class="term-en" dir="ltr">Retry</bdi> عملیاتی مانند «ساخت <bdi class="term-en" dir="ltr">Ticket</bdi>»، «ارسال <bdi class="term-en" dir="ltr">Email</bdi>» یا «<bdi class="term-en" dir="ltr">Restart Deployment</bdi>» است.
+          در <bdi class="term-en" dir="ltr">Tool</bdi>های <bdi class="term-en" dir="ltr">Side-effect</bdi> دار از <bdi class="term-en" dir="ltr">Idempotency Key</bdi>، <bdi class="term-en" dir="ltr">Check-before-act</bdi>، <bdi class="term-en" dir="ltr">Transaction</bdi> یا ثبت <bdi class="term-en" dir="ltr">State</bdi> استفاده کن تا یک <bdi class="term-en" dir="ltr">Failure</bdi> مبهم باعث اجرای دوبارهٔ عمل نشود.
         </p>
 <div class="analogy">
 <p>
-            این همان تفاوت Retry کردن <code>GET</code> با Retry کورکورانهٔ یک Job غیر Idempotent است. LLM بودن سرویس هیچ‌کدام از اصول Distributed Systems را لغو نمی‌کند.
+            این همان تفاوت <bdi class="term-en" dir="ltr">Retry</bdi> کردن <code>GET</code> با <bdi class="term-en" dir="ltr">Retry</bdi> کورکورانهٔ یک <bdi class="term-en" dir="ltr">Job</bdi> غیر <bdi class="term-en" dir="ltr">Idempotent</bdi> است. <bdi class="term-en" dir="ltr">LLM</bdi> بودن سرویس هیچ‌کدام از اصول <bdi class="term-en" dir="ltr">Distributed Systems</bdi> را لغو نمی‌کند.
           </p>
 </div>
 <div class="callout success">
-<strong>فایل آماده:</strong> <a href="../examples/resilient_llm_client.py">resilient_llm_client.py</a> نمونهٔ Retry محدود، Timeout، Jitter و تفکیک خطاهای غیرقابل Retry را نشان می‌دهد.
+<strong>فایل آماده:</strong> <a href="../examples/resilient_llm_client.py"><bdi class="term-en" dir="ltr">resilient_llm_client</bdi>.<bdi class="term-en" dir="ltr">py</bdi></a> نمونهٔ <bdi class="term-en" dir="ltr">Retry</bdi> محدود، <bdi class="term-en" dir="ltr">Timeout</bdi>، <bdi class="term-en" dir="ltr">Jitter</bdi> و تفکیک خطاهای غیرقابل <bdi class="term-en" dir="ltr">Retry</bdi> را نشان می‌دهد.
         </div>
 </section>
 
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
-    <a class="pill" href="10-environment-api.html">فصل قبل: Environment Variables و اولین API Call</a>
+    <a class="pill" href="10-environment-api.html">فصل قبل: <bdi class="term-en" dir="ltr">Environment Variables</bdi> و اولین <bdi class="term-en" dir="ltr">API Call</bdi></a>
     <a class="pill" href="../index.html">فهرست</a>
-    <a class="pill" href="12-observability-evaluation.html">فصل بعد: Observability برای LLM Application</a>
+    <a class="pill" href="12-observability-evaluation.html">فصل بعد: <bdi class="term-en" dir="ltr">Observability</bdi> برای <bdi class="term-en" dir="ltr">LLM Application</bdi></a>
   </nav>
-  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
 </main>
 <script src="../assets/js/course.js"></script>
 </body>

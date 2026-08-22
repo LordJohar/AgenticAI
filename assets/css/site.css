@@ -76,6 +76,10 @@ h1, h2, h3 { line-height: 1.45; }
   unicode-bidi: isolate;
   font-family: Consolas, "Courier New", monospace;
 }
+.term-en {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
 code:not(pre code) { background: var(--surface-2); color: var(--primary-2); padding: 2px 6px; border-radius: 6px; }
 pre { overflow: auto; background: var(--code-bg); color: var(--code-text); border-radius: 14px; padding: 18px; }
 table { width: 100%; border-collapse: collapse; }

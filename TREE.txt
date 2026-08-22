@@ -5,7 +5,8 @@ assets/
 └── fonts and shared CSS
 docs/
 ├── README.md
-└── media-workflow.md
+├── media-workflow.md
+└── writing-style.md
 foundations/
 ├── README.md
 ├── index.html

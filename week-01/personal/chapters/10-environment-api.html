@@ -11,13 +11,13 @@
 <a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
 <main class="content" id="main-content">
   <header class="hero">
-    <div class="eyebrow">Agentic AI · Week 01 · Chapter 10</div>
-    <h2>Environment Variables و اولین API Call</h2>
-    <p>Config را از Code جدا کن و Request را خط‌به‌خط بفهم</p>
+    <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 10</div>
+    <h2><bdi class="term-en" dir="ltr">Environment Variables</bdi> و اولین <bdi class="term-en" dir="ltr">API Call</bdi></h2>
+    <p><bdi class="term-en" dir="ltr">Config</bdi> را از <bdi class="term-en" dir="ltr">Code</bdi> جدا کن و <bdi class="term-en" dir="ltr">Request</bdi> را خط‌به‌خط بفهم</p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
       <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
-      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button>
     </div>
   </header>
 
@@ -25,35 +25,35 @@
 <div class="chapter-header">
 <div class="chapter-number">۱۰</div>
 <div>
-<h2>Environment Variables و اولین API Call</h2>
-<p>Config را از Code جدا کن و Request را خط‌به‌خط بفهم</p>
+<h2><bdi class="term-en" dir="ltr">Environment Variables</bdi> و اولین <bdi class="term-en" dir="ltr">API Call</bdi></h2>
+<p><bdi class="term-en" dir="ltr">Config</bdi> را از <bdi class="term-en" dir="ltr">Code</bdi> جدا کن و <bdi class="term-en" dir="ltr">Request</bdi> را خط‌به‌خط بفهم</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="env-api" type="checkbox"/> خواندم</label>
 </div>
-<h3>چرا API Key نباید داخل کد باشد؟</h3>
+<h3>چرا <bdi class="term-en" dir="ltr">API Key</bdi> نباید داخل کد باشد؟</h3>
 <p>
-          Hardcode کردن Secret در Source Code باعث نشت از Git History، Log، Screenshot، Artifact و Code Review می‌شود. Config متغیر مانند Model، Base URL و Timeout نیز بهتر است خارج از کد باشد تا برای Local، CI و Production بدون Patch کردن برنامه تغییر کند.
+          <bdi class="term-en" dir="ltr">Hardcode</bdi> کردن <bdi class="term-en" dir="ltr">Secret</bdi> در <bdi class="term-en" dir="ltr">Source Code</bdi> باعث نشت از <bdi class="term-en" dir="ltr">Git History</bdi>، <bdi class="term-en" dir="ltr">Log</bdi>، <bdi class="term-en" dir="ltr">Screenshot</bdi>، <bdi class="term-en" dir="ltr">Artifact</bdi> و <bdi class="term-en" dir="ltr">Code Review</bdi> می‌شود. <bdi class="term-en" dir="ltr">Config</bdi> متغیر مانند <bdi class="term-en" dir="ltr">Model</bdi>، <bdi class="term-en" dir="ltr">Base URL</bdi> و <bdi class="term-en" dir="ltr">Timeout</bdi> نیز بهتر است خارج از کد باشد تا برای <bdi class="term-en" dir="ltr">Local</bdi>، <bdi class="term-en" dir="ltr">CI</bdi> و <bdi class="term-en" dir="ltr">Production</bdi> بدون <bdi class="term-en" dir="ltr">Patch</bdi> کردن برنامه تغییر کند.
         </p>
-<h3>سه روش تنظیم Environment Variable</h3>
+<h3>سه روش تنظیم <bdi class="term-en" dir="ltr">Environment Variable</bdi></h3>
 <div class="grid-3">
 <article class="card">
-<h4>Linux / Bash</h4>
+<h4><bdi class="term-en" dir="ltr">Linux / Bash</bdi></h4>
 <pre><code>export OPENAI_API_KEY='...'
 export OPENAI_MODEL='gpt-5.6'</code></pre>
 </article>
 <article class="card">
-<h4>Windows PowerShell</h4>
+<h4><bdi class="term-en" dir="ltr">Windows PowerShell</bdi></h4>
 <pre><code>$env:OPENAI_API_KEY = '...'
 $env:OPENAI_MODEL = 'gpt-5.6'</code></pre>
 </article>
 <article class="card">
-<h4>فایل Local به نام .env</h4>
+<h4>فایل <bdi class="term-en" dir="ltr">Local</bdi> به نام .<bdi class="term-en" dir="ltr">env</bdi></h4>
 <pre><code>OPENAI_API_KEY=...
 OPENAI_MODEL=gpt-5.6</code></pre>
-<p class="small">فقط برای Development؛ حتماً داخل <code>.gitignore</code>.</p>
+<p class="small">فقط برای <bdi class="term-en" dir="ltr">Development</bdi>؛ حتماً داخل <code>.gitignore</code>.</p>
 </article>
 </div>
-<h3>خواندن Config در Python</h3>
+<h3>خواندن <bdi class="term-en" dir="ltr">Config</bdi> در <bdi class="term-en" dir="ltr">Python</bdi></h3>
 <pre><code>import os
 from dotenv import load_dotenv
 
@@ -65,10 +65,10 @@ model = os.getenv("OPENAI_MODEL", "gpt-5.6")
 if not api_key:
     raise RuntimeError("OPENAI_API_KEY is not set")</code></pre>
 <p>
-<code>os.getenv</code> در نبود متغیر مقدار <code>None</code> یا Default می‌دهد. برای Secret بهتر است نبودن مقدار را Fail-fast کنی؛
-          اما برای Config غیرحساس می‌توان Default منطقی داشت.
+<code>os.getenv</code> در نبود متغیر مقدار <code>None</code> یا <bdi class="term-en" dir="ltr">Default</bdi> می‌دهد. برای <bdi class="term-en" dir="ltr">Secret</bdi> بهتر است نبودن مقدار را <bdi class="term-en" dir="ltr">Fail-fast</bdi> کنی؛
+          اما برای <bdi class="term-en" dir="ltr">Config</bdi> غیرحساس می‌توان <bdi class="term-en" dir="ltr">Default</bdi> منطقی داشت.
         </p>
-<h3>اولین Call با SDK</h3>
+<h3>اولین <bdi class="term-en" dir="ltr">Call</bdi> با <bdi class="term-en" dir="ltr">SDK</bdi></h3>
 <pre><code>import os
 from openai import OpenAI
 
@@ -86,29 +86,29 @@ response = client.responses.create(
 print(response.output_text)</code></pre>
 <h3>هر خط چه می‌کند؟</h3>
 <ol>
-<li><code>OpenAI(...)</code> یک Client می‌سازد؛ تنظیم Auth، Timeout و Retry در این لایه قرار می‌گیرد.</li>
-<li><code>responses.create(...)</code> یک Request شبکه‌ای می‌فرستد.</li>
-<li><code>model</code> مدل انتخابی را از Config می‌گیرد.</li>
+<li><code>OpenAI(...)</code> یک <bdi class="term-en" dir="ltr">Client</bdi> می‌سازد؛ تنظیم <bdi class="term-en" dir="ltr">Auth</bdi>، <bdi class="term-en" dir="ltr">Timeout</bdi> و <bdi class="term-en" dir="ltr">Retry</bdi> در این لایه قرار می‌گیرد.</li>
+<li><code>responses.create(...)</code> یک <bdi class="term-en" dir="ltr">Request</bdi> شبکه‌ای می‌فرستد.</li>
+<li><code>model</code> مدل انتخابی را از <bdi class="term-en" dir="ltr">Config</bdi> می‌گیرد.</li>
 <li><code>instructions</code> رفتار و محدودیت‌های کلی را مشخص می‌کند.</li>
 <li><code>input</code> داده یا درخواست جاری است.</li>
-<li><code>response.output_text</code> متن خروجی را از ساختار Response جمع می‌کند.</li>
+<li><code>response.output_text</code> متن خروجی را از ساختار <bdi class="term-en" dir="ltr">Response</bdi> جمع می‌کند.</li>
 </ol>
 <div class="callout warning">
-<strong>Prompt امنیت ایجاد نمی‌کند.</strong> جملهٔ «Secret را چاپ نکن» جای IAM، Network Policy، Secret Store، Redaction و Least Privilege را نمی‌گیرد. Prompt فقط یکی از کنترل‌هاست.
+<strong><bdi class="term-en" dir="ltr">Prompt</bdi> امنیت ایجاد نمی‌کند.</strong> جملهٔ «<bdi class="term-en" dir="ltr">Secret</bdi> را چاپ نکن» جای <bdi class="term-en" dir="ltr">IAM</bdi>، <bdi class="term-en" dir="ltr">Network Policy</bdi>، <bdi class="term-en" dir="ltr">Secret Store</bdi>، <bdi class="term-en" dir="ltr">Redaction</bdi> و <bdi class="term-en" dir="ltr">Least Privilege</bdi> را نمی‌گیرد. <bdi class="term-en" dir="ltr">Prompt</bdi> فقط یکی از کنترل‌هاست.
         </div>
-<h3>چرخهٔ کامل Request</h3>
+<h3>چرخهٔ کامل <bdi class="term-en" dir="ltr">Request</bdi></h3>
 <div class="diagram">
 <div class="flow">
-<div class="flow-node">Read Config</div><div class="flow-arrow">→</div>
-<div class="flow-node">Validate Input</div><div class="flow-arrow">→</div>
-<div class="flow-node">Build Instructions</div><div class="flow-arrow">→</div>
-<div class="flow-node">API Request</div><div class="flow-arrow">→</div>
-<div class="flow-node">Validate Response</div><div class="flow-arrow">→</div>
-<div class="flow-node">Log Metrics / Return</div>
+<div class="flow-node"><bdi class="term-en" dir="ltr">Read Config</bdi></div><div class="flow-arrow">→</div>
+<div class="flow-node"><bdi class="term-en" dir="ltr">Validate Input</bdi></div><div class="flow-arrow">→</div>
+<div class="flow-node"><bdi class="term-en" dir="ltr">Build Instructions</bdi></div><div class="flow-arrow">→</div>
+<div class="flow-node"><bdi class="term-en" dir="ltr">API Request</bdi></div><div class="flow-arrow">→</div>
+<div class="flow-node"><bdi class="term-en" dir="ltr">Validate Response</bdi></div><div class="flow-arrow">→</div>
+<div class="flow-node"><bdi class="term-en" dir="ltr">Log Metrics / Return</bdi></div>
 </div>
 </div>
-<h3>در Kubernetes</h3>
-<p>Secret را در Manifest خام Git نگه ندار. بسته به زیرساخت از External Secrets، Vault، Sealed Secrets یا مکانیزم سازمانی استفاده کن. شکل تزریق در Pod می‌تواند چنین باشد:</p>
+<h3>در <bdi class="term-en" dir="ltr">Kubernetes</bdi></h3>
+<p><bdi class="term-en" dir="ltr">Secret</bdi> را در <bdi class="term-en" dir="ltr">Manifest</bdi> خام <bdi class="term-en" dir="ltr">Git</bdi> نگه ندار. بسته به زیرساخت از <bdi class="term-en" dir="ltr">External Secrets</bdi>، <bdi class="term-en" dir="ltr">Vault</bdi>، <bdi class="term-en" dir="ltr">Sealed Secrets</bdi> یا مکانیزم سازمانی استفاده کن. شکل تزریق در <bdi class="term-en" dir="ltr">Pod</bdi> می‌تواند چنین باشد:</p>
 <pre><code>env:
   - name: OPENAI_API_KEY
     valueFrom:
@@ -118,29 +118,29 @@ print(response.output_text)</code></pre>
   - name: OPENAI_MODEL
     value: "gpt-5.6"</code></pre>
 <p>
-          Environment Variable برای شروع ساده است، اما Process Inspection، Crash Dump و Debug ممکن است آن را در معرض دید قرار دهد. Permission دسترسی به Pod،
-          Log Policy و Secret Rotation همچنان لازم‌اند.
+          <bdi class="term-en" dir="ltr">Environment Variable</bdi> برای شروع ساده است، اما <bdi class="term-en" dir="ltr">Process Inspection</bdi>، <bdi class="term-en" dir="ltr">Crash Dump</bdi> و <bdi class="term-en" dir="ltr">Debug</bdi> ممکن است آن را در معرض دید قرار دهد. <bdi class="term-en" dir="ltr">Permission</bdi> دسترسی به <bdi class="term-en" dir="ltr">Pod</bdi>،
+          <bdi class="term-en" dir="ltr">Log Policy</bdi> و <bdi class="term-en" dir="ltr">Secret Rotation</bdi> همچنان لازم‌اند.
         </p>
-<h3>OpenAI-compatible Endpoint</h3>
+<h3><bdi class="term-en" dir="ltr">OpenAI-compatible Endpoint</bdi></h3>
 <p>
-          برخی Gatewayها یا Runtimeهای Self-hosted همان شکل API را ارائه می‌کنند. در این حالت ممکن است <code>base_url</code> نیز Config شود؛
-          اما سازگاری Endpoint را با سازگاری Capability اشتباه نگیر.
+          برخی <bdi class="term-en" dir="ltr">Gateway</bdi>ها یا <bdi class="term-en" dir="ltr">Runtime</bdi>های <bdi class="term-en" dir="ltr">Self-hosted</bdi> همان شکل <bdi class="term-en" dir="ltr">API</bdi> را ارائه می‌کنند. در این حالت ممکن است <code>base_url</code> نیز <bdi class="term-en" dir="ltr">Config</bdi> شود؛
+          اما سازگاری <bdi class="term-en" dir="ltr">Endpoint</bdi> را با سازگاری <bdi class="term-en" dir="ltr">Capability</bdi> اشتباه نگیر.
         </p>
 <pre><code>client = OpenAI(
     api_key=os.environ["LLM_API_KEY"],
     base_url=os.getenv("LLM_BASE_URL"),
 )</code></pre>
 <div class="callout success">
-<strong>فایل آماده:</strong> نمونهٔ کامل در <a href="../examples/02_first_llm_call.py">02_first_llm_call.py</a> قرار دارد. بدون Key، برنامه با پیام روشن متوقف می‌شود و Secret را چاپ نمی‌کند.
+<strong>فایل آماده:</strong> نمونهٔ کامل در <a href="../examples/02_first_llm_call.py">02_first_llm_call.<bdi class="term-en" dir="ltr">py</bdi></a> قرار دارد. بدون <bdi class="term-en" dir="ltr">Key</bdi>، برنامه با پیام روشن متوقف می‌شود و <bdi class="term-en" dir="ltr">Secret</bdi> را چاپ نمی‌کند.
         </div>
 </section>
 
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
-    <a class="pill" href="09-python-api-refresher.html">فصل قبل: مرور Python برای کار با API</a>
+    <a class="pill" href="09-python-api-refresher.html">فصل قبل: مرور <bdi class="term-en" dir="ltr">Python</bdi> برای کار با <bdi class="term-en" dir="ltr">API</bdi></a>
     <a class="pill" href="../index.html">فهرست</a>
-    <a class="pill" href="11-error-handling.html">فصل بعد: Error Handling، Timeout و Retry</a>
+    <a class="pill" href="11-error-handling.html">فصل بعد: <bdi class="term-en" dir="ltr">Error Handling</bdi>، <bdi class="term-en" dir="ltr">Timeout</bdi> و <bdi class="term-en" dir="ltr">Retry</bdi></a>
   </nav>
-  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
 </main>
 <script src="../assets/js/course.js"></script>
 </body>

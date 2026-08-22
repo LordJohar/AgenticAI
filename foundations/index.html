@@ -12,8 +12,8 @@
 <div class="app-shell">
   <aside class="sidebar" aria-label="فهرست جزوه">
     <a class="brand" href="../index.html">
-      <span class="brand-mark">AI</span>
-      <span><strong>Agentic AI Foundations</strong><small>پیش‌نیاز مشترک همهٔ هفته‌ها</small></span>
+      <span class="brand-mark"><bdi class="term-en" dir="ltr">AI</bdi></span>
+      <span><strong><bdi class="term-en" dir="ltr">Agentic AI Foundations</bdi></strong><small>پیش‌نیاز مشترک همهٔ هفته‌ها</small></span>
     </a>
     <div class="progress-wrap" aria-label="پیشرفت مطالعه">
       <div class="progress-label"><span>پیشرفت این جزوه</span><strong data-progress-text>۰٪</strong></div>
@@ -22,233 +22,233 @@
     <label class="search-box"><input id="toc-search" type="search" placeholder="جست‌وجوی فصل…" autocomplete="off"></label>
     <nav class="toc" aria-label="فصل‌ها">
       <a href="#map">۰. نقشهٔ راه</a><a href="#math">۱. عدد، بردار و ماتریس</a>
-      <a href="#neuron">۲. از Linear Model تا Neuron</a><a href="#network">۳. Neural Network</a>
-      <a href="#training">۴. Loss، Gradient و Backpropagation</a><a href="#activation">۵. Activation Function</a>
-      <a href="#softmax">۶. Logit، Softmax و Cross-Entropy</a><a href="#tokens">۷. Token و Embedding</a>
-      <a href="#sequence">۸. Sequence، RNN و گلوگاه Context</a><a href="#attention">۹. Attention از کجا آمد؟</a>
-      <a href="#paper">۱۰. ترجمهٔ مفهومی مقاله Attention</a><a href="#transformer">۱۱. Transformer قدم‌به‌قدم</a>
-      <a href="#llm">۱۲. از Transformer تا LLM</a><a href="#decoding">۱۳. Inference و Decoding</a>
-      <a href="#limits">۱۴. Hallucination، محدودیت و تطبیق</a><a href="#glossary">۱۵. واژه‌نامه و منابع</a>
+      <a href="#neuron">۲. از <bdi class="term-en" dir="ltr">Linear Model</bdi> تا <bdi class="term-en" dir="ltr">Neuron</bdi></a><a href="#network">۳. <bdi class="term-en" dir="ltr">Neural Network</bdi></a>
+      <a href="#training">۴. <bdi class="term-en" dir="ltr">Loss</bdi>، <bdi class="term-en" dir="ltr">Gradient</bdi> و <bdi class="term-en" dir="ltr">Backpropagation</bdi></a><a href="#activation">۵. <bdi class="term-en" dir="ltr">Activation Function</bdi></a>
+      <a href="#softmax">۶. <bdi class="term-en" dir="ltr">Logit</bdi>، <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi></a><a href="#tokens">۷. <bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Embedding</bdi></a>
+      <a href="#sequence">۸. <bdi class="term-en" dir="ltr">Sequence</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه <bdi class="term-en" dir="ltr">Context</bdi></a><a href="#attention">۹. <bdi class="term-en" dir="ltr">Attention</bdi> از کجا آمد؟</a>
+      <a href="#paper">۱۰. ترجمهٔ مفهومی مقاله <bdi class="term-en" dir="ltr">Attention</bdi></a><a href="#transformer">۱۱. <bdi class="term-en" dir="ltr">Transformer</bdi> قدم‌به‌قدم</a>
+      <a href="#llm">۱۲. از <bdi class="term-en" dir="ltr">Transformer</bdi> تا <bdi class="term-en" dir="ltr">LLM</bdi></a><a href="#decoding">۱۳. <bdi class="term-en" dir="ltr">Inference</bdi> و <bdi class="term-en" dir="ltr">Decoding</bdi></a>
+      <a href="#limits">۱۴. <bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و تطبیق</a><a href="#glossary">۱۵. واژه‌نامه و منابع</a>
     </nav>
-    <div class="sidebar-actions"><button class="icon-button" type="button" data-action="print">چاپ / PDF</button><a class="icon-button" href="../week-01/index.html">هفتهٔ اول</a></div>
+    <div class="sidebar-actions"><button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button><a class="icon-button" href="../week-01/index.html">هفتهٔ اول</a></div>
   </aside>
 
   <div class="main">
     <div class="mobile-bar"><button class="icon-button" type="button" data-action="menu">فهرست</button><strong data-progress-text>۰٪</strong></div>
     <main class="content" id="main-content">
       <header class="hero">
-        <div class="eyebrow">FOUNDATIONS · از صفر و بدون پیش‌نیاز Machine Learning</div>
-        <h1>از Neural Network تا Attention و LLM</h1>
-        <p>هدف این جزوه حفظ‌کردن واژه‌ها نیست. قرار است بفهمیم مدل چگونه عدد می‌بیند، چگونه خطایش را کم می‌کند، چرا Softmax لازم است، Attention چه مسئله‌ای را حل کرد و Transformer چگونه به پایهٔ LLMهای امروزی تبدیل شد.</p>
-        <div class="hero-meta"><span class="pill">فارسی مفهومی</span><span class="pill">اصطلاحات تخصصی انگلیسی</span><span class="pill">مثال عددی</span><span class="pill">Attention paper walkthrough</span></div>
-        <p class="small">مسیر پیشنهادی: فصل‌ها را به‌ترتیب بخوان. اگر فصل Softmax روشن نباشد، فرمول Attention شبیه یک طلسم ریاضی به نظر می‌رسد.</p>
+        <div class="eyebrow"><bdi class="term-en" dir="ltr">FOUNDATIONS</bdi> · از صفر و بدون پیش‌نیاز <bdi class="term-en" dir="ltr">Machine Learning</bdi></div>
+        <h1>از <bdi class="term-en" dir="ltr">Neural Network</bdi> تا <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">LLM</bdi></h1>
+        <p>هدف این جزوه حفظ‌کردن واژه‌ها نیست. قرار است بفهمیم مدل چگونه عدد می‌بیند، چگونه خطایش را کم می‌کند، چرا <bdi class="term-en" dir="ltr">Softmax</bdi> لازم است، <bdi class="term-en" dir="ltr">Attention</bdi> چه مسئله‌ای را حل کرد و <bdi class="term-en" dir="ltr">Transformer</bdi> چگونه به پایهٔ <bdi class="term-en" dir="ltr">LLM</bdi>های امروزی تبدیل شد.</p>
+        <div class="hero-meta"><span class="pill">فارسی مفهومی</span><span class="pill">اصطلاحات تخصصی انگلیسی</span><span class="pill">مثال عددی</span><span class="pill"><bdi class="term-en" dir="ltr">Attention paper walkthrough</bdi></span></div>
+        <p class="small">مسیر پیشنهادی: فصل‌ها را به‌ترتیب بخوان. اگر فصل <bdi class="term-en" dir="ltr">Softmax</bdi> روشن نباشد، فرمول <bdi class="term-en" dir="ltr">Attention</bdi> شبیه یک طلسم ریاضی به نظر می‌رسد.</p>
       </header>
 
       <section class="chapter" id="map">
         <header class="chapter-header"><span class="chapter-number">۰</span><div class="chapter-title"><h2>نقشهٔ راه: دقیقاً چه چیزی می‌سازیم؟</h2><p>یک زنجیرهٔ علّی، نه فهرستی از اصطلاحات پراکنده.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="map"> یاد گرفتم</label></header>
-        <div class="diagram"><div class="flow"><span class="flow-node">داده</span><span class="flow-arrow">→</span><span class="flow-node">عدد و بردار</span><span class="flow-arrow">→</span><span class="flow-node">Neural Network</span><span class="flow-arrow">→</span><span class="flow-node">Probability</span><span class="flow-arrow">→</span><span class="flow-node">Token و Context</span><span class="flow-arrow">→</span><span class="flow-node">Attention</span><span class="flow-arrow">→</span><span class="flow-node">Transformer / LLM</span></div></div>
-        <p>مدل زبانی در بنیادی‌ترین سطح یک تابع بسیار بزرگ است: عدد می‌گیرد و عدد برمی‌گرداند. متن قبل از ورود به مدل به <code>token id</code> تبدیل می‌شود؛ هر id به <code>embedding vector</code> نگاشت می‌شود؛ لایه‌ها این بردارها را با توجه به context تغییر می‌دهند؛ در پایان برای token بعدی مجموعه‌ای <code>logit</code> ساخته و با Softmax به توزیع احتمال تبدیل می‌شود.</p>
+        <div class="diagram"><div class="flow"><span class="flow-node">داده</span><span class="flow-arrow">→</span><span class="flow-node">عدد و بردار</span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Neural Network</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Probability</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Attention</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Transformer / LLM</bdi></span></div></div>
+        <p>مدل زبانی در بنیادی‌ترین سطح یک تابع بسیار بزرگ است: عدد می‌گیرد و عدد برمی‌گرداند. متن قبل از ورود به مدل به <code>token id</code> تبدیل می‌شود؛ هر <bdi class="term-en" dir="ltr">id</bdi> به <code>embedding vector</code> نگاشت می‌شود؛ لایه‌ها این بردارها را با توجه به <bdi class="term-en" dir="ltr">context</bdi> تغییر می‌دهند؛ در پایان برای <bdi class="term-en" dir="ltr">token</bdi> بعدی مجموعه‌ای <code>logit</code> ساخته و با <bdi class="term-en" dir="ltr">Softmax</bdi> به توزیع احتمال تبدیل می‌شود.</p>
         <div class="callout success"><strong>معیار یادگیری:</strong> در پایان باید بتوانی مسیر <span class="ltr">text → tokens → embeddings → Transformer blocks → logits → Softmax → next token</span> را بدون نگاه‌کردن توضیح بدهی.</div>
         <div class="grid-3">
-          <article class="card"><h3>Machine Learning</h3><p>به‌جای نوشتن همهٔ ruleها، parameterهای یک مدل از exampleها یاد گرفته می‌شوند.</p></article>
-          <article class="card"><h3>Deep Learning</h3><p>زیرمجموعه‌ای از ML که از Neural Networkهای چندلایه برای یادگیری representation استفاده می‌کند.</p></article>
-          <article class="card"><h3>Large Language Model</h3><p>یک Neural Network زبانی با parameter و دادهٔ زیاد؛ معمولاً مبتنی بر Transformer و هدف پیش‌بینی token.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Machine Learning</bdi></h3><p>به‌جای نوشتن همهٔ <bdi class="term-en" dir="ltr">rule</bdi>ها، <bdi class="term-en" dir="ltr">parameter</bdi>های یک مدل از <bdi class="term-en" dir="ltr">example</bdi>ها یاد گرفته می‌شوند.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Deep Learning</bdi></h3><p>زیرمجموعه‌ای از <bdi class="term-en" dir="ltr">ML</bdi> که از <bdi class="term-en" dir="ltr">Neural Network</bdi>های چندلایه برای یادگیری <bdi class="term-en" dir="ltr">representation</bdi> استفاده می‌کند.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Large Language Model</bdi></h3><p>یک <bdi class="term-en" dir="ltr">Neural Network</bdi> زبانی با <bdi class="term-en" dir="ltr">parameter</bdi> و دادهٔ زیاد؛ معمولاً مبتنی بر <bdi class="term-en" dir="ltr">Transformer</bdi> و هدف پیش‌بینی <bdi class="term-en" dir="ltr">token</bdi>.</p></article>
         </div>
-        <details><summary>آیا برای فهم این جزوه باید Calculus بلد باشم؟</summary><p>نه. derivative و gradient را ابتدا به‌صورت «جهت و شدت تغییر» می‌فهمیم. فرمول‌ها برای اتصال intuition به کد هستند، نه آزمون ریاضی.</p></details>
+        <details><summary>آیا برای فهم این جزوه باید <bdi class="term-en" dir="ltr">Calculus</bdi> بلد باشم؟</summary><p>نه. <bdi class="term-en" dir="ltr">derivative</bdi> و <bdi class="term-en" dir="ltr">gradient</bdi> را ابتدا به‌صورت «جهت و شدت تغییر» می‌فهمیم. فرمول‌ها برای اتصال <bdi class="term-en" dir="ltr">intuition</bdi> به کد هستند، نه آزمون ریاضی.</p></details>
       </section>
 
       <section class="chapter" id="math">
-        <header class="chapter-header"><span class="chapter-number">۱</span><div class="chapter-title"><h2>عدد، بردار، ماتریس و Tensor</h2><p>زبان مشترک تمام محاسبات مدل.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="math"> یاد گرفتم</label></header>
-        <p><strong>Scalar</strong> یک عدد است؛ مثلاً دما یا یک score. <strong>Vector</strong> لیستی مرتب از اعداد است؛ مثلاً نمایش یک token با ۷۶۸ ویژگی آموخته‌شده. <strong>Matrix</strong> جدولی دوبعدی از اعداد است. <strong>Tensor</strong> نام عمومی آرایه‌ای با هر تعداد بعد است.</p>
+        <header class="chapter-header"><span class="chapter-number">۱</span><div class="chapter-title"><h2>عدد، بردار، ماتریس و <bdi class="term-en" dir="ltr">Tensor</bdi></h2><p>زبان مشترک تمام محاسبات مدل.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="math"> یاد گرفتم</label></header>
+        <p><strong><bdi class="term-en" dir="ltr">Scalar</bdi></strong> یک عدد است؛ مثلاً دما یا یک <bdi class="term-en" dir="ltr">score</bdi>. <strong><bdi class="term-en" dir="ltr">Vector</bdi></strong> لیستی مرتب از اعداد است؛ مثلاً نمایش یک <bdi class="term-en" dir="ltr">token</bdi> با ۷۶۸ ویژگی آموخته‌شده. <strong><bdi class="term-en" dir="ltr">Matrix</bdi></strong> جدولی دوبعدی از اعداد است. <strong><bdi class="term-en" dir="ltr">Tensor</bdi></strong> نام عمومی آرایه‌ای با هر تعداد بعد است.</p>
         <div class="grid-2">
-          <article class="card"><h3>Shape</h3><pre><code>scalar:  3.2               shape: []
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Shape</bdi></h3><pre><code>scalar:  3.2               shape: []
 vector:  [0.2, -1.1, 0.7] shape: [3]
 matrix:  4 tokens × 8 dims shape: [4, 8]
 batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
-          <article class="card"><h3>Weight و Bias</h3><p><code>weight</code> مشخص می‌کند هر ورودی چه اندازه و با چه علامتی اثر بگذارد. <code>bias</code> یک offset قابل‌یادگیری است تا مدل مجبور نباشد همه‌چیز را از صفر عبور دهد.</p><div class="formula">y = Wx + b</div></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Weight</bdi> و <bdi class="term-en" dir="ltr">Bias</bdi></h3><p><code>weight</code> مشخص می‌کند هر ورودی چه اندازه و با چه علامتی اثر بگذارد. <code>bias</code> یک <bdi class="term-en" dir="ltr">offset</bdi> قابل‌یادگیری است تا مدل مجبور نباشد همه‌چیز را از صفر عبور دهد.</p><div class="formula">y = Wx + b</div></article>
         </div>
-        <h3>Dot Product: یک عدد برای میزان هم‌جهتی</h3>
-        <p>دو بردار هم‌اندازه را عضو‌به‌عضو ضرب و جمع می‌کنیم. در Attention از این عملیات برای ساخت score شباهت Query و Key استفاده می‌شود.</p>
+        <h3><bdi class="term-en" dir="ltr">Dot Product:</bdi> یک عدد برای میزان هم‌جهتی</h3>
+        <p>دو بردار هم‌اندازه را عضو‌به‌عضو ضرب و جمع می‌کنیم. در <bdi class="term-en" dir="ltr">Attention</bdi> از این عملیات برای ساخت <bdi class="term-en" dir="ltr">score</bdi> شباهت <bdi class="term-en" dir="ltr">Query</bdi> و <bdi class="term-en" dir="ltr">Key</bdi> استفاده می‌شود.</p>
         <div class="formula">[1, 2, 0] · [3, -1, 4] = (1×3) + (2×-1) + (0×4) = 1</div>
-        <p>Dot product بزرگ‌تر می‌تواند نشانهٔ هم‌جهتی بیشتر باشد، اما طول بردار هم روی آن اثر دارد. <code>cosine similarity</code> جهت را با نرمال‌کردن طول مقایسه می‌کند.</p>
-        <h3>Dimension یعنی چه؟</h3>
-        <p>وقتی می‌گوییم embedding دارای ۷۶۸ dimension است، منظور ۷۶۸ محور آموخته‌شده است. معمولاً نمی‌توان گفت محور ۴۲ دقیقاً «رسمی‌بودن» است؛ معنا میان تعداد زیادی dimension توزیع شده است.</p>
-        <details><summary>چرا مدل فقط با عدد کار می‌کند؟</summary><p>پردازنده عملیات جمع و ضرب را روی آرایه‌های عددی بسیار سریع اجرا می‌کند. آموزش هم به تابع‌های پیوسته و قابل‌مشتق نیاز دارد؛ string خام چنین ساختاری ندارد.</p></details>
+        <p><bdi class="term-en" dir="ltr">Dot product</bdi> بزرگ‌تر می‌تواند نشانهٔ هم‌جهتی بیشتر باشد، اما طول بردار هم روی آن اثر دارد. <code>cosine similarity</code> جهت را با نرمال‌کردن طول مقایسه می‌کند.</p>
+        <h3><bdi class="term-en" dir="ltr">Dimension</bdi> یعنی چه؟</h3>
+        <p>وقتی می‌گوییم <bdi class="term-en" dir="ltr">embedding</bdi> دارای ۷۶۸ <bdi class="term-en" dir="ltr">dimension</bdi> است، منظور ۷۶۸ محور آموخته‌شده است. معمولاً نمی‌توان گفت محور ۴۲ دقیقاً «رسمی‌بودن» است؛ معنا میان تعداد زیادی <bdi class="term-en" dir="ltr">dimension</bdi> توزیع شده است.</p>
+        <details><summary>چرا مدل فقط با عدد کار می‌کند؟</summary><p>پردازنده عملیات جمع و ضرب را روی آرایه‌های عددی بسیار سریع اجرا می‌کند. آموزش هم به تابع‌های پیوسته و قابل‌مشتق نیاز دارد؛ <bdi class="term-en" dir="ltr">string</bdi> خام چنین ساختاری ندارد.</p></details>
       </section>
 
       <section class="chapter" id="neuron">
-        <header class="chapter-header"><span class="chapter-number">۲</span><div class="chapter-title"><h2>از Linear Model تا Neuron</h2><p>کوچک‌ترین واحد محاسباتی را بدون استعارهٔ زیستی بفهمیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="neuron"> یاد گرفتم</label></header>
-        <p>یک artificial neuron چند ورودی را با weightهایشان ترکیب می‌کند، bias را اضافه می‌کند و معمولاً نتیجه را از یک <code>activation function</code> عبور می‌دهد:</p>
+        <header class="chapter-header"><span class="chapter-number">۲</span><div class="chapter-title"><h2>از <bdi class="term-en" dir="ltr">Linear Model</bdi> تا <bdi class="term-en" dir="ltr">Neuron</bdi></h2><p>کوچک‌ترین واحد محاسباتی را بدون استعارهٔ زیستی بفهمیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="neuron"> یاد گرفتم</label></header>
+        <p>یک <bdi class="term-en" dir="ltr">artificial neuron</bdi> چند ورودی را با <bdi class="term-en" dir="ltr">weight</bdi>هایشان ترکیب می‌کند، <bdi class="term-en" dir="ltr">bias</bdi> را اضافه می‌کند و معمولاً نتیجه را از یک <code>activation function</code> عبور می‌دهد:</p>
         <div class="formula">z = w₁x₁ + w₂x₂ + … + wₙxₙ + b &nbsp;&nbsp;&nbsp; ; &nbsp;&nbsp;&nbsp; a = activation(z)</div>
-        <p>مثلاً برای تخمین احتمال incident، <code>x₁</code> می‌تواند تعداد errorها و <code>x₂</code> latency باشد. مدل هنگام training یاد می‌گیرد کدام feature مهم‌تر است. neuron یک مغز کوچک یا محل ذخیرهٔ یک مفهوم کامل نیست؛ فقط یک محاسبهٔ پارامتری است.</p>
-        <div class="callout"><strong>Parameter:</strong> مقداری که مدل از داده یاد می‌گیرد؛ مانند weight و bias. <strong>Hyperparameter:</strong> انتخابی بیرونی مانند learning rate، batch size یا تعداد لایه‌ها.</div>
-        <h3>Forward Pass</h3><p>حرکت از input به prediction را <code>forward pass</code> می‌نامیم. هنوز چیزی یاد گرفته نشده؛ فقط با parameterهای فعلی خروجی محاسبه شده است.</p>
-        <details><summary>آیا هر neuron یک کلمه یا مفهوم مشخص را تشخیص می‌دهد؟</summary><p>گاهی واحدهایی به pattern خاص حساس می‌شوند، اما representation معمولاً distributed است. نسبت‌دادن یک مفهوم انسانی ثابت به هر neuron مدل ذهنی قابل‌اعتمادی نیست.</p></details>
+        <p>مثلاً برای تخمین احتمال <bdi class="term-en" dir="ltr">incident</bdi>، <code>x₁</code> می‌تواند تعداد <bdi class="term-en" dir="ltr">error</bdi>ها و <code>x₂</code> <bdi class="term-en" dir="ltr">latency</bdi> باشد. مدل هنگام <bdi class="term-en" dir="ltr">training</bdi> یاد می‌گیرد کدام <bdi class="term-en" dir="ltr">feature</bdi> مهم‌تر است. <bdi class="term-en" dir="ltr">neuron</bdi> یک مغز کوچک یا محل ذخیرهٔ یک مفهوم کامل نیست؛ فقط یک محاسبهٔ پارامتری است.</p>
+        <div class="callout"><strong><bdi class="term-en" dir="ltr">Parameter:</bdi></strong> مقداری که مدل از داده یاد می‌گیرد؛ مانند <bdi class="term-en" dir="ltr">weight</bdi> و <bdi class="term-en" dir="ltr">bias</bdi>. <strong><bdi class="term-en" dir="ltr">Hyperparameter:</bdi></strong> انتخابی بیرونی مانند <bdi class="term-en" dir="ltr">learning rate</bdi>، <bdi class="term-en" dir="ltr">batch size</bdi> یا تعداد لایه‌ها.</div>
+        <h3><bdi class="term-en" dir="ltr">Forward Pass</bdi></h3><p>حرکت از <bdi class="term-en" dir="ltr">input</bdi> به <bdi class="term-en" dir="ltr">prediction</bdi> را <code>forward pass</code> می‌نامیم. هنوز چیزی یاد گرفته نشده؛ فقط با <bdi class="term-en" dir="ltr">parameter</bdi>های فعلی خروجی محاسبه شده است.</p>
+        <details><summary>آیا هر <bdi class="term-en" dir="ltr">neuron</bdi> یک کلمه یا مفهوم مشخص را تشخیص می‌دهد؟</summary><p>گاهی واحدهایی به <bdi class="term-en" dir="ltr">pattern</bdi> خاص حساس می‌شوند، اما <bdi class="term-en" dir="ltr">representation</bdi> معمولاً <bdi class="term-en" dir="ltr">distributed</bdi> است. نسبت‌دادن یک مفهوم انسانی ثابت به هر <bdi class="term-en" dir="ltr">neuron</bdi> مدل ذهنی قابل‌اعتمادی نیست.</p></details>
       </section>
 
       <section class="chapter" id="network">
-        <header class="chapter-header"><span class="chapter-number">۳</span><div class="chapter-title"><h2>Neural Network و لایه‌ها</h2><p>چرا یک خط کافی نیست و «عمیق» چه معنایی دارد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="network"> یاد گرفتم</label></header>
-        <div class="diagram"><div class="flow"><span class="flow-node">Input layer<br>x</span><span class="flow-arrow">→</span><span class="flow-node">Linear + Activation</span><span class="flow-arrow">→</span><span class="flow-node">Hidden representation</span><span class="flow-arrow">→</span><span class="flow-node">Output logits</span></div></div>
-        <p>ترکیب چند تابع خطی بدون activation هنوز یک تابع خطی است. Nonlinearity اجازه می‌دهد شبکه رابطه‌های پیچیده را مدل کند. <code>Deep</code> یعنی چندین مرحلهٔ representation پشت سر هم قرار گرفته‌اند.</p>
+        <header class="chapter-header"><span class="chapter-number">۳</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Neural Network</bdi> و لایه‌ها</h2><p>چرا یک خط کافی نیست و «عمیق» چه معنایی دارد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="network"> یاد گرفتم</label></header>
+        <div class="diagram"><div class="flow"><span class="flow-node"><bdi class="term-en" dir="ltr">Input layer</bdi><br><bdi class="term-en" dir="ltr">x</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Linear + Activation</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Hidden representation</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Output logits</bdi></span></div></div>
+        <p>ترکیب چند تابع خطی بدون <bdi class="term-en" dir="ltr">activation</bdi> هنوز یک تابع خطی است. <bdi class="term-en" dir="ltr">Nonlinearity</bdi> اجازه می‌دهد شبکه رابطه‌های پیچیده را مدل کند. <code>Deep</code> یعنی چندین مرحلهٔ <bdi class="term-en" dir="ltr">representation</bdi> پشت سر هم قرار گرفته‌اند.</p>
         <div class="grid-2">
-          <article class="card"><h3>Layer</h3><p>یک تبدیل مشخص روی Tensor. در Transformer، Attention و Feed-Forward هر دو نوعی layer/sub-layer هستند.</p></article>
-          <article class="card"><h3>Representation</h3><p>شکل عددی‌ای که مدل در یک مرحله برای بیان اطلاعات ساخته است.</p></article>
-          <article class="card"><h3>Parameter count</h3><p>تعداد weightها و biasهای قابل‌یادگیری. «۷B» تقریباً یعنی هفت میلیارد parameter، نه هفت میلیارد خط کد.</p></article>
-          <article class="card"><h3>Architecture</h3><p>نقشهٔ اتصال لایه‌ها و جریان داده. Training parameterها را تعیین می‌کند؛ architecture ظرف محاسبات است.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Layer</bdi></h3><p>یک تبدیل مشخص روی <bdi class="term-en" dir="ltr">Tensor</bdi>. در <bdi class="term-en" dir="ltr">Transformer</bdi>، <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">Feed-Forward</bdi> هر دو نوعی <bdi class="term-en" dir="ltr">layer/sub-layer</bdi> هستند.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Representation</bdi></h3><p>شکل عددی‌ای که مدل در یک مرحله برای بیان اطلاعات ساخته است.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Parameter count</bdi></h3><p>تعداد <bdi class="term-en" dir="ltr">weight</bdi>ها و <bdi class="term-en" dir="ltr">bias</bdi>های قابل‌یادگیری. «۷<bdi class="term-en" dir="ltr">B</bdi>» تقریباً یعنی هفت میلیارد <bdi class="term-en" dir="ltr">parameter</bdi>، نه هفت میلیارد خط کد.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Architecture</bdi></h3><p>نقشهٔ اتصال لایه‌ها و جریان داده. <bdi class="term-en" dir="ltr">Training parameter</bdi>ها را تعیین می‌کند؛ <bdi class="term-en" dir="ltr">architecture</bdi> ظرف محاسبات است.</p></article>
         </div>
-        <h3>Generalization و Overfitting</h3>
-        <p>هدف حفظ‌کردن training set نیست؛ مدل باید روی example ندیده خوب کار کند. اگر training loss پایین ولی validation loss بالا باشد، احتمال <code>overfitting</code> وجود دارد. تقسیم train/validation/test کمک می‌کند یادگیری را از حفظ‌کردن جدا کنیم.</p>
+        <h3><bdi class="term-en" dir="ltr">Generalization</bdi> و <bdi class="term-en" dir="ltr">Overfitting</bdi></h3>
+        <p>هدف حفظ‌کردن <bdi class="term-en" dir="ltr">training set</bdi> نیست؛ مدل باید روی <bdi class="term-en" dir="ltr">example</bdi> ندیده خوب کار کند. اگر <bdi class="term-en" dir="ltr">training loss</bdi> پایین ولی <bdi class="term-en" dir="ltr">validation loss</bdi> بالا باشد، احتمال <code>overfitting</code> وجود دارد. تقسیم <bdi class="term-en" dir="ltr">train/validation/test</bdi> کمک می‌کند یادگیری را از حفظ‌کردن جدا کنیم.</p>
       </section>
 
       <section class="chapter" id="training">
-        <header class="chapter-header"><span class="chapter-number">۴</span><div class="chapter-title"><h2>Training: Loss، Gradient و Backpropagation</h2><p>مدل دقیقاً چگونه weightهایش را تغییر می‌دهد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="training"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Training:</bdi> <bdi class="term-en" dir="ltr">Loss</bdi>، <bdi class="term-en" dir="ltr">Gradient</bdi> و <bdi class="term-en" dir="ltr">Backpropagation</bdi></h2><p>مدل دقیقاً چگونه <bdi class="term-en" dir="ltr">weight</bdi>هایش را تغییر می‌دهد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="training"> یاد گرفتم</label></header>
         <ol>
-          <li><strong>Forward pass:</strong> مدل با weightهای فعلی prediction می‌سازد.</li>
-          <li><strong>Loss:</strong> یک عدد نشان می‌دهد prediction چقدر با target فاصله دارد.</li>
-          <li><strong>Backward pass:</strong> <code>backpropagation</code> سهم هر parameter در loss را با chain rule محاسبه می‌کند.</li>
-          <li><strong>Optimizer step:</strong> parameterها کمی در جهت کاهش loss تغییر می‌کنند.</li>
-          <li>این چرخه روی batchهای فراوان تکرار می‌شود.</li>
+          <li><strong><bdi class="term-en" dir="ltr">Forward pass:</bdi></strong> مدل با <bdi class="term-en" dir="ltr">weight</bdi>های فعلی <bdi class="term-en" dir="ltr">prediction</bdi> می‌سازد.</li>
+          <li><strong><bdi class="term-en" dir="ltr">Loss:</bdi></strong> یک عدد نشان می‌دهد <bdi class="term-en" dir="ltr">prediction</bdi> چقدر با <bdi class="term-en" dir="ltr">target</bdi> فاصله دارد.</li>
+          <li><strong><bdi class="term-en" dir="ltr">Backward pass:</bdi></strong> <code>backpropagation</code> سهم هر <bdi class="term-en" dir="ltr">parameter</bdi> در <bdi class="term-en" dir="ltr">loss</bdi> را با <bdi class="term-en" dir="ltr">chain rule</bdi> محاسبه می‌کند.</li>
+          <li><strong><bdi class="term-en" dir="ltr">Optimizer step:</bdi></strong> <bdi class="term-en" dir="ltr">parameter</bdi>ها کمی در جهت کاهش <bdi class="term-en" dir="ltr">loss</bdi> تغییر می‌کنند.</li>
+          <li>این چرخه روی <bdi class="term-en" dir="ltr">batch</bdi>های فراوان تکرار می‌شود.</li>
         </ol>
         <div class="formula">w_new = w_old − learning_rate × ∂Loss/∂w</div>
-        <p><code>gradient</code> برداری از derivativeهاست: اگر هر parameter کمی تغییر کند، loss با چه جهت و شدتی تغییر می‌کند؟ <code>gradient descent</code> در خلاف جهت gradient حرکت می‌کند. <code>learning rate</code> اندازهٔ گام است؛ خیلی بزرگ می‌تواند training را ناپایدار و خیلی کوچک آن را کند کند.</p>
+        <p><code>gradient</code> برداری از <bdi class="term-en" dir="ltr">derivative</bdi>هاست: اگر هر <bdi class="term-en" dir="ltr">parameter</bdi> کمی تغییر کند، <bdi class="term-en" dir="ltr">loss</bdi> با چه جهت و شدتی تغییر می‌کند؟ <code>gradient descent</code> در خلاف جهت <bdi class="term-en" dir="ltr">gradient</bdi> حرکت می‌کند. <code>learning rate</code> اندازهٔ گام است؛ خیلی بزرگ می‌تواند <bdi class="term-en" dir="ltr">training</bdi> را ناپایدار و خیلی کوچک آن را کند کند.</p>
         <div class="grid-3">
-          <article class="card"><h3>Epoch</h3><p>یک بار عبور تقریبی از کل training set.</p></article>
-          <article class="card"><h3>Batch</h3><p>گروهی از exampleها که یک‌جا پردازش و gradient آن‌ها تجمیع می‌شود.</p></article>
-          <article class="card"><h3>Optimizer</h3><p>قاعدهٔ به‌روزرسانی parameterها؛ مانند SGD یا Adam.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Epoch</bdi></h3><p>یک بار عبور تقریبی از کل <bdi class="term-en" dir="ltr">training set</bdi>.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Batch</bdi></h3><p>گروهی از <bdi class="term-en" dir="ltr">example</bdi>ها که یک‌جا پردازش و <bdi class="term-en" dir="ltr">gradient</bdi> آن‌ها تجمیع می‌شود.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Optimizer</bdi></h3><p>قاعدهٔ به‌روزرسانی <bdi class="term-en" dir="ltr">parameter</bdi>ها؛ مانند <bdi class="term-en" dir="ltr">SGD</bdi> یا <bdi class="term-en" dir="ltr">Adam</bdi>.</p></article>
         </div>
-        <h3>Vanishing و Exploding Gradient</h3>
-        <p>در زنجیره‌های بسیار عمیق یا recurrent، ضرب derivativeها ممکن است gradient را نزدیک صفر یا بسیار بزرگ کند. ReLU، normalization، residual connection، initialization مناسب و gradient clipping از ابزارهای کنترل‌اند.</p>
-        <details><summary>Backpropagation با Gradient Descent یکی است؟</summary><p>نه. Backpropagation gradientها را به‌شکل کارآمد محاسبه می‌کند؛ Gradient Descent یا optimizer از آن‌ها برای update کردن parameterها استفاده می‌کند.</p></details>
+        <h3><bdi class="term-en" dir="ltr">Vanishing</bdi> و <bdi class="term-en" dir="ltr">Exploding Gradient</bdi></h3>
+        <p>در زنجیره‌های بسیار عمیق یا <bdi class="term-en" dir="ltr">recurrent</bdi>، ضرب <bdi class="term-en" dir="ltr">derivative</bdi>ها ممکن است <bdi class="term-en" dir="ltr">gradient</bdi> را نزدیک صفر یا بسیار بزرگ کند. <bdi class="term-en" dir="ltr">ReLU</bdi>، <bdi class="term-en" dir="ltr">normalization</bdi>، <bdi class="term-en" dir="ltr">residual connection</bdi>، <bdi class="term-en" dir="ltr">initialization</bdi> مناسب و <bdi class="term-en" dir="ltr">gradient clipping</bdi> از ابزارهای کنترل‌اند.</p>
+        <details><summary><bdi class="term-en" dir="ltr">Backpropagation</bdi> با <bdi class="term-en" dir="ltr">Gradient Descent</bdi> یکی است؟</summary><p>نه. <bdi class="term-en" dir="ltr">Backpropagation gradient</bdi>ها را به‌شکل کارآمد محاسبه می‌کند؛ <bdi class="term-en" dir="ltr">Gradient Descent</bdi> یا <bdi class="term-en" dir="ltr">optimizer</bdi> از آن‌ها برای <bdi class="term-en" dir="ltr">update</bdi> کردن <bdi class="term-en" dir="ltr">parameter</bdi>ها استفاده می‌کند.</p></details>
       </section>
 
       <section class="chapter" id="activation">
-        <header class="chapter-header"><span class="chapter-number">۵</span><div class="chapter-title"><h2>Activation Function</h2><p>منبع nonlinearity و رفتارهای متفاوت خروجی.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="activation"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۵</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Activation Function</bdi></h2><p>منبع <bdi class="term-en" dir="ltr">nonlinearity</bdi> و رفتارهای متفاوت خروجی.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="activation"> یاد گرفتم</label></header>
         <div class="table-wrap"><table><thead><tr><th>تابع</th><th>فرمول/بازه</th><th>شهود و کاربرد</th></tr></thead><tbody>
-          <tr><td>ReLU</td><td class="ltr">max(0, x)</td><td>مقدار منفی را صفر و مثبت را عبور می‌دهد؛ ساده و رایج در شبکه‌های عمیق.</td></tr>
-          <tr><td>Sigmoid</td><td class="ltr">1 / (1 + e⁻ˣ), range (0,1)</td><td>برای احتمال یک رخداد مستقل مناسب است؛ در مقدارهای بزرگ/کوچک اشباع می‌شود.</td></tr>
-          <tr><td>Tanh</td><td class="ltr">range (-1,1)</td><td>خروجی zero-centered؛ در RNNهای کلاسیک دیده می‌شود.</td></tr>
-          <tr><td>GELU / SiLU</td><td>smooth gating</td><td>در بسیاری از Transformerهای جدید داخل MLP استفاده می‌شود.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">ReLU</bdi></td><td class="ltr">max(0, x)</td><td>مقدار منفی را صفر و مثبت را عبور می‌دهد؛ ساده و رایج در شبکه‌های عمیق.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Sigmoid</bdi></td><td class="ltr">1 / (1 + e⁻ˣ), range (0,1)</td><td>برای احتمال یک رخداد مستقل مناسب است؛ در مقدارهای بزرگ/کوچک اشباع می‌شود.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Tanh</bdi></td><td class="ltr">range (-1,1)</td><td>خروجی <bdi class="term-en" dir="ltr">zero-centered</bdi>؛ در <bdi class="term-en" dir="ltr">RNN</bdi>های کلاسیک دیده می‌شود.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">GELU / SiLU</bdi></td><td><bdi class="term-en" dir="ltr">smooth gating</bdi></td><td>در بسیاری از <bdi class="term-en" dir="ltr">Transformer</bdi>های جدید داخل <bdi class="term-en" dir="ltr">MLP</bdi> استفاده می‌شود.</td></tr>
         </tbody></table></div>
-        <div class="callout warning"><strong>Softmax با ReLU فرق دارد:</strong> ReLU معمولاً روی unitهای hidden اعمال می‌شود. Softmax مجموعه‌ای از scoreهای خروجی را به یک توزیع جمع‌شونده به ۱ تبدیل می‌کند.</div>
+        <div class="callout warning"><strong><bdi class="term-en" dir="ltr">Softmax</bdi> با <bdi class="term-en" dir="ltr">ReLU</bdi> فرق دارد:</strong> <bdi class="term-en" dir="ltr">ReLU</bdi> معمولاً روی <bdi class="term-en" dir="ltr">unit</bdi>های <bdi class="term-en" dir="ltr">hidden</bdi> اعمال می‌شود. <bdi class="term-en" dir="ltr">Softmax</bdi> مجموعه‌ای از <bdi class="term-en" dir="ltr">score</bdi>های خروجی را به یک توزیع جمع‌شونده به ۱ تبدیل می‌کند.</div>
       </section>
 
       <section class="chapter" id="softmax">
-        <header class="chapter-header"><span class="chapter-number">۶</span><div class="chapter-title"><h2>Logit، Softmax و Cross-Entropy</h2><p>پل میان score خام، احتمال و انتخاب token.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="softmax"> یاد گرفتم</label></header>
-        <h3>Logit چیست؟</h3>
-        <p>خروجی خام مدل برای هر class یا token را <code>logit</code> می‌نامیم. logit احتمال نیست: می‌تواند منفی یا بزرگ‌تر از ۱ باشد و مجموعش محدودیتی ندارد.</p>
+        <header class="chapter-header"><span class="chapter-number">۶</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Logit</bdi>، <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi></h2><p>پل میان <bdi class="term-en" dir="ltr">score</bdi> خام، احتمال و انتخاب <bdi class="term-en" dir="ltr">token</bdi>.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="softmax"> یاد گرفتم</label></header>
+        <h3><bdi class="term-en" dir="ltr">Logit</bdi> چیست؟</h3>
+        <p>خروجی خام مدل برای هر <bdi class="term-en" dir="ltr">class</bdi> یا <bdi class="term-en" dir="ltr">token</bdi> را <code>logit</code> می‌نامیم. <bdi class="term-en" dir="ltr">logit</bdi> احتمال نیست: می‌تواند منفی یا بزرگ‌تر از ۱ باشد و مجموعش محدودیتی ندارد.</p>
         <div class="formula">softmax(zᵢ) = exp(zᵢ) / Σⱼ exp(zⱼ)</div>
-        <p>Softmax سه کار می‌کند: با exponential همهٔ مقدارها را مثبت می‌کند؛ score بزرگ‌تر را برجسته می‌کند؛ سپس با تقسیم بر مجموع، خروجی‌ها را به probabilityهایی تبدیل می‌کند که جمعشان ۱ است.</p>
+        <p><bdi class="term-en" dir="ltr">Softmax</bdi> سه کار می‌کند: با <bdi class="term-en" dir="ltr">exponential</bdi> همهٔ مقدارها را مثبت می‌کند؛ <bdi class="term-en" dir="ltr">score</bdi> بزرگ‌تر را برجسته می‌کند؛ سپس با تقسیم بر مجموع، خروجی‌ها را به <bdi class="term-en" dir="ltr">probability</bdi>هایی تبدیل می‌کند که جمعشان ۱ است.</p>
         <h3>مثال دستی</h3>
-        <p>برای logits برابر <code>[2, 1, 0]</code>، مقدارهای نمایی تقریباً <code>[7.39, 2.72, 1]</code> و مجموع <code>11.11</code> است؛ پس احتمال‌ها حدود <code>[0.665, 0.245, 0.090]</code> می‌شوند.</p>
-        <div class="callout"><strong>Numerical stability:</strong> در کد واقعی ابتدا بزرگ‌ترین logit را از همه کم می‌کنیم. Softmax تغییر نمی‌کند، ولی از overflow در <code>exp</code> جلوگیری می‌شود.</div>
-        <h3>آزمایش تعاملی Softmax و Temperature</h3>
+        <p>برای <bdi class="term-en" dir="ltr">logits</bdi> برابر <code>[2, 1, 0]</code>، مقدارهای نمایی تقریباً <code>[7.39, 2.72, 1]</code> و مجموع <code>11.11</code> است؛ پس احتمال‌ها حدود <code>[0.665, 0.245, 0.090]</code> می‌شوند.</p>
+        <div class="callout"><strong><bdi class="term-en" dir="ltr">Numerical stability:</bdi></strong> در کد واقعی ابتدا بزرگ‌ترین <bdi class="term-en" dir="ltr">logit</bdi> را از همه کم می‌کنیم. <bdi class="term-en" dir="ltr">Softmax</bdi> تغییر نمی‌کند، ولی از <bdi class="term-en" dir="ltr">overflow</bdi> در <code>exp</code> جلوگیری می‌شود.</div>
+        <h3>آزمایش تعاملی <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Temperature</bdi></h3>
         <div class="lab">
-          <div class="lab-row"><label for="logits">logits</label><input id="logits" data-softmax-input value="2, 1, 0" dir="ltr"></div>
-          <div class="lab-row"><label for="temperature">temperature</label><input id="temperature" data-temperature type="number" value="1" min="0.05" max="5" step="0.05" dir="ltr"></div>
+          <div class="lab-row"><label for="logits"><bdi class="term-en" dir="ltr">logits</bdi></label><input id="logits" data-softmax-input value="2, 1, 0" dir="ltr"></div>
+          <div class="lab-row"><label for="temperature"><bdi class="term-en" dir="ltr">temperature</bdi></label><input id="temperature" data-temperature type="number" value="1" min="0.05" max="5" step="0.05" dir="ltr"></div>
           <div class="probability-bars" data-softmax-output></div>
         </div>
-        <p>Temperature قبل از Softmax logits را تقسیم می‌کند. <code>T &lt; 1</code> distribution را متمرکزتر و <code>T &gt; 1</code> آن را تخت‌تر می‌کند. Temperature دانش مدل را عوض نمی‌کند، فقط sampling از scoreهای فعلی را تغییر می‌دهد.</p>
-        <h3>Cross-Entropy چه می‌سنجد؟</h3>
-        <p>اگر target صحیح class شمارهٔ ۲ باشد، loss ساده برابر <code>-log(p₂)</code> است. احتمال زیاد برای جواب درست loss کوچک و احتمال کم loss بزرگ می‌دهد.</p>
+        <p><bdi class="term-en" dir="ltr">Temperature</bdi> قبل از <bdi class="term-en" dir="ltr">Softmax logits</bdi> را تقسیم می‌کند. <code>T &lt; 1</code> <bdi class="term-en" dir="ltr">distribution</bdi> را متمرکزتر و <code>T &gt; 1</code> آن را تخت‌تر می‌کند. <bdi class="term-en" dir="ltr">Temperature</bdi> دانش مدل را عوض نمی‌کند، فقط <bdi class="term-en" dir="ltr">sampling</bdi> از <bdi class="term-en" dir="ltr">score</bdi>های فعلی را تغییر می‌دهد.</p>
+        <h3><bdi class="term-en" dir="ltr">Cross-Entropy</bdi> چه می‌سنجد؟</h3>
+        <p>اگر <bdi class="term-en" dir="ltr">target</bdi> صحیح <bdi class="term-en" dir="ltr">class</bdi> شمارهٔ ۲ باشد، <bdi class="term-en" dir="ltr">loss</bdi> ساده برابر <code>-log(p₂)</code> است. احتمال زیاد برای جواب درست <bdi class="term-en" dir="ltr">loss</bdi> کوچک و احتمال کم <bdi class="term-en" dir="ltr">loss</bdi> بزرگ می‌دهد.</p>
         <div class="formula">CrossEntropy(target=k) = −log(softmax(logits)ₖ)</div>
-        <details><summary>آیا خروجی Softmax «اعتماد واقعی» مدل است؟</summary><p>نه لزوماً. Probability مدل ممکن است calibration خوبی نداشته باشد. ۹۰٪ در distribution خروجی تضمین نمی‌کند پاسخ در جهان واقعی ۹۰٪ درست است.</p></details>
+        <details><summary>آیا خروجی <bdi class="term-en" dir="ltr">Softmax</bdi> «اعتماد واقعی» مدل است؟</summary><p>نه لزوماً. <bdi class="term-en" dir="ltr">Probability</bdi> مدل ممکن است <bdi class="term-en" dir="ltr">calibration</bdi> خوبی نداشته باشد. ۹۰٪ در <bdi class="term-en" dir="ltr">distribution</bdi> خروجی تضمین نمی‌کند پاسخ در جهان واقعی ۹۰٪ درست است.</p></details>
       </section>
 
       <section class="chapter" id="tokens">
-        <header class="chapter-header"><span class="chapter-number">۷</span><div class="chapter-title"><h2>Token، Vocabulary، One-Hot و Embedding</h2><p>چگونه متن به ورودی عددی معنادار تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="tokens"> یاد گرفتم</label></header>
-        <p><code>Tokenizer</code> متن را به واحدهایی به نام token تقسیم می‌کند. token ممکن است یک کلمه، بخشی از کلمه، علامت یا byte باشد. سپس هر token از <code>vocabulary</code> یک id می‌گیرد. id فقط شناسه است و نزدیکی عددی idها معنایی ندارد.</p>
+        <header class="chapter-header"><span class="chapter-number">۷</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Token</bdi>، <bdi class="term-en" dir="ltr">Vocabulary</bdi>، <bdi class="term-en" dir="ltr">One-Hot</bdi> و <bdi class="term-en" dir="ltr">Embedding</bdi></h2><p>چگونه متن به ورودی عددی معنادار تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="tokens"> یاد گرفتم</label></header>
+        <p><code>Tokenizer</code> متن را به واحدهایی به نام <bdi class="term-en" dir="ltr">token</bdi> تقسیم می‌کند. <bdi class="term-en" dir="ltr">token</bdi> ممکن است یک کلمه، بخشی از کلمه، علامت یا <bdi class="term-en" dir="ltr">byte</bdi> باشد. سپس هر <bdi class="term-en" dir="ltr">token</bdi> از <code>vocabulary</code> یک <bdi class="term-en" dir="ltr">id</bdi> می‌گیرد. <bdi class="term-en" dir="ltr">id</bdi> فقط شناسه است و نزدیکی عددی <bdi class="term-en" dir="ltr">id</bdi>ها معنایی ندارد.</p>
         <pre><code>text:      "مدل‌ها یاد می‌گیرند"
 tokens:    ["مدل", "‌ها", " یاد", " می", "‌گیرند"]
 token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
-        <h3>One-Hot چرا کافی نیست؟</h3>
-        <p>در بردار one-hot فقط خانهٔ مربوط به id برابر ۱ است. دو کلمهٔ مشابه و نامشابه فاصله‌ای یکسان دارند و vector بسیار بزرگ و sparse است. <code>embedding table</code> برای هر token یک بردار dense و قابل‌یادگیری نگه می‌دارد.</p>
+        <h3><bdi class="term-en" dir="ltr">One-Hot</bdi> چرا کافی نیست؟</h3>
+        <p>در بردار <bdi class="term-en" dir="ltr">one-hot</bdi> فقط خانهٔ مربوط به <bdi class="term-en" dir="ltr">id</bdi> برابر ۱ است. دو کلمهٔ مشابه و نامشابه فاصله‌ای یکسان دارند و <bdi class="term-en" dir="ltr">vector</bdi> بسیار بزرگ و <bdi class="term-en" dir="ltr">sparse</bdi> است. <code>embedding table</code> برای هر <bdi class="term-en" dir="ltr">token</bdi> یک بردار <bdi class="term-en" dir="ltr">dense</bdi> و قابل‌یادگیری نگه می‌دارد.</p>
         <div class="formula">embedding(token_id) = row[token_id] from E ∈ ℝ^(vocab_size × d_model)</div>
-        <h3>Word2Vec چه ایده‌ای اضافه کرد؟</h3>
-        <p>Word2Vec embedding را از یک task جانبی یاد می‌گیرد: در <code>Skip-gram</code> از کلمهٔ مرکزی همسایه‌ها پیش‌بینی می‌شوند و در <code>CBOW</code> از همسایه‌ها کلمهٔ مرکزی. واژه‌هایی با context مشابه بردارهای نزدیک‌تری پیدا می‌کنند. محدودیت: یک واژه معمولاً یک بردار static دارد و چندمعنایی را با context حل نمی‌کند.</p>
-        <h3>Subword Tokenization</h3>
-        <p>تقسیم به subword میان vocabulary کاملاً کلمه‌ای و character-level تعادل ایجاد می‌کند: واژهٔ نادر می‌تواند از بخش‌های آشناتر ساخته شود. BPE یکی از روش‌های تاریخی مهم این مسیر است. مرز token همیشه با مرز واژه یا معنا یکی نیست.</p>
-        <div class="callout warning"><strong>Token ≠ word:</strong> هزینه، context length و احتمال خروجی بر حسب token محاسبه می‌شوند. یک واژهٔ فارسی ممکن است چند token شود.</div>
+        <h3><bdi class="term-en" dir="ltr">Word2Vec</bdi> چه ایده‌ای اضافه کرد؟</h3>
+        <p><bdi class="term-en" dir="ltr">Word2Vec embedding</bdi> را از یک <bdi class="term-en" dir="ltr">task</bdi> جانبی یاد می‌گیرد: در <code>Skip-gram</code> از کلمهٔ مرکزی همسایه‌ها پیش‌بینی می‌شوند و در <code>CBOW</code> از همسایه‌ها کلمهٔ مرکزی. واژه‌هایی با <bdi class="term-en" dir="ltr">context</bdi> مشابه بردارهای نزدیک‌تری پیدا می‌کنند. محدودیت: یک واژه معمولاً یک بردار <bdi class="term-en" dir="ltr">static</bdi> دارد و چندمعنایی را با <bdi class="term-en" dir="ltr">context</bdi> حل نمی‌کند.</p>
+        <h3><bdi class="term-en" dir="ltr">Subword Tokenization</bdi></h3>
+        <p>تقسیم به <bdi class="term-en" dir="ltr">subword</bdi> میان <bdi class="term-en" dir="ltr">vocabulary</bdi> کاملاً کلمه‌ای و <bdi class="term-en" dir="ltr">character-level</bdi> تعادل ایجاد می‌کند: واژهٔ نادر می‌تواند از بخش‌های آشناتر ساخته شود. <bdi class="term-en" dir="ltr">BPE</bdi> یکی از روش‌های تاریخی مهم این مسیر است. مرز <bdi class="term-en" dir="ltr">token</bdi> همیشه با مرز واژه یا معنا یکی نیست.</p>
+        <div class="callout warning"><strong><bdi class="term-en" dir="ltr">Token</bdi> ≠ <bdi class="term-en" dir="ltr">word:</bdi></strong> هزینه، <bdi class="term-en" dir="ltr">context length</bdi> و احتمال خروجی بر حسب <bdi class="term-en" dir="ltr">token</bdi> محاسبه می‌شوند. یک واژهٔ فارسی ممکن است چند <bdi class="term-en" dir="ltr">token</bdi> شود.</div>
       </section>
 
       <section class="chapter" id="sequence">
-        <header class="chapter-header"><span class="chapter-number">۸</span><div class="chapter-title"><h2>Sequence، RNN و گلوگاه Context</h2><p>چرا قبل از Transformer پردازش ترتیبی مسئله‌ساز بود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="sequence"> یاد گرفتم</label></header>
-        <p>معنای زبان به ترتیب و context وابسته است. RNN در هر time step ورودی فعلی و hidden state قبلی را ترکیب می‌کند:</p>
+        <header class="chapter-header"><span class="chapter-number">۸</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Sequence</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه <bdi class="term-en" dir="ltr">Context</bdi></h2><p>چرا قبل از <bdi class="term-en" dir="ltr">Transformer</bdi> پردازش ترتیبی مسئله‌ساز بود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="sequence"> یاد گرفتم</label></header>
+        <p>معنای زبان به ترتیب و <bdi class="term-en" dir="ltr">context</bdi> وابسته است. <bdi class="term-en" dir="ltr">RNN</bdi> در هر <bdi class="term-en" dir="ltr">time step</bdi> ورودی فعلی و <bdi class="term-en" dir="ltr">hidden state</bdi> قبلی را ترکیب می‌کند:</p>
         <div class="formula">hₜ = f(xₜ, hₜ₋₁)</div>
-        <p>این state خلاصه‌ای از گذشته است. LSTM و GRU با gateها جریان حافظه و gradient را بهتر کردند، اما سه محدودیت اصلی باقی ماند:</p>
+        <p>این <bdi class="term-en" dir="ltr">state</bdi> خلاصه‌ای از گذشته است. <bdi class="term-en" dir="ltr">LSTM</bdi> و <bdi class="term-en" dir="ltr">GRU</bdi> با <bdi class="term-en" dir="ltr">gate</bdi>ها جریان حافظه و <bdi class="term-en" dir="ltr">gradient</bdi> را بهتر کردند، اما سه محدودیت اصلی باقی ماند:</p>
         <div class="grid-3">
-          <article class="card"><h3>Sequential compute</h3><p>برای محاسبهٔ <code>h₁₀</code> ابتدا <code>h₉</code> لازم است؛ parallelization دشوار می‌شود.</p></article>
-          <article class="card"><h3>Long dependency</h3><p>رابطهٔ دو token دور باید از stateهای میانی زیادی عبور کند.</p></article>
-          <article class="card"><h3>Fixed bottleneck</h3><p>Encoder کلاسیک کل ورودی را به یک vector ثابت برای Decoder تحویل می‌داد.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Sequential compute</bdi></h3><p>برای محاسبهٔ <code>h₁₀</code> ابتدا <code>h₉</code> لازم است؛ <bdi class="term-en" dir="ltr">parallelization</bdi> دشوار می‌شود.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Long dependency</bdi></h3><p>رابطهٔ دو <bdi class="term-en" dir="ltr">token</bdi> دور باید از <bdi class="term-en" dir="ltr">state</bdi>های میانی زیادی عبور کند.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Fixed bottleneck</bdi></h3><p><bdi class="term-en" dir="ltr">Encoder</bdi> کلاسیک کل ورودی را به یک <bdi class="term-en" dir="ltr">vector</bdi> ثابت برای <bdi class="term-en" dir="ltr">Decoder</bdi> تحویل می‌داد.</p></article>
         </div>
-        <p>Attention ابتدا برای رفع گلوگاه آخر در Neural Machine Translation مطرح شد: Decoder به‌جای تکیه بر یک خلاصهٔ ثابت، در هر گام به همهٔ stateهای Encoder نگاه می‌کند.</p>
+        <p><bdi class="term-en" dir="ltr">Attention</bdi> ابتدا برای رفع گلوگاه آخر در <bdi class="term-en" dir="ltr">Neural Machine Translation</bdi> مطرح شد: <bdi class="term-en" dir="ltr">Decoder</bdi> به‌جای تکیه بر یک خلاصهٔ ثابت، در هر گام به همهٔ <bdi class="term-en" dir="ltr">state</bdi>های <bdi class="term-en" dir="ltr">Encoder</bdi> نگاه می‌کند.</p>
       </section>
 
       <section class="chapter" id="attention">
-        <header class="chapter-header"><span class="chapter-number">۹</span><div class="chapter-title"><h2>Attention: جست‌وجوی نرم در حافظه</h2><p>Q، K، V و Softmax را از یک مثال ملموس بسازیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="attention"> یاد گرفتم</label></header>
-        <p>Query بیان می‌کند «چه می‌خواهم؟»، هر Key می‌گوید «این رکورد با چه ویژگی‌ای قابل‌جست‌وجوست؟» و Value محتوایی است که در صورت مرتبط‌بودن برداشته می‌شود. برخلاف database lookup سخت، Attention معمولاً همهٔ Valueها را با وزن متفاوت ترکیب می‌کند.</p>
+        <header class="chapter-header"><span class="chapter-number">۹</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Attention:</bdi> جست‌وجوی نرم در حافظه</h2><p><bdi class="term-en" dir="ltr">Q</bdi>، <bdi class="term-en" dir="ltr">K</bdi>، <bdi class="term-en" dir="ltr">V</bdi> و <bdi class="term-en" dir="ltr">Softmax</bdi> را از یک مثال ملموس بسازیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="attention"> یاد گرفتم</label></header>
+        <p><bdi class="term-en" dir="ltr">Query</bdi> بیان می‌کند «چه می‌خواهم؟»، هر <bdi class="term-en" dir="ltr">Key</bdi> می‌گوید «این رکورد با چه ویژگی‌ای قابل‌جست‌وجوست؟» و <bdi class="term-en" dir="ltr">Value</bdi> محتوایی است که در صورت مرتبط‌بودن برداشته می‌شود. برخلاف <bdi class="term-en" dir="ltr">database lookup</bdi> سخت، <bdi class="term-en" dir="ltr">Attention</bdi> معمولاً همهٔ <bdi class="term-en" dir="ltr">Value</bdi>ها را با وزن متفاوت ترکیب می‌کند.</p>
         <div class="grid-3">
-          <article class="card"><h3>Query (Q)</h3><p>نیاز representation فعلی؛ دنبال چه رابطه‌ای هستم؟</p></article>
-          <article class="card"><h3>Key (K)</h3><p>نمایهٔ قابل‌مقایسهٔ هر موقعیت برای محاسبهٔ relevance.</p></article>
-          <article class="card"><h3>Value (V)</h3><p>اطلاعاتی که پس از تعیین weight واقعاً تجمیع می‌شود.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Query</bdi> (<bdi class="term-en" dir="ltr">Q</bdi>)</h3><p>نیاز <bdi class="term-en" dir="ltr">representation</bdi> فعلی؛ دنبال چه رابطه‌ای هستم؟</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Key</bdi> (<bdi class="term-en" dir="ltr">K</bdi>)</h3><p>نمایهٔ قابل‌مقایسهٔ هر موقعیت برای محاسبهٔ <bdi class="term-en" dir="ltr">relevance</bdi>.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Value</bdi> (<bdi class="term-en" dir="ltr">V</bdi>)</h3><p>اطلاعاتی که پس از تعیین <bdi class="term-en" dir="ltr">weight</bdi> واقعاً تجمیع می‌شود.</p></article>
         </div>
         <ol>
-          <li>از representation ورودی با matrixهای آموختنی، Q و K و V بساز.</li>
-          <li>برای هر Query، با dot product همهٔ Keyها score بساز.</li>
-          <li>score را بر <code>√dₖ</code> تقسیم کن تا دامنه کنترل شود.</li>
-          <li>با Softmax scoreها را به attention weight تبدیل کن.</li>
-          <li>جمع وزن‌دار Valueها را خروجی بگیر.</li>
+          <li>از <bdi class="term-en" dir="ltr">representation</bdi> ورودی با <bdi class="term-en" dir="ltr">matrix</bdi>های آموختنی، <bdi class="term-en" dir="ltr">Q</bdi> و <bdi class="term-en" dir="ltr">K</bdi> و <bdi class="term-en" dir="ltr">V</bdi> بساز.</li>
+          <li>برای هر <bdi class="term-en" dir="ltr">Query</bdi>، با <bdi class="term-en" dir="ltr">dot product</bdi> همهٔ <bdi class="term-en" dir="ltr">Key</bdi>ها <bdi class="term-en" dir="ltr">score</bdi> بساز.</li>
+          <li><bdi class="term-en" dir="ltr">score</bdi> را بر <code>√dₖ</code> تقسیم کن تا دامنه کنترل شود.</li>
+          <li>با <bdi class="term-en" dir="ltr">Softmax score</bdi>ها را به <bdi class="term-en" dir="ltr">attention weight</bdi> تبدیل کن.</li>
+          <li>جمع وزن‌دار <bdi class="term-en" dir="ltr">Value</bdi>ها را خروجی بگیر.</li>
         </ol>
         <div class="formula">Attention(Q,K,V) = softmax(QKᵀ / √dₖ) V</div>
-        <p>اگر scoreهای یک Query برای سه token برابر <code>[2, 1, 0]</code> باشند، Softmax تقریباً weightهای <code>[0.665, 0.245, 0.090]</code> می‌سازد. خروجی <code>0.665V₁ + 0.245V₂ + 0.090V₃</code> است؛ مدل فقط یک token را انتخاب نکرده است.</p>
-        <h3>چرا scaling؟</h3>
-        <p>با بزرگ‌شدن dimension، dot productها می‌توانند magnitude بزرگی پیدا کنند. Softmax روی اختلاف‌های بزرگ اشباع و gradient کوچک می‌شود. تقسیم بر ریشهٔ dimension کلید، variance scoreها را کنترل می‌کند.</p>
-        <div class="callout warning"><strong>Q/K/V خود token نیستند:</strong> projectionهای متفاوتی از representation هستند: <span class="ltr">Q=XWQ, K=XWK, V=XWV</span>.</div>
-        <div class="table-wrap"><table><thead><tr><th>نوع</th><th>منبع Q</th><th>منبع K/V</th><th>محدودیت دید</th></tr></thead><tbody>
-          <tr><td>Self-Attention</td><td>همان sequence</td><td>همان sequence</td><td>موقعیت‌های مجاز همان ورودی</td></tr>
-          <tr><td>Cross-Attention</td><td>Decoder/مقصد</td><td>Encoder/منبع</td><td>حافظهٔ منبع</td></tr>
-          <tr><td>Causal Self-Attention</td><td>همان sequence</td><td>همان sequence</td><td>فقط گذشته و موقعیت جاری</td></tr>
+        <p>اگر <bdi class="term-en" dir="ltr">score</bdi>های یک <bdi class="term-en" dir="ltr">Query</bdi> برای سه <bdi class="term-en" dir="ltr">token</bdi> برابر <code>[2, 1, 0]</code> باشند، <bdi class="term-en" dir="ltr">Softmax</bdi> تقریباً <bdi class="term-en" dir="ltr">weight</bdi>های <code>[0.665, 0.245, 0.090]</code> می‌سازد. خروجی <code>0.665V₁ + 0.245V₂ + 0.090V₃</code> است؛ مدل فقط یک <bdi class="term-en" dir="ltr">token</bdi> را انتخاب نکرده است.</p>
+        <h3>چرا <bdi class="term-en" dir="ltr">scaling</bdi>؟</h3>
+        <p>با بزرگ‌شدن <bdi class="term-en" dir="ltr">dimension</bdi>، <bdi class="term-en" dir="ltr">dot product</bdi>ها می‌توانند <bdi class="term-en" dir="ltr">magnitude</bdi> بزرگی پیدا کنند. <bdi class="term-en" dir="ltr">Softmax</bdi> روی اختلاف‌های بزرگ اشباع و <bdi class="term-en" dir="ltr">gradient</bdi> کوچک می‌شود. تقسیم بر ریشهٔ <bdi class="term-en" dir="ltr">dimension</bdi> کلید، <bdi class="term-en" dir="ltr">variance score</bdi>ها را کنترل می‌کند.</p>
+        <div class="callout warning"><strong><bdi class="term-en" dir="ltr">Q/K/V</bdi> خود <bdi class="term-en" dir="ltr">token</bdi> نیستند:</strong> <bdi class="term-en" dir="ltr">projection</bdi>های متفاوتی از <bdi class="term-en" dir="ltr">representation</bdi> هستند: <span class="ltr">Q=XWQ, K=XWK, V=XWV</span>.</div>
+        <div class="table-wrap"><table><thead><tr><th>نوع</th><th>منبع <bdi class="term-en" dir="ltr">Q</bdi></th><th>منبع <bdi class="term-en" dir="ltr">K/V</bdi></th><th>محدودیت دید</th></tr></thead><tbody>
+          <tr><td><bdi class="term-en" dir="ltr">Self-Attention</bdi></td><td>همان <bdi class="term-en" dir="ltr">sequence</bdi></td><td>همان <bdi class="term-en" dir="ltr">sequence</bdi></td><td>موقعیت‌های مجاز همان ورودی</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Cross-Attention</bdi></td><td><bdi class="term-en" dir="ltr">Decoder/</bdi>مقصد</td><td><bdi class="term-en" dir="ltr">Encoder/</bdi>منبع</td><td>حافظهٔ منبع</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Causal Self-Attention</bdi></td><td>همان <bdi class="term-en" dir="ltr">sequence</bdi></td><td>همان <bdi class="term-en" dir="ltr">sequence</bdi></td><td>فقط گذشته و موقعیت جاری</td></tr>
         </tbody></table></div>
       </section>
 
       <section class="chapter" id="paper">
-        <header class="chapter-header"><span class="chapter-number">۱۰</span><div class="chapter-title"><h2>ترجمهٔ مفهومی «Attention Is All You Need»</h2><p>مقالهٔ Vaswani و همکاران، ۲۰۱۷؛ شرح محتوایی به‌جای ترجمهٔ کلمه‌به‌کلمه.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="paper"> یاد گرفتم</label></header>
-        <div class="callout"><strong>ایدهٔ مرکزی مقاله:</strong> برای sequence transduction لازم نیست recurrence یا convolution هستهٔ ارتباط میان tokenها باشد. می‌توان معماری Encoder–Decoder را بر Attention بنا کرد، موقعیت‌های هر layer را موازی‌تر محاسبه کرد و مسیر ارتباط tokenهای دور را کوتاه کرد.</div>
+        <header class="chapter-header"><span class="chapter-number">۱۰</span><div class="chapter-title"><h2>ترجمهٔ مفهومی «<bdi class="term-en" dir="ltr">Attention Is All You Need</bdi>»</h2><p>مقالهٔ <bdi class="term-en" dir="ltr">Vaswani</bdi> و همکاران، ۲۰۱۷؛ شرح محتوایی به‌جای ترجمهٔ کلمه‌به‌کلمه.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="paper"> یاد گرفتم</label></header>
+        <div class="callout"><strong>ایدهٔ مرکزی مقاله:</strong> برای <bdi class="term-en" dir="ltr">sequence transduction</bdi> لازم نیست <bdi class="term-en" dir="ltr">recurrence</bdi> یا <bdi class="term-en" dir="ltr">convolution</bdi> هستهٔ ارتباط میان <bdi class="term-en" dir="ltr">token</bdi>ها باشد. می‌توان معماری <bdi class="term-en" dir="ltr">Encoder–Decoder</bdi> را بر <bdi class="term-en" dir="ltr">Attention</bdi> بنا کرد، موقعیت‌های هر <bdi class="term-en" dir="ltr">layer</bdi> را موازی‌تر محاسبه کرد و مسیر ارتباط <bdi class="term-en" dir="ltr">token</bdi>های دور را کوتاه کرد.</div>
         <h3>مسئله‌ای که مقاله از آن شروع می‌کند</h3>
-        <p>مدل‌های ترجمهٔ قوی آن زمان عمدتاً RNN/CNN بودند. RNN محاسبه را ترتیبی می‌کرد و dependency دور مسیر بلندی داشت. Attention پیش‌تر در کنار RNN موفق شده بود، اما این مقاله پرسید: اگر Attention را از جزء کمکی به سازوکار اصلی تبدیل کنیم چه می‌شود؟ پاسخ معماری <code>Transformer</code> بود.</p>
-        <h3>Abstract به زبان ساده</h3>
-        <p>نویسندگان یک Encoder–Decoder بدون recurrence و convolution پیشنهاد کردند که برای ارتباط میان موقعیت‌ها از Attention استفاده می‌کند. در آزمایش‌های ترجمهٔ انگلیسی–آلمانی و انگلیسی–فرانسوی، مدل آن‌ها کیفیت قوی و training موازی‌پذیرتری ارائه کرد. مقاله همچنین تعمیم معماری را روی parsing بررسی کرد.</p>
+        <p>مدل‌های ترجمهٔ قوی آن زمان عمدتاً <bdi class="term-en" dir="ltr">RNN/CNN</bdi> بودند. <bdi class="term-en" dir="ltr">RNN</bdi> محاسبه را ترتیبی می‌کرد و <bdi class="term-en" dir="ltr">dependency</bdi> دور مسیر بلندی داشت. <bdi class="term-en" dir="ltr">Attention</bdi> پیش‌تر در کنار <bdi class="term-en" dir="ltr">RNN</bdi> موفق شده بود، اما این مقاله پرسید: اگر <bdi class="term-en" dir="ltr">Attention</bdi> را از جزء کمکی به سازوکار اصلی تبدیل کنیم چه می‌شود؟ پاسخ معماری <code>Transformer</code> بود.</p>
+        <h3><bdi class="term-en" dir="ltr">Abstract</bdi> به زبان ساده</h3>
+        <p>نویسندگان یک <bdi class="term-en" dir="ltr">Encoder–Decoder</bdi> بدون <bdi class="term-en" dir="ltr">recurrence</bdi> و <bdi class="term-en" dir="ltr">convolution</bdi> پیشنهاد کردند که برای ارتباط میان موقعیت‌ها از <bdi class="term-en" dir="ltr">Attention</bdi> استفاده می‌کند. در آزمایش‌های ترجمهٔ انگلیسی–آلمانی و انگلیسی–فرانسوی، مدل آن‌ها کیفیت قوی و <bdi class="term-en" dir="ltr">training</bdi> موازی‌پذیرتری ارائه کرد. مقاله همچنین تعمیم معماری را روی <bdi class="term-en" dir="ltr">parsing</bdi> بررسی کرد.</p>
         <h3>شکل کلی معماری مقاله</h3>
-        <div class="diagram"><div class="flow"><span class="flow-node">Source tokens<br>+ Position</span><span class="flow-arrow">→</span><span class="flow-node">Encoder stack<br>N×</span><span class="flow-arrow">→</span><span class="flow-node">Memory K/V</span><span class="flow-arrow">→</span><span class="flow-node">Decoder stack<br>N×</span><span class="flow-arrow">→</span><span class="flow-node">Linear + Softmax<br>output distribution</span></div></div>
-        <h3>Encoder چه می‌کند؟</h3>
-        <p>هر Encoder layer در مقاله دو sub-layer دارد: <code>Multi-Head Self-Attention</code> و یک <code>position-wise Feed-Forward Network</code>. دور هر sub-layer یک residual connection و سپس Layer Normalization قرار می‌گیرد. هر token از tokenهای دیگر همان ورودی information می‌گیرد.</p>
-        <h3>Decoder چه می‌کند؟</h3>
-        <p>Decoder سه sub-layer دارد: masked Self-Attention روی tokenهای خروجی قبلی، Cross-Attention که Query را از Decoder و Key/Value را از Encoder می‌گیرد، و Feed-Forward. Mask اجازه نمی‌دهد موقعیت خروجی پاسخ آینده را ببیند.</p>
-        <h3>Scaled Dot-Product Attention</h3>
-        <p>مقاله Queryها را با Keyها ضرب می‌کند، scale را اعمال می‌کند، mask احتمالی را پیش از Softmax وارد می‌کند و weightهای حاصل را روی Valueها می‌زند. matrix ارتباط همهٔ Queryها با همهٔ Keyها هم‌زمان ساخته می‌شود.</p>
-        <h3>Multi-Head یعنی چه؟</h3>
-        <p>به‌جای یک Attention، Q/K/V به چند فضای کوچک‌تر project می‌شوند. هر head Attention مستقل خود را محاسبه می‌کند؛ خروجی headها concatenate و با projection نهایی مخلوط می‌شود. مدل می‌تواند چند نوع رابطه را در subspaceهای مختلف دنبال کند، اما هر head الزاماً یک مفهوم انسانی ثابت ندارد.</p>
+        <div class="diagram"><div class="flow"><span class="flow-node"><bdi class="term-en" dir="ltr">Source tokens</bdi><br>+ <bdi class="term-en" dir="ltr">Position</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Encoder stack</bdi><br><bdi class="term-en" dir="ltr">N</bdi>×</span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Memory K/V</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Decoder stack</bdi><br><bdi class="term-en" dir="ltr">N</bdi>×</span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Linear + Softmax</bdi><br><bdi class="term-en" dir="ltr">output distribution</bdi></span></div></div>
+        <h3><bdi class="term-en" dir="ltr">Encoder</bdi> چه می‌کند؟</h3>
+        <p>هر <bdi class="term-en" dir="ltr">Encoder layer</bdi> در مقاله دو <bdi class="term-en" dir="ltr">sub-layer</bdi> دارد: <code>Multi-Head Self-Attention</code> و یک <code>position-wise Feed-Forward Network</code>. دور هر <bdi class="term-en" dir="ltr">sub-layer</bdi> یک <bdi class="term-en" dir="ltr">residual connection</bdi> و سپس <bdi class="term-en" dir="ltr">Layer Normalization</bdi> قرار می‌گیرد. هر <bdi class="term-en" dir="ltr">token</bdi> از <bdi class="term-en" dir="ltr">token</bdi>های دیگر همان ورودی <bdi class="term-en" dir="ltr">information</bdi> می‌گیرد.</p>
+        <h3><bdi class="term-en" dir="ltr">Decoder</bdi> چه می‌کند؟</h3>
+        <p><bdi class="term-en" dir="ltr">Decoder</bdi> سه <bdi class="term-en" dir="ltr">sub-layer</bdi> دارد: <bdi class="term-en" dir="ltr">masked Self-Attention</bdi> روی <bdi class="term-en" dir="ltr">token</bdi>های خروجی قبلی، <bdi class="term-en" dir="ltr">Cross-Attention</bdi> که <bdi class="term-en" dir="ltr">Query</bdi> را از <bdi class="term-en" dir="ltr">Decoder</bdi> و <bdi class="term-en" dir="ltr">Key/Value</bdi> را از <bdi class="term-en" dir="ltr">Encoder</bdi> می‌گیرد، و <bdi class="term-en" dir="ltr">Feed-Forward</bdi>. <bdi class="term-en" dir="ltr">Mask</bdi> اجازه نمی‌دهد موقعیت خروجی پاسخ آینده را ببیند.</p>
+        <h3><bdi class="term-en" dir="ltr">Scaled Dot-Product Attention</bdi></h3>
+        <p>مقاله <bdi class="term-en" dir="ltr">Query</bdi>ها را با <bdi class="term-en" dir="ltr">Key</bdi>ها ضرب می‌کند، <bdi class="term-en" dir="ltr">scale</bdi> را اعمال می‌کند، <bdi class="term-en" dir="ltr">mask</bdi> احتمالی را پیش از <bdi class="term-en" dir="ltr">Softmax</bdi> وارد می‌کند و <bdi class="term-en" dir="ltr">weight</bdi>های حاصل را روی <bdi class="term-en" dir="ltr">Value</bdi>ها می‌زند. <bdi class="term-en" dir="ltr">matrix</bdi> ارتباط همهٔ <bdi class="term-en" dir="ltr">Query</bdi>ها با همهٔ <bdi class="term-en" dir="ltr">Key</bdi>ها هم‌زمان ساخته می‌شود.</p>
+        <h3><bdi class="term-en" dir="ltr">Multi-Head</bdi> یعنی چه؟</h3>
+        <p>به‌جای یک <bdi class="term-en" dir="ltr">Attention</bdi>، <bdi class="term-en" dir="ltr">Q/K/V</bdi> به چند فضای کوچک‌تر <bdi class="term-en" dir="ltr">project</bdi> می‌شوند. هر <bdi class="term-en" dir="ltr">head Attention</bdi> مستقل خود را محاسبه می‌کند؛ خروجی <bdi class="term-en" dir="ltr">head</bdi>ها <bdi class="term-en" dir="ltr">concatenate</bdi> و با <bdi class="term-en" dir="ltr">projection</bdi> نهایی مخلوط می‌شود. مدل می‌تواند چند نوع رابطه را در <bdi class="term-en" dir="ltr">subspace</bdi>های مختلف دنبال کند، اما هر <bdi class="term-en" dir="ltr">head</bdi> الزاماً یک مفهوم انسانی ثابت ندارد.</p>
         <div class="formula">headᵢ = Attention(QWᵢQ, KWᵢK, VWᵢV)<br>MultiHead = Concat(head₁,…,headₕ)Wᴼ</div>
-        <h3>Position چرا لازم است؟</h3>
-        <p>Self-Attention خام ترتیب را از index نمی‌فهمد. مقاله sinusoidal positional encoding را به embedding ورودی اضافه کرد. Transformerهای بعدی روش‌های دیگری مانند learned position یا rotary position به‌کار بردند؛ اصل نیاز به position پابرجاست.</p>
-        <h3>Feed-Forward، Residual و Normalization</h3>
-        <p>Attention میان tokenها اطلاعات جابه‌جا می‌کند. FFN روی هر position یک تبدیل nonlinear انجام می‌دهد. Residual مسیر مستقیم عبور اطلاعات می‌سازد و normalization training را پایدارتر می‌کند. پس عنوان مقاله به معنی حذف همهٔ اجزای غیر Attention نیست.</p>
-        <h3>Embedding تا Vocabulary</h3>
-        <p>در انتهای Decoder، linear projection برای هر token واژگان logit می‌سازد و Softmax distribution خروجی را تولید می‌کند. هنگام training، sequence هدف یک موقعیت shift می‌شود: prefix ورودی است و token بعدی label.</p>
-        <h3>چرا path length مهم بود؟</h3>
-        <p>در RNN انتقال اطلاعات از ابتدای sequence به انتها چندین step داشت. در Self-Attention، هر موقعیت در یک layer مستقیماً با هر موقعیت مجاز score دارد. هزینهٔ مهم آن، matrix توجه با رشد تقریباً quadratic نسبت به sequence length است.</p>
+        <h3><bdi class="term-en" dir="ltr">Position</bdi> چرا لازم است؟</h3>
+        <p><bdi class="term-en" dir="ltr">Self-Attention</bdi> خام ترتیب را از <bdi class="term-en" dir="ltr">index</bdi> نمی‌فهمد. مقاله <bdi class="term-en" dir="ltr">sinusoidal positional encoding</bdi> را به <bdi class="term-en" dir="ltr">embedding</bdi> ورودی اضافه کرد. <bdi class="term-en" dir="ltr">Transformer</bdi>های بعدی روش‌های دیگری مانند <bdi class="term-en" dir="ltr">learned position</bdi> یا <bdi class="term-en" dir="ltr">rotary position</bdi> به‌کار بردند؛ اصل نیاز به <bdi class="term-en" dir="ltr">position</bdi> پابرجاست.</p>
+        <h3><bdi class="term-en" dir="ltr">Feed-Forward</bdi>، <bdi class="term-en" dir="ltr">Residual</bdi> و <bdi class="term-en" dir="ltr">Normalization</bdi></h3>
+        <p><bdi class="term-en" dir="ltr">Attention</bdi> میان <bdi class="term-en" dir="ltr">token</bdi>ها اطلاعات جابه‌جا می‌کند. <bdi class="term-en" dir="ltr">FFN</bdi> روی هر <bdi class="term-en" dir="ltr">position</bdi> یک تبدیل <bdi class="term-en" dir="ltr">nonlinear</bdi> انجام می‌دهد. <bdi class="term-en" dir="ltr">Residual</bdi> مسیر مستقیم عبور اطلاعات می‌سازد و <bdi class="term-en" dir="ltr">normalization training</bdi> را پایدارتر می‌کند. پس عنوان مقاله به معنی حذف همهٔ اجزای غیر <bdi class="term-en" dir="ltr">Attention</bdi> نیست.</p>
+        <h3><bdi class="term-en" dir="ltr">Embedding</bdi> تا <bdi class="term-en" dir="ltr">Vocabulary</bdi></h3>
+        <p>در انتهای <bdi class="term-en" dir="ltr">Decoder</bdi>، <bdi class="term-en" dir="ltr">linear projection</bdi> برای هر <bdi class="term-en" dir="ltr">token</bdi> واژگان <bdi class="term-en" dir="ltr">logit</bdi> می‌سازد و <bdi class="term-en" dir="ltr">Softmax distribution</bdi> خروجی را تولید می‌کند. هنگام <bdi class="term-en" dir="ltr">training</bdi>، <bdi class="term-en" dir="ltr">sequence</bdi> هدف یک موقعیت <bdi class="term-en" dir="ltr">shift</bdi> می‌شود: <bdi class="term-en" dir="ltr">prefix</bdi> ورودی است و <bdi class="term-en" dir="ltr">token</bdi> بعدی <bdi class="term-en" dir="ltr">label</bdi>.</p>
+        <h3>چرا <bdi class="term-en" dir="ltr">path length</bdi> مهم بود؟</h3>
+        <p>در <bdi class="term-en" dir="ltr">RNN</bdi> انتقال اطلاعات از ابتدای <bdi class="term-en" dir="ltr">sequence</bdi> به انتها چندین <bdi class="term-en" dir="ltr">step</bdi> داشت. در <bdi class="term-en" dir="ltr">Self-Attention</bdi>، هر موقعیت در یک <bdi class="term-en" dir="ltr">layer</bdi> مستقیماً با هر موقعیت مجاز <bdi class="term-en" dir="ltr">score</bdi> دارد. هزینهٔ مهم آن، <bdi class="term-en" dir="ltr">matrix</bdi> توجه با رشد تقریباً <bdi class="term-en" dir="ltr">quadratic</bdi> نسبت به <bdi class="term-en" dir="ltr">sequence length</bdi> است.</p>
         <h3>مقاله چه چیزی نمی‌گوید؟</h3>
         <ul>
-          <li>مقاله دربارهٔ chatbot، instruction following، RLHF، agent یا tool use نیست.</li>
-          <li>ثابت نمی‌کند recurrence برای همهٔ مسئله‌ها بی‌ارزش شده است.</li>
-          <li>نمی‌گوید Attention توضیح‌پذیری کامل فراهم می‌کند.</li>
-          <li>Transformerهای امروز جزئیات اجرایی متفاوتی با نسخهٔ original دارند.</li>
+          <li>مقاله دربارهٔ <bdi class="term-en" dir="ltr">chatbot</bdi>، <bdi class="term-en" dir="ltr">instruction following</bdi>، <bdi class="term-en" dir="ltr">RLHF</bdi>، <bdi class="term-en" dir="ltr">agent</bdi> یا <bdi class="term-en" dir="ltr">tool use</bdi> نیست.</li>
+          <li>ثابت نمی‌کند <bdi class="term-en" dir="ltr">recurrence</bdi> برای همهٔ مسئله‌ها بی‌ارزش شده است.</li>
+          <li>نمی‌گوید <bdi class="term-en" dir="ltr">Attention</bdi> توضیح‌پذیری کامل فراهم می‌کند.</li>
+          <li><bdi class="term-en" dir="ltr">Transformer</bdi>های امروز جزئیات اجرایی متفاوتی با نسخهٔ <bdi class="term-en" dir="ltr">original</bdi> دارند.</li>
         </ul>
-        <div class="callout success"><strong>خلاصهٔ یک‌دقیقه‌ای:</strong> مقاله گلوگاه پردازش ترتیبی را هدف گرفت؛ با Self-Attention ارتباط مستقیم میان tokenها ساخت؛ Multi-Head چند projection موازی داد؛ position ترتیب را وارد کرد؛ Encoder/Decoder با FFN، residual و normalization کامل شدند؛ linear + Softmax token خروجی را پیش‌بینی کرد.</div>
-        <details><summary>چرا عنوان «Attention Is All You Need» کمی اغراق‌آمیز است؟</summary><p>چون مدل علاوه بر Attention به embedding، positional encoding، FFN، residual، normalization، objective، optimizer و داده نیاز دارد. عنوان به حذف recurrence/convolution از هستهٔ sequence modeling اشاره می‌کند.</p></details>
+        <div class="callout success"><strong>خلاصهٔ یک‌دقیقه‌ای:</strong> مقاله گلوگاه پردازش ترتیبی را هدف گرفت؛ با <bdi class="term-en" dir="ltr">Self-Attention</bdi> ارتباط مستقیم میان <bdi class="term-en" dir="ltr">token</bdi>ها ساخت؛ <bdi class="term-en" dir="ltr">Multi-Head</bdi> چند <bdi class="term-en" dir="ltr">projection</bdi> موازی داد؛ <bdi class="term-en" dir="ltr">position</bdi> ترتیب را وارد کرد؛ <bdi class="term-en" dir="ltr">Encoder/Decoder</bdi> با <bdi class="term-en" dir="ltr">FFN</bdi>، <bdi class="term-en" dir="ltr">residual</bdi> و <bdi class="term-en" dir="ltr">normalization</bdi> کامل شدند؛ <bdi class="term-en" dir="ltr">linear + Softmax token</bdi> خروجی را پیش‌بینی کرد.</div>
+        <details><summary>چرا عنوان «<bdi class="term-en" dir="ltr">Attention Is All You Need</bdi>» کمی اغراق‌آمیز است؟</summary><p>چون مدل علاوه بر <bdi class="term-en" dir="ltr">Attention</bdi> به <bdi class="term-en" dir="ltr">embedding</bdi>، <bdi class="term-en" dir="ltr">positional encoding</bdi>، <bdi class="term-en" dir="ltr">FFN</bdi>، <bdi class="term-en" dir="ltr">residual</bdi>، <bdi class="term-en" dir="ltr">normalization</bdi>، <bdi class="term-en" dir="ltr">objective</bdi>، <bdi class="term-en" dir="ltr">optimizer</bdi> و داده نیاز دارد. عنوان به حذف <bdi class="term-en" dir="ltr">recurrence/convolution</bdi> از هستهٔ <bdi class="term-en" dir="ltr">sequence modeling</bdi> اشاره می‌کند.</p></details>
       </section>
 
       <section class="chapter" id="transformer">
-        <header class="chapter-header"><span class="chapter-number">۱۱</span><div class="chapter-title"><h2>Transformer قدم‌به‌قدم</h2><p>Shapeها و جریان واقعی یک Decoder-only LLM.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="transformer"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۱</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Transformer</bdi> قدم‌به‌قدم</h2><p><bdi class="term-en" dir="ltr">Shape</bdi>ها و جریان واقعی یک <bdi class="term-en" dir="ltr">Decoder-only LLM</bdi>.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="transformer"> یاد گرفتم</label></header>
         <pre><code>text
 → tokenizer → token_ids                     [sequence]
 → embedding lookup                          [sequence, d_model]
@@ -263,114 +263,114 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
 → vocabulary projection                     [sequence, vocab_size]
 → logits for last position                  [vocab_size]
 → Softmax / sampling → next token</code></pre>
-        <h3>Causal Mask</h3>
-        <p>در position شمارهٔ <code>t</code>، scoreهای آینده با مقدار بسیار منفی mask می‌شوند تا پس از Softmax weight تقریباً صفر بگیرند. بدون mask، مدل هنگام training پاسخ آینده را می‌بیند.</p>
-        <h3>Multi-Head و Shape</h3>
-        <p>اگر <code>d_model=512</code> و <code>h=8</code> باشد، معمولاً هر head بعد ۶۴ دارد. Q/K/V برای همهٔ tokenها ساخته و به headها reshape می‌شوند. خروجی headها دوباره به dimension اصلی برمی‌گردد.</p>
-        <h3>Residual Stream</h3>
-        <p>می‌توان representation هر token را یک stream در نظر گرفت. Attention و MLP تغییراتی به آن اضافه می‌کنند. Residual باعث می‌شود هر sub-layer لازم نباشد representation را از صفر بازسازی کند.</p>
-        <div class="table-wrap"><table><thead><tr><th>خانواده</th><th>Attention pattern</th><th>هدف رایج</th><th>نمونه</th></tr></thead><tbody>
-          <tr><td>Encoder-only</td><td>Bidirectional Self-Attention</td><td>representation و فهم ورودی</td><td>BERT</td></tr>
-          <tr><td>Decoder-only</td><td>Causal Self-Attention</td><td>next-token generation</td><td>GPT، Llama</td></tr>
-          <tr><td>Encoder–Decoder</td><td>Encoder self + Decoder causal + Cross</td><td>sequence-to-sequence</td><td>Transformer اصلی، T5</td></tr>
+        <h3><bdi class="term-en" dir="ltr">Causal Mask</bdi></h3>
+        <p>در <bdi class="term-en" dir="ltr">position</bdi> شمارهٔ <code>t</code>، <bdi class="term-en" dir="ltr">score</bdi>های آینده با مقدار بسیار منفی <bdi class="term-en" dir="ltr">mask</bdi> می‌شوند تا پس از <bdi class="term-en" dir="ltr">Softmax weight</bdi> تقریباً صفر بگیرند. بدون <bdi class="term-en" dir="ltr">mask</bdi>، مدل هنگام <bdi class="term-en" dir="ltr">training</bdi> پاسخ آینده را می‌بیند.</p>
+        <h3><bdi class="term-en" dir="ltr">Multi-Head</bdi> و <bdi class="term-en" dir="ltr">Shape</bdi></h3>
+        <p>اگر <code>d_model=512</code> و <code>h=8</code> باشد، معمولاً هر <bdi class="term-en" dir="ltr">head</bdi> بعد ۶۴ دارد. <bdi class="term-en" dir="ltr">Q/K/V</bdi> برای همهٔ <bdi class="term-en" dir="ltr">token</bdi>ها ساخته و به <bdi class="term-en" dir="ltr">head</bdi>ها <bdi class="term-en" dir="ltr">reshape</bdi> می‌شوند. خروجی <bdi class="term-en" dir="ltr">head</bdi>ها دوباره به <bdi class="term-en" dir="ltr">dimension</bdi> اصلی برمی‌گردد.</p>
+        <h3><bdi class="term-en" dir="ltr">Residual Stream</bdi></h3>
+        <p>می‌توان <bdi class="term-en" dir="ltr">representation</bdi> هر <bdi class="term-en" dir="ltr">token</bdi> را یک <bdi class="term-en" dir="ltr">stream</bdi> در نظر گرفت. <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">MLP</bdi> تغییراتی به آن اضافه می‌کنند. <bdi class="term-en" dir="ltr">Residual</bdi> باعث می‌شود هر <bdi class="term-en" dir="ltr">sub-layer</bdi> لازم نباشد <bdi class="term-en" dir="ltr">representation</bdi> را از صفر بازسازی کند.</p>
+        <div class="table-wrap"><table><thead><tr><th>خانواده</th><th><bdi class="term-en" dir="ltr">Attention pattern</bdi></th><th>هدف رایج</th><th>نمونه</th></tr></thead><tbody>
+          <tr><td><bdi class="term-en" dir="ltr">Encoder-only</bdi></td><td><bdi class="term-en" dir="ltr">Bidirectional Self-Attention</bdi></td><td><bdi class="term-en" dir="ltr">representation</bdi> و فهم ورودی</td><td><bdi class="term-en" dir="ltr">BERT</bdi></td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Decoder-only</bdi></td><td><bdi class="term-en" dir="ltr">Causal Self-Attention</bdi></td><td><bdi class="term-en" dir="ltr">next-token generation</bdi></td><td><bdi class="term-en" dir="ltr">GPT</bdi>، <bdi class="term-en" dir="ltr">Llama</bdi></td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Encoder–Decoder</bdi></td><td><bdi class="term-en" dir="ltr">Encoder self + Decoder causal + Cross</bdi></td><td><bdi class="term-en" dir="ltr">sequence-to-sequence</bdi></td><td><bdi class="term-en" dir="ltr">Transformer</bdi> اصلی، <bdi class="term-en" dir="ltr">T5</bdi></td></tr>
         </tbody></table></div>
       </section>
 
       <section class="chapter" id="llm">
-        <header class="chapter-header"><span class="chapter-number">۱۲</span><div class="chapter-title"><h2>از Transformer تا LLM</h2><p>Pre-training، objective و رفتاری که از scale پدیدار می‌شود.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="llm"> یاد گرفتم</label></header>
-        <h3>Pre-training</h3>
-        <p>در decoder-only language model، متن به exampleهای فراوان next-token prediction تبدیل می‌شود. label از خود متن می‌آید، بنابراین روش <code>self-supervised</code> است. مدل برای کاهش Cross-Entropy مجبور می‌شود الگوهای syntax، semantics، سبک و facts موجود در داده را در parameterهایش فشرده کند.</p>
+        <header class="chapter-header"><span class="chapter-number">۱۲</span><div class="chapter-title"><h2>از <bdi class="term-en" dir="ltr">Transformer</bdi> تا <bdi class="term-en" dir="ltr">LLM</bdi></h2><p><bdi class="term-en" dir="ltr">Pre-training</bdi>، <bdi class="term-en" dir="ltr">objective</bdi> و رفتاری که از <bdi class="term-en" dir="ltr">scale</bdi> پدیدار می‌شود.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="llm"> یاد گرفتم</label></header>
+        <h3><bdi class="term-en" dir="ltr">Pre-training</bdi></h3>
+        <p>در <bdi class="term-en" dir="ltr">decoder-only language model</bdi>، متن به <bdi class="term-en" dir="ltr">example</bdi>های فراوان <bdi class="term-en" dir="ltr">next-token prediction</bdi> تبدیل می‌شود. <bdi class="term-en" dir="ltr">label</bdi> از خود متن می‌آید، بنابراین روش <code>self-supervised</code> است. مدل برای کاهش <bdi class="term-en" dir="ltr">Cross-Entropy</bdi> مجبور می‌شود الگوهای <bdi class="term-en" dir="ltr">syntax</bdi>، <bdi class="term-en" dir="ltr">semantics</bdi>، سبک و <bdi class="term-en" dir="ltr">facts</bdi> موجود در داده را در <bdi class="term-en" dir="ltr">parameter</bdi>هایش فشرده کند.</p>
         <div class="formula">P(x₁,…,xₙ) = ∏ₜ P(xₜ | x₁,…,xₜ₋₁)</div>
-        <h3>BERT چه تفاوتی دارد؟</h3>
-        <p>BERT اصلی Encoder-only و bidirectional است. بخشی از tokenها در <code>Masked Language Modeling</code> پنهان/خراب می‌شوند و مدل با context چپ و راست آن‌ها را بازسازی می‌کند. interface پیش‌فرضش تولید autoregressive آزاد نیست.</p>
+        <h3><bdi class="term-en" dir="ltr">BERT</bdi> چه تفاوتی دارد؟</h3>
+        <p><bdi class="term-en" dir="ltr">BERT</bdi> اصلی <bdi class="term-en" dir="ltr">Encoder-only</bdi> و <bdi class="term-en" dir="ltr">bidirectional</bdi> است. بخشی از <bdi class="term-en" dir="ltr">token</bdi>ها در <code>Masked Language Modeling</code> پنهان/خراب می‌شوند و مدل با <bdi class="term-en" dir="ltr">context</bdi> چپ و راست آن‌ها را بازسازی می‌کند. <bdi class="term-en" dir="ltr">interface</bdi> پیش‌فرضش تولید <bdi class="term-en" dir="ltr">autoregressive</bdi> آزاد نیست.</p>
         <div class="grid-3">
-          <article class="card"><h3>Pre-training</h3><p>یادگیری عمومی از corpus بزرگ؛ بسیار پرهزینه و طولانی.</p></article>
-          <article class="card"><h3>Fine-tuning / Alignment</h3><p>تطبیق behavior یا task با dataset کوچک‌تر.</p></article>
-          <article class="card"><h3>Inference</h3><p>استفاده از parameterهای ثابت برای پردازش prompt و تولید output.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Pre-training</bdi></h3><p>یادگیری عمومی از <bdi class="term-en" dir="ltr">corpus</bdi> بزرگ؛ بسیار پرهزینه و طولانی.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Fine-tuning / Alignment</bdi></h3><p>تطبیق <bdi class="term-en" dir="ltr">behavior</bdi> یا <bdi class="term-en" dir="ltr">task</bdi> با <bdi class="term-en" dir="ltr">dataset</bdi> کوچک‌تر.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Inference</bdi></h3><p>استفاده از <bdi class="term-en" dir="ltr">parameter</bdi>های ثابت برای پردازش <bdi class="term-en" dir="ltr">prompt</bdi> و تولید <bdi class="term-en" dir="ltr">output</bdi>.</p></article>
         </div>
-        <h3>Context Window و Parameter Memory</h3>
-        <p><code>Context window</code> فضای موقت tokenهای همین request است. parameterها الگوهای فشردهٔ training هستند. افزودن سند به prompt با تغییر weightها یکی نیست؛ Retrieval اطلاعات را موقتاً در context می‌آورد، Fine-tuning behavior را در parameterها تغییر می‌دهد.</p>
+        <h3><bdi class="term-en" dir="ltr">Context Window</bdi> و <bdi class="term-en" dir="ltr">Parameter Memory</bdi></h3>
+        <p><code>Context window</code> فضای موقت <bdi class="term-en" dir="ltr">token</bdi>های همین <bdi class="term-en" dir="ltr">request</bdi> است. <bdi class="term-en" dir="ltr">parameter</bdi>ها الگوهای فشردهٔ <bdi class="term-en" dir="ltr">training</bdi> هستند. افزودن سند به <bdi class="term-en" dir="ltr">prompt</bdi> با تغییر <bdi class="term-en" dir="ltr">weight</bdi>ها یکی نیست؛ <bdi class="term-en" dir="ltr">Retrieval</bdi> اطلاعات را موقتاً در <bdi class="term-en" dir="ltr">context</bdi> می‌آورد، <bdi class="term-en" dir="ltr">Fine-tuning behavior</bdi> را در <bdi class="term-en" dir="ltr">parameter</bdi>ها تغییر می‌دهد.</p>
       </section>
 
       <section class="chapter" id="decoding">
-        <header class="chapter-header"><span class="chapter-number">۱۳</span><div class="chapter-title"><h2>Inference و Decoding</h2><p>چگونه distribution به متن خروجی تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="decoding"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۳</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Inference</bdi> و <bdi class="term-en" dir="ltr">Decoding</bdi></h2><p>چگونه <bdi class="term-en" dir="ltr">distribution</bdi> به متن خروجی تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="decoding"> یاد گرفتم</label></header>
         <ol>
-          <li>Prompt tokenize و forward pass اجرا می‌شود (<code>prefill</code>).</li>
-          <li>از logits آخرین position یک token انتخاب می‌شود.</li>
-          <li>token انتخابی به context افزوده و گام بعد اجرا می‌شود (<code>decode</code>).</li>
-          <li>این حلقه تا stop token یا محدودیت خروجی ادامه می‌یابد.</li>
+          <li><bdi class="term-en" dir="ltr">Prompt tokenize</bdi> و <bdi class="term-en" dir="ltr">forward pass</bdi> اجرا می‌شود (<code>prefill</code>).</li>
+          <li>از <bdi class="term-en" dir="ltr">logits</bdi> آخرین <bdi class="term-en" dir="ltr">position</bdi> یک <bdi class="term-en" dir="ltr">token</bdi> انتخاب می‌شود.</li>
+          <li><bdi class="term-en" dir="ltr">token</bdi> انتخابی به <bdi class="term-en" dir="ltr">context</bdi> افزوده و گام بعد اجرا می‌شود (<code>decode</code>).</li>
+          <li>این حلقه تا <bdi class="term-en" dir="ltr">stop token</bdi> یا محدودیت خروجی ادامه می‌یابد.</li>
         </ol>
         <div class="table-wrap"><table><thead><tr><th>روش</th><th>رفتار</th><th>نکته</th></tr></thead><tbody>
-          <tr><td>Greedy</td><td>همیشه بیشترین probability</td><td>deterministicتر، ولی ممکن است تکراری شود.</td></tr>
-          <tr><td>Temperature</td><td>تیزی distribution را تغییر می‌دهد</td><td>کمتر = متمرکزتر؛ بیشتر = متنوع‌تر.</td></tr>
-          <tr><td>Top-k</td><td>فقط k گزینهٔ برتر را نگه می‌دارد</td><td>اندازهٔ candidate set ثابت است.</td></tr>
-          <tr><td>Top-p</td><td>کوچک‌ترین مجموعه با probability تجمعی p</td><td>اندازهٔ مجموعه با اطمینان مدل تغییر می‌کند.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Greedy</bdi></td><td>همیشه بیشترین <bdi class="term-en" dir="ltr">probability</bdi></td><td><bdi class="term-en" dir="ltr">deterministic</bdi>تر، ولی ممکن است تکراری شود.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Temperature</bdi></td><td>تیزی <bdi class="term-en" dir="ltr">distribution</bdi> را تغییر می‌دهد</td><td>کمتر = متمرکزتر؛ بیشتر = متنوع‌تر.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Top-k</bdi></td><td>فقط <bdi class="term-en" dir="ltr">k</bdi> گزینهٔ برتر را نگه می‌دارد</td><td>اندازهٔ <bdi class="term-en" dir="ltr">candidate set</bdi> ثابت است.</td></tr>
+          <tr><td><bdi class="term-en" dir="ltr">Top-p</bdi></td><td>کوچک‌ترین مجموعه با <bdi class="term-en" dir="ltr">probability</bdi> تجمعی <bdi class="term-en" dir="ltr">p</bdi></td><td>اندازهٔ مجموعه با اطمینان مدل تغییر می‌کند.</td></tr>
         </tbody></table></div>
-        <h3>KV Cache</h3>
-        <p>در generation لازم نیست Key و Value tokenهای قبلی در هر step دوباره محاسبه شوند؛ <code>KV cache</code> آن‌ها را نگه می‌دارد. latency کم می‌شود ولی memory با طول context رشد می‌کند.</p>
-        <div class="callout warning"><strong>Deterministic ≠ correct:</strong> temperature پایین ممکن است خروجی را تکرارپذیرتر کند، اما اگر محتمل‌ترین ادامه غلط باشد همان غلط را انتخاب می‌کند.</div>
+        <h3><bdi class="term-en" dir="ltr">KV Cache</bdi></h3>
+        <p>در <bdi class="term-en" dir="ltr">generation</bdi> لازم نیست <bdi class="term-en" dir="ltr">Key</bdi> و <bdi class="term-en" dir="ltr">Value token</bdi>های قبلی در هر <bdi class="term-en" dir="ltr">step</bdi> دوباره محاسبه شوند؛ <code>KV cache</code> آن‌ها را نگه می‌دارد. <bdi class="term-en" dir="ltr">latency</bdi> کم می‌شود ولی <bdi class="term-en" dir="ltr">memory</bdi> با طول <bdi class="term-en" dir="ltr">context</bdi> رشد می‌کند.</p>
+        <div class="callout warning"><strong><bdi class="term-en" dir="ltr">Deterministic</bdi> ≠ <bdi class="term-en" dir="ltr">correct:</bdi></strong> <bdi class="term-en" dir="ltr">temperature</bdi> پایین ممکن است خروجی را تکرارپذیرتر کند، اما اگر محتمل‌ترین ادامه غلط باشد همان غلط را انتخاب می‌کند.</div>
       </section>
 
       <section class="chapter" id="limits">
-        <header class="chapter-header"><span class="chapter-number">۱۴</span><div class="chapter-title"><h2>Hallucination، محدودیت و روش تطبیق</h2><p>چرا next-token prediction پایگاه حقیقت نیست؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="limits"> یاد گرفتم</label></header>
-        <p><code>Hallucination</code> یعنی خروجی روان و ظاهراً معتبر که با evidence یا واقعیت پشتیبانی نمی‌شود. مدل برای تولید continuation محتمل آموزش دیده، نه برای query خودکار روی حقیقت بیرونی. عبارت <code>hallucinated</code> در این حوزه یعنی تولید بدون پشتوانه، نه تجربهٔ انسانی یا پزشکی.</p>
+        <header class="chapter-header"><span class="chapter-number">۱۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و روش تطبیق</h2><p>چرا <bdi class="term-en" dir="ltr">next-token prediction</bdi> پایگاه حقیقت نیست؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="limits"> یاد گرفتم</label></header>
+        <p><code>Hallucination</code> یعنی خروجی روان و ظاهراً معتبر که با <bdi class="term-en" dir="ltr">evidence</bdi> یا واقعیت پشتیبانی نمی‌شود. مدل برای تولید <bdi class="term-en" dir="ltr">continuation</bdi> محتمل آموزش دیده، نه برای <bdi class="term-en" dir="ltr">query</bdi> خودکار روی حقیقت بیرونی. عبارت <code>hallucinated</code> در این حوزه یعنی تولید بدون پشتوانه، نه تجربهٔ انسانی یا پزشکی.</p>
         <div class="grid-2">
-          <article class="card"><h3>Retrieval / RAG</h3><p>سند مرتبط را هنگام request وارد context کن؛ مناسب دانش تازه، خصوصی و قابل‌استناد.</p></article>
-          <article class="card"><h3>Tool use</h3><p>برای log، database، calculator یا API به‌جای حدس، observation واقعی بگیر.</p></article>
-          <article class="card"><h3>Structured output</h3><p>schema شکل خروجی را کنترل می‌کند؛ صحت factual را به‌تنهایی تضمین نمی‌کند.</p></article>
-          <article class="card"><h3>Evaluation</h3><p>روی dataset دیده‌نشده، metric و baseline تعریف کن.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Retrieval / RAG</bdi></h3><p>سند مرتبط را هنگام <bdi class="term-en" dir="ltr">request</bdi> وارد <bdi class="term-en" dir="ltr">context</bdi> کن؛ مناسب دانش تازه، خصوصی و قابل‌استناد.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Tool use</bdi></h3><p>برای <bdi class="term-en" dir="ltr">log</bdi>، <bdi class="term-en" dir="ltr">database</bdi>، <bdi class="term-en" dir="ltr">calculator</bdi> یا <bdi class="term-en" dir="ltr">API</bdi> به‌جای حدس، <bdi class="term-en" dir="ltr">observation</bdi> واقعی بگیر.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Structured output</bdi></h3><p><bdi class="term-en" dir="ltr">schema</bdi> شکل خروجی را کنترل می‌کند؛ صحت <bdi class="term-en" dir="ltr">factual</bdi> را به‌تنهایی تضمین نمی‌کند.</p></article>
+          <article class="card"><h3><bdi class="term-en" dir="ltr">Evaluation</bdi></h3><p>روی <bdi class="term-en" dir="ltr">dataset</bdi> دیده‌نشده، <bdi class="term-en" dir="ltr">metric</bdi> و <bdi class="term-en" dir="ltr">baseline</bdi> تعریف کن.</p></article>
         </div>
-        <h3>Fine-tuning، LoRA و QLoRA</h3>
-        <p>در full fine-tuning همهٔ parameterها update می‌شوند. <code>LoRA</code> weight پایه را freeze می‌کند و update را با دو matrix کم‌رتبه یاد می‌گیرد: <code>ΔW=BA</code>. <code>QLoRA</code> مدل پایهٔ freezeشده را quantized نگه می‌دارد و gradient را به LoRA adapterها عبور می‌دهد تا memory کمتر شود. این روش‌ها برای behavior و domain مناسب‌اند، نه جایگزین database تازه.</p>
+        <h3><bdi class="term-en" dir="ltr">Fine-tuning</bdi>، <bdi class="term-en" dir="ltr">LoRA</bdi> و <bdi class="term-en" dir="ltr">QLoRA</bdi></h3>
+        <p>در <bdi class="term-en" dir="ltr">full fine-tuning</bdi> همهٔ <bdi class="term-en" dir="ltr">parameter</bdi>ها <bdi class="term-en" dir="ltr">update</bdi> می‌شوند. <code>LoRA</code> <bdi class="term-en" dir="ltr">weight</bdi> پایه را <bdi class="term-en" dir="ltr">freeze</bdi> می‌کند و <bdi class="term-en" dir="ltr">update</bdi> را با دو <bdi class="term-en" dir="ltr">matrix</bdi> کم‌رتبه یاد می‌گیرد: <code>ΔW=BA</code>. <code>QLoRA</code> مدل پایهٔ <bdi class="term-en" dir="ltr">freeze</bdi>شده را <bdi class="term-en" dir="ltr">quantized</bdi> نگه می‌دارد و <bdi class="term-en" dir="ltr">gradient</bdi> را به <bdi class="term-en" dir="ltr">LoRA adapter</bdi>ها عبور می‌دهد تا <bdi class="term-en" dir="ltr">memory</bdi> کمتر شود. این روش‌ها برای <bdi class="term-en" dir="ltr">behavior</bdi> و <bdi class="term-en" dir="ltr">domain</bdi> مناسب‌اند، نه جایگزین <bdi class="term-en" dir="ltr">database</bdi> تازه.</p>
         <div class="formula">W′ = W + BA &nbsp;&nbsp; where rank r ≪ model dimension</div>
-        <h3>Quantization</h3>
-        <p>نمایش weightها با bit کمتر memory و bandwidth را کاهش می‌دهد، اما ممکن است approximation error وارد کند. storage dtype، compute dtype و dtype پارامترهای trainable جدا هستند؛ «مدل ۴ بیتی» به معنی ۴ بیتی‌بودن همهٔ عملیات نیست.</p>
-        <div class="callout success"><strong>قاعدهٔ تصمیم:</strong> دانش متغیر → Retrieval؛ اقدام/مشاهدهٔ بیرونی → Tool؛ قالب معتبر → Schema؛ رفتار تکراری با example کافی → Fine-tuning؛ و در همهٔ حالت‌ها → Evaluation.</div>
+        <h3><bdi class="term-en" dir="ltr">Quantization</bdi></h3>
+        <p>نمایش <bdi class="term-en" dir="ltr">weight</bdi>ها با <bdi class="term-en" dir="ltr">bit</bdi> کمتر <bdi class="term-en" dir="ltr">memory</bdi> و <bdi class="term-en" dir="ltr">bandwidth</bdi> را کاهش می‌دهد، اما ممکن است <bdi class="term-en" dir="ltr">approximation error</bdi> وارد کند. <bdi class="term-en" dir="ltr">storage dtype</bdi>، <bdi class="term-en" dir="ltr">compute dtype</bdi> و <bdi class="term-en" dir="ltr">dtype</bdi> پارامترهای <bdi class="term-en" dir="ltr">trainable</bdi> جدا هستند؛ «مدل ۴ بیتی» به معنی ۴ بیتی‌بودن همهٔ عملیات نیست.</p>
+        <div class="callout success"><strong>قاعدهٔ تصمیم:</strong> دانش متغیر → <bdi class="term-en" dir="ltr">Retrieval</bdi>؛ اقدام/مشاهدهٔ بیرونی → <bdi class="term-en" dir="ltr">Tool</bdi>؛ قالب معتبر → <bdi class="term-en" dir="ltr">Schema</bdi>؛ رفتار تکراری با <bdi class="term-en" dir="ltr">example</bdi> کافی → <bdi class="term-en" dir="ltr">Fine-tuning</bdi>؛ و در همهٔ حالت‌ها → <bdi class="term-en" dir="ltr">Evaluation</bdi>.</div>
       </section>
 
       <section class="chapter" id="glossary">
         <header class="chapter-header"><span class="chapter-number">۱۵</span><div class="chapter-title"><h2>واژه‌نامه، خودآزمایی و منابع</h2><p>مرجع سریع اصطلاحاتی که عمداً انگلیسی نگه داشته شده‌اند.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="glossary"> یاد گرفتم</label></header>
         <dl class="term-list">
-          <div class="term"><dt>Activation Function</dt><dd>تبدیل nonlinear روی خروجی یک unit یا layer.</dd></div>
-          <div class="term"><dt>Attention</dt><dd>ساخت خروجی از جمع وزن‌دار Valueها؛ وزن‌ها از Query و Key می‌آیند.</dd></div>
-          <div class="term"><dt>Backpropagation</dt><dd>محاسبهٔ gradient در graph محاسباتی با chain rule.</dd></div>
-          <div class="term"><dt>Batch / Epoch</dt><dd>گروه exampleهای یک update / یک عبور از training set.</dd></div>
-          <div class="term"><dt>Context Window</dt><dd>حد tokenهایی که مدل در یک request می‌تواند در نظر بگیرد.</dd></div>
-          <div class="term"><dt>Cross-Entropy</dt><dd>Loss رایج classification و language modeling.</dd></div>
-          <div class="term"><dt>Embedding</dt><dd>بردار dense آموخته‌شده برای نمایش token یا object.</dd></div>
-          <div class="term"><dt>Gradient</dt><dd>جهت و شدت تغییر loss نسبت به parameterها.</dd></div>
-          <div class="term"><dt>Hallucination</dt><dd>خروجی بدون پشتیبانی کافی از evidence یا واقعیت.</dd></div>
-          <div class="term"><dt>Inference</dt><dd>اجرای مدل آموزش‌دیده بدون update معمول weightها.</dd></div>
-          <div class="term"><dt>Logit</dt><dd>score خام پیش از Softmax؛ probability نیست.</dd></div>
-          <div class="term"><dt>Loss</dt><dd>تابعی عددی که فاصلهٔ prediction و target را بیان می‌کند.</dd></div>
-          <div class="term"><dt>Parameter</dt><dd>مقدار آموختنی مدل؛ عمدتاً weight و bias.</dd></div>
-          <div class="term"><dt>Projection</dt><dd>تبدیل خطی representation به فضای دیگر؛ Q/K/V از projection ساخته می‌شوند.</dd></div>
-          <div class="term"><dt>Softmax</dt><dd>تبدیل logitها به distribution مثبت با مجموع ۱.</dd></div>
-          <div class="term"><dt>Token / Tokenizer</dt><dd>واحد پردازش متن / الگوریتم تبدیل متن و token idها.</dd></div>
-          <div class="term"><dt>Transformer</dt><dd>معماری مبتنی بر Attention، FFN، residual، normalization و position.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Activation Function</bdi></dt><dd>تبدیل <bdi class="term-en" dir="ltr">nonlinear</bdi> روی خروجی یک <bdi class="term-en" dir="ltr">unit</bdi> یا <bdi class="term-en" dir="ltr">layer</bdi>.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Attention</bdi></dt><dd>ساخت خروجی از جمع وزن‌دار <bdi class="term-en" dir="ltr">Value</bdi>ها؛ وزن‌ها از <bdi class="term-en" dir="ltr">Query</bdi> و <bdi class="term-en" dir="ltr">Key</bdi> می‌آیند.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Backpropagation</bdi></dt><dd>محاسبهٔ <bdi class="term-en" dir="ltr">gradient</bdi> در <bdi class="term-en" dir="ltr">graph</bdi> محاسباتی با <bdi class="term-en" dir="ltr">chain rule</bdi>.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Batch / Epoch</bdi></dt><dd>گروه <bdi class="term-en" dir="ltr">example</bdi>های یک <bdi class="term-en" dir="ltr">update /</bdi> یک عبور از <bdi class="term-en" dir="ltr">training set</bdi>.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Context Window</bdi></dt><dd>حد <bdi class="term-en" dir="ltr">token</bdi>هایی که مدل در یک <bdi class="term-en" dir="ltr">request</bdi> می‌تواند در نظر بگیرد.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Cross-Entropy</bdi></dt><dd><bdi class="term-en" dir="ltr">Loss</bdi> رایج <bdi class="term-en" dir="ltr">classification</bdi> و <bdi class="term-en" dir="ltr">language modeling</bdi>.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Embedding</bdi></dt><dd>بردار <bdi class="term-en" dir="ltr">dense</bdi> آموخته‌شده برای نمایش <bdi class="term-en" dir="ltr">token</bdi> یا <bdi class="term-en" dir="ltr">object</bdi>.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Gradient</bdi></dt><dd>جهت و شدت تغییر <bdi class="term-en" dir="ltr">loss</bdi> نسبت به <bdi class="term-en" dir="ltr">parameter</bdi>ها.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Hallucination</bdi></dt><dd>خروجی بدون پشتیبانی کافی از <bdi class="term-en" dir="ltr">evidence</bdi> یا واقعیت.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Inference</bdi></dt><dd>اجرای مدل آموزش‌دیده بدون <bdi class="term-en" dir="ltr">update</bdi> معمول <bdi class="term-en" dir="ltr">weight</bdi>ها.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Logit</bdi></dt><dd><bdi class="term-en" dir="ltr">score</bdi> خام پیش از <bdi class="term-en" dir="ltr">Softmax</bdi>؛ <bdi class="term-en" dir="ltr">probability</bdi> نیست.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Loss</bdi></dt><dd>تابعی عددی که فاصلهٔ <bdi class="term-en" dir="ltr">prediction</bdi> و <bdi class="term-en" dir="ltr">target</bdi> را بیان می‌کند.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Parameter</bdi></dt><dd>مقدار آموختنی مدل؛ عمدتاً <bdi class="term-en" dir="ltr">weight</bdi> و <bdi class="term-en" dir="ltr">bias</bdi>.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Projection</bdi></dt><dd>تبدیل خطی <bdi class="term-en" dir="ltr">representation</bdi> به فضای دیگر؛ <bdi class="term-en" dir="ltr">Q/K/V</bdi> از <bdi class="term-en" dir="ltr">projection</bdi> ساخته می‌شوند.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Softmax</bdi></dt><dd>تبدیل <bdi class="term-en" dir="ltr">logit</bdi>ها به <bdi class="term-en" dir="ltr">distribution</bdi> مثبت با مجموع ۱.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Token / Tokenizer</bdi></dt><dd>واحد پردازش متن / الگوریتم تبدیل متن و <bdi class="term-en" dir="ltr">token id</bdi>ها.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Transformer</bdi></dt><dd>معماری مبتنی بر <bdi class="term-en" dir="ltr">Attention</bdi>، <bdi class="term-en" dir="ltr">FFN</bdi>، <bdi class="term-en" dir="ltr">residual</bdi>، <bdi class="term-en" dir="ltr">normalization</bdi> و <bdi class="term-en" dir="ltr">position</bdi>.</dd></div>
         </dl>
         <h3>خودآزمایی نهایی</h3>
-        <details><summary>۱. فرق logit و probability چیست؟</summary><p>Logit score خام و نامحدود است. Softmax مجموعهٔ logitها را به probabilityهای مثبت با مجموع ۱ تبدیل می‌کند.</p></details>
-        <details><summary>۲. چرا Softmax داخل Attention استفاده می‌شود؟</summary><p>score سازگاری Query/Key را به weightهای نسبی تبدیل می‌کند تا Valueها با یک distribution وزن‌دار جمع شوند.</p></details>
-        <details><summary>۳. Transformer بدون Attention چه اجزای مهم دیگری دارد؟</summary><p>Embedding، positional information، FFN/MLP، residual، normalization، output projection و training objective.</p></details>
-        <details><summary>۴. چرا RAG با Fine-tuning یکی نیست؟</summary><p>RAG evidence را هنگام request در context می‌آورد؛ Fine-tuning parameterها را برای behavior/task تغییر می‌دهد.</p></details>
-        <details><summary>۵. آیا Attention weight توضیح قطعی reasoning مدل است؟</summary><p>نه. می‌تواند سرنخ ارتباط باشد، اما به‌تنهایی تبیین علّی و کامل رفتار مدل نیست.</p></details>
+        <details><summary>۱. فرق <bdi class="term-en" dir="ltr">logit</bdi> و <bdi class="term-en" dir="ltr">probability</bdi> چیست؟</summary><p><bdi class="term-en" dir="ltr">Logit score</bdi> خام و نامحدود است. <bdi class="term-en" dir="ltr">Softmax</bdi> مجموعهٔ <bdi class="term-en" dir="ltr">logit</bdi>ها را به <bdi class="term-en" dir="ltr">probability</bdi>های مثبت با مجموع ۱ تبدیل می‌کند.</p></details>
+        <details><summary>۲. چرا <bdi class="term-en" dir="ltr">Softmax</bdi> داخل <bdi class="term-en" dir="ltr">Attention</bdi> استفاده می‌شود؟</summary><p><bdi class="term-en" dir="ltr">score</bdi> سازگاری <bdi class="term-en" dir="ltr">Query/Key</bdi> را به <bdi class="term-en" dir="ltr">weight</bdi>های نسبی تبدیل می‌کند تا <bdi class="term-en" dir="ltr">Value</bdi>ها با یک <bdi class="term-en" dir="ltr">distribution</bdi> وزن‌دار جمع شوند.</p></details>
+        <details><summary>۳. <bdi class="term-en" dir="ltr">Transformer</bdi> بدون <bdi class="term-en" dir="ltr">Attention</bdi> چه اجزای مهم دیگری دارد؟</summary><p><bdi class="term-en" dir="ltr">Embedding</bdi>، <bdi class="term-en" dir="ltr">positional information</bdi>، <bdi class="term-en" dir="ltr">FFN/MLP</bdi>، <bdi class="term-en" dir="ltr">residual</bdi>، <bdi class="term-en" dir="ltr">normalization</bdi>، <bdi class="term-en" dir="ltr">output projection</bdi> و <bdi class="term-en" dir="ltr">training objective</bdi>.</p></details>
+        <details><summary>۴. چرا <bdi class="term-en" dir="ltr">RAG</bdi> با <bdi class="term-en" dir="ltr">Fine-tuning</bdi> یکی نیست؟</summary><p><bdi class="term-en" dir="ltr">RAG evidence</bdi> را هنگام <bdi class="term-en" dir="ltr">request</bdi> در <bdi class="term-en" dir="ltr">context</bdi> می‌آورد؛ <bdi class="term-en" dir="ltr">Fine-tuning parameter</bdi>ها را برای <bdi class="term-en" dir="ltr">behavior/task</bdi> تغییر می‌دهد.</p></details>
+        <details><summary>۵. آیا <bdi class="term-en" dir="ltr">Attention weight</bdi> توضیح قطعی <bdi class="term-en" dir="ltr">reasoning</bdi> مدل است؟</summary><p>نه. می‌تواند سرنخ ارتباط باشد، اما به‌تنهایی تبیین علّی و کامل رفتار مدل نیست.</p></details>
         <h3>منابع اصلی و آموزشی</h3>
         <ul class="source-list">
-          <li><a href="https://arxiv.org/abs/1706.03762">Vaswani et al. — Attention Is All You Need</a>: منبع اصلی فصل‌های Attention paper و Transformer.</li>
-          <li><a href="https://arxiv.org/abs/1409.0473">Bahdanau et al. — Neural Machine Translation by Jointly Learning to Align and Translate</a>: Attention به‌عنوان soft search.</li>
-          <li><a href="https://arxiv.org/abs/1301.3781">Mikolov et al. — Efficient Estimation of Word Representations in Vector Space</a>: Word2Vec.</li>
-          <li><a href="https://arxiv.org/abs/1508.07909">Sennrich et al. — Neural Machine Translation of Rare Words with Subword Units</a>: subword و BPE.</li>
-          <li><a href="https://arxiv.org/abs/1810.04805">Devlin et al. — BERT</a>: pre-training دوطرفه.</li>
-          <li><a href="https://arxiv.org/abs/2106.09685">Hu et al. — LoRA</a> و <a href="https://arxiv.org/abs/2305.14314">Dettmers et al. — QLoRA</a>.</li>
-          <li><a href="https://cs231n.github.io/linear-classify/">Stanford CS231n — Linear Classification and Softmax</a>: logit و Cross-Entropy.</li>
-          <li><a href="https://d2l.ai/chapter_linear-classification/softmax-regression-scratch.html">Dive into Deep Learning — Softmax from scratch</a>: پیاده‌سازی و پایداری عددی.</li>
-          <li><a href="https://developers.google.com/machine-learning/crash-course/neural-networks">Google Machine Learning Crash Course — Neural Networks</a>: لایه، activation و backpropagation.</li>
+          <li><a href="https://arxiv.org/abs/1706.03762"><bdi class="term-en" dir="ltr">Vaswani et al</bdi>. — <bdi class="term-en" dir="ltr">Attention Is All You Need</bdi></a>: منبع اصلی فصل‌های <bdi class="term-en" dir="ltr">Attention paper</bdi> و <bdi class="term-en" dir="ltr">Transformer</bdi>.</li>
+          <li><a href="https://arxiv.org/abs/1409.0473"><bdi class="term-en" dir="ltr">Bahdanau et al</bdi>. — <bdi class="term-en" dir="ltr">Neural Machine Translation by Jointly Learning to Align and</bdi> <bdi class="term-en" dir="ltr">Translate</bdi></a>: <bdi class="term-en" dir="ltr">Attention</bdi> به‌عنوان <bdi class="term-en" dir="ltr">soft search</bdi>.</li>
+          <li><a href="https://arxiv.org/abs/1301.3781"><bdi class="term-en" dir="ltr">Mikolov et al</bdi>. — <bdi class="term-en" dir="ltr">Efficient Estimation of Word Representations in Vector Space</bdi></a>: <bdi class="term-en" dir="ltr">Word2Vec</bdi>.</li>
+          <li><a href="https://arxiv.org/abs/1508.07909"><bdi class="term-en" dir="ltr">Sennrich et al</bdi>. — <bdi class="term-en" dir="ltr">Neural Machine Translation of Rare Words with Subword Units</bdi></a>: <bdi class="term-en" dir="ltr">subword</bdi> و <bdi class="term-en" dir="ltr">BPE</bdi>.</li>
+          <li><a href="https://arxiv.org/abs/1810.04805"><bdi class="term-en" dir="ltr">Devlin et al</bdi>. — <bdi class="term-en" dir="ltr">BERT</bdi></a>: <bdi class="term-en" dir="ltr">pre-training</bdi> دوطرفه.</li>
+          <li><a href="https://arxiv.org/abs/2106.09685"><bdi class="term-en" dir="ltr">Hu et al</bdi>. — <bdi class="term-en" dir="ltr">LoRA</bdi></a> و <a href="https://arxiv.org/abs/2305.14314"><bdi class="term-en" dir="ltr">Dettmers et al</bdi>. — <bdi class="term-en" dir="ltr">QLoRA</bdi></a>.</li>
+          <li><a href="https://cs231n.github.io/linear-classify/"><bdi class="term-en" dir="ltr">Stanford CS231n</bdi> — <bdi class="term-en" dir="ltr">Linear Classification and Softmax</bdi></a>: <bdi class="term-en" dir="ltr">logit</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi>.</li>
+          <li><a href="https://d2l.ai/chapter_linear-classification/softmax-regression-scratch.html"><bdi class="term-en" dir="ltr">Dive into Deep Learning</bdi> — <bdi class="term-en" dir="ltr">Softmax from scratch</bdi></a>: پیاده‌سازی و پایداری عددی.</li>
+          <li><a href="https://developers.google.com/machine-learning/crash-course/neural-networks"><bdi class="term-en" dir="ltr">Google Machine Learning Crash Course</bdi> — <bdi class="term-en" dir="ltr">Neural Networks</bdi></a>: لایه، <bdi class="term-en" dir="ltr">activation</bdi> و <bdi class="term-en" dir="ltr">backpropagation</bdi>.</li>
         </ul>
         <p class="small">این متن ترجمهٔ رسمی یا کامل مقاله‌ها نیست؛ یک بازنویسی آموزشی و ترجمهٔ مفهومی فارسی بر پایهٔ منابع بالاست. برای استناد پژوهشی به متن اصلی مراجعه کنید.</p>
       </section>
 
-      <footer class="footer"><a href="../index.html">صفحهٔ اصلی</a> · <a href="../week-01/class-notes/index.html">جزوهٔ کلاس</a> · پیش‌نیاز مشترک تمام هفته‌های Agentic AI</footer>
+      <footer class="footer"><a href="../index.html">صفحهٔ اصلی</a> · <a href="../week-01/class-notes/index.html">جزوهٔ کلاس</a> · پیش‌نیاز مشترک تمام هفته‌های <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
     </main>
   </div>
 </div>

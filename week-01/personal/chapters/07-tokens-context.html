@@ -11,13 +11,13 @@
 <a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
 <main class="content" id="main-content">
   <header class="hero">
-    <div class="eyebrow">Agentic AI · Week 01 · Chapter 07</div>
-    <h2>Token و Context Window</h2>
-    <p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل Prompt» راه‌حل خوبی نیست؟</p>
+    <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 07</div>
+    <h2><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
+    <p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل <bdi class="term-en" dir="ltr">Prompt</bdi>» راه‌حل خوبی نیست؟</p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
       <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
-      <button class="icon-button" type="button" data-action="print">چاپ / PDF</button>
+      <button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button>
     </div>
   </header>
 
@@ -25,85 +25,85 @@
 <div class="chapter-header">
 <div class="chapter-number">۷</div>
 <div>
-<h2>Token و Context Window</h2>
-<p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل Prompt» راه‌حل خوبی نیست؟</p>
+<h2><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
+<p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل <bdi class="term-en" dir="ltr">Prompt</bdi>» راه‌حل خوبی نیست؟</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="tokens" type="checkbox"/> خواندم</label>
 </div>
-<h3>Token چیست؟</h3>
+<h3><bdi class="term-en" dir="ltr">Token</bdi> چیست؟</h3>
 <p>
-          مدل متن را مستقیماً به شکل کلمه یا حرف نمی‌بیند. یک <strong>Tokenizer</strong> متن را به قطعه‌هایی به نام Token تبدیل می‌کند و هر Token
-          به یک شناسهٔ عددی نگاشت می‌شود. یک Token ممکن است یک کلمه، بخشی از کلمه، علامت، فاصله یا ترکیبی از حروف باشد.
-          در فارسی، انگلیسی و متن فنی نسبت Token به تعداد کلمات یکسان نیست؛ بنابراین تخمین چشمی فقط تقریبی است.
+          مدل متن را مستقیماً به شکل کلمه یا حرف نمی‌بیند. یک <strong><bdi class="term-en" dir="ltr">Tokenizer</bdi></strong> متن را به قطعه‌هایی به نام <bdi class="term-en" dir="ltr">Token</bdi> تبدیل می‌کند و هر <bdi class="term-en" dir="ltr">Token</bdi>
+          به یک شناسهٔ عددی نگاشت می‌شود. یک <bdi class="term-en" dir="ltr">Token</bdi> ممکن است یک کلمه، بخشی از کلمه، علامت، فاصله یا ترکیبی از حروف باشد.
+          در فارسی، انگلیسی و متن فنی نسبت <bdi class="term-en" dir="ltr">Token</bdi> به تعداد کلمات یکسان نیست؛ بنابراین تخمین چشمی فقط تقریبی است.
         </p>
 <div class="callout">
-<strong>قاعده:</strong> برای عدد دقیق از Tokenizer یا قابلیت Token Counting همان Provider/Model استفاده کن. شمارش یک Tokenizer برای مدل دیگر ممکن است دقیق نباشد.
+<strong>قاعده:</strong> برای عدد دقیق از <bdi class="term-en" dir="ltr">Tokenizer</bdi> یا قابلیت <bdi class="term-en" dir="ltr">Token Counting</bdi> همان <bdi class="term-en" dir="ltr">Provider/Model</bdi> استفاده کن. شمارش یک <bdi class="term-en" dir="ltr">Tokenizer</bdi> برای مدل دیگر ممکن است دقیق نباشد.
         </div>
-<h3>چه چیزهایی Context را مصرف می‌کنند؟</h3>
+<h3>چه چیزهایی <bdi class="term-en" dir="ltr">Context</bdi> را مصرف می‌کنند؟</h3>
 <ul>
-<li>System/Developer Instructions و Prompt اصلی.</li>
-<li>پیام فعلی User و تاریخچهٔ گفت‌وگو.</li>
-<li>اسناد Retrieval شده، نتیجهٔ Search و Tool Output.</li>
-<li>Schema مربوط به Toolها یا Structured Output.</li>
-<li>Tokenهای خروجی‌ای که مدل باید تولید کند.</li>
+<li><bdi class="term-en" dir="ltr">System/Developer Instructions</bdi> و <bdi class="term-en" dir="ltr">Prompt</bdi> اصلی.</li>
+<li>پیام فعلی <bdi class="term-en" dir="ltr">User</bdi> و تاریخچهٔ گفت‌وگو.</li>
+<li>اسناد <bdi class="term-en" dir="ltr">Retrieval</bdi> شده، نتیجهٔ <bdi class="term-en" dir="ltr">Search</bdi> و <bdi class="term-en" dir="ltr">Tool Output</bdi>.</li>
+<li><bdi class="term-en" dir="ltr">Schema</bdi> مربوط به <bdi class="term-en" dir="ltr">Tool</bdi>ها یا <bdi class="term-en" dir="ltr">Structured Output</bdi>.</li>
+<li><bdi class="term-en" dir="ltr">Token</bdi>های خروجی‌ای که مدل باید تولید کند.</li>
 </ul>
 <div class="formula">input_tokens + reserved_output_tokens ≤ context_window</div>
 <p>
-          فرض کن Context Window یک مدل در مثال آموزشی ما ۳۲٬۰۰۰ Token است. اگر ۲۸٬۰۰۰ Token ورودی بفرستی و برای خروجی ۸٬۰۰۰ Token انتظار داشته باشی،
-          درخواست از ظرفیت عبور می‌کند. باید ورودی را کم کنی، خروجی را محدود کنی یا مدلی با Window بزرگ‌تر انتخاب کنی.
+          فرض کن <bdi class="term-en" dir="ltr">Context Window</bdi> یک مدل در مثال آموزشی ما ۳۲٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> است. اگر ۲۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی بفرستی و برای خروجی ۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> انتظار داشته باشی،
+          درخواست از ظرفیت عبور می‌کند. باید ورودی را کم کنی، خروجی را محدود کنی یا مدلی با <bdi class="term-en" dir="ltr">Window</bdi> بزرگ‌تر انتخاب کنی.
         </p>
 <h3>چهار مفهوم که معمولاً با هم قاطی می‌شوند</h3>
 <div class="table-wrap">
 <table>
 <thead><tr><th>مفهوم</th><th>معنی</th><th>ماندگاری</th></tr></thead>
 <tbody>
-<tr><td>Training Data</td><td>داده‌ای که در مرحلهٔ آموزش برای تنظیم وزن‌های مدل استفاده شده است.</td><td>در وزن‌های مدل؛ با Prompt معمولی تغییر نمی‌کند.</td></tr>
-<tr><td>Context</td><td>اطلاعاتی که در همین Request در اختیار مدل قرار می‌دهی.</td><td>معمولاً فقط همان درخواست یا تاریخچه‌ای که برنامه دوباره ارسال می‌کند.</td></tr>
-<tr><td>Memory</td><td>داده‌ای که Application خارج از مدل ذخیره و در زمان مناسب دوباره وارد Context می‌کند.</td><td>بسته به Database/Store برنامه.</td></tr>
-<tr><td>Retrieval</td><td>جست‌وجوی اسناد مرتبط و افزودن بخش‌های منتخب به Context.</td><td>منبع بیرونی؛ در هر Request دوباره قابل بازیابی است.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Training Data</bdi></td><td>داده‌ای که در مرحلهٔ آموزش برای تنظیم وزن‌های مدل استفاده شده است.</td><td>در وزن‌های مدل؛ با <bdi class="term-en" dir="ltr">Prompt</bdi> معمولی تغییر نمی‌کند.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Context</bdi></td><td>اطلاعاتی که در همین <bdi class="term-en" dir="ltr">Request</bdi> در اختیار مدل قرار می‌دهی.</td><td>معمولاً فقط همان درخواست یا تاریخچه‌ای که برنامه دوباره ارسال می‌کند.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Memory</bdi></td><td>داده‌ای که <bdi class="term-en" dir="ltr">Application</bdi> خارج از مدل ذخیره و در زمان مناسب دوباره وارد <bdi class="term-en" dir="ltr">Context</bdi> می‌کند.</td><td>بسته به <bdi class="term-en" dir="ltr">Database/Store</bdi> برنامه.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Retrieval</bdi></td><td>جست‌وجوی اسناد مرتبط و افزودن بخش‌های منتخب به <bdi class="term-en" dir="ltr">Context</bdi>.</td><td>منبع بیرونی؛ در هر <bdi class="term-en" dir="ltr">Request</bdi> دوباره قابل بازیابی است.</td></tr>
 </tbody>
 </table>
 </div>
 <div class="analogy">
 <p>
-            Context شبیه RAM یک Pod است، نه Persistent Volume. اگر Application تاریخچه را دوباره نفرستد یا در Store نگه ندارد، مدل الزاماً چیزی از Request قبلی «یادش» نیست.
+            <bdi class="term-en" dir="ltr">Context</bdi> شبیه <bdi class="term-en" dir="ltr">RAM</bdi> یک <bdi class="term-en" dir="ltr">Pod</bdi> است، نه <bdi class="term-en" dir="ltr">Persistent Volume</bdi>. اگر <bdi class="term-en" dir="ltr">Application</bdi> تاریخچه را دوباره نفرستد یا در <bdi class="term-en" dir="ltr">Store</bdi> نگه ندارد، مدل الزاماً چیزی از <bdi class="term-en" dir="ltr">Request</bdi> قبلی «یادش» نیست.
           </p>
 </div>
-<h3>چرا Context بزرگ همیشه بهتر نیست؟</h3>
+<h3>چرا <bdi class="term-en" dir="ltr">Context</bdi> بزرگ همیشه بهتر نیست؟</h3>
 <p>
-          Context زیاد Cost و Latency را بالا می‌برد و ممکن است اطلاعات مهم میان داده‌های تکراری یا بی‌ربط گم شود. مدل‌ها در استفاده از تمام نقاط Window کیفیت یکسان ندارند.
-          به‌جای Dump کردن همه‌چیز، Context را مثل یک Artifact مهندسی‌شده بساز:
+          <bdi class="term-en" dir="ltr">Context</bdi> زیاد <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را بالا می‌برد و ممکن است اطلاعات مهم میان داده‌های تکراری یا بی‌ربط گم شود. مدل‌ها در استفاده از تمام نقاط <bdi class="term-en" dir="ltr">Window</bdi> کیفیت یکسان ندارند.
+          به‌جای <bdi class="term-en" dir="ltr">Dump</bdi> کردن همه‌چیز، <bdi class="term-en" dir="ltr">Context</bdi> را مثل یک <bdi class="term-en" dir="ltr">Artifact</bdi> مهندسی‌شده بساز:
         </p>
 <ol>
 <li>دادهٔ نامرتبط را حذف کن.</li>
-<li>نسخه‌های تکراری را Deduplicate کن.</li>
-<li>اسناد را به Chunkهای دارای مرز معنایی تقسیم کن.</li>
-<li>فقط Top-K مرتبط را Retrieve کن و در صورت نیاز Rerank کن.</li>
-<li>Source، Date و Metadata را همراه Chunk نگه دار.</li>
-<li>برای خروجی Budget مشخص رزرو کن.</li>
+<li>نسخه‌های تکراری را <bdi class="term-en" dir="ltr">Deduplicate</bdi> کن.</li>
+<li>اسناد را به <bdi class="term-en" dir="ltr">Chunk</bdi>های دارای مرز معنایی تقسیم کن.</li>
+<li>فقط <bdi class="term-en" dir="ltr">Top-K</bdi> مرتبط را <bdi class="term-en" dir="ltr">Retrieve</bdi> کن و در صورت نیاز <bdi class="term-en" dir="ltr">Rerank</bdi> کن.</li>
+<li><bdi class="term-en" dir="ltr">Source</bdi>، <bdi class="term-en" dir="ltr">Date</bdi> و <bdi class="term-en" dir="ltr">Metadata</bdi> را همراه <bdi class="term-en" dir="ltr">Chunk</bdi> نگه دار.</li>
+<li>برای خروجی <bdi class="term-en" dir="ltr">Budget</bdi> مشخص رزرو کن.</li>
 </ol>
-<h3>Chunking خیلی ساده</h3>
+<h3><bdi class="term-en" dir="ltr">Chunking</bdi> خیلی ساده</h3>
 <p>
-          Chunk یعنی بریدن سند به قطعه‌های کوچک‌تر برای Retrieval. بریدن ثابت هر ۱۰۰۰ کاراکتر آسان است، اما ممکن است وسط جدول، Function یا پاراگراف را قطع کند.
-          روش بهتر، استفاده از مرزهای معنایی مانند Heading، پاراگراف، Function، Section قانون یا Runbook Step است و سپس کمی Overlap کنترل‌شده.
+          <bdi class="term-en" dir="ltr">Chunk</bdi> یعنی بریدن سند به قطعه‌های کوچک‌تر برای <bdi class="term-en" dir="ltr">Retrieval</bdi>. بریدن ثابت هر ۱۰۰۰ کاراکتر آسان است، اما ممکن است وسط جدول، <bdi class="term-en" dir="ltr">Function</bdi> یا پاراگراف را قطع کند.
+          روش بهتر، استفاده از مرزهای معنایی مانند <bdi class="term-en" dir="ltr">Heading</bdi>، پاراگراف، <bdi class="term-en" dir="ltr">Function</bdi>، <bdi class="term-en" dir="ltr">Section</bdi> قانون یا <bdi class="term-en" dir="ltr">Runbook Step</bdi> است و سپس کمی <bdi class="term-en" dir="ltr">Overlap</bdi> کنترل‌شده.
         </p>
 <div class="grid-3">
-<article class="card"><h4>Chunk خیلی کوچک</h4><p>Context کافی ندارد؛ معنی جمله یا وابستگی مرحله‌ای گم می‌شود.</p></article>
-<article class="card"><h4>Chunk خیلی بزرگ</h4><p>بازیابی دقیق نیست؛ Token و Cost بالا می‌رود و بخش بی‌ربط وارد Prompt می‌شود.</p></article>
-<article class="card"><h4>Chunk مناسب</h4><p>یک واحد معنایی مستقل با Metadata کافی برای ردیابی منبع.</p></article>
+<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی کوچک</h4><p><bdi class="term-en" dir="ltr">Context</bdi> کافی ندارد؛ معنی جمله یا وابستگی مرحله‌ای گم می‌شود.</p></article>
+<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی بزرگ</h4><p>بازیابی دقیق نیست؛ <bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Cost</bdi> بالا می‌رود و بخش بی‌ربط وارد <bdi class="term-en" dir="ltr">Prompt</bdi> می‌شود.</p></article>
+<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> مناسب</h4><p>یک واحد معنایی مستقل با <bdi class="term-en" dir="ltr">Metadata</bdi> کافی برای ردیابی منبع.</p></article>
 </div>
-<h3>مثال بودجه‌بندی Context</h3>
+<h3>مثال بودجه‌بندی <bdi class="term-en" dir="ltr">Context</bdi></h3>
 <div class="table-wrap">
 <table>
-<thead><tr><th>بخش</th><th>Budget فرضی</th><th>نکته</th></tr></thead>
+<thead><tr><th>بخش</th><th><bdi class="term-en" dir="ltr">Budget</bdi> فرضی</th><th>نکته</th></tr></thead>
 <tbody>
-<tr><td>Instructions</td><td class="ltr">1,000 tokens</td><td>قواعد، نقش و قالب خروجی؛ کوتاه و بدون تناقض.</td></tr>
-<tr><td>User Request</td><td class="ltr">500 tokens</td><td>درخواست جاری.</td></tr>
-<tr><td>Conversation Summary</td><td class="ltr">1,500 tokens</td><td>به‌جای ارسال تاریخچهٔ کامل.</td></tr>
-<tr><td>Retrieved Evidence</td><td class="ltr">8,000 tokens</td><td>فقط Chunkهای مرتبط و دارای Source.</td></tr>
-<tr><td>Tool Schemas/Results</td><td class="ltr">3,000 tokens</td><td>Outputهای طولانی را خلاصه یا فیلتر کن.</td></tr>
-<tr><td>Reserved Output</td><td class="ltr">2,000 tokens</td><td>سقف پاسخ.</td></tr>
-<tr><td><strong>Total</strong></td><td class="ltr"><strong>16,000 tokens</strong></td><td>برای Window بزرگ‌تر هم بی‌دلیل تا سقف پر نکن.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Instructions</bdi></td><td class="ltr">1,000 tokens</td><td>قواعد، نقش و قالب خروجی؛ کوتاه و بدون تناقض.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">User Request</bdi></td><td class="ltr">500 tokens</td><td>درخواست جاری.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Conversation Summary</bdi></td><td class="ltr">1,500 tokens</td><td>به‌جای ارسال تاریخچهٔ کامل.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Retrieved Evidence</bdi></td><td class="ltr">8,000 tokens</td><td>فقط <bdi class="term-en" dir="ltr">Chunk</bdi>های مرتبط و دارای <bdi class="term-en" dir="ltr">Source</bdi>.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Tool Schemas/Results</bdi></td><td class="ltr">3,000 tokens</td><td><bdi class="term-en" dir="ltr">Output</bdi>های طولانی را خلاصه یا فیلتر کن.</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Reserved Output</bdi></td><td class="ltr">2,000 tokens</td><td>سقف پاسخ.</td></tr>
+<tr><td><strong><bdi class="term-en" dir="ltr">Total</bdi></strong></td><td class="ltr"><strong>16,000 tokens</strong></td><td>برای <bdi class="term-en" dir="ltr">Window</bdi> بزرگ‌تر هم بی‌دلیل تا سقف پر نکن.</td></tr>
 </tbody>
 </table>
 </div>
@@ -112,9 +112,9 @@
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
     <a class="pill" href="06-model-ecosystem.html">فصل قبل: اکوسیستم مدل‌ها</a>
     <a class="pill" href="../index.html">فهرست</a>
-    <a class="pill" href="08-cost-latency.html">فصل بعد: Cost و Latency</a>
+    <a class="pill" href="08-cost-latency.html">فصل بعد: <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi></a>
   </nav>
-  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول Agentic AI</footer>
+  <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
 </main>
 <script src="../assets/js/course.js"></script>
 </body>
