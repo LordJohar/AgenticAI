@@ -24,7 +24,8 @@
 ## منابع و روش کار
 
 - `sources/`: Snapshot سرفصل و منابع مرجع؛
-- `docs/media-workflow.md`: روش عمومی و privacy-safe پردازش ویدئو و ساخت جزوه؛
+- `../docs/media-workflow.md`: روش عمومی و privacy-safe پردازش ویدئو و ساخت جزوه برای همهٔ هفته‌ها؛
+- `../foundations/index.html`: پیش‌نیاز مفهومی مشترک از Neural Network تا LLM؛
 - `index.html`: صفحهٔ ورودی هفته.
 
 خود ویدئوها، Transcript خام، مدل‌ها و محیط ابزارها خارج از Git باقی می‌مانند.

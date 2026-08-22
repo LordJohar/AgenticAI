@@ -3,6 +3,14 @@ TREE.txt
 index.html
 assets/
 └── fonts and shared CSS
+docs/
+├── README.md
+└── media-workflow.md
+foundations/
+├── README.md
+├── index.html
+├── progress.json
+└── assets/
 week-01/
 ├── README.md
 ├── index.html
@@ -19,8 +27,6 @@ week-01/
 │   ├── examples/
 │   ├── exercises/
 │   └── assets/
-├── docs/
-│   └── media-workflow.md
 └── sources/
     ├── README.md
     ├── references.md

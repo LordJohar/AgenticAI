@@ -1,0 +1,18 @@
+{
+  "map": false,
+  "math": false,
+  "neuron": false,
+  "network": false,
+  "training": false,
+  "activation": false,
+  "softmax": false,
+  "tokens": false,
+  "sequence": false,
+  "attention": false,
+  "paper": false,
+  "transformer": false,
+  "llm": false,
+  "decoding": false,
+  "limits": false,
+  "glossary": false
+}

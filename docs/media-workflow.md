@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/css/vazirmatn.css">
+<link rel="stylesheet" href="../assets/css/vazirmatn.css">
 
 <div dir="rtl" lang="fa" class="vazirmatn">
 
