@@ -41,7 +41,7 @@
         </p>
 <h3>۳. <bdi class="term-en" dir="ltr">Nondeterminism</bdi> و <bdi class="term-en" dir="ltr">Prompt Sensitivity</bdi></h3>
 <p>
-          تغییر کوچک در <bdi class="term-en" dir="ltr">Prompt</bdi>، ترتیب <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Model Version</bdi> یا <bdi class="term-en" dir="ltr">Sampling</bdi> می‌تواند خروجی را عوض کند. بنابراین «یک بار درست جواب داد» معادل <bdi class="term-en" dir="ltr">Production Readiness</bdi> نیست.
+          تغییر کوچک در <bdi class="term-en" dir="ltr">Prompt</bdi>، ترتیب <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Model Version</bdi> یا نمونه‌گیری می‌تواند خروجی را عوض کند. بنابراین «یک بار درست جواب داد» معادل <bdi class="term-en" dir="ltr">Production Readiness</bdi> نیست.
         </p>
 <h3>۴. <bdi class="term-en" dir="ltr">Context Limit</bdi> و <bdi class="term-en" dir="ltr">Context Degradation</bdi></h3>
 <p>
@@ -54,7 +54,7 @@
         </p>
 <h3>۶. <bdi class="term-en" dir="ltr">Privacy</bdi> و <bdi class="term-en" dir="ltr">Data Leakage</bdi></h3>
 <p>
-          <bdi class="term-en" dir="ltr">Log</bdi> واقعی ممکن است <bdi class="term-en" dir="ltr">Token</bdi>، <bdi class="term-en" dir="ltr">Cookie</bdi>، <bdi class="term-en" dir="ltr">National ID</bdi>، <bdi class="term-en" dir="ltr">Email</bdi>، <bdi class="term-en" dir="ltr">Internal Hostname</bdi> یا <bdi class="term-en" dir="ltr">Data</bdi> محرمانه داشته باشد. قبل از ارسال به <bdi class="term-en" dir="ltr">Provider</bdi> باید <bdi class="term-en" dir="ltr">Data Classification</bdi>،
+          <bdi class="term-en" dir="ltr">Log</bdi> واقعی ممکن است توکن، <bdi class="term-en" dir="ltr">Cookie</bdi>، <bdi class="term-en" dir="ltr">National ID</bdi>، <bdi class="term-en" dir="ltr">Email</bdi>، <bdi class="term-en" dir="ltr">Internal Hostname</bdi> یا <bdi class="term-en" dir="ltr">Data</bdi> محرمانه داشته باشد. قبل از ارسال به <bdi class="term-en" dir="ltr">Provider</bdi> باید <bdi class="term-en" dir="ltr">Data Classification</bdi>،
           <bdi class="term-en" dir="ltr">Retention</bdi>، <bdi class="term-en" dir="ltr">Contract</bdi> و <bdi class="term-en" dir="ltr">Masking</bdi> روشن باشد.
         </p>
 <h3>۷. <bdi class="term-en" dir="ltr">Tool Error</bdi> و <bdi class="term-en" dir="ltr">Compounding Failure</bdi></h3>
@@ -66,7 +66,7 @@
 <thead><tr><th><bdi class="term-en" dir="ltr">Failure Mode</bdi></th><th>کنترل پیشنهادی</th><th>معیار پایش</th></tr></thead>
 <tbody>
 <tr><td><bdi class="term-en" dir="ltr">Hallucination</bdi></td><td><bdi class="term-en" dir="ltr">Retrieval</bdi> معتبر، <bdi class="term-en" dir="ltr">Citation</bdi>، پاسخ «نمی‌دانم»، <bdi class="term-en" dir="ltr">Human Review</bdi></td><td><bdi class="term-en" dir="ltr">Factuality / Citation correctness</bdi></td></tr>
-<tr><td>خروجی ناپایدار</td><td><bdi class="term-en" dir="ltr">Evaluation Dataset</bdi>، <bdi class="term-en" dir="ltr">Version Pinning</bdi>، <bdi class="term-en" dir="ltr">Prompt Version</bdi></td><td><bdi class="term-en" dir="ltr">Pass rate</bdi> روی <bdi class="term-en" dir="ltr">Golden Set</bdi></td></tr>
+<tr><td>خروجی ناپایدار</td><td>دیتاست ارزیابی، <bdi class="term-en" dir="ltr">Version Pinning</bdi>، <bdi class="term-en" dir="ltr">Prompt Version</bdi></td><td><bdi class="term-en" dir="ltr">Pass rate</bdi> روی <bdi class="term-en" dir="ltr">Golden Set</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Context</bdi> نامناسب</td><td><bdi class="term-en" dir="ltr">Filtering</bdi>، <bdi class="term-en" dir="ltr">Deduplication</bdi>، <bdi class="term-en" dir="ltr">Chunking</bdi>، <bdi class="term-en" dir="ltr">Relevance Threshold</bdi></td><td><bdi class="term-en" dir="ltr">Retrieval precision/recall</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Prompt Injection</bdi></td><td><bdi class="term-en" dir="ltr">Least Privilege</bdi>، <bdi class="term-en" dir="ltr">Tool Allowlist</bdi>، جداکردن <bdi class="term-en" dir="ltr">Data</bdi> از <bdi class="term-en" dir="ltr">Instruction</bdi></td><td><bdi class="term-en" dir="ltr">Blocked attack rate</bdi></td></tr>
 <tr><td>نشت داده</td><td><bdi class="term-en" dir="ltr">Redaction</bdi>، <bdi class="term-en" dir="ltr">DLP</bdi>، <bdi class="term-en" dir="ltr">No-log fields</bdi>، <bdi class="term-en" dir="ltr">Secret Scanner</bdi></td><td><bdi class="term-en" dir="ltr">Leak incidents / scan findings</bdi></td></tr>
@@ -76,8 +76,8 @@
 </div>
 <div class="analogy">
 <p>
-            <bdi class="term-en" dir="ltr">Hallucination</bdi> را مثل <bdi class="term-en" dir="ltr">Packet Loss</bdi> صرف نبین؛ بیشتر شبیه سرویسی است که گاهی <strong><bdi class="term-en" dir="ltr">HTTP</bdi> 200 با <bdi class="term-en" dir="ltr">Payload</bdi> منطقی اما اشتباه</strong> می‌دهد.
-            <bdi class="term-en" dir="ltr">Health Check</bdi> سبز کافی نیست؛ باید <bdi class="term-en" dir="ltr">Semantic Evaluation</bdi> داشته باشی.
+            <bdi class="term-en" dir="ltr">Hallucination</bdi> را مثل از دست‌رفتن بسته صرف نبین؛ بیشتر شبیه سرویسی است که گاهی <strong><bdi class="term-en" dir="ltr">HTTP</bdi> 200 با <bdi class="term-en" dir="ltr">Payload</bdi> منطقی اما اشتباه</strong> می‌دهد.
+            <bdi class="term-en" dir="ltr">Health Check</bdi> سبز کافی نیست؛ باید ارزیابی معنایی داشته باشی.
           </p>
 </div>
 </section>

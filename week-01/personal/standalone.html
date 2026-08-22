@@ -664,8 +664,8 @@ summary { cursor: pointer; font-weight: 800; }
 <li><a href="#capabilities">توانایی‌های <bdi class="term-en" dir="ltr">LLM</bdi></a></li>
 <li><a href="#limits">محدودیت‌ها و <bdi class="term-en" dir="ltr">Failure Mode</bdi>ها</a></li>
 <li><a href="#ecosystem">اکوسیستم مدل‌ها</a></li>
-<li><a href="#tokens"><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></a></li>
-<li><a href="#cost-latency"><bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi></a></li>
+<li><a href="#tokens">توکن و <bdi class="term-en" dir="ltr">Context Window</bdi></a></li>
+<li><a href="#cost-latency"><bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر</a></li>
 <li><a href="#python">مرور <bdi class="term-en" dir="ltr">Python</bdi> برای کار با <bdi class="term-en" dir="ltr">API</bdi></a></li>
 <li><a href="#env-api"><bdi class="term-en" dir="ltr">Environment Variables</bdi> و اولین <bdi class="term-en" dir="ltr">API Call</bdi></a></li>
 <li><a href="#errors"><bdi class="term-en" dir="ltr">Error Handling</bdi>، <bdi class="term-en" dir="ltr">Timeout</bdi> و <bdi class="term-en" dir="ltr">Retry</bdi></a></li>
@@ -694,7 +694,7 @@ summary { cursor: pointer; font-weight: 800; }
 <article class="card">
 <div class="icon">🧠</div>
 <h3>شکاف مفهومی</h3>
-<p><bdi class="term-en" dir="ltr">LLM</bdi>، <bdi class="term-en" dir="ltr">Token</bdi>، <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Inference</bdi>، <bdi class="term-en" dir="ltr">Hallucination</bdi> و <bdi class="term-en" dir="ltr">Model Family</bdi> اصطلاحات تازه‌اند؛ ولی منطق سیستم پشت آن‌ها برایت غریبه نیست.</p>
+<p><bdi class="term-en" dir="ltr">LLM</bdi>، توکن، <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Inference</bdi>، <bdi class="term-en" dir="ltr">Hallucination</bdi> و <bdi class="term-en" dir="ltr">Model Family</bdi> اصطلاحات تازه‌اند؛ ولی منطق سیستم پشت آن‌ها برایت غریبه نیست.</p>
 </article>
 <article class="card">
 <div class="icon">🐍</div>
@@ -738,11 +738,11 @@ summary { cursor: pointer; font-weight: 800; }
 </tr>
 <tr>
 <td class="ltr"><strong>Model ecosystem</strong></td>
-<td>مدل‌های بزرگ/کوچک، <bdi class="term-en" dir="ltr">Hosted/Open-weight</bdi>، <bdi class="term-en" dir="ltr">Reasoning/Fast</bdi>، <bdi class="term-en" dir="ltr">Multimodal/Embedding</bdi> چه تفاوتی دارند؟</td>
-<td>مدل را با معیار <bdi class="term-en" dir="ltr">Accuracy</bdi>، <bdi class="term-en" dir="ltr">Cost</bdi>، <bdi class="term-en" dir="ltr">Latency</bdi>، <bdi class="term-en" dir="ltr">Privacy</bdi> و قابلیت‌های <bdi class="term-en" dir="ltr">API</bdi> انتخاب کنی.</td>
+<td>مدل‌های بزرگ/کوچک، <bdi class="term-en" dir="ltr">Hosted</bdi> / مدل با وزن باز، <bdi class="term-en" dir="ltr">Reasoning/Fast</bdi>، <bdi class="term-en" dir="ltr">Multimodal/Embedding</bdi> چه تفاوتی دارند؟</td>
+<td>مدل را با معیار <bdi class="term-en" dir="ltr">Accuracy</bdi>، <bdi class="term-en" dir="ltr">Cost</bdi>، تأخیر، <bdi class="term-en" dir="ltr">Privacy</bdi> و قابلیت‌های <bdi class="term-en" dir="ltr">API</bdi> انتخاب کنی.</td>
 </tr>
 <tr>
-<td class="ltr"><strong>Tokens, context, cost, latency</strong></td>
+<td><strong>توکن، <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر</strong></td>
 <td>ورودی و خروجی چطور اندازه‌گیری و قیمت‌گذاری می‌شوند و زمان پاسخ از کجا می‌آید؟</td>
 <td>بودجهٔ <bdi class="term-en" dir="ltr">Context</bdi>، هزینهٔ هر درخواست و <bdi class="term-en" dir="ltr">p95 Latency</bdi> را محاسبه و مانیتور کنی.</td>
 </tr>
@@ -768,7 +768,7 @@ summary { cursor: pointer; font-weight: 800; }
 <ul class="checklist">
 <li><label><input data-progress-id="goal-1" type="checkbox"/><span>می‌توانم در دو دقیقه توضیح بدهم <bdi class="term-en" dir="ltr">LLM</bdi> چیست و چرا ممکن است <bdi class="term-en" dir="ltr">Hallucinate</bdi> کند.</span></label></li>
 <li><label><input data-progress-id="goal-2" type="checkbox"/><span>می‌توانم فرق <bdi class="term-en" dir="ltr">Context Window</bdi> با حافظهٔ دائمی و <bdi class="term-en" dir="ltr">Training Data</bdi> را توضیح بدهم.</span></label></li>
-<li><label><input data-progress-id="goal-3" type="checkbox"/><span>می‌توانم <bdi class="term-en" dir="ltr">Cost</bdi> تقریبی یک <bdi class="term-en" dir="ltr">Request</bdi> را از روی <bdi class="term-en" dir="ltr">Input/Output Token</bdi> حساب کنم.</span></label></li>
+<li><label><input data-progress-id="goal-3" type="checkbox"/><span>می‌توانم <bdi class="term-en" dir="ltr">Cost</bdi> تقریبی یک <bdi class="term-en" dir="ltr">Request</bdi> را از روی توکن ورودی/خروجی حساب کنم.</span></label></li>
 <li><label><input data-progress-id="goal-4" type="checkbox"/><span>می‌توانم یک <bdi class="term-en" dir="ltr">Virtual Environment</bdi> بسازم، <bdi class="term-en" dir="ltr">SDK</bdi> نصب کنم و اولین <bdi class="term-en" dir="ltr">API Call</bdi> را اجرا کنم.</span></label></li>
 <li><label><input data-progress-id="goal-5" type="checkbox"/><span>می‌دانم کدام خطاها <bdi class="term-en" dir="ltr">Retry</bdi> می‌شوند و کدام خطاها با <bdi class="term-en" dir="ltr">Retry</bdi> فقط هزینه و فشار را بیشتر می‌کنند.</span></label></li>
 </ul>
@@ -842,7 +842,7 @@ print(response.output_text)</code></pre>
 </div>
 <p class="lead">
           <bdi class="term-en" dir="ltr">LLM</bdi> یا <span class="ltr">Large Language Model</span> مدلی است که با دیدن حجم بزرگی از داده، الگوهای آماری زبان و انواع ساختارها را یاد گرفته
-          و هنگام اجرا، دنبالهٔ <bdi class="term-en" dir="ltr">Token</bdi>های بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
+          و هنگام اجرا، دنبالهٔ توکن‌های بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
         </p>
 <h3><bdi class="term-en" dir="ltr">Training</bdi> در برابر <bdi class="term-en" dir="ltr">Inference</bdi></h3>
 <div class="grid-2">
@@ -852,7 +852,7 @@ print(response.output_text)</code></pre>
 </article>
 <article class="card">
 <h4><bdi class="term-en" dir="ltr">Inference</bdi></h4>
-<p>همان چیزی که با <bdi class="term-en" dir="ltr">API</bdi> مصرف می‌کنی. ورودی <bdi class="term-en" dir="ltr">Tokenize</bdi> می‌شود، مدل خروجی را <bdi class="term-en" dir="ltr">Token</bdi> به <bdi class="term-en" dir="ltr">Token</bdi> می‌سازد و هزینه/Latency ایجاد می‌شود. <bdi class="term-en" dir="ltr">Request</bdi> تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
+<p>همان چیزی که با <bdi class="term-en" dir="ltr">API</bdi> مصرف می‌کنی. ورودی <bdi class="term-en" dir="ltr">Tokenize</bdi> می‌شود، مدل خروجی را توکن به توکن می‌سازد و هزینه/تأخیر ایجاد می‌شود. <bdi class="term-en" dir="ltr">Request</bdi> تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
 </article>
 </div>
 <div class="analogy">
@@ -864,7 +864,7 @@ print(response.output_text)</code></pre>
 <h3><bdi class="term-en" dir="ltr">Transformer</bdi> را چقدر باید بفهمی؟</h3>
 <p>
           برای هفتهٔ اول همین مدل ذهنی کافی است: <bdi class="term-en" dir="ltr">Transformer</bdi> با سازوکار <strong><bdi class="term-en" dir="ltr">Attention</bdi></strong> می‌تواند رابطهٔ بخش‌های مختلف ورودی را وزن‌دهی کند؛
-          یعنی هنگام پردازش یک <bdi class="term-en" dir="ltr">Token</bdi>، به <bdi class="term-en" dir="ltr">Token</bdi>های مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های <bdi class="term-en" dir="ltr">Query/Key/Value</bdi> را محاسبه کنی،
+          یعنی هنگام پردازش یک توکن، به توکن‌های مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های <bdi class="term-en" dir="ltr">Query/Key/Value</bdi> را محاسبه کنی،
           اما باید بدانی <bdi class="term-en" dir="ltr">Context</bdi> به مدل اجازه می‌دهد روابط داخل همان ورودی را ببیند.
         </p>
 <div class="callout">
@@ -917,7 +917,7 @@ print(response.output_text)</code></pre>
 <h3>مسئلهٔ مناسب برای <bdi class="term-en" dir="ltr">LLM</bdi> چه ویژگی دارد؟</h3>
 <ul>
 <li>ورودی یا خروجی آن زبان طبیعی، تصویر یا دادهٔ نیمه‌ساخت‌یافته است.</li>
-<li>چند پاسخ قابل قبول وجود دارد و کیفیت را می‌توان با <bdi class="term-en" dir="ltr">Rubric</bdi> یا <bdi class="term-en" dir="ltr">Evaluation</bdi> سنجید.</li>
+<li>چند پاسخ قابل قبول وجود دارد و کیفیت را می‌توان با <bdi class="term-en" dir="ltr">Rubric</bdi> یا ارزیابی سنجید.</li>
 <li>خطا قابل کشف، قابل اصلاح یا در سطح ریسک پذیرفتنی است.</li>
 <li>می‌توان <bdi class="term-en" dir="ltr">Context</bdi> معتبر، <bdi class="term-en" dir="ltr">Tool</bdi> یا <bdi class="term-en" dir="ltr">Retrieval</bdi> فراهم کرد.</li>
 <li>ارزش انعطاف‌پذیری از نیاز به قطعیت بیت‌به‌بیت بیشتر است.</li>
@@ -927,7 +927,7 @@ print(response.output_text)</code></pre>
 <table>
 <thead><tr><th>نوع کار</th><th>چرا <bdi class="term-en" dir="ltr">LLM</bdi> انتخاب اول نیست؟</th><th>راه بهتر</th></tr></thead>
 <tbody>
-<tr><td>محاسبهٔ قطعی و مالی</td><td>مدل ممکن است عدد یا فرمول را اشتباه تولید کند.</td><td>کد <bdi class="term-en" dir="ltr">Deterministic</bdi> یا <bdi class="term-en" dir="ltr">Calculator Tool</bdi>؛ مدل فقط توضیح دهد.</td></tr>
+<tr><td>محاسبهٔ قطعی و مالی</td><td>مدل ممکن است عدد یا فرمول را اشتباه تولید کند.</td><td>کد قطعی یا <bdi class="term-en" dir="ltr">Calculator Tool</bdi>؛ مدل فقط توضیح دهد.</td></tr>
 <tr><td>بررسی وجود رکورد</td><td>مدل <bdi class="term-en" dir="ltr">Database</bdi> نیست و ممکن است رکورد خیالی بسازد.</td><td><bdi class="term-en" dir="ltr">Query</bdi> مستقیم به <bdi class="term-en" dir="ltr">Source of Truth</bdi>.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Policy Enforcement</bdi></td><td>رفتار احتمالاتی برای <bdi class="term-en" dir="ltr">Allow/Deny</bdi> حساس خطرناک است.</td><td><bdi class="term-en" dir="ltr">Policy Engine</bdi> قطعی؛ مدل فقط پیشنهاد یا طبقه‌بندی کم‌ریسک.</td></tr>
 <tr><td>اجرای <bdi class="term-en" dir="ltr">Command</bdi> مخرب</td><td><bdi class="term-en" dir="ltr">Prompt Injection</bdi> یا برداشت غلط می‌تواند اثر واقعی ایجاد کند.</td><td><bdi class="term-en" dir="ltr">Allowlist</bdi>، <bdi class="term-en" dir="ltr">Dry-run</bdi>، <bdi class="term-en" dir="ltr">Human Approval</bdi> و محدودیت <bdi class="term-en" dir="ltr">Permission</bdi>.</td></tr>
@@ -958,7 +958,7 @@ print(response.output_text)</code></pre>
         </p>
 <h3>۳. <bdi class="term-en" dir="ltr">Nondeterminism</bdi> و <bdi class="term-en" dir="ltr">Prompt Sensitivity</bdi></h3>
 <p>
-          تغییر کوچک در <bdi class="term-en" dir="ltr">Prompt</bdi>، ترتیب <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Model Version</bdi> یا <bdi class="term-en" dir="ltr">Sampling</bdi> می‌تواند خروجی را عوض کند. بنابراین «یک بار درست جواب داد» معادل <bdi class="term-en" dir="ltr">Production Readiness</bdi> نیست.
+          تغییر کوچک در <bdi class="term-en" dir="ltr">Prompt</bdi>، ترتیب <bdi class="term-en" dir="ltr">Context</bdi>، <bdi class="term-en" dir="ltr">Model Version</bdi> یا نمونه‌گیری می‌تواند خروجی را عوض کند. بنابراین «یک بار درست جواب داد» معادل <bdi class="term-en" dir="ltr">Production Readiness</bdi> نیست.
         </p>
 <h3>۴. <bdi class="term-en" dir="ltr">Context Limit</bdi> و <bdi class="term-en" dir="ltr">Context Degradation</bdi></h3>
 <p>
@@ -971,7 +971,7 @@ print(response.output_text)</code></pre>
         </p>
 <h3>۶. <bdi class="term-en" dir="ltr">Privacy</bdi> و <bdi class="term-en" dir="ltr">Data Leakage</bdi></h3>
 <p>
-          <bdi class="term-en" dir="ltr">Log</bdi> واقعی ممکن است <bdi class="term-en" dir="ltr">Token</bdi>، <bdi class="term-en" dir="ltr">Cookie</bdi>، <bdi class="term-en" dir="ltr">National ID</bdi>، <bdi class="term-en" dir="ltr">Email</bdi>، <bdi class="term-en" dir="ltr">Internal Hostname</bdi> یا <bdi class="term-en" dir="ltr">Data</bdi> محرمانه داشته باشد. قبل از ارسال به <bdi class="term-en" dir="ltr">Provider</bdi> باید <bdi class="term-en" dir="ltr">Data Classification</bdi>،
+          <bdi class="term-en" dir="ltr">Log</bdi> واقعی ممکن است توکن، <bdi class="term-en" dir="ltr">Cookie</bdi>، <bdi class="term-en" dir="ltr">National ID</bdi>، <bdi class="term-en" dir="ltr">Email</bdi>، <bdi class="term-en" dir="ltr">Internal Hostname</bdi> یا <bdi class="term-en" dir="ltr">Data</bdi> محرمانه داشته باشد. قبل از ارسال به <bdi class="term-en" dir="ltr">Provider</bdi> باید <bdi class="term-en" dir="ltr">Data Classification</bdi>،
           <bdi class="term-en" dir="ltr">Retention</bdi>، <bdi class="term-en" dir="ltr">Contract</bdi> و <bdi class="term-en" dir="ltr">Masking</bdi> روشن باشد.
         </p>
 <h3>۷. <bdi class="term-en" dir="ltr">Tool Error</bdi> و <bdi class="term-en" dir="ltr">Compounding Failure</bdi></h3>
@@ -983,7 +983,7 @@ print(response.output_text)</code></pre>
 <thead><tr><th><bdi class="term-en" dir="ltr">Failure Mode</bdi></th><th>کنترل پیشنهادی</th><th>معیار پایش</th></tr></thead>
 <tbody>
 <tr><td><bdi class="term-en" dir="ltr">Hallucination</bdi></td><td><bdi class="term-en" dir="ltr">Retrieval</bdi> معتبر، <bdi class="term-en" dir="ltr">Citation</bdi>، پاسخ «نمی‌دانم»، <bdi class="term-en" dir="ltr">Human Review</bdi></td><td><bdi class="term-en" dir="ltr">Factuality / Citation correctness</bdi></td></tr>
-<tr><td>خروجی ناپایدار</td><td><bdi class="term-en" dir="ltr">Evaluation Dataset</bdi>، <bdi class="term-en" dir="ltr">Version Pinning</bdi>، <bdi class="term-en" dir="ltr">Prompt Version</bdi></td><td><bdi class="term-en" dir="ltr">Pass rate</bdi> روی <bdi class="term-en" dir="ltr">Golden Set</bdi></td></tr>
+<tr><td>خروجی ناپایدار</td><td>دیتاست ارزیابی، <bdi class="term-en" dir="ltr">Version Pinning</bdi>، <bdi class="term-en" dir="ltr">Prompt Version</bdi></td><td><bdi class="term-en" dir="ltr">Pass rate</bdi> روی <bdi class="term-en" dir="ltr">Golden Set</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Context</bdi> نامناسب</td><td><bdi class="term-en" dir="ltr">Filtering</bdi>، <bdi class="term-en" dir="ltr">Deduplication</bdi>، <bdi class="term-en" dir="ltr">Chunking</bdi>، <bdi class="term-en" dir="ltr">Relevance Threshold</bdi></td><td><bdi class="term-en" dir="ltr">Retrieval precision/recall</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Prompt Injection</bdi></td><td><bdi class="term-en" dir="ltr">Least Privilege</bdi>، <bdi class="term-en" dir="ltr">Tool Allowlist</bdi>، جداکردن <bdi class="term-en" dir="ltr">Data</bdi> از <bdi class="term-en" dir="ltr">Instruction</bdi></td><td><bdi class="term-en" dir="ltr">Blocked attack rate</bdi></td></tr>
 <tr><td>نشت داده</td><td><bdi class="term-en" dir="ltr">Redaction</bdi>، <bdi class="term-en" dir="ltr">DLP</bdi>، <bdi class="term-en" dir="ltr">No-log fields</bdi>، <bdi class="term-en" dir="ltr">Secret Scanner</bdi></td><td><bdi class="term-en" dir="ltr">Leak incidents / scan findings</bdi></td></tr>
@@ -993,8 +993,8 @@ print(response.output_text)</code></pre>
 </div>
 <div class="analogy">
 <p>
-            <bdi class="term-en" dir="ltr">Hallucination</bdi> را مثل <bdi class="term-en" dir="ltr">Packet Loss</bdi> صرف نبین؛ بیشتر شبیه سرویسی است که گاهی <strong><bdi class="term-en" dir="ltr">HTTP</bdi> 200 با <bdi class="term-en" dir="ltr">Payload</bdi> منطقی اما اشتباه</strong> می‌دهد.
-            <bdi class="term-en" dir="ltr">Health Check</bdi> سبز کافی نیست؛ باید <bdi class="term-en" dir="ltr">Semantic Evaluation</bdi> داشته باشی.
+            <bdi class="term-en" dir="ltr">Hallucination</bdi> را مثل از دست‌رفتن بسته صرف نبین؛ بیشتر شبیه سرویسی است که گاهی <strong><bdi class="term-en" dir="ltr">HTTP</bdi> 200 با <bdi class="term-en" dir="ltr">Payload</bdi> منطقی اما اشتباه</strong> می‌دهد.
+            <bdi class="term-en" dir="ltr">Health Check</bdi> سبز کافی نیست؛ باید ارزیابی معنایی داشته باشی.
           </p>
 </div>
 </section><section class="chapter" data-title="اکوسیستم مدل ها hosted open weight embedding multimodal" id="ecosystem">
@@ -1008,7 +1008,7 @@ print(response.output_text)</code></pre>
 </div>
 <p class="lead">
           هنگام انتخاب مدل، فقط نام <bdi class="term-en" dir="ltr">Provider</bdi> یا عدد <bdi class="term-en" dir="ltr">Benchmark</bdi> را نگاه نکن. انتخاب مدل یک تصمیم معماری است و باید با
-          <strong>کیفیت، <bdi class="term-en" dir="ltr">Latency</bdi>، هزینه، حریم خصوصی، قابلیت‌های <bdi class="term-en" dir="ltr">Tool Use</bdi>، <bdi class="term-en" dir="ltr">Context Window</bdi> و عملیات نگهداری</strong> سنجیده شود.
+          <strong>کیفیت، تأخیر، هزینه، حریم خصوصی، قابلیت‌های استفاده از ابزار، <bdi class="term-en" dir="ltr">Context Window</bdi> و عملیات نگهداری</strong> سنجیده شود.
         </p>
 <h3>اول سه چیز را از هم جدا کن</h3>
 <div class="grid-3">
@@ -1022,7 +1022,7 @@ print(response.output_text)</code></pre>
 </article>
 <article class="card">
 <h4><bdi class="term-en" dir="ltr">Application / Gateway</bdi></h4>
-<p>لایهٔ خودت برای <bdi class="term-en" dir="ltr">Prompt</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Retry</bdi>، <bdi class="term-en" dir="ltr">Cache</bdi>، <bdi class="term-en" dir="ltr">Audit</bdi>، <bdi class="term-en" dir="ltr">Evaluation</bdi> و کنترل دسترسی. این لایه نباید بی‌دلیل به یک <bdi class="term-en" dir="ltr">Provider</bdi> قفل شود.</p>
+<p>لایهٔ خودت برای <bdi class="term-en" dir="ltr">Prompt</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Retry</bdi>، <bdi class="term-en" dir="ltr">Cache</bdi>، <bdi class="term-en" dir="ltr">Audit</bdi>، ارزیابی و کنترل دسترسی. این لایه نباید بی‌دلیل به یک <bdi class="term-en" dir="ltr">Provider</bdi> قفل شود.</p>
 </article>
 </div>
 <h3>دسته‌بندی مدل‌ها بر اساس کاری که انجام می‌دهند</h3>
@@ -1031,38 +1031,38 @@ print(response.output_text)</code></pre>
 <thead><tr><th>نوع مدل</th><th>کار اصلی</th><th>نمونهٔ استفاده</th><th>اشتباه رایج</th></tr></thead>
 <tbody>
 <tr><td><bdi class="term-en" dir="ltr">Generative / Chat</bdi></td><td>تولید، خلاصه‌سازی، استخراج و بازنویسی متن</td><td><bdi class="term-en" dir="ltr">Incident Summary</bdi>، پاسخ به سؤال، تولید <bdi class="term-en" dir="ltr">Draft</bdi></td><td>استفاده به‌عنوان <bdi class="term-en" dir="ltr">Database</bdi> حقیقت</td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Reasoning</bdi></td><td>حل مسئله‌های چندمرحله‌ای دشوارتر</td><td>تحلیل <bdi class="term-en" dir="ltr">Trade-off</bdi>، برنامه‌ریزی، <bdi class="term-en" dir="ltr">Debug</bdi> پیچیده</td><td>استفاده برای هر کار ساده و پرداخت <bdi class="term-en" dir="ltr">Cost/Latency</bdi> اضافه</td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Fast / Small</bdi></td><td>کارهای پرتعداد با پاسخ کوتاه و ساختار روشن</td><td><bdi class="term-en" dir="ltr">Classification</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Tagging</bdi>، استخراج فیلد</td><td>سپردن مسئله‌ای فراتر از ظرفیت مدل بدون <bdi class="term-en" dir="ltr">Evaluation</bdi></td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Embedding</bdi></td><td>تبدیل متن به <bdi class="term-en" dir="ltr">Vector</bdi> برای سنجش شباهت معنایی</td><td><bdi class="term-en" dir="ltr">Semantic Search</bdi> و <bdi class="term-en" dir="ltr">Retrieval</bdi> در <bdi class="term-en" dir="ltr">RAG</bdi></td><td>انتظار تولید متن از مدل <bdi class="term-en" dir="ltr">Embedding</bdi></td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Reasoning</bdi></td><td>حل مسئله‌های چندمرحله‌ای دشوارتر</td><td>تحلیل <bdi class="term-en" dir="ltr">Trade-off</bdi>، برنامه‌ریزی، <bdi class="term-en" dir="ltr">Debug</bdi> پیچیده</td><td>استفاده برای هر کار ساده و پرداخت <bdi class="term-en" dir="ltr">Cost</bdi> / تأخیر اضافه</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Fast / Small</bdi></td><td>کارهای پرتعداد با پاسخ کوتاه و ساختار روشن</td><td><bdi class="term-en" dir="ltr">Classification</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Tagging</bdi>، استخراج فیلد</td><td>سپردن مسئله‌ای فراتر از ظرفیت مدل بدون ارزیابی</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Embedding</bdi></td><td>تبدیل متن به بردار برای سنجش شباهت معنایی</td><td><bdi class="term-en" dir="ltr">Semantic Search</bdi> و <bdi class="term-en" dir="ltr">Retrieval</bdi> در <bdi class="term-en" dir="ltr">RAG</bdi></td><td>انتظار تولید متن از مدل <bdi class="term-en" dir="ltr">Embedding</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Reranker</bdi></td><td>مرتب‌سازی دوبارهٔ نتایج <bdi class="term-en" dir="ltr">Retrieval</bdi> بر اساس ارتباط</td><td>بهبود <bdi class="term-en" dir="ltr">Top-K</bdi> اسناد بازیابی‌شده</td><td>جایگزین دانستن آن با <bdi class="term-en" dir="ltr">Generator</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Multimodal</bdi></td><td>کار با ترکیبی از متن، تصویر، صوت یا ویدئو</td><td>خواندن <bdi class="term-en" dir="ltr">Screenshot</bdi>، توضیح <bdi class="term-en" dir="ltr">Diagram</bdi>، تحلیل صوت</td><td>فرض دقت صددرصد در <bdi class="term-en" dir="ltr">OCR</bdi> یا جزئیات تصویری</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Moderation / Guard</bdi></td><td>تشخیص محتوای پرخطر یا نقض <bdi class="term-en" dir="ltr">Policy</bdi></td><td>فیلتر ورودی و خروجی</td><td>تکیه به آن به‌عنوان تنها کنترل امنیتی</td></tr>
 </tbody>
 </table>
 </div>
-<h3><bdi class="term-en" dir="ltr">Hosted API</bdi> در برابر <bdi class="term-en" dir="ltr">Open-weight</bdi> و <bdi class="term-en" dir="ltr">Self-hosted</bdi></h3>
+<h3><bdi class="term-en" dir="ltr">Hosted API</bdi> در برابر مدل با وزن باز و <bdi class="term-en" dir="ltr">Self-hosted</bdi></h3>
 <div class="grid-2">
 <article class="card">
 <h4><bdi class="term-en" dir="ltr">Hosted API</bdi></h4>
-<p><strong>مزیت:</strong> شروع سریع، بدون <bdi class="term-en" dir="ltr">GPU Ops</bdi>، <bdi class="term-en" dir="ltr">Scaling</bdi> و به‌روزرسانی ساده‌تر، دسترسی به مدل‌های قوی.</p>
+<p><strong>مزیت:</strong> شروع سریع، بدون <bdi class="term-en" dir="ltr">GPU Ops</bdi>، مقیاس‌بندی و به‌روزرسانی ساده‌تر، دسترسی به مدل‌های قوی.</p>
 <p><strong>هزینه:</strong> وابستگی به <bdi class="term-en" dir="ltr">Provider</bdi>، ملاحظات <bdi class="term-en" dir="ltr">Data Residency</bdi>، <bdi class="term-en" dir="ltr">Rate Limit</bdi>، <bdi class="term-en" dir="ltr">Billing</bdi> و تغییر نسخه.</p>
 </article>
 <article class="card">
-<h4><bdi class="term-en" dir="ltr">Open-weight / Self-hosted</bdi></h4>
+<h4>مدل با وزن باز / <bdi class="term-en" dir="ltr">Self-hosted</bdi></h4>
 <p><strong>مزیت:</strong> کنترل بیشتر روی داده، <bdi class="term-en" dir="ltr">Deployment</bdi>، <bdi class="term-en" dir="ltr">Version</bdi>، <bdi class="term-en" dir="ltr">Quantization</bdi> و شبکهٔ بسته.</p>
 <p><strong>هزینه:</strong> <bdi class="term-en" dir="ltr">GPU Capacity</bdi>، <bdi class="term-en" dir="ltr">Runtime</bdi>، <bdi class="term-en" dir="ltr">Scheduling</bdi>، <bdi class="term-en" dir="ltr">Autoscaling</bdi>، <bdi class="term-en" dir="ltr">Model Serving</bdi>، <bdi class="term-en" dir="ltr">Patch</bdi>، <bdi class="term-en" dir="ltr">Benchmark</bdi> و <bdi class="term-en" dir="ltr">On-call</bdi> واقعی.</p>
 </article>
 </div>
 <div class="callout warning">
-<strong><bdi class="term-en" dir="ltr">Open-source</bdi> و <bdi class="term-en" dir="ltr">Open-weight</bdi> یکی نیستند.</strong>
+<strong><bdi class="term-en" dir="ltr">Open-source</bdi> و مدل با وزن باز یکی نیستند.</strong>
           ممکن است وزن‌های مدل منتشر شده باشند اما <bdi class="term-en" dir="ltr">Training Data</bdi>، کد کامل یا <bdi class="term-en" dir="ltr">License</bdi> آن کاملاً باز نباشد. قبل از <bdi class="term-en" dir="ltr">Production</bdi>،
           <bdi class="term-en" dir="ltr">Model Card</bdi>، <bdi class="term-en" dir="ltr">License</bdi>، محدودیت استفادهٔ تجاری و شرایط توزیع را بخوان.
         </div>
 <h3><bdi class="term-en" dir="ltr">Model Serving</bdi> در شبکهٔ سازمانی</h3>
 <p>
-          ابزارهایی مانند <strong><bdi class="term-en" dir="ltr">vLLM</bdi></strong> می‌توانند برای برخی مدل‌های <bdi class="term-en" dir="ltr">Open-weight</bdi> یک <bdi class="term-en" dir="ltr">API</bdi> سازگار با قرارداد <bdi class="term-en" dir="ltr">OpenAI</bdi> ارائه کنند.
+          ابزارهایی مانند <strong><bdi class="term-en" dir="ltr">vLLM</bdi></strong> می‌توانند برای برخی مدل‌های با وزن باز یک <bdi class="term-en" dir="ltr">API</bdi> سازگار با قرارداد <bdi class="term-en" dir="ltr">OpenAI</bdi> ارائه کنند.
           این سازگاری به معنی رفتار یکسان مدل‌ها نیست؛ فقط شکل <bdi class="term-en" dir="ltr">Endpoint</bdi> و <bdi class="term-en" dir="ltr">Request</bdi> تا حدی مشابه می‌شود. <bdi class="term-en" dir="ltr">Prompt</bdi>، <bdi class="term-en" dir="ltr">Tool Calling</bdi>،
-          <bdi class="term-en" dir="ltr">Structured Output</bdi>، <bdi class="term-en" dir="ltr">Tokenizer</bdi> و محدودیت‌ها باید جداگانه تست شوند.
+          خروجی ساختاریافته، <bdi class="term-en" dir="ltr">Tokenizer</bdi> و محدودیت‌ها باید جداگانه تست شوند.
         </p>
 <div aria-label="نمودار انتخاب و مسیریابی مدل" class="diagram">
 <div class="flow">
@@ -1078,7 +1078,7 @@ print(response.output_text)</code></pre>
 <li><strong><bdi class="term-en" dir="ltr">Task</bdi> را دقیق تعریف کن:</strong> ورودی، خروجی، زبان، اندازه، خطر و معیار موفقیت.</li>
 <li><strong><bdi class="term-en" dir="ltr">Golden Set</bdi> بساز:</strong> ۲۰ تا ۵۰ نمونهٔ واقعی با جواب یا معیار مورد انتظار.</li>
 <li><strong>اول کیفیت را ثابت کن:</strong> مدل‌های کاندید را روی همان <bdi class="term-en" dir="ltr">Dataset</bdi> مقایسه کن.</li>
-<li><strong>بعد <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را کم کن:</strong> مدل کوچک‌تر، <bdi class="term-en" dir="ltr">Prompt</bdi> کوتاه‌تر، <bdi class="term-en" dir="ltr">Cache</bdi> یا <bdi class="term-en" dir="ltr">Routing</bdi>.</li>
+<li><strong>بعد <bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر را کم کن:</strong> مدل کوچک‌تر، <bdi class="term-en" dir="ltr">Prompt</bdi> کوتاه‌تر، <bdi class="term-en" dir="ltr">Cache</bdi> یا <bdi class="term-en" dir="ltr">Routing</bdi>.</li>
 <li><strong>نسخه را <bdi class="term-en" dir="ltr">Pin</bdi> و پایش کن:</strong> تغییر <bdi class="term-en" dir="ltr">Model Snapshot</bdi> یا <bdi class="term-en" dir="ltr">Prompt</bdi> می‌تواند <bdi class="term-en" dir="ltr">Regression</bdi> ایجاد کند.</li>
 </ol>
 <div class="analogy">
@@ -1091,31 +1091,31 @@ print(response.output_text)</code></pre>
 <div class="chapter-header">
 <div class="chapter-number">۷</div>
 <div>
-<h2><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
+<h2>توکن و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
 <p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل <bdi class="term-en" dir="ltr">Prompt</bdi>» راه‌حل خوبی نیست؟</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="tokens" type="checkbox"/> خواندم</label>
 </div>
-<h3><bdi class="term-en" dir="ltr">Token</bdi> چیست؟</h3>
+<h3>توکن چیست؟</h3>
 <p>
-          مدل متن را مستقیماً به شکل کلمه یا حرف نمی‌بیند. یک <strong><bdi class="term-en" dir="ltr">Tokenizer</bdi></strong> متن را به قطعه‌هایی به نام <bdi class="term-en" dir="ltr">Token</bdi> تبدیل می‌کند و هر <bdi class="term-en" dir="ltr">Token</bdi>
-          به یک شناسهٔ عددی نگاشت می‌شود. یک <bdi class="term-en" dir="ltr">Token</bdi> ممکن است یک کلمه، بخشی از کلمه، علامت، فاصله یا ترکیبی از حروف باشد.
-          در فارسی، انگلیسی و متن فنی نسبت <bdi class="term-en" dir="ltr">Token</bdi> به تعداد کلمات یکسان نیست؛ بنابراین تخمین چشمی فقط تقریبی است.
+          مدل متن را مستقیماً به شکل کلمه یا حرف نمی‌بیند. یک <strong><bdi class="term-en" dir="ltr">Tokenizer</bdi></strong> متن را به قطعه‌هایی به نام توکن تبدیل می‌کند و هر توکن
+          به یک شناسهٔ عددی نگاشت می‌شود. یک توکن ممکن است یک کلمه، بخشی از کلمه، علامت، فاصله یا ترکیبی از حروف باشد.
+          در فارسی، انگلیسی و متن فنی نسبت توکن به تعداد کلمات یکسان نیست؛ بنابراین تخمین چشمی فقط تقریبی است.
         </p>
 <div class="callout">
-<strong>قاعده:</strong> برای عدد دقیق از <bdi class="term-en" dir="ltr">Tokenizer</bdi> یا قابلیت <bdi class="term-en" dir="ltr">Token Counting</bdi> همان <bdi class="term-en" dir="ltr">Provider/Model</bdi> استفاده کن. شمارش یک <bdi class="term-en" dir="ltr">Tokenizer</bdi> برای مدل دیگر ممکن است دقیق نباشد.
+<strong>قاعده:</strong> برای عدد دقیق از <bdi class="term-en" dir="ltr">Tokenizer</bdi> یا قابلیت شمارش توکن همان <bdi class="term-en" dir="ltr">Provider/Model</bdi> استفاده کن. شمارش یک <bdi class="term-en" dir="ltr">Tokenizer</bdi> برای مدل دیگر ممکن است دقیق نباشد.
         </div>
 <h3>چه چیزهایی <bdi class="term-en" dir="ltr">Context</bdi> را مصرف می‌کنند؟</h3>
 <ul>
 <li><bdi class="term-en" dir="ltr">System/Developer Instructions</bdi> و <bdi class="term-en" dir="ltr">Prompt</bdi> اصلی.</li>
 <li>پیام فعلی <bdi class="term-en" dir="ltr">User</bdi> و تاریخچهٔ گفت‌وگو.</li>
 <li>اسناد <bdi class="term-en" dir="ltr">Retrieval</bdi> شده، نتیجهٔ <bdi class="term-en" dir="ltr">Search</bdi> و <bdi class="term-en" dir="ltr">Tool Output</bdi>.</li>
-<li><bdi class="term-en" dir="ltr">Schema</bdi> مربوط به <bdi class="term-en" dir="ltr">Tool</bdi>ها یا <bdi class="term-en" dir="ltr">Structured Output</bdi>.</li>
-<li><bdi class="term-en" dir="ltr">Token</bdi>های خروجی‌ای که مدل باید تولید کند.</li>
+<li><bdi class="term-en" dir="ltr">Schema</bdi> مربوط به <bdi class="term-en" dir="ltr">Tool</bdi>ها یا خروجی ساختاریافته.</li>
+<li>توکن‌های خروجی‌ای که مدل باید تولید کند.</li>
 </ul>
 <div class="formula">input_tokens + reserved_output_tokens ≤ context_window</div>
 <p>
-          فرض کن <bdi class="term-en" dir="ltr">Context Window</bdi> یک مدل در مثال آموزشی ما ۳۲٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> است. اگر ۲۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی بفرستی و برای خروجی ۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> انتظار داشته باشی،
+          فرض کن <bdi class="term-en" dir="ltr">Context Window</bdi> یک مدل در مثال آموزشی ما ۳۲٬۰۰۰ توکن است. اگر ۲۸٬۰۰۰ توکن ورودی بفرستی و برای خروجی ۸٬۰۰۰ توکن انتظار داشته باشی،
           درخواست از ظرفیت عبور می‌کند. باید ورودی را کم کنی، خروجی را محدود کنی یا مدلی با <bdi class="term-en" dir="ltr">Window</bdi> بزرگ‌تر انتخاب کنی.
         </p>
 <h3>چهار مفهوم که معمولاً با هم قاطی می‌شوند</h3>
@@ -1137,7 +1137,7 @@ print(response.output_text)</code></pre>
 </div>
 <h3>چرا <bdi class="term-en" dir="ltr">Context</bdi> بزرگ همیشه بهتر نیست؟</h3>
 <p>
-          <bdi class="term-en" dir="ltr">Context</bdi> زیاد <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را بالا می‌برد و ممکن است اطلاعات مهم میان داده‌های تکراری یا بی‌ربط گم شود. مدل‌ها در استفاده از تمام نقاط <bdi class="term-en" dir="ltr">Window</bdi> کیفیت یکسان ندارند.
+          <bdi class="term-en" dir="ltr">Context</bdi> زیاد <bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر را بالا می‌برد و ممکن است اطلاعات مهم میان داده‌های تکراری یا بی‌ربط گم شود. مدل‌ها در استفاده از تمام نقاط <bdi class="term-en" dir="ltr">Window</bdi> کیفیت یکسان ندارند.
           به‌جای <bdi class="term-en" dir="ltr">Dump</bdi> کردن همه‌چیز، <bdi class="term-en" dir="ltr">Context</bdi> را مثل یک <bdi class="term-en" dir="ltr">Artifact</bdi> مهندسی‌شده بساز:
         </p>
 <ol>
@@ -1155,7 +1155,7 @@ print(response.output_text)</code></pre>
         </p>
 <div class="grid-3">
 <article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی کوچک</h4><p><bdi class="term-en" dir="ltr">Context</bdi> کافی ندارد؛ معنی جمله یا وابستگی مرحله‌ای گم می‌شود.</p></article>
-<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی بزرگ</h4><p>بازیابی دقیق نیست؛ <bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Cost</bdi> بالا می‌رود و بخش بی‌ربط وارد <bdi class="term-en" dir="ltr">Prompt</bdi> می‌شود.</p></article>
+<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی بزرگ</h4><p>بازیابی دقیق نیست؛ توکن و <bdi class="term-en" dir="ltr">Cost</bdi> بالا می‌رود و بخش بی‌ربط وارد <bdi class="term-en" dir="ltr">Prompt</bdi> می‌شود.</p></article>
 <article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> مناسب</h4><p>یک واحد معنایی مستقل با <bdi class="term-en" dir="ltr">Metadata</bdi> کافی برای ردیابی منبع.</p></article>
 </div>
 <h3>مثال بودجه‌بندی <bdi class="term-en" dir="ltr">Context</bdi></h3>
@@ -1166,7 +1166,7 @@ print(response.output_text)</code></pre>
 <tr><td><bdi class="term-en" dir="ltr">Instructions</bdi></td><td class="ltr">1,000 tokens</td><td>قواعد، نقش و قالب خروجی؛ کوتاه و بدون تناقض.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">User Request</bdi></td><td class="ltr">500 tokens</td><td>درخواست جاری.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Conversation Summary</bdi></td><td class="ltr">1,500 tokens</td><td>به‌جای ارسال تاریخچهٔ کامل.</td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Retrieved Evidence</bdi></td><td class="ltr">8,000 tokens</td><td>فقط <bdi class="term-en" dir="ltr">Chunk</bdi>های مرتبط و دارای <bdi class="term-en" dir="ltr">Source</bdi>.</td></tr>
+<tr><td>شواهد بازیابی‌شده</td><td class="ltr">8,000 tokens</td><td>فقط <bdi class="term-en" dir="ltr">Chunk</bdi>های مرتبط و دارای <bdi class="term-en" dir="ltr">Source</bdi>.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Tool Schemas/Results</bdi></td><td class="ltr">3,000 tokens</td><td><bdi class="term-en" dir="ltr">Output</bdi>های طولانی را خلاصه یا فیلتر کن.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Reserved Output</bdi></td><td class="ltr">2,000 tokens</td><td>سقف پاسخ.</td></tr>
 <tr><td><strong><bdi class="term-en" dir="ltr">Total</bdi></strong></td><td class="ltr"><strong>16,000 tokens</strong></td><td>برای <bdi class="term-en" dir="ltr">Window</bdi> بزرگ‌تر هم بی‌دلیل تا سقف پر نکن.</td></tr>
@@ -1177,7 +1177,7 @@ print(response.output_text)</code></pre>
 <div class="chapter-header">
 <div class="chapter-number">۸</div>
 <div>
-<h2><bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi></h2>
+<h2><bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر</h2>
 <p>از «<bdi class="term-en" dir="ltr">API</bdi> جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای <bdi class="term-en" dir="ltr">SLO</bdi></p>
 </div>
 <label class="chapter-complete"><input data-progress-id="cost-latency" type="checkbox"/> خواندم</label>
@@ -1190,12 +1190,12 @@ print(response.output_text)</code></pre>
         </div>
 <p>
           مثال: اگر نرخ فرضی ورودی <span class="ltr">$2 / 1M</span> و خروجی <span class="ltr">$8 / 1M</span> باشد،
-          برای ۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی و ۱٬۲۰۰ <bdi class="term-en" dir="ltr">Token</bdi> خروجی:
+          برای ۸٬۰۰۰ توکن ورودی و ۱٬۲۰۰ توکن خروجی:
         </p>
 <div class="formula">(8,000 / 1,000,000 × $2) + (1,200 / 1,000,000 × $8) = $0.0256</div>
 <p>
           عدد یک <bdi class="term-en" dir="ltr">Request</bdi> کوچک به نظر می‌رسد، اما با ۱۰۰٬۰۰۰ <bdi class="term-en" dir="ltr">Request</bdi> در ماه حدود <span class="ltr">$2,560</span> می‌شود؛ قبل از <bdi class="term-en" dir="ltr">Retry</bdi>،
-          <bdi class="term-en" dir="ltr">Evaluation</bdi>، <bdi class="term-en" dir="ltr">Development Traffic</bdi> و <bdi class="term-en" dir="ltr">Tool Call</bdi>های اضافی. برای همین <bdi class="term-en" dir="ltr">Cost</bdi> یک <bdi class="term-en" dir="ltr">Metric</bdi> عملیاتی است، نه موضوع صرفاً مالی.
+          ارزیابی، <bdi class="term-en" dir="ltr">Development Traffic</bdi> و <bdi class="term-en" dir="ltr">Tool Call</bdi>های اضافی. برای همین <bdi class="term-en" dir="ltr">Cost</bdi> یک <bdi class="term-en" dir="ltr">Metric</bdi> عملیاتی است، نه موضوع صرفاً مالی.
         </p>
 <h3><bdi class="term-en" dir="ltr">Cost Driver</bdi>های پنهان</h3>
 <ul>
@@ -1205,37 +1205,37 @@ print(response.output_text)</code></pre>
 <li><bdi class="term-en" dir="ltr">Retry</bdi> بی‌قاعده روی خطاهای غیرقابل <bdi class="term-en" dir="ltr">Retry</bdi>.</li>
 <li>استفاده از مدل بزرگ برای <bdi class="term-en" dir="ltr">Classification</bdi> ساده.</li>
 <li><bdi class="term-en" dir="ltr">Agent Loop</bdi> بدون سقف <bdi class="term-en" dir="ltr">Step</bdi>، <bdi class="term-en" dir="ltr">Time</bdi> و <bdi class="term-en" dir="ltr">Budget</bdi>.</li>
-<li><bdi class="term-en" dir="ltr">Evaluation</bdi> و <bdi class="term-en" dir="ltr">Shadow Traffic</bdi> که در <bdi class="term-en" dir="ltr">Forecast</bdi> لحاظ نشده‌اند.</li>
+<li>ارزیابی و <bdi class="term-en" dir="ltr">Shadow Traffic</bdi> که در <bdi class="term-en" dir="ltr">Forecast</bdi> لحاظ نشده‌اند.</li>
 </ul>
-<h3><bdi class="term-en" dir="ltr">Latency</bdi> از چه بخش‌هایی تشکیل می‌شود؟</h3>
+<h3>تأخیر از چه بخش‌هایی تشکیل می‌شود؟</h3>
 <div class="diagram">
 <div class="flow">
 <div class="flow-node"><bdi class="term-en" dir="ltr">DNS / Connect / TLS</bdi></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Provider Queue</bdi></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Input Processing</bdi><br/><small><bdi class="term-en" dir="ltr">Prefill</bdi></small></div><div class="flow-arrow">→</div>
-<div class="flow-node"><bdi class="term-en" dir="ltr">First Token</bdi><br/><small><bdi class="term-en" dir="ltr">TTFT</bdi></small></div><div class="flow-arrow">→</div>
+<div class="flow-node">نخستین توکن<br/><small><bdi class="term-en" dir="ltr">TTFT</bdi></small></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Output Generation</bdi><br/><small><bdi class="term-en" dir="ltr">Decode</bdi></small></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Tool / App Processing</bdi></div>
 </div>
 </div>
 <dl class="term-list">
-<div class="term"><dt><bdi class="term-en" dir="ltr">TTFT</bdi></dt><dd><span class="ltr">Time To First Token</span>؛ زمان تا اولین بخش پاسخ، مخصوصاً در <bdi class="term-en" dir="ltr">Streaming</bdi>.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Total Latency</bdi></dt><dd>زمان کامل از شروع <bdi class="term-en" dir="ltr">Request</bdi> تا دریافت پایان پاسخ و پردازش <bdi class="term-en" dir="ltr">Application</bdi>.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Tokens/sec</bdi></dt><dd>سرعت تولید خروجی پس از شروع پاسخ.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">p50 / p95 / p99</bdi></dt><dd>صدک‌های <bdi class="term-en" dir="ltr">Latency</bdi>؛ <bdi class="term-en" dir="ltr">Average</bdi> به‌تنهایی <bdi class="term-en" dir="ltr">Tail Latency</bdi> را پنهان می‌کند.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">TTFT</bdi></dt><dd>زمان تا نخستین توکن؛ زمان تا اولین بخش پاسخ، مخصوصاً در <bdi class="term-en" dir="ltr">Streaming</bdi>.</dd></div>
+<div class="term"><dt>تأخیر کل</dt><dd>زمان کامل از شروع <bdi class="term-en" dir="ltr">Request</bdi> تا دریافت پایان پاسخ و پردازش <bdi class="term-en" dir="ltr">Application</bdi>.</dd></div>
+<div class="term"><dt>توکن/ثانیه</dt><dd>سرعت تولید خروجی پس از شروع پاسخ.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">p50 / p95 / p99</bdi></dt><dd>صدک‌های تأخیر؛ <bdi class="term-en" dir="ltr">Average</bdi> به‌تنهایی تأخیر انتهایی را پنهان می‌کند.</dd></div>
 </dl>
 <h3>ترتیب بهینه‌سازی</h3>
 <ol>
 <li><strong>اول معیار کیفیت بساز.</strong> بهینه‌سازی بدون <bdi class="term-en" dir="ltr">Golden Set</bdi> ممکن است پاسخ سریع و ارزان اما بی‌فایده تولید کند.</li>
 <li><strong>خروجی را کوتاه کن.</strong> تولید <bdi class="term-en" dir="ltr">Output</bdi> معمولاً بخش مهمی از زمان است؛ قالب و سقف روشن بده.</li>
 <li><strong>ورودی را تمیز کن.</strong> تاریخچه، <bdi class="term-en" dir="ltr">Tool Output</bdi> و <bdi class="term-en" dir="ltr">Retrieval</bdi> را خلاصه و <bdi class="term-en" dir="ltr">Deduplicate</bdi> کن.</li>
-<li><strong>تعداد <bdi class="term-en" dir="ltr">Round-trip</bdi> را کم کن.</strong> چند <bdi class="term-en" dir="ltr">Call</bdi> سریالی، <bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Failure Probability</bdi> را جمع می‌کنند.</li>
+<li><strong>تعداد <bdi class="term-en" dir="ltr">Round-trip</bdi> را کم کن.</strong> چند <bdi class="term-en" dir="ltr">Call</bdi> سریالی، تأخیر و احتمال شکست را جمع می‌کنند.</li>
 <li><strong>کارهای مستقل را موازی کن.</strong> مثلاً دو <bdi class="term-en" dir="ltr">Retrieval</bdi> مستقل، نه <bdi class="term-en" dir="ltr">Step</bdi>هایی که <bdi class="term-en" dir="ltr">Dependency</bdi> دارند.</li>
 <li><strong>مدل کوچک‌تر را پس از اثبات کیفیت امتحان کن.</strong></li>
 <li><strong><bdi class="term-en" dir="ltr">Cache</bdi> و <bdi class="term-en" dir="ltr">Prefix Reuse</bdi> را بررسی کن.</strong> مخصوصاً <bdi class="term-en" dir="ltr">Instructions</bdi> ثابت یا پاسخ‌های تکراری.</li>
 <li><strong>هر چیزی را <bdi class="term-en" dir="ltr">LLM</bdi> نکن.</strong> <bdi class="term-en" dir="ltr">Regex</bdi>، <bdi class="term-en" dir="ltr">SQL</bdi>، <bdi class="term-en" dir="ltr">Calculator</bdi> یا <bdi class="term-en" dir="ltr">Rule Engine</bdi> برای کار قطعی بهتر است.</li>
 </ol>
-<h3>نمونهٔ <bdi class="term-en" dir="ltr">SLO</bdi> برای یک <bdi class="term-en" dir="ltr">LLM Feature</bdi></h3>
+<h3>نمونهٔ <bdi class="term-en" dir="ltr">SLO</bdi> برای یک ویژگی <bdi class="term-en" dir="ltr">LLM</bdi></h3>
 <pre><code># مثال آموزشی، نه نسخهٔ نهایی Production
 Availability:      99.5% successful application responses / 30d
 Latency:           p95 &lt; 8s for interactive summaries
@@ -1245,7 +1245,7 @@ Safety:            0 unauthorized tool actions
 Cost guardrail:    ≤ $0.04 per successful request at p95</code></pre>
 <div class="analogy">
 <p>
-            همان‌طور که <bdi class="term-en" dir="ltr">CPU/RAM Request</bdi> و <bdi class="term-en" dir="ltr">Limit</bdi> را بدون <bdi class="term-en" dir="ltr">Profiling</bdi> تعیین نمی‌کنی، <bdi class="term-en" dir="ltr">Token Budget</bdi> و <bdi class="term-en" dir="ltr">Model Tier</bdi> را هم بدون <bdi class="term-en" dir="ltr">Trace</bdi> و <bdi class="term-en" dir="ltr">Evaluation</bdi> حدس نزن.
+            همان‌طور که <bdi class="term-en" dir="ltr">CPU/RAM Request</bdi> و <bdi class="term-en" dir="ltr">Limit</bdi> را بدون <bdi class="term-en" dir="ltr">Profiling</bdi> تعیین نمی‌کنی، بودجهٔ توکن و <bdi class="term-en" dir="ltr">Model Tier</bdi> را هم بدون <bdi class="term-en" dir="ltr">Trace</bdi> و ارزیابی حدس نزن.
           </p>
 </div>
 </section><section class="chapter" data-title="مرور پایتون venv pip dict list function json file typing" id="python">
@@ -1562,7 +1562,7 @@ except APIStatusError as exc:
 <div class="chapter-number">۱۲</div>
 <div>
 <h2><bdi class="term-en" dir="ltr">Observability</bdi> برای <bdi class="term-en" dir="ltr">LLM Application</bdi></h2>
-<p><bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Error</bdi> کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
+<p>تأخیر و <bdi class="term-en" dir="ltr">Error</bdi> کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="observability" type="checkbox"/> خواندم</label>
 </div>
@@ -1573,9 +1573,9 @@ except APIStatusError as exc:
 <ul>
 <li><bdi class="term-en" dir="ltr">Timestamp</bdi> و <bdi class="term-en" dir="ltr">Correlation ID</bdi></li>
 <li><bdi class="term-en" dir="ltr">Provider</bdi>، <bdi class="term-en" dir="ltr">Model</bdi> و <bdi class="term-en" dir="ltr">Model/Prompt Version</bdi></li>
-<li><bdi class="term-en" dir="ltr">Operation</bdi> یا <bdi class="term-en" dir="ltr">Feature Name</bdi></li>
+<li><bdi class="term-en" dir="ltr">Operation</bdi> یا نام ویژگی</li>
 <li><bdi class="term-en" dir="ltr">Duration</bdi>، <bdi class="term-en" dir="ltr">Retry Count</bdi> و <bdi class="term-en" dir="ltr">Status</bdi></li>
-<li><bdi class="term-en" dir="ltr">Input/Output Token</bdi> و <bdi class="term-en" dir="ltr">Cost Estimate</bdi></li>
+<li>توکن ورودی/خروجی و <bdi class="term-en" dir="ltr">Cost Estimate</bdi></li>
 <li><bdi class="term-en" dir="ltr">Tool Name</bdi>، <bdi class="term-en" dir="ltr">Tool Duration</bdi> و <bdi class="term-en" dir="ltr">Result Status</bdi></li>
 <li><bdi class="term-en" dir="ltr">Request ID</bdi> سرویس‌دهنده</li>
 </ul>
@@ -1583,7 +1583,7 @@ except APIStatusError as exc:
 <article class="card">
 <h4>چیزی که پیش‌فرض <bdi class="term-en" dir="ltr">Log</bdi> نشود</h4>
 <ul>
-<li><bdi class="term-en" dir="ltr">API Key</bdi>، <bdi class="term-en" dir="ltr">Token</bdi>، <bdi class="term-en" dir="ltr">Cookie</bdi> و <bdi class="term-en" dir="ltr">Authorization Header</bdi></li>
+<li><bdi class="term-en" dir="ltr">API Key</bdi>، توکن، <bdi class="term-en" dir="ltr">Cookie</bdi> و <bdi class="term-en" dir="ltr">Authorization Header</bdi></li>
 <li><bdi class="term-en" dir="ltr">Prompt</bdi> یا فایل کامل حاوی دادهٔ محرمانه</li>
 <li><bdi class="term-en" dir="ltr">PII</bdi> بدون <bdi class="term-en" dir="ltr">Masking</bdi> و <bdi class="term-en" dir="ltr">Purpose</bdi> روشن</li>
 <li><bdi class="term-en" dir="ltr">Tool Arguments</bdi> حساس</li>
@@ -1611,8 +1611,8 @@ except APIStatusError as exc:
 <table>
 <thead><tr><th><bdi class="term-en" dir="ltr">Metric</bdi></th><th>چرا مهم است؟</th></tr></thead>
 <tbody>
-<tr><td><code>llm_requests_total</code></td><td><bdi class="term-en" dir="ltr">Traffic</bdi> بر اساس <bdi class="term-en" dir="ltr">Feature</bdi>، <bdi class="term-en" dir="ltr">Model</bdi> و <bdi class="term-en" dir="ltr">Status</bdi>.</td></tr>
-<tr><td><code>llm_request_duration_seconds</code></td><td><bdi class="term-en" dir="ltr">p50/p95/p99</bdi> و <bdi class="term-en" dir="ltr">Tail Latency</bdi>.</td></tr>
+<tr><td><code>llm_requests_total</code></td><td><bdi class="term-en" dir="ltr">Traffic</bdi> بر اساس ویژگی، <bdi class="term-en" dir="ltr">Model</bdi> و <bdi class="term-en" dir="ltr">Status</bdi>.</td></tr>
+<tr><td><code>llm_request_duration_seconds</code></td><td><bdi class="term-en" dir="ltr">p50/p95/p99</bdi> و تأخیر انتهایی.</td></tr>
 <tr><td><code>llm_input_tokens_total</code> / <code>output_tokens_total</code></td><td><bdi class="term-en" dir="ltr">Capacity</bdi> و <bdi class="term-en" dir="ltr">Cost Driver</bdi>.</td></tr>
 <tr><td><code>llm_retry_total</code></td><td>تشخیص <bdi class="term-en" dir="ltr">Rate Limit</bdi>، <bdi class="term-en" dir="ltr">Network Instability</bdi> یا <bdi class="term-en" dir="ltr">Retry Storm</bdi>.</td></tr>
 <tr><td><code>llm_estimated_cost_total</code></td><td><bdi class="term-en" dir="ltr">Budget</bdi>، <bdi class="term-en" dir="ltr">Forecast</bdi> و <bdi class="term-en" dir="ltr">Anomaly Detection</bdi>.</td></tr>
@@ -1631,15 +1631,15 @@ except APIStatusError as exc:
   span: output-policy-check              40ms</code></pre>
 <p>
           <bdi class="term-en" dir="ltr">Trace</bdi> نشان می‌دهد تأخیر یا خطا دقیقاً در <bdi class="term-en" dir="ltr">Retrieval</bdi>، <bdi class="term-en" dir="ltr">Model</bdi>، <bdi class="term-en" dir="ltr">Tool</bdi> یا <bdi class="term-en" dir="ltr">Validation</bdi> رخ داده است. اما برای <bdi class="term-en" dir="ltr">AI</bdi> یک بعد دیگر داریم:
-          پاسخ ممکن است از نظر <bdi class="term-en" dir="ltr">HTTP</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> سالم باشد ولی از نظر معنا غلط باشد. اینجا <strong><bdi class="term-en" dir="ltr">Evaluation</bdi></strong> وارد می‌شود.
+          پاسخ ممکن است از نظر <bdi class="term-en" dir="ltr">HTTP</bdi> و تأخیر سالم باشد ولی از نظر معنا غلط باشد. اینجا <strong>ارزیابی</strong> وارد می‌شود.
         </p>
-<h3><bdi class="term-en" dir="ltr">Evaluation</bdi> چیست؟</h3>
+<h3>ارزیابی چیست؟</h3>
 <p>
           مجموعه‌ای از نمونه‌های نسخه‌بندی‌شده و معیارهایی برای سنجش خروجی. بخشی از معیارها قطعی‌اند، مانند <bdi class="term-en" dir="ltr">JSON Validity</bdi> یا وجود <bdi class="term-en" dir="ltr">Citation</bdi>؛
           بخشی نیاز به <bdi class="term-en" dir="ltr">Rubric</bdi>، <bdi class="term-en" dir="ltr">Model Judge</bdi> کنترل‌شده یا <bdi class="term-en" dir="ltr">Human Review</bdi> دارند، مانند «آیا خلاصه علت را درست و بدون حدس بیان کرده؟».
         </p>
 <div class="callout danger">
-<strong><bdi class="term-en" dir="ltr">Dashboard</bdi> سبز می‌تواند دروغ بگوید.</strong> اگر فقط <bdi class="term-en" dir="ltr">HTTP</bdi> 200، <bdi class="term-en" dir="ltr">Error Rate</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را مانیتور کنی، <bdi class="term-en" dir="ltr">Semantic Regression</bdi> دیده نمی‌شود. <bdi class="term-en" dir="ltr">Prompt</bdi> و <bdi class="term-en" dir="ltr">Model</bdi> را مثل <bdi class="term-en" dir="ltr">Code Version</bdi> کن و <bdi class="term-en" dir="ltr">Evaluation</bdi> را در <bdi class="term-en" dir="ltr">Release Gate</bdi> قرار بده.
+<strong><bdi class="term-en" dir="ltr">Dashboard</bdi> سبز می‌تواند دروغ بگوید.</strong> اگر فقط <bdi class="term-en" dir="ltr">HTTP</bdi> 200، <bdi class="term-en" dir="ltr">Error Rate</bdi> و تأخیر را مانیتور کنی، <bdi class="term-en" dir="ltr">Semantic Regression</bdi> دیده نمی‌شود. <bdi class="term-en" dir="ltr">Prompt</bdi> و <bdi class="term-en" dir="ltr">Model</bdi> را مثل <bdi class="term-en" dir="ltr">Code Version</bdi> کن و ارزیابی را در <bdi class="term-en" dir="ltr">Release Gate</bdi> قرار بده.
         </div>
 </section><section class="chapter" data-title="مینی پروژه incident brief cli log sanitizer prompt" id="mini-project">
 <div class="chapter-header">
@@ -1652,7 +1652,7 @@ except APIStatusError as exc:
 </div>
 <h3>هدف</h3>
 <p>
-          یک فایل <bdi class="term-en" dir="ltr">Log</bdi> نمونه را بخوانیم، الگوهای واضح <bdi class="term-en" dir="ltr">Secret</bdi> را <bdi class="term-en" dir="ltr">Mask</bdi> کنیم، از مدل بخواهیم فقط بر اساس <bdi class="term-en" dir="ltr">Evidence</bdi> خلاصه تولید کند،
+          یک فایل <bdi class="term-en" dir="ltr">Log</bdi> نمونه را بخوانیم، الگوهای واضح <bdi class="term-en" dir="ltr">Secret</bdi> را <bdi class="term-en" dir="ltr">Mask</bdi> کنیم، از مدل بخواهیم فقط بر اساس شواهد خلاصه تولید کند،
           <bdi class="term-en" dir="ltr">Timeout/Retry</bdi> محدود داشته باشیم و <bdi class="term-en" dir="ltr">Metadata</bdi> درخواست را بدون ذخیرهٔ محتوای حساس ثبت کنیم.
         </p>
 <div class="diagram">
@@ -1669,7 +1669,7 @@ except APIStatusError as exc:
 <ol>
 <li><strong><bdi class="term-en" dir="ltr">Facts:</bdi></strong> فقط واقعیت‌های موجود در <bdi class="term-en" dir="ltr">Log</bdi>.</li>
 <li><strong><bdi class="term-en" dir="ltr">Likely impact:</bdi></strong> اثر محتمل با برچسب «استنباط»، نه <bdi class="term-en" dir="ltr">Fact</bdi> قطعی.</li>
-<li><strong><bdi class="term-en" dir="ltr">Unknowns:</bdi></strong> چیزهایی که <bdi class="term-en" dir="ltr">Evidence</bdi> کافی ندارند.</li>
+<li><strong><bdi class="term-en" dir="ltr">Unknowns:</bdi></strong> چیزهایی که شواهد کافی ندارند.</li>
 <li><strong><bdi class="term-en" dir="ltr">Safe next checks:</bdi></strong> بررسی‌های <bdi class="term-en" dir="ltr">Read-only</bdi> و بدون ساختن <bdi class="term-en" dir="ltr">Command</bdi> خیالی.</li>
 <li><strong><bdi class="term-en" dir="ltr">Confidence:</bdi></strong> سطح اطمینان و دلیل آن.</li>
 </ol>
@@ -1694,7 +1694,7 @@ python .\incident_brief_cli.py --file .\sample_incident.log</code></pre>
 <li>فقط از <bdi class="term-en" dir="ltr">Log</bdi> نمونه استفاده کن؛ <bdi class="term-en" dir="ltr">Log Production</bdi> را بدون <bdi class="term-en" dir="ltr">Data Classification</bdi> و مجوز به <bdi class="term-en" dir="ltr">Provider</bdi> خارجی نفرست.</li>
 <li><bdi class="term-en" dir="ltr">Regex</bdi> نمونه تمام انواع <bdi class="term-en" dir="ltr">Secret/PII</bdi> را پیدا نمی‌کند؛ این یک <bdi class="term-en" dir="ltr">Demo</bdi> است، نه <bdi class="term-en" dir="ltr">DLP</bdi> سازمانی.</li>
 <li><bdi class="term-en" dir="ltr">Tool</bdi> اجرایی به پروژه وصل نشده؛ مدل فقط متن تولید می‌کند.</li>
-<li><bdi class="term-en" dir="ltr">Output</bdi> را <bdi class="term-en" dir="ltr">Evidence</bdi> قطعی فرض نکن؛ <bdi class="term-en" dir="ltr">Unknown</bdi>ها و <bdi class="term-en" dir="ltr">Citation</bdi> داخلی <bdi class="term-en" dir="ltr">Log</bdi> را بررسی کن.</li>
+<li><bdi class="term-en" dir="ltr">Output</bdi> را شواهد قطعی فرض نکن؛ <bdi class="term-en" dir="ltr">Unknown</bdi>ها و <bdi class="term-en" dir="ltr">Citation</bdi> داخلی <bdi class="term-en" dir="ltr">Log</bdi> را بررسی کن.</li>
 <li>فایل <code>.env</code> و خروجی‌های حساس داخل <bdi class="term-en" dir="ltr">Git</bdi> نروند.</li>
 </ul>
 <h3>فایل‌های پروژه</h3>
@@ -1723,17 +1723,17 @@ python .\incident_brief_cli.py --file .\sample_incident.log</code></pre>
 </div>
 <h3>تمرین مفهومی ۱</h3>
 <p>چرا یک <bdi class="term-en" dir="ltr">LLM</bdi> می‌تواند پاسخ بسیار روان اما اشتباه بدهد؟</p>
-<details><summary>پاسخ پیشنهادی</summary><p>هدف پایهٔ مدل تولید دنبالهٔ محتمل <bdi class="term-en" dir="ltr">Token</bdi>ها بر اساس الگوهای یادگرفته‌شده است، نه اجرای <bdi class="term-en" dir="ltr">Query</bdi> قطعی روی <bdi class="term-en" dir="ltr">Database</bdi> حقیقت. روان بودن و درست بودن دو <bdi class="term-en" dir="ltr">Metric</bdi> متفاوت‌اند؛ برای <bdi class="term-en" dir="ltr">Fact</bdi> باید <bdi class="term-en" dir="ltr">Evidence</bdi>، <bdi class="term-en" dir="ltr">Retrieval</bdi>، <bdi class="term-en" dir="ltr">Tool</bdi> و <bdi class="term-en" dir="ltr">Evaluation</bdi> اضافه شود.</p></details>
+<details><summary>پاسخ پیشنهادی</summary><p>هدف پایهٔ مدل تولید دنبالهٔ محتمل توکن‌ها بر اساس الگوهای یادگرفته‌شده است، نه اجرای <bdi class="term-en" dir="ltr">Query</bdi> قطعی روی <bdi class="term-en" dir="ltr">Database</bdi> حقیقت. روان بودن و درست بودن دو <bdi class="term-en" dir="ltr">Metric</bdi> متفاوت‌اند؛ برای <bdi class="term-en" dir="ltr">Fact</bdi> باید شواهد، <bdi class="term-en" dir="ltr">Retrieval</bdi>، <bdi class="term-en" dir="ltr">Tool</bdi> و ارزیابی اضافه شود.</p></details>
 <h3>تمرین مفهومی ۲</h3>
 <p>فرق <bdi class="term-en" dir="ltr">Context</bdi> با <bdi class="term-en" dir="ltr">Memory</bdi> چیست؟</p>
 <details><summary>پاسخ پیشنهادی</summary><p><bdi class="term-en" dir="ltr">Context</bdi> اطلاعات داخل <bdi class="term-en" dir="ltr">Request</bdi> جاری است. <bdi class="term-en" dir="ltr">Memory</bdi> معمولاً خارج از مدل در <bdi class="term-en" dir="ltr">Database</bdi> یا <bdi class="term-en" dir="ltr">Store</bdi> نگه داشته می‌شود و <bdi class="term-en" dir="ltr">Application</bdi> هنگام نیاز بخشی از آن را دوباره به <bdi class="term-en" dir="ltr">Context</bdi> می‌آورد.</p></details>
 <h3>تمرین مفهومی ۳</h3>
 <p>برای <bdi class="term-en" dir="ltr">Classification</bdi> ساده، چرا شروع مستقیم با بزرگ‌ترین <bdi class="term-en" dir="ltr">Reasoning Model</bdi> تصمیم خوبی نیست؟</p>
-<details><summary>پاسخ پیشنهادی</summary><p>ممکن است <bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Cost</bdi> اضافه بدهد بدون افزایش ارزش. ابتدا معیار کیفیت و <bdi class="term-en" dir="ltr">Dataset</bdi> می‌سازیم، سپس کوچک‌ترین مدلی را انتخاب می‌کنیم که <bdi class="term-en" dir="ltr">Threshold</bdi> را پاس کند.</p></details>
+<details><summary>پاسخ پیشنهادی</summary><p>ممکن است تأخیر و <bdi class="term-en" dir="ltr">Cost</bdi> اضافه بدهد بدون افزایش ارزش. ابتدا معیار کیفیت و <bdi class="term-en" dir="ltr">Dataset</bdi> می‌سازیم، سپس کوچک‌ترین مدلی را انتخاب می‌کنیم که <bdi class="term-en" dir="ltr">Threshold</bdi> را پاس کند.</p></details>
 <h3>تمرین محاسباتی</h3>
 <p>
           با نرخ فرضی <span class="ltr">$3 / 1M input tokens</span> و <span class="ltr">$12 / 1M output tokens</span>،
-          هزینهٔ <bdi class="term-en" dir="ltr">Request</bdi> دارای ۱۰٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی و ۲٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> خروجی چقدر است؟
+          هزینهٔ <bdi class="term-en" dir="ltr">Request</bdi> دارای ۱۰٬۰۰۰ توکن ورودی و ۲٬۰۰۰ توکن خروجی چقدر است؟
         </p>
 <details><summary>پاسخ پیشنهادی</summary><div class="formula">(10,000 / 1,000,000 × 3) + (2,000 / 1,000,000 × 12) = $0.054</div></details>
 <h3>تمرین <bdi class="term-en" dir="ltr">Retry</bdi></h3>
@@ -1767,8 +1767,8 @@ python .\incident_brief_cli.py --file .\sample_incident.log</code></pre>
 <tbody>
 <tr><td>۱ — واژه‌زدایی</td><td>فصل‌های ۲ و ۳؛ اجرای مثال <bdi class="term-en" dir="ltr">Python</bdi> پایه.</td><td><bdi class="term-en" dir="ltr">API</bdi>، <bdi class="term-en" dir="ltr">SDK</bdi>، <bdi class="term-en" dir="ltr">JSON</bdi>، <bdi class="term-en" dir="ltr">Context</bdi> و <bdi class="term-en" dir="ltr">Inference</bdi> را بدون متن توضیح بدهی.</td></tr>
 <tr><td>۲ — رفتار <bdi class="term-en" dir="ltr">LLM</bdi></td><td>فصل‌های ۴ و ۵؛ برای سه <bdi class="term-en" dir="ltr">Use Case</bdi> واقعی <bdi class="term-en" dir="ltr">Failure Mode</bdi> بنویس.</td><td>فرق «قابل استفاده» و «قابل اعتماد بدون کنترل» را بدانی.</td></tr>
-<tr><td>۳ — <bdi class="term-en" dir="ltr">Model/Token</bdi></td><td>فصل‌های ۶ و ۷؛ یک <bdi class="term-en" dir="ltr">Context Budget</bdi> فرضی بساز.</td><td><bdi class="term-en" dir="ltr">Model Selection</bdi> و تفاوت <bdi class="term-en" dir="ltr">Context/Memory/Retrieval</bdi> روشن باشد.</td></tr>
-<tr><td>۴ — <bdi class="term-en" dir="ltr">Cost/Latency</bdi></td><td>فصل ۸ و اجرای <bdi class="term-en" dir="ltr">Cost Calculator</bdi>.</td><td>هزینهٔ هر <bdi class="term-en" dir="ltr">Request</bdi> و <bdi class="term-en" dir="ltr">SLO</bdi> ساده را حساب کنی.</td></tr>
+<tr><td>۳ — <bdi class="term-en" dir="ltr">Model</bdi> / توکن</td><td>فصل‌های ۶ و ۷؛ یک <bdi class="term-en" dir="ltr">Context Budget</bdi> فرضی بساز.</td><td><bdi class="term-en" dir="ltr">Model Selection</bdi> و تفاوت <bdi class="term-en" dir="ltr">Context/Memory/Retrieval</bdi> روشن باشد.</td></tr>
+<tr><td>۴ — <bdi class="term-en" dir="ltr">Cost</bdi> / تأخیر</td><td>فصل ۸ و اجرای <bdi class="term-en" dir="ltr">Cost Calculator</bdi>.</td><td>هزینهٔ هر <bdi class="term-en" dir="ltr">Request</bdi> و <bdi class="term-en" dir="ltr">SLO</bdi> ساده را حساب کنی.</td></tr>
 <tr><td>۵ — <bdi class="term-en" dir="ltr">API/Errors</bdi></td><td>فصل‌های ۹ تا ۱۱؛ اجرای <bdi class="term-en" dir="ltr">First Call</bdi> یا <bdi class="term-en" dir="ltr">Dry-run</bdi>.</td><td>مسیر موفق و خطا را خط‌به‌خط توضیح بدهی.</td></tr>
 <tr><td>۶ — پروژه و بازبینی ویدئو</td><td>فصل‌های ۱۲ تا ۱۴؛ <bdi class="term-en" dir="ltr">Incident Brief</bdi>؛ سپس بازبینی جلسهٔ کلاس.</td><td>ویدئو دیگر مجموعهٔ واژه‌های مبهم نباشد و سؤال‌های دقیق استخراج شوند.</td></tr>
 </tbody>
@@ -1802,35 +1802,35 @@ python .\incident_brief_cli.py --file .\sample_incident.log</code></pre>
 <dl class="term-list">
 <div class="term"><dt><bdi class="term-en" dir="ltr">AI</bdi></dt><dd>عنوان کلی برای سیستم‌هایی که کارهای مرتبط با ادراک، پیش‌بینی، زبان یا تصمیم‌سازی انجام می‌دهند.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Machine Learning</bdi></dt><dd>ساخت مدل از داده به‌جای نوشتن تمام قواعد به‌صورت دستی.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Neural Network</bdi></dt><dd>ساختار محاسباتی پارامتردار که الگوها را از داده یاد می‌گیرد.</dd></div>
+<div class="term"><dt>شبکهٔ عصبی</dt><dd>ساختار محاسباتی پارامتردار که الگوها را از داده یاد می‌گیرد.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Transformer</bdi></dt><dd>معماری شبکهٔ عصبی مبتنی بر <bdi class="term-en" dir="ltr">Attention</bdi> که پایهٔ بسیاری از <bdi class="term-en" dir="ltr">LLM</bdi>های امروزی است.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">LLM</bdi></dt><dd>مدل زبانی بزرگ برای پردازش و تولید دنبالهٔ <bdi class="term-en" dir="ltr">Token</bdi>ها.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Parameter / Weight</bdi></dt><dd>اعداد یادگرفته‌شدهٔ داخل مدل که رفتار آن را شکل می‌دهند؛ با <bdi class="term-en" dir="ltr">Prompt</bdi> معمولی ویرایش نمی‌شوند.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Training</bdi></dt><dd>مرحلهٔ پرهزینهٔ یادگیری <bdi class="term-en" dir="ltr">Weight</bdi>ها از داده.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">LLM</bdi></dt><dd>مدل زبانی بزرگ برای پردازش و تولید دنبالهٔ توکن‌ها.</dd></div>
+<div class="term"><dt>پارامتر / وزن</dt><dd>اعداد یادگرفته‌شدهٔ داخل مدل که رفتار آن را شکل می‌دهند؛ با <bdi class="term-en" dir="ltr">Prompt</bdi> معمولی ویرایش نمی‌شوند.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Training</bdi></dt><dd>مرحلهٔ پرهزینهٔ یادگیری وزن‌ها از داده.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Inference</bdi></dt><dd>اجرای مدل آموزش‌دیده برای تولید پاسخ به ورودی جدید.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Token</bdi></dt><dd>واحد قطعه‌بندی متن برای ورودی و خروجی مدل.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Tokenizer</bdi></dt><dd>الگوریتم تبدیل متن به <bdi class="term-en" dir="ltr">Token ID</bdi> و برعکس.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Context Window</bdi></dt><dd>حداکثر بودجهٔ <bdi class="term-en" dir="ltr">Token</bdi>هایی که مدل در یک <bdi class="term-en" dir="ltr">Request</bdi> می‌تواند پردازش کند، با در نظر گرفتن خروجی.</dd></div>
+<div class="term"><dt>توکن</dt><dd>واحد قطعه‌بندی متن برای ورودی و خروجی مدل.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Tokenizer</bdi></dt><dd>الگوریتم تبدیل متن به شناسهٔ توکن و برعکس.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Context Window</bdi></dt><dd>حداکثر بودجهٔ توکن‌هایی که مدل در یک <bdi class="term-en" dir="ltr">Request</bdi> می‌تواند پردازش کند، با در نظر گرفتن خروجی.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Prompt</bdi></dt><dd>متن و ساختاری که <bdi class="term-en" dir="ltr">Task</bdi>، <bdi class="term-en" dir="ltr">Data</bdi> و محدودیت‌های پاسخ را به مدل می‌دهد.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">System / Instructions</bdi></dt><dd>قواعد سطح بالاتر <bdi class="term-en" dir="ltr">Application</bdi> برای نقش، سیاست و قالب رفتار مدل.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Temperature</bdi></dt><dd>یکی از کنترل‌های <bdi class="term-en" dir="ltr">Sampling</bdi>؛ در برخی <bdi class="term-en" dir="ltr">API</bdi>ها قابل تنظیم است و بر تنوع خروجی اثر می‌گذارد، نه بر «درست بودن» تضمینی.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Temperature</bdi></dt><dd>یکی از کنترل‌های نمونه‌گیری؛ در برخی <bdi class="term-en" dir="ltr">API</bdi>ها قابل تنظیم است و بر تنوع خروجی اثر می‌گذارد، نه بر «درست بودن» تضمینی.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Hallucination</bdi></dt><dd>تولید ادعای نادرست یا بدون پشتوانه با ظاهر قانع‌کننده.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Grounding</bdi></dt><dd>متصل کردن پاسخ به <bdi class="term-en" dir="ltr">Evidence</bdi> یا <bdi class="term-en" dir="ltr">Source</bdi> مشخص.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Grounding</bdi></dt><dd>متصل کردن پاسخ به شواهد یا <bdi class="term-en" dir="ltr">Source</bdi> مشخص.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Embedding</bdi></dt><dd>بردار عددی نمایندهٔ معنا برای <bdi class="term-en" dir="ltr">Search</bdi>، <bdi class="term-en" dir="ltr">Similarity</bdi> و <bdi class="term-en" dir="ltr">Clustering</bdi>.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">RAG</bdi></dt><dd><span class="ltr">Retrieval-Augmented Generation</span>؛ بازیابی <bdi class="term-en" dir="ltr">Evidence</bdi> بیرونی و قرار دادن آن در <bdi class="term-en" dir="ltr">Context</bdi> قبل از تولید پاسخ.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">RAG</bdi></dt><dd><span class="ltr">Retrieval-Augmented Generation</span>؛ بازیابی شواهد بیرونی و قرار دادن آن در <bdi class="term-en" dir="ltr">Context</bdi> قبل از تولید پاسخ.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Tool Calling</bdi></dt><dd>مدل نام ابزار و <bdi class="term-en" dir="ltr">Argument</bdi> پیشنهادی را تولید می‌کند؛ <bdi class="term-en" dir="ltr">Application</bdi> ابزار را <bdi class="term-en" dir="ltr">Validate</bdi> و اجرا می‌کند.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Agent</bdi></dt><dd>سیستمی که <bdi class="term-en" dir="ltr">Model</bdi> را با <bdi class="term-en" dir="ltr">Instructions</bdi>، <bdi class="term-en" dir="ltr">Tools</bdi>، <bdi class="term-en" dir="ltr">State</bdi>، <bdi class="term-en" dir="ltr">Loop</bdi> و <bdi class="term-en" dir="ltr">Guardrail</bdi> ترکیب می‌کند تا چند <bdi class="term-en" dir="ltr">Step</bdi> انجام دهد.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Workflow</bdi></dt><dd>جریان عمدتاً از پیش تعریف‌شده؛ در برابر <bdi class="term-en" dir="ltr">Agent</bdi> آزادتر و تصمیم‌محورتر.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Structured Output</bdi></dt><dd>خروجی مطابق <bdi class="term-en" dir="ltr">Schema</bdi> مانند <bdi class="term-en" dir="ltr">JSON</bdi> برای پردازش مطمئن‌تر توسط <bdi class="term-en" dir="ltr">Code</bdi>.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Fine-tuning</bdi></dt><dd>تنظیم بیشتر <bdi class="term-en" dir="ltr">Weight</bdi>های مدل روی <bdi class="term-en" dir="ltr">Dataset</bdi> خاص؛ با <bdi class="term-en" dir="ltr">RAG</bdi> یا <bdi class="term-en" dir="ltr">Prompting</bdi> یکسان نیست.</dd></div>
+<div class="term"><dt>خروجی ساختاریافته</dt><dd>خروجی مطابق <bdi class="term-en" dir="ltr">Schema</bdi> مانند <bdi class="term-en" dir="ltr">JSON</bdi> برای پردازش مطمئن‌تر توسط <bdi class="term-en" dir="ltr">Code</bdi>.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Fine-tuning</bdi></dt><dd>تنظیم بیشتر وزن‌های مدل روی <bdi class="term-en" dir="ltr">Dataset</bdi> خاص؛ با <bdi class="term-en" dir="ltr">RAG</bdi> یا <bdi class="term-en" dir="ltr">Prompting</bdi> یکسان نیست.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Model Card</bdi></dt><dd>مستند قابلیت، محدودیت، <bdi class="term-en" dir="ltr">Dataset</bdi>، <bdi class="term-en" dir="ltr">License</bdi> و نتایج ارزیابی مدل.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Open-weight</bdi></dt><dd>مدلی که <bdi class="term-en" dir="ltr">Weight</bdi>هایش قابل دریافت است؛ لزوماً تمام اجزای آن <bdi class="term-en" dir="ltr">Open-source</bdi> نیست.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Quantization</bdi></dt><dd>کاهش دقت عددی <bdi class="term-en" dir="ltr">Weight</bdi>ها برای کم کردن حافظه و افزایش سرعت، با احتمال افت کیفیت.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Evaluation / Eval</bdi></dt><dd>سنجش سیستم روی <bdi class="term-en" dir="ltr">Dataset</bdi> و معیارهای تعریف‌شده برای کیفیت، ایمنی و رفتار.</dd></div>
+<div class="term"><dt>مدل با وزن باز</dt><dd>مدلی که وزن‌هایش قابل دریافت است؛ لزوماً تمام اجزای آن <bdi class="term-en" dir="ltr">Open-source</bdi> نیست.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Quantization</bdi></dt><dd>کاهش دقت عددی وزن‌ها برای کم کردن حافظه و افزایش سرعت، با احتمال افت کیفیت.</dd></div>
+<div class="term"><dt>ارزیابی / <bdi class="term-en" dir="ltr">Eval</bdi></dt><dd>سنجش سیستم روی <bdi class="term-en" dir="ltr">Dataset</bdi> و معیارهای تعریف‌شده برای کیفیت، ایمنی و رفتار.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Golden Set</bdi></dt><dd>مجموعهٔ نمونه‌های نماینده و نسخه‌بندی‌شده برای <bdi class="term-en" dir="ltr">Regression Test</bdi>.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Guardrail</bdi></dt><dd>کنترل‌های ورودی، خروجی، <bdi class="term-en" dir="ltr">Tool</bdi>، <bdi class="term-en" dir="ltr">Permission</bdi> و <bdi class="term-en" dir="ltr">Policy</bdi> برای محدود کردن رفتار پرخطر.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Rate Limit</bdi></dt><dd>سقف تعداد <bdi class="term-en" dir="ltr">Request</bdi> یا <bdi class="term-en" dir="ltr">Token</bdi> در بازهٔ زمانی.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Latency</bdi></dt><dd>زمان پاسخ؛ شامل <bdi class="term-en" dir="ltr">Network</bdi>، <bdi class="term-en" dir="ltr">Queue</bdi>، پردازش ورودی، تولید خروجی و <bdi class="term-en" dir="ltr">Tool</bdi>ها.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">Rate Limit</bdi></dt><dd>سقف تعداد <bdi class="term-en" dir="ltr">Request</bdi> یا توکن در بازهٔ زمانی.</dd></div>
+<div class="term"><dt>تأخیر</dt><dd>زمان پاسخ؛ شامل <bdi class="term-en" dir="ltr">Network</bdi>، <bdi class="term-en" dir="ltr">Queue</bdi>، پردازش ورودی، تولید خروجی و <bdi class="term-en" dir="ltr">Tool</bdi>ها.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">Streaming</bdi></dt><dd>دریافت تدریجی خروجی به‌جای انتظار برای تکمیل کل پاسخ.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">SDK</bdi></dt><dd>کتابخانهٔ <bdi class="term-en" dir="ltr">Client</bdi> برای ساده کردن استفاده از <bdi class="term-en" dir="ltr">API</bdi>.</dd></div>
 <div class="term"><dt><bdi class="term-en" dir="ltr">API Gateway</bdi></dt><dd>لایهٔ مرکزی برای <bdi class="term-en" dir="ltr">Auth</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Quota</bdi>، <bdi class="term-en" dir="ltr">Logging</bdi>، <bdi class="term-en" dir="ltr">Policy</bdi> و چند <bdi class="term-en" dir="ltr">Provider</bdi>.</dd></div>
@@ -1895,13 +1895,13 @@ docs/media-workflow.md       # مستند مشترک همهٔ هفته‌ها، 
 </div>
 <p>
           ساختار این جزوه مستقیماً از سرفصل رسمی هفتهٔ اول دوره استخراج شده است: توانایی‌ها و محدودیت‌های <bdi class="term-en" dir="ltr">LLM</bdi>، اکوسیستم مدل‌ها،
-          <bdi class="term-en" dir="ltr">Token/Context/Cost/Latency</bdi>، مرور <bdi class="term-en" dir="ltr">Python API</bdi>، <bdi class="term-en" dir="ltr">Environment Variable</bdi> و مدیریت پایهٔ خطا. جزئیات فنی با مستندات رسمی <bdi class="term-en" dir="ltr">Python</bdi>،
+          توکن / <bdi class="term-en" dir="ltr">Context</bdi> / <bdi class="term-en" dir="ltr">Cost</bdi> / تأخیر، مرور <bdi class="term-en" dir="ltr">Python API</bdi>، <bdi class="term-en" dir="ltr">Environment Variable</bdi> و مدیریت پایهٔ خطا. جزئیات فنی با مستندات رسمی <bdi class="term-en" dir="ltr">Python</bdi>،
           <bdi class="term-en" dir="ltr">SDK</bdi>ها و منابع اصلی معماری <bdi class="term-en" dir="ltr">Transformer</bdi> تطبیق داده شده‌اند.
         </p>
 <ul class="source-list">
 <li><a href="https://quera.org/bootcamp/agentic-ai#headlines" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">Quera</bdi> — سرفصل بوت‌کمپ ساخت عامل‌های هوشمند</a></li>
 <li><a href="https://platform.openai.com/docs/quickstart" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">OpenAI API Quickstart</bdi></a></li>
-<li><a href="https://platform.openai.com/docs/guides/latency-optimization" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">OpenAI</bdi> — <bdi class="term-en" dir="ltr">Latency Optimization</bdi></a></li>
+<li><a href="https://platform.openai.com/docs/guides/latency-optimization" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">OpenAI</bdi> — بهینه‌سازی تأخیر</a></li>
 <li><a href="https://platform.openai.com/docs/guides/error-codes" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">OpenAI</bdi> — <bdi class="term-en" dir="ltr">Error Codes and Retry Guidance</bdi></a></li>
 <li><a href="https://github.com/openai/openai-python" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">OpenAI Python SDK</bdi> — <bdi class="term-en" dir="ltr">Source and Usage</bdi></a></li>
 <li><a href="https://docs.python.org/3/library/venv.html" rel="noreferrer" target="_blank"><bdi class="term-en" dir="ltr">Python</bdi> — <bdi class="term-en" dir="ltr">Virtual Environments</bdi></a></li>

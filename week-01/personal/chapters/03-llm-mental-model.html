@@ -32,7 +32,7 @@
 </div>
 <p class="lead">
           <bdi class="term-en" dir="ltr">LLM</bdi> یا <span class="ltr">Large Language Model</span> مدلی است که با دیدن حجم بزرگی از داده، الگوهای آماری زبان و انواع ساختارها را یاد گرفته
-          و هنگام اجرا، دنبالهٔ <bdi class="term-en" dir="ltr">Token</bdi>های بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
+          و هنگام اجرا، دنبالهٔ توکن‌های بعدی را تولید می‌کند. همین وظیفهٔ ظاهراً ساده، در مقیاس بزرگ رفتارهایی مثل خلاصه‌سازی، ترجمه، کدنویسی، طبقه‌بندی و پاسخ‌گویی را ممکن می‌کند.
         </p>
 <h3><bdi class="term-en" dir="ltr">Training</bdi> در برابر <bdi class="term-en" dir="ltr">Inference</bdi></h3>
 <div class="grid-2">
@@ -42,7 +42,7 @@
 </article>
 <article class="card">
 <h4><bdi class="term-en" dir="ltr">Inference</bdi></h4>
-<p>همان چیزی که با <bdi class="term-en" dir="ltr">API</bdi> مصرف می‌کنی. ورودی <bdi class="term-en" dir="ltr">Tokenize</bdi> می‌شود، مدل خروجی را <bdi class="term-en" dir="ltr">Token</bdi> به <bdi class="term-en" dir="ltr">Token</bdi> می‌سازد و هزینه/Latency ایجاد می‌شود. <bdi class="term-en" dir="ltr">Request</bdi> تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
+<p>همان چیزی که با <bdi class="term-en" dir="ltr">API</bdi> مصرف می‌کنی. ورودی <bdi class="term-en" dir="ltr">Tokenize</bdi> می‌شود، مدل خروجی را توکن به توکن می‌سازد و هزینه/تأخیر ایجاد می‌شود. <bdi class="term-en" dir="ltr">Request</bdi> تو معمولاً وزن‌های مدل را تغییر نمی‌دهد.</p>
 </article>
 </div>
 <div class="analogy">
@@ -54,7 +54,7 @@
 <h3><bdi class="term-en" dir="ltr">Transformer</bdi> را چقدر باید بفهمی؟</h3>
 <p>
           برای هفتهٔ اول همین مدل ذهنی کافی است: <bdi class="term-en" dir="ltr">Transformer</bdi> با سازوکار <strong><bdi class="term-en" dir="ltr">Attention</bdi></strong> می‌تواند رابطهٔ بخش‌های مختلف ورودی را وزن‌دهی کند؛
-          یعنی هنگام پردازش یک <bdi class="term-en" dir="ltr">Token</bdi>، به <bdi class="term-en" dir="ltr">Token</bdi>های مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های <bdi class="term-en" dir="ltr">Query/Key/Value</bdi> را محاسبه کنی،
+          یعنی هنگام پردازش یک توکن، به توکن‌های مرتبط دیگر توجه متفاوتی دارد. لازم نیست اکنون ماتریس‌های <bdi class="term-en" dir="ltr">Query/Key/Value</bdi> را محاسبه کنی،
           اما باید بدانی <bdi class="term-en" dir="ltr">Context</bdi> به مدل اجازه می‌دهد روابط داخل همان ورودی را ببیند.
         </p>
 <div class="callout">

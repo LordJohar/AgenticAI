@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل Prompt» راه‌حل خوبی نیست؟">
-  <title>Token و Context Window — هفتهٔ اول Agentic AI</title>
+  <title>توکن و Context Window — هفتهٔ اول Agentic AI</title>
   <link rel="stylesheet" href="../assets/css/course.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
 <main class="content" id="main-content">
   <header class="hero">
     <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 07</div>
-    <h2><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
+    <h2>توکن و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
     <p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل <bdi class="term-en" dir="ltr">Prompt</bdi>» راه‌حل خوبی نیست؟</p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
@@ -25,31 +25,31 @@
 <div class="chapter-header">
 <div class="chapter-number">۷</div>
 <div>
-<h2><bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
+<h2>توکن و <bdi class="term-en" dir="ltr">Context Window</bdi></h2>
 <p>مدل متن را چگونه می‌بیند و چرا «همهٔ فایل‌ها را بریز داخل <bdi class="term-en" dir="ltr">Prompt</bdi>» راه‌حل خوبی نیست؟</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="tokens" type="checkbox"/> خواندم</label>
 </div>
-<h3><bdi class="term-en" dir="ltr">Token</bdi> چیست؟</h3>
+<h3>توکن چیست؟</h3>
 <p>
-          مدل متن را مستقیماً به شکل کلمه یا حرف نمی‌بیند. یک <strong><bdi class="term-en" dir="ltr">Tokenizer</bdi></strong> متن را به قطعه‌هایی به نام <bdi class="term-en" dir="ltr">Token</bdi> تبدیل می‌کند و هر <bdi class="term-en" dir="ltr">Token</bdi>
-          به یک شناسهٔ عددی نگاشت می‌شود. یک <bdi class="term-en" dir="ltr">Token</bdi> ممکن است یک کلمه، بخشی از کلمه، علامت، فاصله یا ترکیبی از حروف باشد.
-          در فارسی، انگلیسی و متن فنی نسبت <bdi class="term-en" dir="ltr">Token</bdi> به تعداد کلمات یکسان نیست؛ بنابراین تخمین چشمی فقط تقریبی است.
+          مدل متن را مستقیماً به شکل کلمه یا حرف نمی‌بیند. یک <strong><bdi class="term-en" dir="ltr">Tokenizer</bdi></strong> متن را به قطعه‌هایی به نام توکن تبدیل می‌کند و هر توکن
+          به یک شناسهٔ عددی نگاشت می‌شود. یک توکن ممکن است یک کلمه، بخشی از کلمه، علامت، فاصله یا ترکیبی از حروف باشد.
+          در فارسی، انگلیسی و متن فنی نسبت توکن به تعداد کلمات یکسان نیست؛ بنابراین تخمین چشمی فقط تقریبی است.
         </p>
 <div class="callout">
-<strong>قاعده:</strong> برای عدد دقیق از <bdi class="term-en" dir="ltr">Tokenizer</bdi> یا قابلیت <bdi class="term-en" dir="ltr">Token Counting</bdi> همان <bdi class="term-en" dir="ltr">Provider/Model</bdi> استفاده کن. شمارش یک <bdi class="term-en" dir="ltr">Tokenizer</bdi> برای مدل دیگر ممکن است دقیق نباشد.
+<strong>قاعده:</strong> برای عدد دقیق از <bdi class="term-en" dir="ltr">Tokenizer</bdi> یا قابلیت شمارش توکن همان <bdi class="term-en" dir="ltr">Provider/Model</bdi> استفاده کن. شمارش یک <bdi class="term-en" dir="ltr">Tokenizer</bdi> برای مدل دیگر ممکن است دقیق نباشد.
         </div>
 <h3>چه چیزهایی <bdi class="term-en" dir="ltr">Context</bdi> را مصرف می‌کنند؟</h3>
 <ul>
 <li><bdi class="term-en" dir="ltr">System/Developer Instructions</bdi> و <bdi class="term-en" dir="ltr">Prompt</bdi> اصلی.</li>
 <li>پیام فعلی <bdi class="term-en" dir="ltr">User</bdi> و تاریخچهٔ گفت‌وگو.</li>
 <li>اسناد <bdi class="term-en" dir="ltr">Retrieval</bdi> شده، نتیجهٔ <bdi class="term-en" dir="ltr">Search</bdi> و <bdi class="term-en" dir="ltr">Tool Output</bdi>.</li>
-<li><bdi class="term-en" dir="ltr">Schema</bdi> مربوط به <bdi class="term-en" dir="ltr">Tool</bdi>ها یا <bdi class="term-en" dir="ltr">Structured Output</bdi>.</li>
-<li><bdi class="term-en" dir="ltr">Token</bdi>های خروجی‌ای که مدل باید تولید کند.</li>
+<li><bdi class="term-en" dir="ltr">Schema</bdi> مربوط به <bdi class="term-en" dir="ltr">Tool</bdi>ها یا خروجی ساختاریافته.</li>
+<li>توکن‌های خروجی‌ای که مدل باید تولید کند.</li>
 </ul>
 <div class="formula">input_tokens + reserved_output_tokens ≤ context_window</div>
 <p>
-          فرض کن <bdi class="term-en" dir="ltr">Context Window</bdi> یک مدل در مثال آموزشی ما ۳۲٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> است. اگر ۲۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی بفرستی و برای خروجی ۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> انتظار داشته باشی،
+          فرض کن <bdi class="term-en" dir="ltr">Context Window</bdi> یک مدل در مثال آموزشی ما ۳۲٬۰۰۰ توکن است. اگر ۲۸٬۰۰۰ توکن ورودی بفرستی و برای خروجی ۸٬۰۰۰ توکن انتظار داشته باشی،
           درخواست از ظرفیت عبور می‌کند. باید ورودی را کم کنی، خروجی را محدود کنی یا مدلی با <bdi class="term-en" dir="ltr">Window</bdi> بزرگ‌تر انتخاب کنی.
         </p>
 <h3>چهار مفهوم که معمولاً با هم قاطی می‌شوند</h3>
@@ -71,7 +71,7 @@
 </div>
 <h3>چرا <bdi class="term-en" dir="ltr">Context</bdi> بزرگ همیشه بهتر نیست؟</h3>
 <p>
-          <bdi class="term-en" dir="ltr">Context</bdi> زیاد <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را بالا می‌برد و ممکن است اطلاعات مهم میان داده‌های تکراری یا بی‌ربط گم شود. مدل‌ها در استفاده از تمام نقاط <bdi class="term-en" dir="ltr">Window</bdi> کیفیت یکسان ندارند.
+          <bdi class="term-en" dir="ltr">Context</bdi> زیاد <bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر را بالا می‌برد و ممکن است اطلاعات مهم میان داده‌های تکراری یا بی‌ربط گم شود. مدل‌ها در استفاده از تمام نقاط <bdi class="term-en" dir="ltr">Window</bdi> کیفیت یکسان ندارند.
           به‌جای <bdi class="term-en" dir="ltr">Dump</bdi> کردن همه‌چیز، <bdi class="term-en" dir="ltr">Context</bdi> را مثل یک <bdi class="term-en" dir="ltr">Artifact</bdi> مهندسی‌شده بساز:
         </p>
 <ol>
@@ -89,7 +89,7 @@
         </p>
 <div class="grid-3">
 <article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی کوچک</h4><p><bdi class="term-en" dir="ltr">Context</bdi> کافی ندارد؛ معنی جمله یا وابستگی مرحله‌ای گم می‌شود.</p></article>
-<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی بزرگ</h4><p>بازیابی دقیق نیست؛ <bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Cost</bdi> بالا می‌رود و بخش بی‌ربط وارد <bdi class="term-en" dir="ltr">Prompt</bdi> می‌شود.</p></article>
+<article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> خیلی بزرگ</h4><p>بازیابی دقیق نیست؛ توکن و <bdi class="term-en" dir="ltr">Cost</bdi> بالا می‌رود و بخش بی‌ربط وارد <bdi class="term-en" dir="ltr">Prompt</bdi> می‌شود.</p></article>
 <article class="card"><h4><bdi class="term-en" dir="ltr">Chunk</bdi> مناسب</h4><p>یک واحد معنایی مستقل با <bdi class="term-en" dir="ltr">Metadata</bdi> کافی برای ردیابی منبع.</p></article>
 </div>
 <h3>مثال بودجه‌بندی <bdi class="term-en" dir="ltr">Context</bdi></h3>
@@ -100,7 +100,7 @@
 <tr><td><bdi class="term-en" dir="ltr">Instructions</bdi></td><td class="ltr">1,000 tokens</td><td>قواعد، نقش و قالب خروجی؛ کوتاه و بدون تناقض.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">User Request</bdi></td><td class="ltr">500 tokens</td><td>درخواست جاری.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Conversation Summary</bdi></td><td class="ltr">1,500 tokens</td><td>به‌جای ارسال تاریخچهٔ کامل.</td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Retrieved Evidence</bdi></td><td class="ltr">8,000 tokens</td><td>فقط <bdi class="term-en" dir="ltr">Chunk</bdi>های مرتبط و دارای <bdi class="term-en" dir="ltr">Source</bdi>.</td></tr>
+<tr><td>شواهد بازیابی‌شده</td><td class="ltr">8,000 tokens</td><td>فقط <bdi class="term-en" dir="ltr">Chunk</bdi>های مرتبط و دارای <bdi class="term-en" dir="ltr">Source</bdi>.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Tool Schemas/Results</bdi></td><td class="ltr">3,000 tokens</td><td><bdi class="term-en" dir="ltr">Output</bdi>های طولانی را خلاصه یا فیلتر کن.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Reserved Output</bdi></td><td class="ltr">2,000 tokens</td><td>سقف پاسخ.</td></tr>
 <tr><td><strong><bdi class="term-en" dir="ltr">Total</bdi></strong></td><td class="ltr"><strong>16,000 tokens</strong></td><td>برای <bdi class="term-en" dir="ltr">Window</bdi> بزرگ‌تر هم بی‌دلیل تا سقف پر نکن.</td></tr>
@@ -112,7 +112,7 @@
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
     <a class="pill" href="06-model-ecosystem.html">فصل قبل: اکوسیستم مدل‌ها</a>
     <a class="pill" href="../index.html">فهرست</a>
-    <a class="pill" href="08-cost-latency.html">فصل بعد: <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi></a>
+    <a class="pill" href="08-cost-latency.html">فصل بعد: <bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر</a>
   </nav>
   <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
 </main>

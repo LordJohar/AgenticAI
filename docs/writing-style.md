@@ -11,17 +11,18 @@
 هر اصطلاح یا عبارت فنی انگلیسی باید یک واحد مستقل باشد:
 
 ```html
-<bdi class="term-en" dir="ltr">Parameter:</bdi>
-مقداری که مدل از داده یاد می‌گیرد؛ مانند
-<bdi class="term-en" dir="ltr">weight</bdi>
-و
-<bdi class="term-en" dir="ltr">bias</bdi>.
+<bdi class="term-en" dir="ltr">Attention weight:</bdi>
+امتیازی که پس از
+<bdi class="term-en" dir="ltr">Softmax</bdi>
+برای تعیین سهم هر
+<bdi class="term-en" dir="ltr">Value</bdi>
+استفاده می‌شود.
 ```
 
 قواعد:
 
 - علامت مربوط به label، مانند `:`، داخل همان `bdi` قرار می‌گیرد؛
-- عبارت چندکلمه‌ای مانند `learning rate` در یک `bdi` واحد نوشته می‌شود؛
+- عبارت تخصصی چندکلمه‌ای مانند `attention weight` در یک `bdi` واحد نوشته می‌شود؛
 - کد و فرمول داخل `code` یا `pre` قرار می‌گیرند و به‌طور کامل LTR هستند؛
 - از کاراکترهای نامرئی کنترل جهت به‌صورت دستی استفاده نمی‌شود، چون بازبینی و نگه‌داری آن‌ها دشوار است.
 

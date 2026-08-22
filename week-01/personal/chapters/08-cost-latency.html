@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="از «API جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای SLO">
-  <title>Cost و Latency — هفتهٔ اول Agentic AI</title>
+  <title>Cost و تأخیر — هفتهٔ اول Agentic AI</title>
   <link rel="stylesheet" href="../assets/css/course.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
 <main class="content" id="main-content">
   <header class="hero">
     <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 08</div>
-    <h2><bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi></h2>
+    <h2><bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر</h2>
     <p>از «<bdi class="term-en" dir="ltr">API</bdi> جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای <bdi class="term-en" dir="ltr">SLO</bdi></p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
@@ -25,7 +25,7 @@
 <div class="chapter-header">
 <div class="chapter-number">۸</div>
 <div>
-<h2><bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi></h2>
+<h2><bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر</h2>
 <p>از «<bdi class="term-en" dir="ltr">API</bdi> جواب داد» تا طراحی یک سرویس قابل بودجه‌بندی و دارای <bdi class="term-en" dir="ltr">SLO</bdi></p>
 </div>
 <label class="chapter-complete"><input data-progress-id="cost-latency" type="checkbox"/> خواندم</label>
@@ -38,12 +38,12 @@
         </div>
 <p>
           مثال: اگر نرخ فرضی ورودی <span class="ltr">$2 / 1M</span> و خروجی <span class="ltr">$8 / 1M</span> باشد،
-          برای ۸٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی و ۱٬۲۰۰ <bdi class="term-en" dir="ltr">Token</bdi> خروجی:
+          برای ۸٬۰۰۰ توکن ورودی و ۱٬۲۰۰ توکن خروجی:
         </p>
 <div class="formula">(8,000 / 1,000,000 × $2) + (1,200 / 1,000,000 × $8) = $0.0256</div>
 <p>
           عدد یک <bdi class="term-en" dir="ltr">Request</bdi> کوچک به نظر می‌رسد، اما با ۱۰۰٬۰۰۰ <bdi class="term-en" dir="ltr">Request</bdi> در ماه حدود <span class="ltr">$2,560</span> می‌شود؛ قبل از <bdi class="term-en" dir="ltr">Retry</bdi>،
-          <bdi class="term-en" dir="ltr">Evaluation</bdi>، <bdi class="term-en" dir="ltr">Development Traffic</bdi> و <bdi class="term-en" dir="ltr">Tool Call</bdi>های اضافی. برای همین <bdi class="term-en" dir="ltr">Cost</bdi> یک <bdi class="term-en" dir="ltr">Metric</bdi> عملیاتی است، نه موضوع صرفاً مالی.
+          ارزیابی، <bdi class="term-en" dir="ltr">Development Traffic</bdi> و <bdi class="term-en" dir="ltr">Tool Call</bdi>های اضافی. برای همین <bdi class="term-en" dir="ltr">Cost</bdi> یک <bdi class="term-en" dir="ltr">Metric</bdi> عملیاتی است، نه موضوع صرفاً مالی.
         </p>
 <h3><bdi class="term-en" dir="ltr">Cost Driver</bdi>های پنهان</h3>
 <ul>
@@ -53,37 +53,37 @@
 <li><bdi class="term-en" dir="ltr">Retry</bdi> بی‌قاعده روی خطاهای غیرقابل <bdi class="term-en" dir="ltr">Retry</bdi>.</li>
 <li>استفاده از مدل بزرگ برای <bdi class="term-en" dir="ltr">Classification</bdi> ساده.</li>
 <li><bdi class="term-en" dir="ltr">Agent Loop</bdi> بدون سقف <bdi class="term-en" dir="ltr">Step</bdi>، <bdi class="term-en" dir="ltr">Time</bdi> و <bdi class="term-en" dir="ltr">Budget</bdi>.</li>
-<li><bdi class="term-en" dir="ltr">Evaluation</bdi> و <bdi class="term-en" dir="ltr">Shadow Traffic</bdi> که در <bdi class="term-en" dir="ltr">Forecast</bdi> لحاظ نشده‌اند.</li>
+<li>ارزیابی و <bdi class="term-en" dir="ltr">Shadow Traffic</bdi> که در <bdi class="term-en" dir="ltr">Forecast</bdi> لحاظ نشده‌اند.</li>
 </ul>
-<h3><bdi class="term-en" dir="ltr">Latency</bdi> از چه بخش‌هایی تشکیل می‌شود؟</h3>
+<h3>تأخیر از چه بخش‌هایی تشکیل می‌شود؟</h3>
 <div class="diagram">
 <div class="flow">
 <div class="flow-node"><bdi class="term-en" dir="ltr">DNS / Connect / TLS</bdi></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Provider Queue</bdi></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Input Processing</bdi><br/><small><bdi class="term-en" dir="ltr">Prefill</bdi></small></div><div class="flow-arrow">→</div>
-<div class="flow-node"><bdi class="term-en" dir="ltr">First Token</bdi><br/><small><bdi class="term-en" dir="ltr">TTFT</bdi></small></div><div class="flow-arrow">→</div>
+<div class="flow-node">نخستین توکن<br/><small><bdi class="term-en" dir="ltr">TTFT</bdi></small></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Output Generation</bdi><br/><small><bdi class="term-en" dir="ltr">Decode</bdi></small></div><div class="flow-arrow">→</div>
 <div class="flow-node"><bdi class="term-en" dir="ltr">Tool / App Processing</bdi></div>
 </div>
 </div>
 <dl class="term-list">
-<div class="term"><dt><bdi class="term-en" dir="ltr">TTFT</bdi></dt><dd><span class="ltr">Time To First Token</span>؛ زمان تا اولین بخش پاسخ، مخصوصاً در <bdi class="term-en" dir="ltr">Streaming</bdi>.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Total Latency</bdi></dt><dd>زمان کامل از شروع <bdi class="term-en" dir="ltr">Request</bdi> تا دریافت پایان پاسخ و پردازش <bdi class="term-en" dir="ltr">Application</bdi>.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">Tokens/sec</bdi></dt><dd>سرعت تولید خروجی پس از شروع پاسخ.</dd></div>
-<div class="term"><dt><bdi class="term-en" dir="ltr">p50 / p95 / p99</bdi></dt><dd>صدک‌های <bdi class="term-en" dir="ltr">Latency</bdi>؛ <bdi class="term-en" dir="ltr">Average</bdi> به‌تنهایی <bdi class="term-en" dir="ltr">Tail Latency</bdi> را پنهان می‌کند.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">TTFT</bdi></dt><dd>زمان تا نخستین توکن؛ زمان تا اولین بخش پاسخ، مخصوصاً در <bdi class="term-en" dir="ltr">Streaming</bdi>.</dd></div>
+<div class="term"><dt>تأخیر کل</dt><dd>زمان کامل از شروع <bdi class="term-en" dir="ltr">Request</bdi> تا دریافت پایان پاسخ و پردازش <bdi class="term-en" dir="ltr">Application</bdi>.</dd></div>
+<div class="term"><dt>توکن/ثانیه</dt><dd>سرعت تولید خروجی پس از شروع پاسخ.</dd></div>
+<div class="term"><dt><bdi class="term-en" dir="ltr">p50 / p95 / p99</bdi></dt><dd>صدک‌های تأخیر؛ <bdi class="term-en" dir="ltr">Average</bdi> به‌تنهایی تأخیر انتهایی را پنهان می‌کند.</dd></div>
 </dl>
 <h3>ترتیب بهینه‌سازی</h3>
 <ol>
 <li><strong>اول معیار کیفیت بساز.</strong> بهینه‌سازی بدون <bdi class="term-en" dir="ltr">Golden Set</bdi> ممکن است پاسخ سریع و ارزان اما بی‌فایده تولید کند.</li>
 <li><strong>خروجی را کوتاه کن.</strong> تولید <bdi class="term-en" dir="ltr">Output</bdi> معمولاً بخش مهمی از زمان است؛ قالب و سقف روشن بده.</li>
 <li><strong>ورودی را تمیز کن.</strong> تاریخچه، <bdi class="term-en" dir="ltr">Tool Output</bdi> و <bdi class="term-en" dir="ltr">Retrieval</bdi> را خلاصه و <bdi class="term-en" dir="ltr">Deduplicate</bdi> کن.</li>
-<li><strong>تعداد <bdi class="term-en" dir="ltr">Round-trip</bdi> را کم کن.</strong> چند <bdi class="term-en" dir="ltr">Call</bdi> سریالی، <bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Failure Probability</bdi> را جمع می‌کنند.</li>
+<li><strong>تعداد <bdi class="term-en" dir="ltr">Round-trip</bdi> را کم کن.</strong> چند <bdi class="term-en" dir="ltr">Call</bdi> سریالی، تأخیر و احتمال شکست را جمع می‌کنند.</li>
 <li><strong>کارهای مستقل را موازی کن.</strong> مثلاً دو <bdi class="term-en" dir="ltr">Retrieval</bdi> مستقل، نه <bdi class="term-en" dir="ltr">Step</bdi>هایی که <bdi class="term-en" dir="ltr">Dependency</bdi> دارند.</li>
 <li><strong>مدل کوچک‌تر را پس از اثبات کیفیت امتحان کن.</strong></li>
 <li><strong><bdi class="term-en" dir="ltr">Cache</bdi> و <bdi class="term-en" dir="ltr">Prefix Reuse</bdi> را بررسی کن.</strong> مخصوصاً <bdi class="term-en" dir="ltr">Instructions</bdi> ثابت یا پاسخ‌های تکراری.</li>
 <li><strong>هر چیزی را <bdi class="term-en" dir="ltr">LLM</bdi> نکن.</strong> <bdi class="term-en" dir="ltr">Regex</bdi>، <bdi class="term-en" dir="ltr">SQL</bdi>، <bdi class="term-en" dir="ltr">Calculator</bdi> یا <bdi class="term-en" dir="ltr">Rule Engine</bdi> برای کار قطعی بهتر است.</li>
 </ol>
-<h3>نمونهٔ <bdi class="term-en" dir="ltr">SLO</bdi> برای یک <bdi class="term-en" dir="ltr">LLM Feature</bdi></h3>
+<h3>نمونهٔ <bdi class="term-en" dir="ltr">SLO</bdi> برای یک ویژگی <bdi class="term-en" dir="ltr">LLM</bdi></h3>
 <pre><code># مثال آموزشی، نه نسخهٔ نهایی Production
 Availability:      99.5% successful application responses / 30d
 Latency:           p95 &lt; 8s for interactive summaries
@@ -93,13 +93,13 @@ Safety:            0 unauthorized tool actions
 Cost guardrail:    ≤ $0.04 per successful request at p95</code></pre>
 <div class="analogy">
 <p>
-            همان‌طور که <bdi class="term-en" dir="ltr">CPU/RAM Request</bdi> و <bdi class="term-en" dir="ltr">Limit</bdi> را بدون <bdi class="term-en" dir="ltr">Profiling</bdi> تعیین نمی‌کنی، <bdi class="term-en" dir="ltr">Token Budget</bdi> و <bdi class="term-en" dir="ltr">Model Tier</bdi> را هم بدون <bdi class="term-en" dir="ltr">Trace</bdi> و <bdi class="term-en" dir="ltr">Evaluation</bdi> حدس نزن.
+            همان‌طور که <bdi class="term-en" dir="ltr">CPU/RAM Request</bdi> و <bdi class="term-en" dir="ltr">Limit</bdi> را بدون <bdi class="term-en" dir="ltr">Profiling</bdi> تعیین نمی‌کنی، بودجهٔ توکن و <bdi class="term-en" dir="ltr">Model Tier</bdi> را هم بدون <bdi class="term-en" dir="ltr">Trace</bdi> و ارزیابی حدس نزن.
           </p>
 </div>
 </section>
 
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
-    <a class="pill" href="07-tokens-context.html">فصل قبل: <bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></a>
+    <a class="pill" href="07-tokens-context.html">فصل قبل: توکن و <bdi class="term-en" dir="ltr">Context Window</bdi></a>
     <a class="pill" href="../index.html">فهرست</a>
     <a class="pill" href="09-python-api-refresher.html">فصل بعد: مرور <bdi class="term-en" dir="ltr">Python</bdi> برای کار با <bdi class="term-en" dir="ltr">API</bdi></a>
   </nav>

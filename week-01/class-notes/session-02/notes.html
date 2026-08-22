@@ -45,7 +45,7 @@
       <tbody>
         <tr><td class="ltr">00:01–00:12</td><td>مرور <bdi class="term-en" dir="ltr">Word2Vec</bdi></td><td>بازنمایی ثابت و مسیر رسیدن به <bdi class="term-en" dir="ltr">representation</bdi> وابسته به <bdi class="term-en" dir="ltr">context</bdi>.</td></tr>
         <tr><td class="ltr">00:12–00:18</td><td>مرور <bdi class="term-en" dir="ltr">RNN</bdi></td><td>پردازش ترتیبی و دلیل نیاز به مسیر ارتباطی کوتاه‌تر.</td></tr>
-        <tr><td class="ltr">00:17–00:25</td><td><bdi class="term-en" dir="ltr">Self-Attention</bdi> و <bdi class="term-en" dir="ltr">Position</bdi></td><td><bdi class="term-en" dir="ltr">Q/K/V</bdi>، <bdi class="term-en" dir="ltr">positional information</bdi> و <bdi class="term-en" dir="ltr">Multi-Head</bdi>.</td></tr>
+        <tr><td class="ltr">00:17–00:25</td><td><bdi class="term-en" dir="ltr">Self-Attention</bdi> و موقعیت</td><td><bdi class="term-en" dir="ltr">Q/K/V</bdi>، <bdi class="term-en" dir="ltr">positional information</bdi> و <bdi class="term-en" dir="ltr">Multi-Head</bdi>.</td></tr>
         <tr><td class="ltr">00:24–00:38</td><td>معماری <bdi class="term-en" dir="ltr">Transformer</bdi></td><td><bdi class="term-en" dir="ltr">encoder/decoder</bdi>، بلوک‌های تکراری و نقش <bdi class="term-en" dir="ltr">mask</bdi>.</td></tr>
         <tr><td class="ltr">00:38–00:52</td><td>ورود به <bdi class="term-en" dir="ltr">BERT</bdi></td><td><bdi class="term-en" dir="ltr">Encoder-only</bdi> و بازنمایی دوطرفه برای فهم متن.</td></tr>
         <tr><td class="ltr">00:52–01:10</td><td><bdi class="term-en" dir="ltr">BERT</bdi> و <bdi class="term-en" dir="ltr">pre-training</bdi></td><td><bdi class="term-en" dir="ltr">BERT Base</bdi>، <bdi class="term-en" dir="ltr">Masked LM</bdi>، سپس آماده‌سازی برای <bdi class="term-en" dir="ltr">downstream task</bdi>.</td></tr>
@@ -62,7 +62,7 @@
         <tr><td class="ltr">00:48–00:59</td><td><bdi class="term-en" dir="ltr">LoRA</bdi></td><td>فریزکردن وزن پایه و آموزش <bdi class="term-en" dir="ltr">update</bdi> کم‌رتبه.</td></tr>
         <tr><td class="ltr">00:59–01:05</td><td><bdi class="term-en" dir="ltr">QLoRA</bdi></td><td><bdi class="term-en" dir="ltr">Quantization</bdi> مدل پایه + <bdi class="term-en" dir="ltr">adapter</bdi>های قابل‌آموزش.</td></tr>
         <tr><td class="ltr">01:15–01:28</td><td>آماده‌سازی دمو</td><td>انتخاب مدل، دادهٔ آموزشی و هدف <bdi class="term-en" dir="ltr">structured JSON</bdi>.</td></tr>
-        <tr><td class="ltr">01:28–01:37</td><td>اجرای <bdi class="term-en" dir="ltr">fine-tuning</bdi></td><td>بارگذاری مدل <bdi class="term-en" dir="ltr">quantized</bdi>، آموزش <bdi class="term-en" dir="ltr">adapter</bdi> و مشاهدهٔ <bdi class="term-en" dir="ltr">epoch/loss</bdi>.</td></tr>
+        <tr><td class="ltr">01:28–01:37</td><td>اجرای <bdi class="term-en" dir="ltr">fine-tuning</bdi></td><td>بارگذاری مدل <bdi class="term-en" dir="ltr">quantized</bdi>، آموزش <bdi class="term-en" dir="ltr">adapter</bdi> و مشاهدهٔ <bdi class="term-en" dir="ltr">epoch</bdi> / زیان.</td></tr>
         <tr><td class="ltr">01:37–01:45</td><td>نتیجه و تصمیم مهندسی</td><td>مقایسهٔ خروجی، محدودیت دادهٔ کم و اینکه همیشه <bdi class="term-en" dir="ltr">fine-tuning</bdi> لازم نیست.</td></tr>
       </tbody>
     </table>
@@ -73,8 +73,8 @@
     <table class="timeline">
       <thead><tr><th>خانواده</th><th>دسترسی <bdi class="term-en" dir="ltr">Attention</bdi></th><th>قوت اصلی</th><th>نمونه</th></tr></thead>
       <tbody>
-        <tr><td><bdi class="term-en" dir="ltr">Encoder-only</bdi></td><td>دوطرفه؛ <bdi class="term-en" dir="ltr">token</bdi>ها <bdi class="term-en" dir="ltr">context</bdi> چپ و راست را می‌بینند</td><td>فهم و <bdi class="term-en" dir="ltr">representation</bdi></td><td><bdi class="term-en" dir="ltr">BERT</bdi></td></tr>
-        <tr><td><bdi class="term-en" dir="ltr">Decoder-only</bdi></td><td><bdi class="term-en" dir="ltr">Causal</bdi>؛ فقط گذشته و <bdi class="term-en" dir="ltr">token</bdi> جاری</td><td>تولید <bdi class="term-en" dir="ltr">token</bdi> بعدی</td><td><bdi class="term-en" dir="ltr">GPT</bdi>، <bdi class="term-en" dir="ltr">Llama</bdi></td></tr>
+        <tr><td><bdi class="term-en" dir="ltr">Encoder-only</bdi></td><td>دوطرفه؛ توکن‌ها <bdi class="term-en" dir="ltr">context</bdi> چپ و راست را می‌بینند</td><td>فهم و <bdi class="term-en" dir="ltr">representation</bdi></td><td><bdi class="term-en" dir="ltr">BERT</bdi></td></tr>
+        <tr><td><bdi class="term-en" dir="ltr">Decoder-only</bdi></td><td><bdi class="term-en" dir="ltr">Causal</bdi>؛ فقط گذشته و توکن جاری</td><td>تولید توکن بعدی</td><td><bdi class="term-en" dir="ltr">GPT</bdi>، <bdi class="term-en" dir="ltr">Llama</bdi></td></tr>
         <tr><td><bdi class="term-en" dir="ltr">Encoder–Decoder</bdi></td><td><bdi class="term-en" dir="ltr">Self-Attention</bdi> در هر سمت + <bdi class="term-en" dir="ltr">Cross-Attention</bdi></td><td>تبدیل <bdi class="term-en" dir="ltr">sequence</bdi> به <bdi class="term-en" dir="ltr">sequence</bdi></td><td><bdi class="term-en" dir="ltr">T5</bdi> و <bdi class="term-en" dir="ltr">Transformer</bdi> اصلی</td></tr>
       </tbody>
     </table>
@@ -83,10 +83,10 @@
 
   <section class="section" id="bert">
     <h2>۳. <bdi class="term-en" dir="ltr">BERT:</bdi> بازنمایی دوطرفه برای فهم متن</h2>
-    <p><bdi class="term-en" dir="ltr">BERT</bdi> از <bdi class="term-en" dir="ltr">stack</bdi> انکودر <bdi class="term-en" dir="ltr">Transformer</bdi> استفاده می‌کند. چون قرار نیست <bdi class="term-en" dir="ltr">token</bdi> بعدی را به‌شکل <bdi class="term-en" dir="ltr">autoregressive</bdi> تولید کند، هر <bdi class="term-en" dir="ltr">token</bdi> می‌تواند <bdi class="term-en" dir="ltr">context</bdi> هر دو سمت را ببیند. خروجی هر موقعیت یک <bdi class="term-en" dir="ltr">contextual representation</bdi> است.</p>
+    <p><bdi class="term-en" dir="ltr">BERT</bdi> از <bdi class="term-en" dir="ltr">stack</bdi> انکودر <bdi class="term-en" dir="ltr">Transformer</bdi> استفاده می‌کند. چون قرار نیست توکن بعدی را به‌شکل <bdi class="term-en" dir="ltr">autoregressive</bdi> تولید کند، هر توکن می‌تواند <bdi class="term-en" dir="ltr">context</bdi> هر دو سمت را ببیند. خروجی هر موقعیت یک <bdi class="term-en" dir="ltr">contextual representation</bdi> است.</p>
     <div class="grid">
-      <article class="card"><h3><bdi class="term-en" dir="ltr">Token-level task</bdi></h3><p>برای هر <bdi class="term-en" dir="ltr">token</bdi> خروجی می‌خواهیم؛ مانند <bdi class="term-en" dir="ltr">Named Entity Recognition</bdi>. <bdi class="term-en" dir="ltr">representation</bdi> همان موقعیت به <bdi class="term-en" dir="ltr">classifier</bdi> داده می‌شود.</p></article>
-      <article class="card"><h3><bdi class="term-en" dir="ltr">Sequence-level task</bdi></h3><p>برای کل جمله یک برچسب می‌خواهیم؛ مانند <bdi class="term-en" dir="ltr">sentiment</bdi>. معمولاً <bdi class="term-en" dir="ltr">representation</bdi> تجمیعی یا <bdi class="term-en" dir="ltr">token</bdi> ویژه به <bdi class="term-en" dir="ltr">head</bdi> طبقه‌بندی می‌رود.</p></article>
+      <article class="card"><h3>وظیفه در سطح توکن</h3><p>برای هر توکن خروجی می‌خواهیم؛ مانند <bdi class="term-en" dir="ltr">Named Entity Recognition</bdi>. <bdi class="term-en" dir="ltr">representation</bdi> همان موقعیت به <bdi class="term-en" dir="ltr">classifier</bdi> داده می‌شود.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Sequence-level task</bdi></h3><p>برای کل جمله یک برچسب می‌خواهیم؛ مانند <bdi class="term-en" dir="ltr">sentiment</bdi>. معمولاً <bdi class="term-en" dir="ltr">representation</bdi> تجمیعی یا توکن ویژه به <bdi class="term-en" dir="ltr">head</bdi> طبقه‌بندی می‌رود.</p></article>
       <article class="card"><h3><bdi class="term-en" dir="ltr">Span task</bdi></h3><p>برای سؤال‌وجواب <bdi class="term-en" dir="ltr">extractive</bdi>، شروع و پایان پاسخ در متن پیش‌بینی می‌شود.</p></article>
     </div>
     <p>در نسخهٔ <bdi class="term-en" dir="ltr">Base</bdi>، عددهای کلاسیک برای مدل ذهنی عبارت‌اند از ۱۲ لایه، <bdi class="term-en" dir="ltr">hidden size</bdi> برابر ۷۶۸ و ۱۲ <bdi class="term-en" dir="ltr">head</bdi>. حفظ عددها هدف اصلی نیست؛ مهم این است که بفهمیم «<bdi class="term-en" dir="ltr">Base</bdi>» یک <bdi class="term-en" dir="ltr">stack</bdi> تکراری از <bdi class="term-en" dir="ltr">encoder block</bdi>هاست.</p>
@@ -95,11 +95,11 @@
   <section class="section" id="pretraining">
     <h2>۴. <bdi class="term-en" dir="ltr">Pre-training:</bdi> برچسب را از خود داده بساز</h2>
     <h3><bdi class="term-en" dir="ltr">Masked Language Modeling</bdi> (<bdi class="term-en" dir="ltr">MLM</bdi>)</h3>
-    <p>بخشی از <bdi class="term-en" dir="ltr">token</bdi>ها پنهان یا خراب می‌شوند و مدل باید آن‌ها را با استفاده از <bdi class="term-en" dir="ltr">context</bdi> دوطرفه بازسازی کند:</p>
+    <p>بخشی از توکن‌ها پنهان یا خراب می‌شوند و مدل باید آن‌ها را با استفاده از <bdi class="term-en" dir="ltr">context</bdi> دوطرفه بازسازی کند:</p>
     <pre><code>ورودی:  «مدل [MASK] را پردازش می‌کند»
 هدف:   «زبان»</code></pre>
-    <p>این <bdi class="term-en" dir="ltr">self-supervised</bdi> است: انسان برای هر جمله <bdi class="term-en" dir="ltr">label</bdi> دستی ننوشته؛ <bdi class="term-en" dir="ltr">label</bdi> از خود متن تولید شده است.</p>
-    <h3><bdi class="term-en" dir="ltr">Next Sentence Prediction</bdi> (در <bdi class="term-en" dir="ltr">BERT</bdi> اصلی)</h3>
+    <p>این <bdi class="term-en" dir="ltr">self-supervised</bdi> است: انسان برای هر جمله برچسب دستی ننوشته؛ برچسب از خود متن تولید شده است.</p>
+    <h3>پیش‌بینی جملهٔ بعدی (در <bdi class="term-en" dir="ltr">BERT</bdi> اصلی)</h3>
     <p>مدل تشخیص می‌دهد آیا جملهٔ دوم واقعاً ادامهٔ جملهٔ اول بوده است. مدل‌های بعدی نشان دادند این <bdi class="term-en" dir="ltr">objective</bdi> همیشه لازم نیست و روش‌های <bdi class="term-en" dir="ltr">pre-training</bdi> تغییر کردند.</p>
     <h3><bdi class="term-en" dir="ltr">Pre-train</bdi> و <bdi class="term-en" dir="ltr">fine-tune</bdi> چه فرقی دارند؟</h3>
     <table class="timeline">
@@ -114,22 +114,22 @@
 
   <section class="section" id="llama">
     <h2>۵. از <bdi class="term-en" dir="ltr">BERT</bdi> به <bdi class="term-en" dir="ltr">Llama:</bdi> هدف تولید، معماری <bdi class="term-en" dir="ltr">decoder-only</bdi></h2>
-    <p>برای مدل زبانی مولد، <bdi class="term-en" dir="ltr">objective</bdi> ساده است: با دانستن <bdi class="term-en" dir="ltr">token</bdi>های قبل، <bdi class="term-en" dir="ltr">token</bdi> بعدی را پیش‌بینی کن. <bdi class="term-en" dir="ltr">causal mask</bdi> جلوی دیدن آینده را می‌گیرد.</p>
+    <p>برای مدل زبانی مولد، <bdi class="term-en" dir="ltr">objective</bdi> ساده است: با دانستن توکن‌های قبل، توکن بعدی را پیش‌بینی کن. <bdi class="term-en" dir="ltr">causal mask</bdi> جلوی دیدن آینده را می‌گیرد.</p>
     <pre><code>P(x₁, x₂, …, xₙ) = ∏ P(xₜ | x₁, …, xₜ₋₁)</code></pre>
-    <p><bdi class="term-en" dir="ltr">Llama</bdi> 2 در جلسه به‌عنوان نمونهٔ قابل‌مشاهدهٔ یک <bdi class="term-en" dir="ltr">decoder-only Transformer</bdi> بررسی شد: <bdi class="term-en" dir="ltr">token embedding</bdi>، بلوک‌های تکراری با <bdi class="term-en" dir="ltr">causal self-attention</bdi> و <bdi class="term-en" dir="ltr">MLP</bdi>، <bdi class="term-en" dir="ltr">normalization</bdi> و <bdi class="term-en" dir="ltr">head</bdi> خروجی. جزئیات پیاده‌سازی مثل <bdi class="term-en" dir="ltr">positional strategy</bdi> یا نوع <bdi class="term-en" dir="ltr">activation</bdi> می‌تواند بین خانواده‌ها تغییر کند، اما قرارداد <bdi class="term-en" dir="ltr">autoregressive</bdi> ثابت می‌ماند.</p>
+    <p><bdi class="term-en" dir="ltr">Llama</bdi> 2 در جلسه به‌عنوان نمونهٔ قابل‌مشاهدهٔ یک <bdi class="term-en" dir="ltr">decoder-only Transformer</bdi> بررسی شد: <bdi class="term-en" dir="ltr">Embedding</bdi> توکن، بلوک‌های تکراری با <bdi class="term-en" dir="ltr">causal self-attention</bdi> و <bdi class="term-en" dir="ltr">MLP</bdi>، نرمال‌سازی و <bdi class="term-en" dir="ltr">head</bdi> خروجی. جزئیات پیاده‌سازی مثل <bdi class="term-en" dir="ltr">positional strategy</bdi> یا نوع <bdi class="term-en" dir="ltr">activation</bdi> می‌تواند بین خانواده‌ها تغییر کند، اما قرارداد <bdi class="term-en" dir="ltr">autoregressive</bdi> ثابت می‌ماند.</p>
     <p class="warning callout"><strong>اشتباه رایج:</strong> <bdi class="term-en" dir="ltr">decoder-only</bdi> بودن به معنی «فقط تولید و بدون فهم» نیست. مدل برای پیش‌بینی خوب ناچار است الگوهای نحوی، معنایی و دانشی زیادی بیاموزد؛ تفاوت در <bdi class="term-en" dir="ltr">objective</bdi> و <bdi class="term-en" dir="ltr">interface</bdi> غالب است.</p>
   </section>
 
   <section class="section" id="lora">
     <h2>۶. <bdi class="term-en" dir="ltr">LoRA:</bdi> به‌جای تغییر کل وزن، یک <bdi class="term-en" dir="ltr">update</bdi> کم‌رتبه یاد بگیر</h2>
-    <p>در <bdi class="term-en" dir="ltr">full fine-tuning</bdi> همهٔ پارامترهای مدل تغییر می‌کنند؛ <bdi class="term-en" dir="ltr">optimizer state</bdi> و <bdi class="term-en" dir="ltr">gradient</bdi> حافظهٔ زیادی می‌خواهند. ایدهٔ <bdi class="term-en" dir="ltr">LoRA</bdi> این است که وزن اصلی <code>W</code> فریز بماند و تغییر آن با حاصل‌ضرب دو ماتریس کوچک نمایش داده شود:</p>
+    <p>در <bdi class="term-en" dir="ltr">full fine-tuning</bdi> همهٔ پارامترهای مدل تغییر می‌کنند؛ وضعیت بهینه‌ساز و گرادیان حافظهٔ زیادی می‌خواهند. ایدهٔ <bdi class="term-en" dir="ltr">LoRA</bdi> این است که وزن اصلی <code>W</code> فریز بماند و تغییر آن با حاصل‌ضرب دو ماتریس کوچک نمایش داده شود:</p>
     <div class="formula">W′ = W + ΔW &nbsp;&nbsp; , &nbsp;&nbsp; ΔW = B A &nbsp;&nbsp; , &nbsp;&nbsp; rank(A,B)=r ≪ d</div>
     <div class="grid">
-      <article class="card"><h3>چه چیزی <bdi class="term-en" dir="ltr">train</bdi> می‌شود؟</h3><p>فقط پارامترهای <bdi class="term-en" dir="ltr">A</bdi> و <bdi class="term-en" dir="ltr">B</bdi> در <bdi class="term-en" dir="ltr">adapter</bdi>؛ وزن پایه <bdi class="term-en" dir="ltr">gradient</bdi> نمی‌گیرد.</p></article>
+      <article class="card"><h3>چه چیزی <bdi class="term-en" dir="ltr">train</bdi> می‌شود؟</h3><p>فقط پارامترهای <bdi class="term-en" dir="ltr">A</bdi> و <bdi class="term-en" dir="ltr">B</bdi> در <bdi class="term-en" dir="ltr">adapter</bdi>؛ وزن پایه گرادیان نمی‌گیرد.</p></article>
       <article class="card"><h3>چه چیزی ذخیره می‌شود؟</h3><p><bdi class="term-en" dir="ltr">adapter</bdi> کوچک، نه یک نسخهٔ کامل تازه از کل مدل.</p></article>
       <article class="card"><h3>مزیت عملی</h3><p>حافظه و <bdi class="term-en" dir="ltr">storage</bdi> کمتر؛ امکان نگه‌داری چند رفتار روی یک <bdi class="term-en" dir="ltr">base model</bdi>.</p></article>
     </div>
-    <p><bdi class="term-en" dir="ltr">LoRA</bdi> معمولاً روی <bdi class="term-en" dir="ltr">projection</bdi>های مشخصی از <bdi class="term-en" dir="ltr">Attention</bdi> و گاهی <bdi class="term-en" dir="ltr">MLP</bdi> اعمال می‌شود. انتخاب <bdi class="term-en" dir="ltr">target module</bdi>، <bdi class="term-en" dir="ltr">rank</bdi>، <bdi class="term-en" dir="ltr">alpha</bdi>، <bdi class="term-en" dir="ltr">dropout</bdi> و کیفیت داده روی نتیجه اثر مستقیم دارد.</p>
+    <p><bdi class="term-en" dir="ltr">LoRA</bdi> معمولاً روی <bdi class="term-en" dir="ltr">projection</bdi>های مشخصی از <bdi class="term-en" dir="ltr">Attention</bdi> و گاهی <bdi class="term-en" dir="ltr">MLP</bdi> اعمال می‌شود. انتخاب ماژول هدف، <bdi class="term-en" dir="ltr">rank</bdi>، <bdi class="term-en" dir="ltr">alpha</bdi>، <bdi class="term-en" dir="ltr">dropout</bdi> و کیفیت داده روی نتیجه اثر مستقیم دارد.</p>
   </section>
 
   <section class="section" id="qlora">
@@ -140,7 +140,7 @@
       <li>مدل پایه فریز است و فقط <bdi class="term-en" dir="ltr">LoRA adapter</bdi>ها <bdi class="term-en" dir="ltr">train</bdi> می‌شوند؛ محاسبات حساس می‌توانند با دقت بالاتر انجام شوند.</li>
     </ol>
     <p class="callout"><strong>مدل ذهنی:</strong> <bdi class="term-en" dir="ltr">LoRA</bdi> تعداد پارامترهای قابل‌آموزش را کم می‌کند؛ <bdi class="term-en" dir="ltr">QLoRA</bdi> علاوه بر آن، <bdi class="term-en" dir="ltr">footprint</bdi> نگه‌داری مدل پایه را هم کم می‌کند.</p>
-    <p class="danger callout"><strong>نکته:</strong> «۴ بیت» به این معنی نیست که همهٔ عملیات و <bdi class="term-en" dir="ltr">optimizer</bdi> دقیقاً ۴ بیتی‌اند. <bdi class="term-en" dir="ltr">storage</bdi> وزن پایه، <bdi class="term-en" dir="ltr">dtype</bdi> محاسبه و <bdi class="term-en" dir="ltr">dtype adapter</bdi> سه موضوع جدا هستند.</p>
+    <p class="danger callout"><strong>نکته:</strong> «۴ بیت» به این معنی نیست که همهٔ عملیات و بهینه‌ساز دقیقاً ۴ بیتی‌اند. <bdi class="term-en" dir="ltr">storage</bdi> وزن پایه، <bdi class="term-en" dir="ltr">dtype</bdi> محاسبه و <bdi class="term-en" dir="ltr">dtype adapter</bdi> سه موضوع جدا هستند.</p>
   </section>
 
   <section class="section" id="decision">
@@ -148,9 +148,9 @@
     <p>ترتیب تصمیم‌گیری پیشنهادی برای پروژهٔ واقعی:</p>
     <ol>
       <li><strong><bdi class="term-en" dir="ltr">Prompt</bdi> و <bdi class="term-en" dir="ltr">few-shot:</bdi></strong> آیا با دستور و چند مثال رفتار پایدار می‌شود؟</li>
-      <li><strong><bdi class="term-en" dir="ltr">Structured output / constrained decoding:</bdi></strong> اگر مسئله فقط <bdi class="term-en" dir="ltr">JSON</bdi> معتبر است، ابزار خروجی ساختاریافته را امتحان کن.</li>
+      <li><strong>خروجی ساختاریافته / <bdi class="term-en" dir="ltr">constrained decoding:</bdi></strong> اگر مسئله فقط <bdi class="term-en" dir="ltr">JSON</bdi> معتبر است، ابزار خروجی ساختاریافته را امتحان کن.</li>
       <li><strong><bdi class="term-en" dir="ltr">Retrieval:</bdi></strong> اگر مشکل دانش تازه/خصوصی است، اطلاعات را هنگام درخواست وارد <bdi class="term-en" dir="ltr">context</bdi> کن.</li>
-      <li><strong><bdi class="term-en" dir="ltr">Tool use:</bdi></strong> اگر مدل باید واقعیت خارجی را بخواند یا عملی انجام دهد، ابزار بده.</li>
+      <li><strong>استفاده از ابزار:</strong> اگر مدل باید واقعیت خارجی را بخواند یا عملی انجام دهد، ابزار بده.</li>
       <li><strong><bdi class="term-en" dir="ltr">Fine-tuning:</bdi></strong> وقتی رفتار، سبک یا الگوی <bdi class="term-en" dir="ltr">task</bdi> با مثال‌های فراوان و پایدار باید در وزن‌ها جا بیفتد.</li>
     </ol>
     <table class="timeline">
@@ -183,7 +183,7 @@
       <li>انطباق با <bdi class="term-en" dir="ltr">schema</bdi>؛</li>
       <li>دقت <bdi class="term-en" dir="ltr">field</bdi>ها؛</li>
       <li>مقایسه با <bdi class="term-en" dir="ltr">base model</bdi> و <bdi class="term-en" dir="ltr">prompt-only baseline</bdi>؛</li>
-      <li><bdi class="term-en" dir="ltr">latency</bdi>، <bdi class="term-en" dir="ltr">VRAM</bdi> و هزینهٔ <bdi class="term-en" dir="ltr">inference</bdi>.</li>
+      <li>تأخیر، <bdi class="term-en" dir="ltr">VRAM</bdi> و هزینهٔ <bdi class="term-en" dir="ltr">inference</bdi>.</li>
     </ul>
     <p class="warning callout">اگر فقط <bdi class="term-en" dir="ltr">training loss</bdi> پایین بیاید ولی <bdi class="term-en" dir="ltr">validation</bdi> بدتر شود، احتمال <bdi class="term-en" dir="ltr">overfitting</bdi> بالاست. پنج <bdi class="term-en" dir="ltr">epoch</bdi> روی دیتاست بسیار کوچک لزوماً بهتر از یک <bdi class="term-en" dir="ltr">epoch</bdi> نیست.</p>
   </section>
@@ -192,17 +192,17 @@
     <h2>۱۰. تمرین و خودآزمایی</h2>
     <h3>تمرین‌های توضیحی</h3>
     <ol>
-      <li>با یک شکل توضیح بده چرا <bdi class="term-en" dir="ltr">BERT</bdi> می‌تواند <bdi class="term-en" dir="ltr">token</bdi> سمت راست را ببیند ولی <bdi class="term-en" dir="ltr">Llama</bdi> هنگام تولید <bdi class="term-en" dir="ltr">token</bdi> جاری نباید آینده را ببیند.</li>
-      <li>برای <bdi class="term-en" dir="ltr">weight matrix</bdi> با ابعاد <span class="ltr">4096×4096</span> و <bdi class="term-en" dir="ltr">rank</bdi> برابر ۸، تعداد پارامتر <bdi class="term-en" dir="ltr">full</bdi> و <bdi class="term-en" dir="ltr">LoRA update</bdi> را مقایسه کن.</li>
-      <li>سه سناریو بنویس: یکی مناسب <bdi class="term-en" dir="ltr">RAG</bdi>، یکی مناسب <bdi class="term-en" dir="ltr">LoRA</bdi>، یکی که فقط با <bdi class="term-en" dir="ltr">structured output</bdi> حل می‌شود.</li>
+      <li>با یک شکل توضیح بده چرا <bdi class="term-en" dir="ltr">BERT</bdi> می‌تواند توکن سمت راست را ببیند ولی <bdi class="term-en" dir="ltr">Llama</bdi> هنگام تولید توکن جاری نباید آینده را ببیند.</li>
+      <li>برای ماتریس وزن با ابعاد <span class="ltr">4096×4096</span> و <bdi class="term-en" dir="ltr">rank</bdi> برابر ۸، تعداد پارامتر <bdi class="term-en" dir="ltr">full</bdi> و <bdi class="term-en" dir="ltr">LoRA update</bdi> را مقایسه کن.</li>
+      <li>سه سناریو بنویس: یکی مناسب <bdi class="term-en" dir="ltr">RAG</bdi>، یکی مناسب <bdi class="term-en" dir="ltr">LoRA</bdi>، یکی که فقط با خروجی ساختاریافته حل می‌شود.</li>
       <li>برای <bdi class="term-en" dir="ltr">task</bdi> استخراج <bdi class="term-en" dir="ltr">incident</bdi> از <bdi class="term-en" dir="ltr">log</bdi>، <bdi class="term-en" dir="ltr">schema</bdi> و پنج معیار ارزیابی تعریف کن.</li>
       <li>توضیح بده چرا <bdi class="term-en" dir="ltr">fine-tune</bdi> راه خوبی برای «آخرین وضعیت سرورها» نیست.</li>
     </ol>
     <h3>پاسخ محاسبهٔ <bdi class="term-en" dir="ltr">LoRA</bdi></h3>
     <details><summary>ماتریس ۴۰۹۶×۴۰۹۶ با <bdi class="term-en" dir="ltr">rank</bdi>=8 چند پارامتر دارد؟</summary><p>وزن کامل ۱۶٬۷۷۷٬۲۱۶ پارامتر دارد. دو ماتریس <bdi class="term-en" dir="ltr">LoRA</bdi> جمعاً <span class="ltr">4096×8 + 8×4096 = 65,536</span> پارامتر دارند؛ حدود ۰٫۳۹٪ وزن کامل برای همان <bdi class="term-en" dir="ltr">projection</bdi>.</p></details>
     <h3>پرسش‌های تستی</h3>
-    <details><summary>۱. چرا <bdi class="term-en" dir="ltr">BERT</bdi> برای <bdi class="term-en" dir="ltr">MLM</bdi> به <bdi class="term-en" dir="ltr">causal mask</bdi> نیاز ندارد؟</summary><p>هدف بازسازی <bdi class="term-en" dir="ltr">token</bdi> پنهان با <bdi class="term-en" dir="ltr">context</bdi> دوطرفه است، پس دیدن سمت چپ و راست مجاز است؛ فقط خود پاسخ باید از ورودی حذف/خراب شده باشد.</p></details>
-    <details><summary>۲. <bdi class="term-en" dir="ltr">LoRA</bdi> دقیقاً چه چیزی را فریز می‌کند؟</summary><p>وزن‌های <bdi class="term-en" dir="ltr">pretrained</bdi> مدل پایه. <bdi class="term-en" dir="ltr">gradient</bdi> فقط برای <bdi class="term-en" dir="ltr">adapter</bdi>های کم‌رتبه محاسبه می‌شود.</p></details>
+    <details><summary>۱. چرا <bdi class="term-en" dir="ltr">BERT</bdi> برای <bdi class="term-en" dir="ltr">MLM</bdi> به <bdi class="term-en" dir="ltr">causal mask</bdi> نیاز ندارد؟</summary><p>هدف بازسازی توکن پنهان با <bdi class="term-en" dir="ltr">context</bdi> دوطرفه است، پس دیدن سمت چپ و راست مجاز است؛ فقط خود پاسخ باید از ورودی حذف/خراب شده باشد.</p></details>
+    <details><summary>۲. <bdi class="term-en" dir="ltr">LoRA</bdi> دقیقاً چه چیزی را فریز می‌کند؟</summary><p>وزن‌های <bdi class="term-en" dir="ltr">pretrained</bdi> مدل پایه. گرادیان فقط برای <bdi class="term-en" dir="ltr">adapter</bdi>های کم‌رتبه محاسبه می‌شود.</p></details>
     <details><summary>۳. تفاوت <bdi class="term-en" dir="ltr">LoRA</bdi> و <bdi class="term-en" dir="ltr">QLoRA</bdi> در یک جمله چیست؟</summary><p><bdi class="term-en" dir="ltr">LoRA update</bdi> کم‌رتبه را آموزش می‌دهد؛ <bdi class="term-en" dir="ltr">QLoRA</bdi> همان کار را روی یک <bdi class="term-en" dir="ltr">base model quantized</bdi> و فریز انجام می‌دهد تا حافظهٔ کمتری مصرف شود.</p></details>
     <details><summary>۴. چه زمانی <bdi class="term-en" dir="ltr">retrieval</bdi> بهتر از <bdi class="term-en" dir="ltr">fine-tuning</bdi> است؟</summary><p>وقتی مشکل، دسترسی به واقعیت‌های تازه، خصوصی یا قابل‌استناد است؛ دانش هنگام درخواست وارد <bdi class="term-en" dir="ltr">context</bdi> می‌شود و به بازآموزی نیاز ندارد.</p></details>
     <details><summary>۵. پایین‌بودن <bdi class="term-en" dir="ltr">training loss</bdi> چه چیزی را ثابت نمی‌کند؟</summary><p>تعمیم روی دادهٔ جدید، صحت <bdi class="term-en" dir="ltr">JSON</bdi>، دقت <bdi class="term-en" dir="ltr">field</bdi>ها یا بهترشدن نسبت به <bdi class="term-en" dir="ltr">baseline</bdi> را ثابت نمی‌کند.</p></details>

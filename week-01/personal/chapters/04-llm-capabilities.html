@@ -44,7 +44,7 @@
 <h3>مسئلهٔ مناسب برای <bdi class="term-en" dir="ltr">LLM</bdi> چه ویژگی دارد؟</h3>
 <ul>
 <li>ورودی یا خروجی آن زبان طبیعی، تصویر یا دادهٔ نیمه‌ساخت‌یافته است.</li>
-<li>چند پاسخ قابل قبول وجود دارد و کیفیت را می‌توان با <bdi class="term-en" dir="ltr">Rubric</bdi> یا <bdi class="term-en" dir="ltr">Evaluation</bdi> سنجید.</li>
+<li>چند پاسخ قابل قبول وجود دارد و کیفیت را می‌توان با <bdi class="term-en" dir="ltr">Rubric</bdi> یا ارزیابی سنجید.</li>
 <li>خطا قابل کشف، قابل اصلاح یا در سطح ریسک پذیرفتنی است.</li>
 <li>می‌توان <bdi class="term-en" dir="ltr">Context</bdi> معتبر، <bdi class="term-en" dir="ltr">Tool</bdi> یا <bdi class="term-en" dir="ltr">Retrieval</bdi> فراهم کرد.</li>
 <li>ارزش انعطاف‌پذیری از نیاز به قطعیت بیت‌به‌بیت بیشتر است.</li>
@@ -54,7 +54,7 @@
 <table>
 <thead><tr><th>نوع کار</th><th>چرا <bdi class="term-en" dir="ltr">LLM</bdi> انتخاب اول نیست؟</th><th>راه بهتر</th></tr></thead>
 <tbody>
-<tr><td>محاسبهٔ قطعی و مالی</td><td>مدل ممکن است عدد یا فرمول را اشتباه تولید کند.</td><td>کد <bdi class="term-en" dir="ltr">Deterministic</bdi> یا <bdi class="term-en" dir="ltr">Calculator Tool</bdi>؛ مدل فقط توضیح دهد.</td></tr>
+<tr><td>محاسبهٔ قطعی و مالی</td><td>مدل ممکن است عدد یا فرمول را اشتباه تولید کند.</td><td>کد قطعی یا <bdi class="term-en" dir="ltr">Calculator Tool</bdi>؛ مدل فقط توضیح دهد.</td></tr>
 <tr><td>بررسی وجود رکورد</td><td>مدل <bdi class="term-en" dir="ltr">Database</bdi> نیست و ممکن است رکورد خیالی بسازد.</td><td><bdi class="term-en" dir="ltr">Query</bdi> مستقیم به <bdi class="term-en" dir="ltr">Source of Truth</bdi>.</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Policy Enforcement</bdi></td><td>رفتار احتمالاتی برای <bdi class="term-en" dir="ltr">Allow/Deny</bdi> حساس خطرناک است.</td><td><bdi class="term-en" dir="ltr">Policy Engine</bdi> قطعی؛ مدل فقط پیشنهاد یا طبقه‌بندی کم‌ریسک.</td></tr>
 <tr><td>اجرای <bdi class="term-en" dir="ltr">Command</bdi> مخرب</td><td><bdi class="term-en" dir="ltr">Prompt Injection</bdi> یا برداشت غلط می‌تواند اثر واقعی ایجاد کند.</td><td><bdi class="term-en" dir="ltr">Allowlist</bdi>، <bdi class="term-en" dir="ltr">Dry-run</bdi>، <bdi class="term-en" dir="ltr">Human Approval</bdi> و محدودیت <bdi class="term-en" dir="ltr">Permission</bdi>.</td></tr>

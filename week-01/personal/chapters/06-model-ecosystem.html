@@ -32,7 +32,7 @@
 </div>
 <p class="lead">
           هنگام انتخاب مدل، فقط نام <bdi class="term-en" dir="ltr">Provider</bdi> یا عدد <bdi class="term-en" dir="ltr">Benchmark</bdi> را نگاه نکن. انتخاب مدل یک تصمیم معماری است و باید با
-          <strong>کیفیت، <bdi class="term-en" dir="ltr">Latency</bdi>، هزینه، حریم خصوصی، قابلیت‌های <bdi class="term-en" dir="ltr">Tool Use</bdi>، <bdi class="term-en" dir="ltr">Context Window</bdi> و عملیات نگهداری</strong> سنجیده شود.
+          <strong>کیفیت، تأخیر، هزینه، حریم خصوصی، قابلیت‌های استفاده از ابزار، <bdi class="term-en" dir="ltr">Context Window</bdi> و عملیات نگهداری</strong> سنجیده شود.
         </p>
 <h3>اول سه چیز را از هم جدا کن</h3>
 <div class="grid-3">
@@ -46,7 +46,7 @@
 </article>
 <article class="card">
 <h4><bdi class="term-en" dir="ltr">Application / Gateway</bdi></h4>
-<p>لایهٔ خودت برای <bdi class="term-en" dir="ltr">Prompt</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Retry</bdi>، <bdi class="term-en" dir="ltr">Cache</bdi>، <bdi class="term-en" dir="ltr">Audit</bdi>، <bdi class="term-en" dir="ltr">Evaluation</bdi> و کنترل دسترسی. این لایه نباید بی‌دلیل به یک <bdi class="term-en" dir="ltr">Provider</bdi> قفل شود.</p>
+<p>لایهٔ خودت برای <bdi class="term-en" dir="ltr">Prompt</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Retry</bdi>، <bdi class="term-en" dir="ltr">Cache</bdi>، <bdi class="term-en" dir="ltr">Audit</bdi>، ارزیابی و کنترل دسترسی. این لایه نباید بی‌دلیل به یک <bdi class="term-en" dir="ltr">Provider</bdi> قفل شود.</p>
 </article>
 </div>
 <h3>دسته‌بندی مدل‌ها بر اساس کاری که انجام می‌دهند</h3>
@@ -55,38 +55,38 @@
 <thead><tr><th>نوع مدل</th><th>کار اصلی</th><th>نمونهٔ استفاده</th><th>اشتباه رایج</th></tr></thead>
 <tbody>
 <tr><td><bdi class="term-en" dir="ltr">Generative / Chat</bdi></td><td>تولید، خلاصه‌سازی، استخراج و بازنویسی متن</td><td><bdi class="term-en" dir="ltr">Incident Summary</bdi>، پاسخ به سؤال، تولید <bdi class="term-en" dir="ltr">Draft</bdi></td><td>استفاده به‌عنوان <bdi class="term-en" dir="ltr">Database</bdi> حقیقت</td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Reasoning</bdi></td><td>حل مسئله‌های چندمرحله‌ای دشوارتر</td><td>تحلیل <bdi class="term-en" dir="ltr">Trade-off</bdi>، برنامه‌ریزی، <bdi class="term-en" dir="ltr">Debug</bdi> پیچیده</td><td>استفاده برای هر کار ساده و پرداخت <bdi class="term-en" dir="ltr">Cost/Latency</bdi> اضافه</td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Fast / Small</bdi></td><td>کارهای پرتعداد با پاسخ کوتاه و ساختار روشن</td><td><bdi class="term-en" dir="ltr">Classification</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Tagging</bdi>، استخراج فیلد</td><td>سپردن مسئله‌ای فراتر از ظرفیت مدل بدون <bdi class="term-en" dir="ltr">Evaluation</bdi></td></tr>
-<tr><td><bdi class="term-en" dir="ltr">Embedding</bdi></td><td>تبدیل متن به <bdi class="term-en" dir="ltr">Vector</bdi> برای سنجش شباهت معنایی</td><td><bdi class="term-en" dir="ltr">Semantic Search</bdi> و <bdi class="term-en" dir="ltr">Retrieval</bdi> در <bdi class="term-en" dir="ltr">RAG</bdi></td><td>انتظار تولید متن از مدل <bdi class="term-en" dir="ltr">Embedding</bdi></td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Reasoning</bdi></td><td>حل مسئله‌های چندمرحله‌ای دشوارتر</td><td>تحلیل <bdi class="term-en" dir="ltr">Trade-off</bdi>، برنامه‌ریزی، <bdi class="term-en" dir="ltr">Debug</bdi> پیچیده</td><td>استفاده برای هر کار ساده و پرداخت <bdi class="term-en" dir="ltr">Cost</bdi> / تأخیر اضافه</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Fast / Small</bdi></td><td>کارهای پرتعداد با پاسخ کوتاه و ساختار روشن</td><td><bdi class="term-en" dir="ltr">Classification</bdi>، <bdi class="term-en" dir="ltr">Routing</bdi>، <bdi class="term-en" dir="ltr">Tagging</bdi>، استخراج فیلد</td><td>سپردن مسئله‌ای فراتر از ظرفیت مدل بدون ارزیابی</td></tr>
+<tr><td><bdi class="term-en" dir="ltr">Embedding</bdi></td><td>تبدیل متن به بردار برای سنجش شباهت معنایی</td><td><bdi class="term-en" dir="ltr">Semantic Search</bdi> و <bdi class="term-en" dir="ltr">Retrieval</bdi> در <bdi class="term-en" dir="ltr">RAG</bdi></td><td>انتظار تولید متن از مدل <bdi class="term-en" dir="ltr">Embedding</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Reranker</bdi></td><td>مرتب‌سازی دوبارهٔ نتایج <bdi class="term-en" dir="ltr">Retrieval</bdi> بر اساس ارتباط</td><td>بهبود <bdi class="term-en" dir="ltr">Top-K</bdi> اسناد بازیابی‌شده</td><td>جایگزین دانستن آن با <bdi class="term-en" dir="ltr">Generator</bdi></td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Multimodal</bdi></td><td>کار با ترکیبی از متن، تصویر، صوت یا ویدئو</td><td>خواندن <bdi class="term-en" dir="ltr">Screenshot</bdi>، توضیح <bdi class="term-en" dir="ltr">Diagram</bdi>، تحلیل صوت</td><td>فرض دقت صددرصد در <bdi class="term-en" dir="ltr">OCR</bdi> یا جزئیات تصویری</td></tr>
 <tr><td><bdi class="term-en" dir="ltr">Moderation / Guard</bdi></td><td>تشخیص محتوای پرخطر یا نقض <bdi class="term-en" dir="ltr">Policy</bdi></td><td>فیلتر ورودی و خروجی</td><td>تکیه به آن به‌عنوان تنها کنترل امنیتی</td></tr>
 </tbody>
 </table>
 </div>
-<h3><bdi class="term-en" dir="ltr">Hosted API</bdi> در برابر <bdi class="term-en" dir="ltr">Open-weight</bdi> و <bdi class="term-en" dir="ltr">Self-hosted</bdi></h3>
+<h3><bdi class="term-en" dir="ltr">Hosted API</bdi> در برابر مدل با وزن باز و <bdi class="term-en" dir="ltr">Self-hosted</bdi></h3>
 <div class="grid-2">
 <article class="card">
 <h4><bdi class="term-en" dir="ltr">Hosted API</bdi></h4>
-<p><strong>مزیت:</strong> شروع سریع، بدون <bdi class="term-en" dir="ltr">GPU Ops</bdi>، <bdi class="term-en" dir="ltr">Scaling</bdi> و به‌روزرسانی ساده‌تر، دسترسی به مدل‌های قوی.</p>
+<p><strong>مزیت:</strong> شروع سریع، بدون <bdi class="term-en" dir="ltr">GPU Ops</bdi>، مقیاس‌بندی و به‌روزرسانی ساده‌تر، دسترسی به مدل‌های قوی.</p>
 <p><strong>هزینه:</strong> وابستگی به <bdi class="term-en" dir="ltr">Provider</bdi>، ملاحظات <bdi class="term-en" dir="ltr">Data Residency</bdi>، <bdi class="term-en" dir="ltr">Rate Limit</bdi>، <bdi class="term-en" dir="ltr">Billing</bdi> و تغییر نسخه.</p>
 </article>
 <article class="card">
-<h4><bdi class="term-en" dir="ltr">Open-weight / Self-hosted</bdi></h4>
+<h4>مدل با وزن باز / <bdi class="term-en" dir="ltr">Self-hosted</bdi></h4>
 <p><strong>مزیت:</strong> کنترل بیشتر روی داده، <bdi class="term-en" dir="ltr">Deployment</bdi>، <bdi class="term-en" dir="ltr">Version</bdi>، <bdi class="term-en" dir="ltr">Quantization</bdi> و شبکهٔ بسته.</p>
 <p><strong>هزینه:</strong> <bdi class="term-en" dir="ltr">GPU Capacity</bdi>، <bdi class="term-en" dir="ltr">Runtime</bdi>، <bdi class="term-en" dir="ltr">Scheduling</bdi>، <bdi class="term-en" dir="ltr">Autoscaling</bdi>، <bdi class="term-en" dir="ltr">Model Serving</bdi>، <bdi class="term-en" dir="ltr">Patch</bdi>، <bdi class="term-en" dir="ltr">Benchmark</bdi> و <bdi class="term-en" dir="ltr">On-call</bdi> واقعی.</p>
 </article>
 </div>
 <div class="callout warning">
-<strong><bdi class="term-en" dir="ltr">Open-source</bdi> و <bdi class="term-en" dir="ltr">Open-weight</bdi> یکی نیستند.</strong>
+<strong><bdi class="term-en" dir="ltr">Open-source</bdi> و مدل با وزن باز یکی نیستند.</strong>
           ممکن است وزن‌های مدل منتشر شده باشند اما <bdi class="term-en" dir="ltr">Training Data</bdi>، کد کامل یا <bdi class="term-en" dir="ltr">License</bdi> آن کاملاً باز نباشد. قبل از <bdi class="term-en" dir="ltr">Production</bdi>،
           <bdi class="term-en" dir="ltr">Model Card</bdi>، <bdi class="term-en" dir="ltr">License</bdi>، محدودیت استفادهٔ تجاری و شرایط توزیع را بخوان.
         </div>
 <h3><bdi class="term-en" dir="ltr">Model Serving</bdi> در شبکهٔ سازمانی</h3>
 <p>
-          ابزارهایی مانند <strong><bdi class="term-en" dir="ltr">vLLM</bdi></strong> می‌توانند برای برخی مدل‌های <bdi class="term-en" dir="ltr">Open-weight</bdi> یک <bdi class="term-en" dir="ltr">API</bdi> سازگار با قرارداد <bdi class="term-en" dir="ltr">OpenAI</bdi> ارائه کنند.
+          ابزارهایی مانند <strong><bdi class="term-en" dir="ltr">vLLM</bdi></strong> می‌توانند برای برخی مدل‌های با وزن باز یک <bdi class="term-en" dir="ltr">API</bdi> سازگار با قرارداد <bdi class="term-en" dir="ltr">OpenAI</bdi> ارائه کنند.
           این سازگاری به معنی رفتار یکسان مدل‌ها نیست؛ فقط شکل <bdi class="term-en" dir="ltr">Endpoint</bdi> و <bdi class="term-en" dir="ltr">Request</bdi> تا حدی مشابه می‌شود. <bdi class="term-en" dir="ltr">Prompt</bdi>، <bdi class="term-en" dir="ltr">Tool Calling</bdi>،
-          <bdi class="term-en" dir="ltr">Structured Output</bdi>، <bdi class="term-en" dir="ltr">Tokenizer</bdi> و محدودیت‌ها باید جداگانه تست شوند.
+          خروجی ساختاریافته، <bdi class="term-en" dir="ltr">Tokenizer</bdi> و محدودیت‌ها باید جداگانه تست شوند.
         </p>
 <div aria-label="نمودار انتخاب و مسیریابی مدل" class="diagram">
 <div class="flow">
@@ -102,7 +102,7 @@
 <li><strong><bdi class="term-en" dir="ltr">Task</bdi> را دقیق تعریف کن:</strong> ورودی، خروجی، زبان، اندازه، خطر و معیار موفقیت.</li>
 <li><strong><bdi class="term-en" dir="ltr">Golden Set</bdi> بساز:</strong> ۲۰ تا ۵۰ نمونهٔ واقعی با جواب یا معیار مورد انتظار.</li>
 <li><strong>اول کیفیت را ثابت کن:</strong> مدل‌های کاندید را روی همان <bdi class="term-en" dir="ltr">Dataset</bdi> مقایسه کن.</li>
-<li><strong>بعد <bdi class="term-en" dir="ltr">Cost</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را کم کن:</strong> مدل کوچک‌تر، <bdi class="term-en" dir="ltr">Prompt</bdi> کوتاه‌تر، <bdi class="term-en" dir="ltr">Cache</bdi> یا <bdi class="term-en" dir="ltr">Routing</bdi>.</li>
+<li><strong>بعد <bdi class="term-en" dir="ltr">Cost</bdi> و تأخیر را کم کن:</strong> مدل کوچک‌تر، <bdi class="term-en" dir="ltr">Prompt</bdi> کوتاه‌تر، <bdi class="term-en" dir="ltr">Cache</bdi> یا <bdi class="term-en" dir="ltr">Routing</bdi>.</li>
 <li><strong>نسخه را <bdi class="term-en" dir="ltr">Pin</bdi> و پایش کن:</strong> تغییر <bdi class="term-en" dir="ltr">Model Snapshot</bdi> یا <bdi class="term-en" dir="ltr">Prompt</bdi> می‌تواند <bdi class="term-en" dir="ltr">Regression</bdi> ایجاد کند.</li>
 </ol>
 <div class="analogy">
@@ -116,7 +116,7 @@
   <nav class="hero-meta" aria-label="جابه‌جایی میان فصل‌ها">
     <a class="pill" href="05-llm-limitations.html">فصل قبل: محدودیت‌ها و <bdi class="term-en" dir="ltr">Failure Mode</bdi>ها</a>
     <a class="pill" href="../index.html">فهرست</a>
-    <a class="pill" href="07-tokens-context.html">فصل بعد: <bdi class="term-en" dir="ltr">Token</bdi> و <bdi class="term-en" dir="ltr">Context Window</bdi></a>
+    <a class="pill" href="07-tokens-context.html">فصل بعد: توکن و <bdi class="term-en" dir="ltr">Context Window</bdi></a>
   </nav>
   <footer class="footer">مسیر شخصی‌سازی‌شدهٔ هفتهٔ اول <bdi class="term-en" dir="ltr">Agentic AI</bdi></footer>
 </main>

@@ -32,17 +32,17 @@
 </div>
 <h3>تمرین مفهومی ۱</h3>
 <p>چرا یک <bdi class="term-en" dir="ltr">LLM</bdi> می‌تواند پاسخ بسیار روان اما اشتباه بدهد؟</p>
-<details><summary>پاسخ پیشنهادی</summary><p>هدف پایهٔ مدل تولید دنبالهٔ محتمل <bdi class="term-en" dir="ltr">Token</bdi>ها بر اساس الگوهای یادگرفته‌شده است، نه اجرای <bdi class="term-en" dir="ltr">Query</bdi> قطعی روی <bdi class="term-en" dir="ltr">Database</bdi> حقیقت. روان بودن و درست بودن دو <bdi class="term-en" dir="ltr">Metric</bdi> متفاوت‌اند؛ برای <bdi class="term-en" dir="ltr">Fact</bdi> باید <bdi class="term-en" dir="ltr">Evidence</bdi>، <bdi class="term-en" dir="ltr">Retrieval</bdi>، <bdi class="term-en" dir="ltr">Tool</bdi> و <bdi class="term-en" dir="ltr">Evaluation</bdi> اضافه شود.</p></details>
+<details><summary>پاسخ پیشنهادی</summary><p>هدف پایهٔ مدل تولید دنبالهٔ محتمل توکن‌ها بر اساس الگوهای یادگرفته‌شده است، نه اجرای <bdi class="term-en" dir="ltr">Query</bdi> قطعی روی <bdi class="term-en" dir="ltr">Database</bdi> حقیقت. روان بودن و درست بودن دو <bdi class="term-en" dir="ltr">Metric</bdi> متفاوت‌اند؛ برای <bdi class="term-en" dir="ltr">Fact</bdi> باید شواهد، <bdi class="term-en" dir="ltr">Retrieval</bdi>، <bdi class="term-en" dir="ltr">Tool</bdi> و ارزیابی اضافه شود.</p></details>
 <h3>تمرین مفهومی ۲</h3>
 <p>فرق <bdi class="term-en" dir="ltr">Context</bdi> با <bdi class="term-en" dir="ltr">Memory</bdi> چیست؟</p>
 <details><summary>پاسخ پیشنهادی</summary><p><bdi class="term-en" dir="ltr">Context</bdi> اطلاعات داخل <bdi class="term-en" dir="ltr">Request</bdi> جاری است. <bdi class="term-en" dir="ltr">Memory</bdi> معمولاً خارج از مدل در <bdi class="term-en" dir="ltr">Database</bdi> یا <bdi class="term-en" dir="ltr">Store</bdi> نگه داشته می‌شود و <bdi class="term-en" dir="ltr">Application</bdi> هنگام نیاز بخشی از آن را دوباره به <bdi class="term-en" dir="ltr">Context</bdi> می‌آورد.</p></details>
 <h3>تمرین مفهومی ۳</h3>
 <p>برای <bdi class="term-en" dir="ltr">Classification</bdi> ساده، چرا شروع مستقیم با بزرگ‌ترین <bdi class="term-en" dir="ltr">Reasoning Model</bdi> تصمیم خوبی نیست؟</p>
-<details><summary>پاسخ پیشنهادی</summary><p>ممکن است <bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Cost</bdi> اضافه بدهد بدون افزایش ارزش. ابتدا معیار کیفیت و <bdi class="term-en" dir="ltr">Dataset</bdi> می‌سازیم، سپس کوچک‌ترین مدلی را انتخاب می‌کنیم که <bdi class="term-en" dir="ltr">Threshold</bdi> را پاس کند.</p></details>
+<details><summary>پاسخ پیشنهادی</summary><p>ممکن است تأخیر و <bdi class="term-en" dir="ltr">Cost</bdi> اضافه بدهد بدون افزایش ارزش. ابتدا معیار کیفیت و <bdi class="term-en" dir="ltr">Dataset</bdi> می‌سازیم، سپس کوچک‌ترین مدلی را انتخاب می‌کنیم که <bdi class="term-en" dir="ltr">Threshold</bdi> را پاس کند.</p></details>
 <h3>تمرین محاسباتی</h3>
 <p>
           با نرخ فرضی <span class="ltr">$3 / 1M input tokens</span> و <span class="ltr">$12 / 1M output tokens</span>،
-          هزینهٔ <bdi class="term-en" dir="ltr">Request</bdi> دارای ۱۰٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> ورودی و ۲٬۰۰۰ <bdi class="term-en" dir="ltr">Token</bdi> خروجی چقدر است؟
+          هزینهٔ <bdi class="term-en" dir="ltr">Request</bdi> دارای ۱۰٬۰۰۰ توکن ورودی و ۲٬۰۰۰ توکن خروجی چقدر است؟
         </p>
 <details><summary>پاسخ پیشنهادی</summary><div class="formula">(10,000 / 1,000,000 × 3) + (2,000 / 1,000,000 × 12) = $0.054</div></details>
 <h3>تمرین <bdi class="term-en" dir="ltr">Retry</bdi></h3>

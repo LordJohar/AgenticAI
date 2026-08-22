@@ -13,7 +13,7 @@
   <header class="hero">
     <div class="eyebrow"><bdi class="term-en" dir="ltr">Agentic AI</bdi> · <bdi class="term-en" dir="ltr">Week</bdi> 01 · <bdi class="term-en" dir="ltr">Chapter</bdi> 12</div>
     <h2><bdi class="term-en" dir="ltr">Observability</bdi> برای <bdi class="term-en" dir="ltr">LLM Application</bdi></h2>
-    <p><bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Error</bdi> کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
+    <p>تأخیر و <bdi class="term-en" dir="ltr">Error</bdi> کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
     <div class="hero-meta">
       <a class="pill" href="../index.html">فهرست مسیر شخصی</a>
       <a class="pill" href="../../index.html">صفحهٔ هفتهٔ اول</a>
@@ -26,7 +26,7 @@
 <div class="chapter-number">۱۲</div>
 <div>
 <h2><bdi class="term-en" dir="ltr">Observability</bdi> برای <bdi class="term-en" dir="ltr">LLM Application</bdi></h2>
-<p><bdi class="term-en" dir="ltr">Latency</bdi> و <bdi class="term-en" dir="ltr">Error</bdi> کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
+<p>تأخیر و <bdi class="term-en" dir="ltr">Error</bdi> کافی نیست؛ باید کیفیت معنایی را هم قابل مشاهده کنیم</p>
 </div>
 <label class="chapter-complete"><input data-progress-id="observability" type="checkbox"/> خواندم</label>
 </div>
@@ -37,9 +37,9 @@
 <ul>
 <li><bdi class="term-en" dir="ltr">Timestamp</bdi> و <bdi class="term-en" dir="ltr">Correlation ID</bdi></li>
 <li><bdi class="term-en" dir="ltr">Provider</bdi>، <bdi class="term-en" dir="ltr">Model</bdi> و <bdi class="term-en" dir="ltr">Model/Prompt Version</bdi></li>
-<li><bdi class="term-en" dir="ltr">Operation</bdi> یا <bdi class="term-en" dir="ltr">Feature Name</bdi></li>
+<li><bdi class="term-en" dir="ltr">Operation</bdi> یا نام ویژگی</li>
 <li><bdi class="term-en" dir="ltr">Duration</bdi>، <bdi class="term-en" dir="ltr">Retry Count</bdi> و <bdi class="term-en" dir="ltr">Status</bdi></li>
-<li><bdi class="term-en" dir="ltr">Input/Output Token</bdi> و <bdi class="term-en" dir="ltr">Cost Estimate</bdi></li>
+<li>توکن ورودی/خروجی و <bdi class="term-en" dir="ltr">Cost Estimate</bdi></li>
 <li><bdi class="term-en" dir="ltr">Tool Name</bdi>، <bdi class="term-en" dir="ltr">Tool Duration</bdi> و <bdi class="term-en" dir="ltr">Result Status</bdi></li>
 <li><bdi class="term-en" dir="ltr">Request ID</bdi> سرویس‌دهنده</li>
 </ul>
@@ -47,7 +47,7 @@
 <article class="card">
 <h4>چیزی که پیش‌فرض <bdi class="term-en" dir="ltr">Log</bdi> نشود</h4>
 <ul>
-<li><bdi class="term-en" dir="ltr">API Key</bdi>، <bdi class="term-en" dir="ltr">Token</bdi>، <bdi class="term-en" dir="ltr">Cookie</bdi> و <bdi class="term-en" dir="ltr">Authorization Header</bdi></li>
+<li><bdi class="term-en" dir="ltr">API Key</bdi>، توکن، <bdi class="term-en" dir="ltr">Cookie</bdi> و <bdi class="term-en" dir="ltr">Authorization Header</bdi></li>
 <li><bdi class="term-en" dir="ltr">Prompt</bdi> یا فایل کامل حاوی دادهٔ محرمانه</li>
 <li><bdi class="term-en" dir="ltr">PII</bdi> بدون <bdi class="term-en" dir="ltr">Masking</bdi> و <bdi class="term-en" dir="ltr">Purpose</bdi> روشن</li>
 <li><bdi class="term-en" dir="ltr">Tool Arguments</bdi> حساس</li>
@@ -75,8 +75,8 @@
 <table>
 <thead><tr><th><bdi class="term-en" dir="ltr">Metric</bdi></th><th>چرا مهم است؟</th></tr></thead>
 <tbody>
-<tr><td><code>llm_requests_total</code></td><td><bdi class="term-en" dir="ltr">Traffic</bdi> بر اساس <bdi class="term-en" dir="ltr">Feature</bdi>، <bdi class="term-en" dir="ltr">Model</bdi> و <bdi class="term-en" dir="ltr">Status</bdi>.</td></tr>
-<tr><td><code>llm_request_duration_seconds</code></td><td><bdi class="term-en" dir="ltr">p50/p95/p99</bdi> و <bdi class="term-en" dir="ltr">Tail Latency</bdi>.</td></tr>
+<tr><td><code>llm_requests_total</code></td><td><bdi class="term-en" dir="ltr">Traffic</bdi> بر اساس ویژگی، <bdi class="term-en" dir="ltr">Model</bdi> و <bdi class="term-en" dir="ltr">Status</bdi>.</td></tr>
+<tr><td><code>llm_request_duration_seconds</code></td><td><bdi class="term-en" dir="ltr">p50/p95/p99</bdi> و تأخیر انتهایی.</td></tr>
 <tr><td><code>llm_input_tokens_total</code> / <code>output_tokens_total</code></td><td><bdi class="term-en" dir="ltr">Capacity</bdi> و <bdi class="term-en" dir="ltr">Cost Driver</bdi>.</td></tr>
 <tr><td><code>llm_retry_total</code></td><td>تشخیص <bdi class="term-en" dir="ltr">Rate Limit</bdi>، <bdi class="term-en" dir="ltr">Network Instability</bdi> یا <bdi class="term-en" dir="ltr">Retry Storm</bdi>.</td></tr>
 <tr><td><code>llm_estimated_cost_total</code></td><td><bdi class="term-en" dir="ltr">Budget</bdi>، <bdi class="term-en" dir="ltr">Forecast</bdi> و <bdi class="term-en" dir="ltr">Anomaly Detection</bdi>.</td></tr>
@@ -95,15 +95,15 @@
   span: output-policy-check              40ms</code></pre>
 <p>
           <bdi class="term-en" dir="ltr">Trace</bdi> نشان می‌دهد تأخیر یا خطا دقیقاً در <bdi class="term-en" dir="ltr">Retrieval</bdi>، <bdi class="term-en" dir="ltr">Model</bdi>، <bdi class="term-en" dir="ltr">Tool</bdi> یا <bdi class="term-en" dir="ltr">Validation</bdi> رخ داده است. اما برای <bdi class="term-en" dir="ltr">AI</bdi> یک بعد دیگر داریم:
-          پاسخ ممکن است از نظر <bdi class="term-en" dir="ltr">HTTP</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> سالم باشد ولی از نظر معنا غلط باشد. اینجا <strong><bdi class="term-en" dir="ltr">Evaluation</bdi></strong> وارد می‌شود.
+          پاسخ ممکن است از نظر <bdi class="term-en" dir="ltr">HTTP</bdi> و تأخیر سالم باشد ولی از نظر معنا غلط باشد. اینجا <strong>ارزیابی</strong> وارد می‌شود.
         </p>
-<h3><bdi class="term-en" dir="ltr">Evaluation</bdi> چیست؟</h3>
+<h3>ارزیابی چیست؟</h3>
 <p>
           مجموعه‌ای از نمونه‌های نسخه‌بندی‌شده و معیارهایی برای سنجش خروجی. بخشی از معیارها قطعی‌اند، مانند <bdi class="term-en" dir="ltr">JSON Validity</bdi> یا وجود <bdi class="term-en" dir="ltr">Citation</bdi>؛
           بخشی نیاز به <bdi class="term-en" dir="ltr">Rubric</bdi>، <bdi class="term-en" dir="ltr">Model Judge</bdi> کنترل‌شده یا <bdi class="term-en" dir="ltr">Human Review</bdi> دارند، مانند «آیا خلاصه علت را درست و بدون حدس بیان کرده؟».
         </p>
 <div class="callout danger">
-<strong><bdi class="term-en" dir="ltr">Dashboard</bdi> سبز می‌تواند دروغ بگوید.</strong> اگر فقط <bdi class="term-en" dir="ltr">HTTP</bdi> 200، <bdi class="term-en" dir="ltr">Error Rate</bdi> و <bdi class="term-en" dir="ltr">Latency</bdi> را مانیتور کنی، <bdi class="term-en" dir="ltr">Semantic Regression</bdi> دیده نمی‌شود. <bdi class="term-en" dir="ltr">Prompt</bdi> و <bdi class="term-en" dir="ltr">Model</bdi> را مثل <bdi class="term-en" dir="ltr">Code Version</bdi> کن و <bdi class="term-en" dir="ltr">Evaluation</bdi> را در <bdi class="term-en" dir="ltr">Release Gate</bdi> قرار بده.
+<strong><bdi class="term-en" dir="ltr">Dashboard</bdi> سبز می‌تواند دروغ بگوید.</strong> اگر فقط <bdi class="term-en" dir="ltr">HTTP</bdi> 200، <bdi class="term-en" dir="ltr">Error Rate</bdi> و تأخیر را مانیتور کنی، <bdi class="term-en" dir="ltr">Semantic Regression</bdi> دیده نمی‌شود. <bdi class="term-en" dir="ltr">Prompt</bdi> و <bdi class="term-en" dir="ltr">Model</bdi> را مثل <bdi class="term-en" dir="ltr">Code Version</bdi> کن و ارزیابی را در <bdi class="term-en" dir="ltr">Release Gate</bdi> قرار بده.
         </div>
 </section>
 
