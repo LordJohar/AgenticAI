@@ -104,13 +104,13 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         <header class="chapter-header"><span class="chapter-number">۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Training:</bdi> زیان، گرادیان و <bdi class="term-en" dir="ltr">Backpropagation</bdi></h2><p>مدل دقیقاً چگونه وزن‌هایش را تغییر می‌دهد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="training"> یاد گرفتم</label></header>
         <ol>
           <li><strong><bdi class="term-en" dir="ltr">Forward pass:</bdi></strong> مدل با وزن‌های فعلی پیش‌بینی می‌سازد.</li>
-          <li><strong>زیان:</strong> یک عدد نشان می‌دهد پیش‌بینی چقدر با مقدار هدف فاصله دارد.</li>
+          <li><strong><bdi class="term-en" dir="ltr">Loss:</bdi></strong> نشان می‌دهد پیش‌بینی چقدر با مقدار هدف فاصله دارد.</li>
           <li><strong><bdi class="term-en" dir="ltr">Backward pass:</bdi></strong> <code>backpropagation</code> سهم هر پارامتر در زیان را با <bdi class="term-en" dir="ltr">chain rule</bdi> محاسبه می‌کند.</li>
           <li><strong>گام بهینه‌ساز:</strong> پارامتر‌ها کمی در جهت کاهش زیان تغییر می‌کنند.</li>
           <li>این چرخه روی <bdi class="term-en" dir="ltr">batch</bdi>های فراوان تکرار می‌شود.</li>
         </ol>
         <div class="formula">w_new = w_old − learning_rate × ∂Loss/∂w</div>
-        <p><code>gradient</code> برداری از مشتق‌هاست: اگر هر پارامتر کمی تغییر کند، زیان با چه جهت و شدتی تغییر می‌کند؟ <code>gradient descent</code> در خلاف جهت گرادیان حرکت می‌کند. <code>learning rate</code> اندازهٔ گام است؛ خیلی بزرگ می‌تواند <bdi class="term-en" dir="ltr">training</bdi> را ناپایدار و خیلی کوچک آن را کند کند.</p>
+        <p><code>gradient</code> برداری از مشتق‌هاست: اگر هر پارامتر کمی تغییر کند، زیان با چه جهت و شدتی تغییر می‌کند؟ <code>gradient descent</code> در خلاف جهت گرادیان حرکت می‌کند. <code>learning rate</code> اندازهٔ گام است؛ گام خیلی بزرگ می‌تواند <bdi class="term-en" dir="ltr">training</bdi> را ناپایدار و گام خیلی کوچک آن را کند کند.</p>
         <div class="grid-3">
           <article class="card"><h3><bdi class="term-en" dir="ltr">Epoch</bdi></h3><p>یک بار عبور تقریبی از کل <bdi class="term-en" dir="ltr">training set</bdi>.</p></article>
           <article class="card"><h3><bdi class="term-en" dir="ltr">Batch</bdi></h3><p>گروهی از <bdi class="term-en" dir="ltr">example</bdi>ها که یک‌جا پردازش و گرادیان آن‌ها تجمیع می‌شود.</p></article>
