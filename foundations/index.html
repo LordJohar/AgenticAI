@@ -248,13 +248,24 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         <h3>مثال دستی</h3>
         <p>برای <bdi class="term-en" dir="ltr">logits</bdi> برابر <code>[2, 1, 0]</code>، مقدارهای نمایی تقریباً <code>[7.39, 2.72, 1]</code> و مجموع <code>11.11</code> است؛ پس احتمال‌ها حدود <code>[0.665, 0.245, 0.090]</code> می‌شوند.</p>
         <div class="callout"><strong><bdi class="term-en" dir="ltr">Numerical stability:</bdi></strong> در کد واقعی ابتدا بزرگ‌ترین <bdi class="term-en" dir="ltr">logit</bdi> را از همه کم می‌کنیم. <bdi class="term-en" dir="ltr">Softmax</bdi> تغییر نمی‌کند، ولی از <bdi class="term-en" dir="ltr">overflow</bdi> در <code>exp</code> جلوگیری می‌شود.</div>
+        <h3><bdi class="term-en" dir="ltr">Temperature</bdi> چیست؟</h3>
+        <p><bdi class="term-en" dir="ltr">Temperature</bdi> یعنی «دکمهٔ میزان جسارت در انتخاب از بین گزینه‌ها». مدل بعد از دیدن متن، برای توکن بعدی چندین گزینه با امتیازهای مختلف دارد. اگر همیشه فقط بالاترین امتیاز را برداریم، خروجی خشک‌تر و تکرارپذیرتر می‌شود. اگر اجازه بدهیم گاهی گزینه‌های کمی پایین‌تر هم انتخاب شوند، خروجی متنوع‌تر می‌شود. <bdi class="term-en" dir="ltr">Temperature</bdi> همین مقدار آزادی را کنترل می‌کند.</p>
+        <div class="formula">softmax_with_temperature(zᵢ) = exp(zᵢ / T) / Σⱼ exp(zⱼ / T)</div>
+        <p>در فرمول بالا <code>T</code> همان <bdi class="term-en" dir="ltr">temperature</bdi> است. قبل از اجرای <bdi class="term-en" dir="ltr">Softmax</bdi>، هر <bdi class="term-en" dir="ltr">logit</bdi> بر <code>T</code> تقسیم می‌شود. اگر <code>T = 1</code> باشد، توزیع همان حالت عادی است. اگر <code>T</code> کمتر از ۱ باشد، اختلاف امتیازها بزرگ‌تر حس می‌شود و مدل بیشتر به گزینهٔ اول می‌چسبد. اگر <code>T</code> بیشتر از ۱ باشد، اختلاف امتیازها کم‌رنگ‌تر می‌شود و گزینه‌های بیشتری شانس انتخاب پیدا می‌کنند.</p>
+        <div class="grid-3">
+          <article class="card"><h4><code>T = 0</code> یا نزدیک صفر</h4><p>در بسیاری از ابزارها یعنی تقریباً همیشه محتمل‌ترین گزینه را انتخاب کن. مناسب پاسخ‌های دقیق، قالب‌دار و کم‌تنوع؛ اما تضمین نمی‌کند پاسخ درست باشد.</p></article>
+          <article class="card"><h4><code>T = 1</code></h4><p>حالت معمول؛ توزیع احتمال تقریباً همان چیزی است که از <bdi class="term-en" dir="ltr">logit</bdi>های مدل بیرون آمده است.</p></article>
+          <article class="card"><h4><code>T &gt; 1</code></h4><p>انتخاب آزادتر می‌شود. برای ایده‌پردازی، متن خلاقانه یا چند پیشنهاد متفاوت مفید است؛ ولی خطر پاسخ‌های عجیب یا کم‌دقت بیشتر می‌شود.</p></article>
+        </div>
+        <p>یک مثال روزمره: فرض کن سه جواب ممکن داریم: «بله» با امتیاز زیاد، «شاید» با امتیاز متوسط، و «نه» با امتیاز کم. <bdi class="term-en" dir="ltr">temperature</bdi> پایین مثل این است که بگویی «ریسک نکن، همان گزینهٔ اول را بگو». <bdi class="term-en" dir="ltr">temperature</bdi> بالا مثل این است که بگویی «اگر گزینه‌های دیگر هم کمی معقول‌اند، گاهی آن‌ها را هم امتحان کن».</p>
+        <div class="callout warning"><strong>نکتهٔ خیلی مهم:</strong> <bdi class="term-en" dir="ltr">Temperature</bdi> دانش مدل را زیاد یا کم نمی‌کند. اگر مدل چیزی را نمی‌داند، بالا بردن <bdi class="term-en" dir="ltr">temperature</bdi> آن را دانا نمی‌کند؛ فقط انتخاب را متنوع‌تر و گاهی پرریسک‌تر می‌کند. پایین آوردنش هم پاسخ را حقیقت‌سنجی نمی‌کند؛ فقط انتخاب را محافظه‌کارتر می‌کند.</div>
         <h3>آزمایش تعاملی <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Temperature</bdi></h3>
         <div class="lab">
           <div class="lab-row"><label for="logits"><bdi class="term-en" dir="ltr">logits</bdi></label><input id="logits" data-softmax-input value="2, 1, 0" dir="ltr"></div>
           <div class="lab-row"><label for="temperature"><bdi class="term-en" dir="ltr">temperature</bdi></label><input id="temperature" data-temperature type="number" value="1" min="0.05" max="5" step="0.05" dir="ltr"></div>
           <div class="probability-bars" data-softmax-output></div>
         </div>
-        <p><bdi class="term-en" dir="ltr">Temperature</bdi> قبل از <bdi class="term-en" dir="ltr">Softmax logits</bdi> را تقسیم می‌کند. <code>T &lt; 1</code> توزیع را متمرکزتر و <code>T &gt; 1</code> آن را تخت‌تر می‌کند. <bdi class="term-en" dir="ltr">Temperature</bdi> دانش مدل را عوض نمی‌کند، فقط نمونه‌گیری از امتیاز‌های فعلی را تغییر می‌دهد.</p>
+        <p>برای دیدن اثرش، مقدار <bdi class="term-en" dir="ltr">logits</bdi> را روی <code>2, 1, 0</code> بگذار. با <code>T = 0.5</code> احتمال گزینهٔ اول خیلی غالب می‌شود. با <code>T = 2</code> سه گزینه به هم نزدیک‌تر می‌شوند. یعنی <bdi class="term-en" dir="ltr">temperature</bdi> مثل ذره‌بین یا پخش‌کنندهٔ اختلاف‌ها عمل می‌کند.</p>
         <h3><bdi class="term-en" dir="ltr">Cross-Entropy</bdi> چه می‌سنجد؟</h3>
         <p>اگر مقدار هدف صحیح <bdi class="term-en" dir="ltr">class</bdi> شمارهٔ ۲ باشد، زیان ساده برابر <code>-log(p₂)</code> است. احتمال زیاد برای جواب درست زیان کوچک و احتمال کم زیان بزرگ می‌دهد.</p>
         <div class="formula">CrossEntropy(target=k) = −log(softmax(logits)ₖ)</div>
@@ -473,6 +484,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
           <tr><td><bdi class="term-en" dir="ltr">Top-k</bdi></td><td>فقط <bdi class="term-en" dir="ltr">k</bdi> گزینهٔ برتر را نگه می‌دارد</td><td>اندازهٔ <bdi class="term-en" dir="ltr">candidate set</bdi> ثابت است.</td></tr>
           <tr><td><bdi class="term-en" dir="ltr">Top-p</bdi></td><td>کوچک‌ترین مجموعه با احتمال تجمعی <bdi class="term-en" dir="ltr">p</bdi></td><td>اندازهٔ مجموعه با اطمینان مدل تغییر می‌کند.</td></tr>
         </tbody></table></div>
+        <div class="deep-dive">
+          <h3>پس چرا در chatbotهای قدیمی هم <bdi class="term-en" dir="ltr">temperature</bdi> داشتیم؟</h3>
+          <p>چون آن chatbotها هم هنگام تولید متن معمولاً با یک توزیع احتمال سروکار داشتند. مدل در هر قدم نمی‌گفت «فقط یک جواب قطعی وجود دارد»؛ می‌گفت «این چند ادامه محتمل‌اند، با این احتمال‌ها». تنظیم <bdi class="term-en" dir="ltr">temperature</bdi> مشخص می‌کرد از این توزیع چقدر محافظه‌کارانه یا آزادانه نمونه‌گیری شود.</p>
+          <ul class="example-list">
+            <li><strong>پاسخ فنی یا کدنویسی:</strong> معمولاً <bdi class="term-en" dir="ltr">temperature</bdi> پایین‌تر بهتر است، چون دنبال تنوع شاعرانه نیستیم؛ دنبال پاسخ پایدار و دقیق‌تریم.</li>
+            <li><strong>ایده‌پردازی محصول، عنوان، متن تبلیغاتی:</strong> مقدار بالاتر می‌تواند مفید باشد، چون می‌خواهیم گزینه‌های متفاوت‌تری ببینیم.</li>
+            <li><strong>خلاصه‌سازی سند:</strong> معمولاً مقدار پایین یا متوسط بهتر است، چون نباید چیز جدید و بی‌پشتوانه اضافه شود.</li>
+          </ul>
+          <p>پس <bdi class="term-en" dir="ltr">temperature</bdi> یک تنظیم «شخصیت» یا «هوش» نیست؛ یک تنظیم روی مرحلهٔ انتخاب توکن است. مثل این است که از یک مسیر پیشنهادی، یا دقیقاً محتمل‌ترین قدم را برداریم، یا گاهی قدم‌های جایگزین اما هنوز محتمل را هم امتحان کنیم.</p>
+        </div>
         <h3><bdi class="term-en" dir="ltr">KV Cache</bdi></h3>
         <p>در <bdi class="term-en" dir="ltr">generation</bdi> لازم نیست <bdi class="term-en" dir="ltr">Key</bdi> و توکن‌های <bdi class="term-en" dir="ltr">Value</bdi> قبلی در هر <bdi class="term-en" dir="ltr">step</bdi> دوباره محاسبه شوند؛ <code>KV cache</code> آن‌ها را نگه می‌دارد. تأخیر کم می‌شود ولی <bdi class="term-en" dir="ltr">memory</bdi> با طول <bdi class="term-en" dir="ltr">context</bdi> رشد می‌کند.</p>
         <div class="deep-dive">
@@ -533,6 +554,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
           <div class="term"><dt>پارامتر</dt><dd>مقدار آموختنی مدل؛ عمدتاً وزن و بایاس.</dd></div>
           <div class="term"><dt><bdi class="term-en" dir="ltr">Projection</bdi></dt><dd>تبدیل خطی <bdi class="term-en" dir="ltr">representation</bdi> به فضای دیگر؛ <bdi class="term-en" dir="ltr">Q/K/V</bdi> از <bdi class="term-en" dir="ltr">projection</bdi> ساخته می‌شوند.</dd></div>
           <div class="term"><dt><bdi class="term-en" dir="ltr">Softmax</bdi></dt><dd>تبدیل <bdi class="term-en" dir="ltr">logit</bdi>ها به توزیع مثبت با مجموع ۱.</dd></div>
+          <div class="term"><dt><bdi class="term-en" dir="ltr">Temperature</bdi></dt><dd>کنترل تیزی یا پخش‌بودن توزیع قبل از نمونه‌گیری؛ پایین‌تر یعنی انتخاب محافظه‌کارتر، بالاتر یعنی انتخاب متنوع‌تر.</dd></div>
           <div class="term"><dt>توکن / <bdi class="term-en" dir="ltr">Tokenizer</bdi></dt><dd>واحد پردازش متن / الگوریتم تبدیل متن و شناسه‌های توکن.</dd></div>
           <div class="term"><dt><bdi class="term-en" dir="ltr">Transformer</bdi></dt><dd>معماری مبتنی بر <bdi class="term-en" dir="ltr">Attention</bdi>، <bdi class="term-en" dir="ltr">FFN</bdi>، <bdi class="term-en" dir="ltr">residual</bdi>، نرمال‌سازی و موقعیت.</dd></div>
         </dl>
