@@ -29,6 +29,14 @@ button, input { font: inherit; }
 .hero h1 { max-width: 18ch; margin: .4rem 0 1rem; font-size: clamp(2rem, 5vw, 3.5rem); }
 .hero p { max-width: 75ch; color: var(--muted); font-size: 1.06rem; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: .55rem; }
+.learning-mode { margin: 1.1rem 0; padding: clamp(1.1rem, 3vw, 1.7rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 4px 18px rgba(30,42,78,.04); }
+.learning-mode h2 { max-width: 30ch; margin: .25rem 0 .75rem; font-size: 1.55rem; }
+.learning-mode p { max-width: 78ch; color: var(--muted); }
+.learning-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin: 1rem 0; }
+.learning-card { display: grid; gap: .35rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); }
+.learning-card strong { color: var(--text); }
+.learning-card span { color: var(--muted); }
+.checkpoint { display: flex; gap: .55rem; align-items: flex-start; padding: .9rem 1rem; border-right: 5px solid var(--accent); border-radius: 12px; background: var(--surface-2); }
 .chapter { scroll-margin-top: 1rem; margin: 1.1rem 0; padding: clamp(1.1rem, 3vw, 1.8rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 4px 18px rgba(30,42,78,.04); }
 .chapter-header { display: flex; align-items: flex-start; gap: .9rem; padding-bottom: 1rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
 .chapter-number { flex: 0 0 auto; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; color: var(--primary); background: var(--surface-2); font-weight: 900; }
@@ -100,9 +108,10 @@ button, input { font: inherit; }
   .sidebar { position: fixed; right: 0; width: min(88vw, 340px); transform: translateX(105%); transition: transform .2s ease; box-shadow: var(--shadow); }
   .sidebar.open { transform: translateX(0); }
   .content { width: min(100% - 18px, 1080px); padding-top: .8rem; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .learning-grid { grid-template-columns: 1fr; }
   .chapter-header { flex-wrap: wrap; }
   .chapter-complete { width: 100%; }
+  .checkpoint { display: block; }
   .term { grid-template-columns: 1fr; gap: .2rem; }
   .term dt { text-align: right; }
 }

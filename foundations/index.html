@@ -44,8 +44,26 @@
         <p class="small">مسیر پیشنهادی: فصل‌ها را به‌ترتیب بخوان. اگر فصل <bdi class="term-en" dir="ltr">Softmax</bdi> روشن نباشد، فرمول <bdi class="term-en" dir="ltr">Attention</bdi> شبیه یک طلسم ریاضی به نظر می‌رسد.</p>
       </header>
 
+      <section class="learning-mode" aria-labelledby="learning-mode-title">
+        <div>
+          <p class="eyebrow">حالت مطالعه از صفر</p>
+          <h2 id="learning-mode-title">قبل از تیک‌زدن، فقط یک کار مهم داری: بتوانی با زبان خودت توضیح بدهی.</h2>
+          <p>این جزوه قرار نیست با تعریف‌های خشک شروع شود. از این به بعد هر فصل را مثل یک روند سادهٔ یادگیری بخوان: اطلاعات وارد می‌شود، به عدد تبدیل می‌شود، یک پیش‌بینی ساخته می‌شود، فاصلهٔ پیش‌بینی تا جواب درست اندازه‌گیری می‌شود و مدل کم‌کم اصلاح می‌شود. اگر یک پاراگراف هنوز مبهم بود، تیک نزن؛ یعنی هنوز نتوانسته‌ای آن را با زبان خودت بازگو کنی.</p>
+        </div>
+        <div class="learning-grid">
+          <article class="learning-card"><strong>مدل</strong><span>مثل یک جعبهٔ تصمیم‌گیر است: ورودی می‌گیرد، آن را به عدد تبدیل می‌کند و بر اساس چیزهایی که یاد گرفته خروجی می‌سازد.</span></article>
+          <article class="learning-card"><strong>پارامتر</strong><span>چیزی است که مدل خودش از مثال‌ها یاد می‌گیرد؛ مثل اینکه بفهمد کدام نشانه در جواب نهایی مهم‌تر است.</span></article>
+          <article class="learning-card"><strong>گرادیان</strong><span>راهنمای اصلاح است: می‌گوید برای کمترشدن اشتباه، هر مقدار آموختنی باید به کدام سمت و چقدر تغییر کند.</span></article>
+          <article class="learning-card"><strong><bdi class="term-en" dir="ltr">Retrieval</bdi></strong><span>یعنی قبل از جواب‌دادن، اطلاعات مرتبط را پیدا کنیم و جلوی مدل بگذاریم؛ مثل پاسخ‌دادن با کتاب باز، نه فقط با حافظه.</span></article>
+        </div>
+        <div class="checkpoint">
+          <strong>قانون تیک:</strong>
+          <span>فقط وقتی تیک بزن که بتوانی جواب بدهی: «این فصل چه مشکلی را حل می‌کند؟ ورودی و خروجی‌اش چیست؟ اگر بخواهم برای یک نفر دیگر توضیحش بدهم، از چه مثال ساده‌ای شروع می‌کنم؟»</span>
+        </div>
+      </section>
+
       <section class="chapter" id="map">
-        <header class="chapter-header"><span class="chapter-number">۰</span><div class="chapter-title"><h2>نقشهٔ راه: دقیقاً چه چیزی می‌سازیم؟</h2><p>یک زنجیرهٔ علّی، نه فهرستی از اصطلاحات پراکنده.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="map"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۰</span><div class="chapter-title"><h2>نقشهٔ راه: دقیقاً چه چیزی می‌سازیم؟</h2><p>یک زنجیرهٔ علّی، نه فهرستی از اصطلاحات پراکنده.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="map"> می‌توانم توضیح بدهم</label></header>
         <div class="diagram"><div class="flow"><span class="flow-node">داده</span><span class="flow-arrow">→</span><span class="flow-node">عدد و بردار</span><span class="flow-arrow">→</span><span class="flow-node">شبکهٔ عصبی</span><span class="flow-arrow">→</span><span class="flow-node">احتمال</span><span class="flow-arrow">→</span><span class="flow-node">توکن و <bdi class="term-en" dir="ltr">Context</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Attention</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Transformer / LLM</bdi></span></div></div>
         <p>مدل زبانی در بنیادی‌ترین سطح یک تابع بسیار بزرگ است: عدد می‌گیرد و عدد برمی‌گرداند. متن قبل از ورود به مدل به <code>token id</code> تبدیل می‌شود؛ هر <bdi class="term-en" dir="ltr">id</bdi> به <code>embedding vector</code> نگاشت می‌شود؛ لایه‌ها این بردارها را با توجه به <bdi class="term-en" dir="ltr">context</bdi> تغییر می‌دهند؛ در پایان برای توکن بعدی مجموعه‌ای <code>logit</code> ساخته و با <bdi class="term-en" dir="ltr">Softmax</bdi> به توزیع احتمال تبدیل می‌شود.</p>
         <div class="callout success"><strong>معیار یادگیری:</strong> در پایان باید بتوانی مسیر <span class="ltr">text → tokens → embeddings → Transformer blocks → logits → Softmax → next token</span> را بدون نگاه‌کردن توضیح بدهی.</div>
@@ -58,7 +76,7 @@
       </section>
 
       <section class="chapter" id="math">
-        <header class="chapter-header"><span class="chapter-number">۱</span><div class="chapter-title"><h2>عدد، بردار، ماتریس و تنسور</h2><p>زبان مشترک تمام محاسبات مدل.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="math"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱</span><div class="chapter-title"><h2>عدد، بردار، ماتریس و تنسور</h2><p>زبان مشترک تمام محاسبات مدل.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="math"> می‌توانم توضیح بدهم</label></header>
         <p><strong><bdi class="term-en" dir="ltr">Scalar</bdi></strong> یک عدد است؛ مثلاً دما یا یک امتیاز. <strong>بردار</strong> لیستی مرتب از اعداد است؛ مثلاً نمایش یک توکن با ۷۶۸ ویژگی آموخته‌شده. <strong>ماتریس</strong> جدولی دوبعدی از اعداد است. <strong>تنسور</strong> نام عمومی آرایه‌ای با هر تعداد بعد است.</p>
         <div class="grid-2">
           <article class="card"><h3>ابعاد تنسور (<bdi class="term-en" dir="ltr">shape</bdi>)</h3><pre><code>scalar:  3.2               shape: []
@@ -77,17 +95,17 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
       </section>
 
       <section class="chapter" id="neuron">
-        <header class="chapter-header"><span class="chapter-number">۲</span><div class="chapter-title"><h2>از مدل خطی تا نورون</h2><p>کوچک‌ترین واحد محاسباتی را بدون استعارهٔ زیستی بفهمیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="neuron"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۲</span><div class="chapter-title"><h2>از مدل خطی تا نورون</h2><p>کوچک‌ترین واحد محاسباتی را بدون استعارهٔ زیستی بفهمیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="neuron"> می‌توانم توضیح بدهم</label></header>
         <p>یک نورون مصنوعی چند ورودی را با وزن‌هایشان ترکیب می‌کند، بایاس را اضافه می‌کند و معمولاً نتیجه را از یک <code>activation function</code> عبور می‌دهد:</p>
         <div class="formula">z = w₁x₁ + w₂x₂ + … + wₙxₙ + b &nbsp;&nbsp;&nbsp; ; &nbsp;&nbsp;&nbsp; a = activation(z)</div>
-        <p>مثلاً برای تخمین احتمال <bdi class="term-en" dir="ltr">incident</bdi>، <code>x₁</code> می‌تواند تعداد <bdi class="term-en" dir="ltr">error</bdi>ها و <code>x₂</code> تأخیر باشد. مدل هنگام <bdi class="term-en" dir="ltr">training</bdi> یاد می‌گیرد کدام ویژگی مهم‌تر است. نورون یک مغز کوچک یا محل ذخیرهٔ یک مفهوم کامل نیست؛ فقط یک محاسبهٔ پارامتری است.</p>
+        <p>مثلاً برای حدس‌زدن اینکه یک پیام مثبت است یا منفی، <code>x₁</code> می‌تواند تعداد واژه‌های مثبت و <code>x₂</code> تعداد واژه‌های منفی باشد. مدل هنگام <bdi class="term-en" dir="ltr">training</bdi> یاد می‌گیرد کدام ویژگی مهم‌تر است. نورون یک مغز کوچک یا محل ذخیرهٔ یک مفهوم کامل نیست؛ فقط یک محاسبهٔ پارامتری است.</p>
         <div class="callout"><strong>پارامتر:</strong> مقداری که مدل از داده یاد می‌گیرد؛ مانند وزن و بایاس. <strong><bdi class="term-en" dir="ltr">Hyperparameter:</bdi></strong> انتخابی بیرونی مانند نرخ یادگیری، <bdi class="term-en" dir="ltr">batch size</bdi> یا تعداد لایه‌ها.</div>
         <h3><bdi class="term-en" dir="ltr">Forward Pass</bdi></h3><p>حرکت از <bdi class="term-en" dir="ltr">input</bdi> به پیش‌بینی را <code>forward pass</code> می‌نامیم. هنوز چیزی یاد گرفته نشده؛ فقط با پارامتر‌های فعلی خروجی محاسبه شده است.</p>
         <details><summary>آیا هر نورون یک کلمه یا مفهوم مشخص را تشخیص می‌دهد؟</summary><p>گاهی واحدهایی به <bdi class="term-en" dir="ltr">pattern</bdi> خاص حساس می‌شوند، اما <bdi class="term-en" dir="ltr">representation</bdi> معمولاً <bdi class="term-en" dir="ltr">distributed</bdi> است. نسبت‌دادن یک مفهوم انسانی ثابت به هر نورون مدل ذهنی قابل‌اعتمادی نیست.</p></details>
       </section>
 
       <section class="chapter" id="network">
-        <header class="chapter-header"><span class="chapter-number">۳</span><div class="chapter-title"><h2>شبکهٔ عصبی و لایه‌ها</h2><p>چرا یک خط کافی نیست و «عمیق» چه معنایی دارد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="network"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۳</span><div class="chapter-title"><h2>شبکهٔ عصبی و لایه‌ها</h2><p>چرا یک خط کافی نیست و «عمیق» چه معنایی دارد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="network"> می‌توانم توضیح بدهم</label></header>
         <div class="diagram"><div class="flow"><span class="flow-node">لایهٔ ورودی<br><bdi class="term-en" dir="ltr">x</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Linear + Activation</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Hidden representation</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Output logits</bdi></span></div></div>
         <p>ترکیب چند تابع خطی بدون <bdi class="term-en" dir="ltr">activation</bdi> هنوز یک تابع خطی است. غیرخطی‌بودن اجازه می‌دهد شبکه رابطه‌های پیچیده را مدل کند. <code>Deep</code> یعنی چندین مرحلهٔ <bdi class="term-en" dir="ltr">representation</bdi> پشت سر هم قرار گرفته‌اند.</p>
         <div class="grid-2">
@@ -101,7 +119,7 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
       </section>
 
       <section class="chapter" id="training">
-        <header class="chapter-header"><span class="chapter-number">۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Training:</bdi> زیان، گرادیان و <bdi class="term-en" dir="ltr">Backpropagation</bdi></h2><p>مدل دقیقاً چگونه وزن‌هایش را تغییر می‌دهد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="training"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Training:</bdi> زیان، گرادیان و <bdi class="term-en" dir="ltr">Backpropagation</bdi></h2><p>مدل دقیقاً چگونه وزن‌هایش را تغییر می‌دهد؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="training"> می‌توانم توضیح بدهم</label></header>
         <ol>
           <li><strong><bdi class="term-en" dir="ltr">Forward pass:</bdi></strong> مدل با وزن‌های فعلی پیش‌بینی می‌سازد.</li>
           <li><strong><bdi class="term-en" dir="ltr">Loss:</bdi></strong> نشان می‌دهد پیش‌بینی چقدر با مقدار هدف فاصله دارد.</li>
@@ -122,7 +140,7 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
       </section>
 
       <section class="chapter" id="activation">
-        <header class="chapter-header"><span class="chapter-number">۵</span><div class="chapter-title"><h2>تابع فعال‌سازی</h2><p>منبع غیرخطی‌بودن و رفتارهای متفاوت خروجی.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="activation"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۵</span><div class="chapter-title"><h2>تابع فعال‌سازی</h2><p>منبع غیرخطی‌بودن و رفتارهای متفاوت خروجی.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="activation"> می‌توانم توضیح بدهم</label></header>
         <div class="table-wrap"><table><thead><tr><th>تابع</th><th>فرمول/بازه</th><th>شهود و کاربرد</th></tr></thead><tbody>
           <tr><td><bdi class="term-en" dir="ltr">ReLU</bdi></td><td class="ltr">max(0, x)</td><td>مقدار منفی را صفر و مثبت را عبور می‌دهد؛ ساده و رایج در شبکه‌های عمیق.</td></tr>
           <tr><td><bdi class="term-en" dir="ltr">Sigmoid</bdi></td><td class="ltr">1 / (1 + e⁻ˣ), range (0,1)</td><td>برای احتمال یک رخداد مستقل مناسب است؛ در مقدارهای بزرگ/کوچک اشباع می‌شود.</td></tr>
@@ -133,7 +151,7 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
       </section>
 
       <section class="chapter" id="softmax">
-        <header class="chapter-header"><span class="chapter-number">۶</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Logit</bdi>، <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi></h2><p>پل میان امتیاز خام، احتمال و انتخاب توکن.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="softmax"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۶</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Logit</bdi>، <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi></h2><p>پل میان امتیاز خام، احتمال و انتخاب توکن.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="softmax"> می‌توانم توضیح بدهم</label></header>
         <h3><bdi class="term-en" dir="ltr">Logit</bdi> چیست؟</h3>
         <p>خروجی خام مدل برای هر <bdi class="term-en" dir="ltr">class</bdi> یا توکن را <code>logit</code> می‌نامیم. <bdi class="term-en" dir="ltr">logit</bdi> احتمال نیست: می‌تواند منفی یا بزرگ‌تر از ۱ باشد و مجموعش محدودیتی ندارد.</p>
         <div class="formula">softmax(zᵢ) = exp(zᵢ) / Σⱼ exp(zⱼ)</div>
@@ -155,7 +173,7 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
       </section>
 
       <section class="chapter" id="tokens">
-        <header class="chapter-header"><span class="chapter-number">۷</span><div class="chapter-title"><h2>توکن، <bdi class="term-en" dir="ltr">Vocabulary</bdi>، <bdi class="term-en" dir="ltr">One-Hot</bdi> و <bdi class="term-en" dir="ltr">Embedding</bdi></h2><p>چگونه متن به ورودی عددی معنادار تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="tokens"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۷</span><div class="chapter-title"><h2>توکن، <bdi class="term-en" dir="ltr">Vocabulary</bdi>، <bdi class="term-en" dir="ltr">One-Hot</bdi> و <bdi class="term-en" dir="ltr">Embedding</bdi></h2><p>چگونه متن به ورودی عددی معنادار تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="tokens"> می‌توانم توضیح بدهم</label></header>
         <p><code>Tokenizer</code> متن را به واحدهایی به نام توکن تقسیم می‌کند. توکن ممکن است یک کلمه، بخشی از کلمه، علامت یا <bdi class="term-en" dir="ltr">byte</bdi> باشد. سپس هر توکن از <code>vocabulary</code> یک <bdi class="term-en" dir="ltr">id</bdi> می‌گیرد. <bdi class="term-en" dir="ltr">id</bdi> فقط شناسه است و نزدیکی عددی <bdi class="term-en" dir="ltr">id</bdi>ها معنایی ندارد.</p>
         <pre><code>text:      "مدل‌ها یاد می‌گیرند"
 tokens:    ["مدل", "‌ها", " یاد", " می", "‌گیرند"]
@@ -171,7 +189,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="sequence">
-        <header class="chapter-header"><span class="chapter-number">۸</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Sequence</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه <bdi class="term-en" dir="ltr">Context</bdi></h2><p>چرا قبل از <bdi class="term-en" dir="ltr">Transformer</bdi> پردازش ترتیبی مسئله‌ساز بود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="sequence"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۸</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Sequence</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه <bdi class="term-en" dir="ltr">Context</bdi></h2><p>چرا قبل از <bdi class="term-en" dir="ltr">Transformer</bdi> پردازش ترتیبی مسئله‌ساز بود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="sequence"> می‌توانم توضیح بدهم</label></header>
         <p>معنای زبان به ترتیب و <bdi class="term-en" dir="ltr">context</bdi> وابسته است. <bdi class="term-en" dir="ltr">RNN</bdi> در هر <bdi class="term-en" dir="ltr">time step</bdi> ورودی فعلی و <bdi class="term-en" dir="ltr">hidden state</bdi> قبلی را ترکیب می‌کند:</p>
         <div class="formula">hₜ = f(xₜ, hₜ₋₁)</div>
         <p>این <bdi class="term-en" dir="ltr">state</bdi> خلاصه‌ای از گذشته است. <bdi class="term-en" dir="ltr">LSTM</bdi> و <bdi class="term-en" dir="ltr">GRU</bdi> با <bdi class="term-en" dir="ltr">gate</bdi>ها جریان حافظه و گرادیان را بهتر کردند، اما سه محدودیت اصلی باقی ماند:</p>
@@ -184,8 +202,8 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="attention">
-        <header class="chapter-header"><span class="chapter-number">۹</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Attention:</bdi> جست‌وجوی نرم در حافظه</h2><p><bdi class="term-en" dir="ltr">Q</bdi>، <bdi class="term-en" dir="ltr">K</bdi>، <bdi class="term-en" dir="ltr">V</bdi> و <bdi class="term-en" dir="ltr">Softmax</bdi> را از یک مثال ملموس بسازیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="attention"> یاد گرفتم</label></header>
-        <p><bdi class="term-en" dir="ltr">Query</bdi> بیان می‌کند «چه می‌خواهم؟»، هر <bdi class="term-en" dir="ltr">Key</bdi> می‌گوید «این رکورد با چه ویژگی‌ای قابل‌جست‌وجوست؟» و <bdi class="term-en" dir="ltr">Value</bdi> محتوایی است که در صورت مرتبط‌بودن برداشته می‌شود. برخلاف <bdi class="term-en" dir="ltr">database lookup</bdi> سخت، <bdi class="term-en" dir="ltr">Attention</bdi> معمولاً همهٔ <bdi class="term-en" dir="ltr">Value</bdi>ها را با وزن متفاوت ترکیب می‌کند.</p>
+        <header class="chapter-header"><span class="chapter-number">۹</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Attention:</bdi> جست‌وجوی نرم در حافظه</h2><p><bdi class="term-en" dir="ltr">Q</bdi>، <bdi class="term-en" dir="ltr">K</bdi>، <bdi class="term-en" dir="ltr">V</bdi> و <bdi class="term-en" dir="ltr">Softmax</bdi> را از یک مثال ملموس بسازیم.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="attention"> می‌توانم توضیح بدهم</label></header>
+        <p><bdi class="term-en" dir="ltr">Query</bdi> بیان می‌کند «چه می‌خواهم؟»، هر <bdi class="term-en" dir="ltr">Key</bdi> می‌گوید «این بخش با چه نشانه‌ای قابل‌پیداکردن است؟» و <bdi class="term-en" dir="ltr">Value</bdi> محتوایی است که در صورت مرتبط‌بودن برداشته می‌شود. برخلاف جست‌وجوی سخت که معمولاً یک مورد مشخص را برمی‌گرداند، <bdi class="term-en" dir="ltr">Attention</bdi> معمولاً همهٔ <bdi class="term-en" dir="ltr">Value</bdi>ها را با وزن متفاوت ترکیب می‌کند.</p>
         <div class="grid-3">
           <article class="card"><h3><bdi class="term-en" dir="ltr">Query</bdi> (<bdi class="term-en" dir="ltr">Q</bdi>)</h3><p>نیاز <bdi class="term-en" dir="ltr">representation</bdi> فعلی؛ دنبال چه رابطه‌ای هستم؟</p></article>
           <article class="card"><h3><bdi class="term-en" dir="ltr">Key</bdi> (<bdi class="term-en" dir="ltr">K</bdi>)</h3><p>نمایهٔ قابل‌مقایسهٔ هر موقعیت برای محاسبهٔ <bdi class="term-en" dir="ltr">relevance</bdi>.</p></article>
@@ -211,7 +229,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="paper">
-        <header class="chapter-header"><span class="chapter-number">۱۰</span><div class="chapter-title"><h2>ترجمهٔ مفهومی «<bdi class="term-en" dir="ltr">Attention Is All You Need</bdi>»</h2><p>مقالهٔ <bdi class="term-en" dir="ltr">Vaswani</bdi> و همکاران، ۲۰۱۷؛ شرح محتوایی به‌جای ترجمهٔ کلمه‌به‌کلمه.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="paper"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۰</span><div class="chapter-title"><h2>ترجمهٔ مفهومی «<bdi class="term-en" dir="ltr">Attention Is All You Need</bdi>»</h2><p>مقالهٔ <bdi class="term-en" dir="ltr">Vaswani</bdi> و همکاران، ۲۰۱۷؛ شرح محتوایی به‌جای ترجمهٔ کلمه‌به‌کلمه.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="paper"> می‌توانم توضیح بدهم</label></header>
         <div class="callout"><strong>ایدهٔ مرکزی مقاله:</strong> برای <bdi class="term-en" dir="ltr">sequence transduction</bdi> لازم نیست <bdi class="term-en" dir="ltr">recurrence</bdi> یا <bdi class="term-en" dir="ltr">convolution</bdi> هستهٔ ارتباط میان توکن‌ها باشد. می‌توان معماری <bdi class="term-en" dir="ltr">Encoder–Decoder</bdi> را بر <bdi class="term-en" dir="ltr">Attention</bdi> بنا کرد، موقعیت‌های هر لایه را موازی‌تر محاسبه کرد و مسیر ارتباط توکن‌های دور را کوتاه کرد.</div>
         <h3>مسئله‌ای که مقاله از آن شروع می‌کند</h3>
         <p>مدل‌های ترجمهٔ قوی آن زمان عمدتاً <bdi class="term-en" dir="ltr">RNN/CNN</bdi> بودند. <bdi class="term-en" dir="ltr">RNN</bdi> محاسبه را ترتیبی می‌کرد و <bdi class="term-en" dir="ltr">dependency</bdi> دور مسیر بلندی داشت. <bdi class="term-en" dir="ltr">Attention</bdi> پیش‌تر در کنار <bdi class="term-en" dir="ltr">RNN</bdi> موفق شده بود، اما این مقاله پرسید: اگر <bdi class="term-en" dir="ltr">Attention</bdi> را از جزء کمکی به سازوکار اصلی تبدیل کنیم چه می‌شود؟ پاسخ معماری <code>Transformer</code> بود.</p>
@@ -248,7 +266,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="transformer">
-        <header class="chapter-header"><span class="chapter-number">۱۱</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Transformer</bdi> قدم‌به‌قدم</h2><p>ابعاد و جریان واقعی یک <bdi class="term-en" dir="ltr">Decoder-only LLM</bdi>.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="transformer"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۱</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Transformer</bdi> قدم‌به‌قدم</h2><p>ابعاد و جریان واقعی یک <bdi class="term-en" dir="ltr">Decoder-only LLM</bdi>.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="transformer"> می‌توانم توضیح بدهم</label></header>
         <pre><code>text
 → tokenizer → token_ids                     [sequence]
 → embedding lookup                          [sequence, d_model]
@@ -277,7 +295,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="llm">
-        <header class="chapter-header"><span class="chapter-number">۱۲</span><div class="chapter-title"><h2>از <bdi class="term-en" dir="ltr">Transformer</bdi> تا <bdi class="term-en" dir="ltr">LLM</bdi></h2><p><bdi class="term-en" dir="ltr">Pre-training</bdi>، <bdi class="term-en" dir="ltr">objective</bdi> و رفتاری که از <bdi class="term-en" dir="ltr">scale</bdi> پدیدار می‌شود.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="llm"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۲</span><div class="chapter-title"><h2>از <bdi class="term-en" dir="ltr">Transformer</bdi> تا <bdi class="term-en" dir="ltr">LLM</bdi></h2><p><bdi class="term-en" dir="ltr">Pre-training</bdi>، <bdi class="term-en" dir="ltr">objective</bdi> و رفتاری که از <bdi class="term-en" dir="ltr">scale</bdi> پدیدار می‌شود.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="llm"> می‌توانم توضیح بدهم</label></header>
         <h3><bdi class="term-en" dir="ltr">Pre-training</bdi></h3>
         <p>در <bdi class="term-en" dir="ltr">decoder-only language model</bdi>، متن به <bdi class="term-en" dir="ltr">example</bdi>های فراوان پیش‌بینی توکن بعدی تبدیل می‌شود. برچسب از خود متن می‌آید، بنابراین روش <code>self-supervised</code> است. مدل برای کاهش <bdi class="term-en" dir="ltr">Cross-Entropy</bdi> مجبور می‌شود الگوهای <bdi class="term-en" dir="ltr">syntax</bdi>، <bdi class="term-en" dir="ltr">semantics</bdi>، سبک و <bdi class="term-en" dir="ltr">facts</bdi> موجود در داده را در پارامتر‌هایش فشرده کند.</p>
         <div class="formula">P(x₁,…,xₙ) = ∏ₜ P(xₜ | x₁,…,xₜ₋₁)</div>
@@ -293,7 +311,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="decoding">
-        <header class="chapter-header"><span class="chapter-number">۱۳</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Inference</bdi> و <bdi class="term-en" dir="ltr">Decoding</bdi></h2><p>چگونه توزیع به متن خروجی تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="decoding"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۳</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Inference</bdi> و <bdi class="term-en" dir="ltr">Decoding</bdi></h2><p>چگونه توزیع به متن خروجی تبدیل می‌شود؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="decoding"> می‌توانم توضیح بدهم</label></header>
         <ol>
           <li><bdi class="term-en" dir="ltr">Prompt tokenize</bdi> و <bdi class="term-en" dir="ltr">forward pass</bdi> اجرا می‌شود (<code>prefill</code>).</li>
           <li>از <bdi class="term-en" dir="ltr">logits</bdi> آخرین موقعیت یک توکن انتخاب می‌شود.</li>
@@ -312,7 +330,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="limits">
-        <header class="chapter-header"><span class="chapter-number">۱۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و روش تطبیق</h2><p>چرا پیش‌بینی توکن بعدی پایگاه حقیقت نیست؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="limits"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۴</span><div class="chapter-title"><h2><bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و روش تطبیق</h2><p>چرا پیش‌بینی توکن بعدی پایگاه حقیقت نیست؟</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="limits"> می‌توانم توضیح بدهم</label></header>
         <p><code>Hallucination</code> یعنی خروجی روان و ظاهراً معتبر که با شواهد یا واقعیت پشتیبانی نمی‌شود. مدل برای تولید <bdi class="term-en" dir="ltr">continuation</bdi> محتمل آموزش دیده، نه برای <bdi class="term-en" dir="ltr">query</bdi> خودکار روی حقیقت بیرونی. عبارت <code>hallucinated</code> در این حوزه یعنی تولید بدون پشتوانه، نه تجربهٔ انسانی یا پزشکی.</p>
         <div class="grid-2">
           <article class="card"><h3><bdi class="term-en" dir="ltr">Retrieval / RAG</bdi></h3><p>سند مرتبط را هنگام <bdi class="term-en" dir="ltr">request</bdi> وارد <bdi class="term-en" dir="ltr">context</bdi> کن؛ مناسب دانش تازه، خصوصی و قابل‌استناد.</p></article>
@@ -329,7 +347,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
       </section>
 
       <section class="chapter" id="glossary">
-        <header class="chapter-header"><span class="chapter-number">۱۵</span><div class="chapter-title"><h2>واژه‌نامه، خودآزمایی و منابع</h2><p>مرجع سریع اصطلاحاتی که عمداً انگلیسی نگه داشته شده‌اند.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="glossary"> یاد گرفتم</label></header>
+        <header class="chapter-header"><span class="chapter-number">۱۵</span><div class="chapter-title"><h2>واژه‌نامه، خودآزمایی و منابع</h2><p>مرجع سریع اصطلاحاتی که عمداً انگلیسی نگه داشته شده‌اند.</p></div><label class="chapter-complete"><input type="checkbox" data-progress-id="glossary"> می‌توانم توضیح بدهم</label></header>
         <dl class="term-list">
           <div class="term"><dt>تابع فعال‌سازی</dt><dd>تبدیل <bdi class="term-en" dir="ltr">nonlinear</bdi> روی خروجی یک <bdi class="term-en" dir="ltr">unit</bdi> یا لایه.</dd></div>
           <div class="term"><dt><bdi class="term-en" dir="ltr">Attention</bdi></dt><dd>ساخت خروجی از جمع وزن‌دار <bdi class="term-en" dir="ltr">Value</bdi>ها؛ وزن‌ها از <bdi class="term-en" dir="ltr">Query</bdi> و <bdi class="term-en" dir="ltr">Key</bdi> می‌آیند.</dd></div>
