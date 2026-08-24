@@ -17,9 +17,11 @@ button, input { font: inherit; }
 .progress-bar { width: 0; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width .2s ease; }
 .search-box input { width: 100%; margin: 1rem 0 .5rem; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: 11px; color: var(--text); background: var(--bg); }
 .toc { display: grid; gap: .08rem; }
-.toc a { padding: .43rem .65rem; border-radius: 9px; color: var(--muted); text-decoration: none; font-size: .87rem; }
+.toc-item { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: center; gap: .35rem; border-radius: 9px; }
+.toc-item input { accent-color: var(--accent); }
+.toc a { min-width: 0; padding: .43rem .35rem; border-radius: 9px; color: var(--muted); text-decoration: none; font-size: .87rem; }
 .toc a:hover, .toc a.active { color: var(--text); background: var(--surface-2); }
-.toc a.hidden { display: none; }
+.toc-item.hidden { display: none; }
 .sidebar-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1rem; }
 .icon-button { cursor: pointer; padding: .6rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); }
 .main { min-width: 0; }
@@ -50,6 +52,12 @@ button, input { font: inherit; }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .card { padding: 1rem; border: 1px solid var(--line); border-radius: 15px; background: var(--bg); }
 .card h3, .card h4 { margin-top: 0; }
+.deep-dive { padding: 1rem 1.1rem; margin: 1rem 0; border: 1px solid var(--line); border-radius: 15px; background: linear-gradient(180deg, var(--bg), var(--surface)); }
+.deep-dive h3 { margin-top: 0; }
+.deep-dive p:last-child { margin-bottom: 0; }
+.example-list { display: grid; gap: .65rem; margin: .8rem 0; padding: 0; list-style: none; }
+.example-list li { padding: .75rem .85rem; border-right: 4px solid var(--primary); border-radius: 11px; background: var(--surface-2); }
+.example-list strong { color: var(--text); }
 .callout { padding: 1rem 1.1rem; margin: 1rem 0; border-right: 5px solid var(--primary); border-radius: 12px; background: var(--surface-2); }
 .callout.warning { border-right-color: var(--warning); }
 .callout.success { border-right-color: var(--accent); }

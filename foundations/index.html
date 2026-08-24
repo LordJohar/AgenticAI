@@ -21,14 +21,22 @@
     </div>
     <label class="search-box"><input id="toc-search" type="search" placeholder="جست‌وجوی فصل…" autocomplete="off"></label>
     <nav class="toc" aria-label="فصل‌ها">
-      <a href="#map">۰. نقشهٔ راه</a><a href="#math">۱. عدد، بردار و ماتریس</a>
-      <a href="#neuron">۲. از مدل خطی تا نورون</a><a href="#network">۳. شبکهٔ عصبی</a>
-      <a href="#training">۴. زیان، گرادیان و <bdi class="term-en" dir="ltr">Backpropagation</bdi></a><a href="#activation">۵. تابع فعال‌سازی</a>
-      <a href="#softmax">۶. <bdi class="term-en" dir="ltr">Logit</bdi>، <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi></a><a href="#tokens">۷. توکن و <bdi class="term-en" dir="ltr">Embedding</bdi></a>
-      <a href="#sequence">۸. <bdi class="term-en" dir="ltr">Sequence</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه <bdi class="term-en" dir="ltr">Context</bdi></a><a href="#attention">۹. <bdi class="term-en" dir="ltr">Attention</bdi> از کجا آمد؟</a>
-      <a href="#paper">۱۰. ترجمهٔ مفهومی مقاله <bdi class="term-en" dir="ltr">Attention</bdi></a><a href="#transformer">۱۱. <bdi class="term-en" dir="ltr">Transformer</bdi> قدم‌به‌قدم</a>
-      <a href="#llm">۱۲. از <bdi class="term-en" dir="ltr">Transformer</bdi> تا <bdi class="term-en" dir="ltr">LLM</bdi></a><a href="#decoding">۱۳. <bdi class="term-en" dir="ltr">Inference</bdi> و <bdi class="term-en" dir="ltr">Decoding</bdi></a>
-      <a href="#limits">۱۴. <bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و تطبیق</a><a href="#glossary">۱۵. واژه‌نامه و منابع</a>
+      <div class="toc-item"><input type="checkbox" data-progress-id="map" aria-label="تیک فصل نقشهٔ راه"><a href="#map">۰. نقشهٔ راه</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="math" aria-label="تیک فصل عدد، بردار و ماتریس"><a href="#math">۱. عدد، بردار و ماتریس</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="neuron" aria-label="تیک فصل از مدل خطی تا نورون"><a href="#neuron">۲. از مدل خطی تا نورون</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="network" aria-label="تیک فصل شبکهٔ عصبی"><a href="#network">۳. شبکهٔ عصبی</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="training" aria-label="تیک فصل زیان، گرادیان و Backpropagation"><a href="#training">۴. زیان، گرادیان و <bdi class="term-en" dir="ltr">Backpropagation</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="activation" aria-label="تیک فصل تابع فعال‌سازی"><a href="#activation">۵. تابع فعال‌سازی</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="softmax" aria-label="تیک فصل Logit، Softmax و Cross-Entropy"><a href="#softmax">۶. <bdi class="term-en" dir="ltr">Logit</bdi>، <bdi class="term-en" dir="ltr">Softmax</bdi> و <bdi class="term-en" dir="ltr">Cross-Entropy</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="tokens" aria-label="تیک فصل توکن و Embedding"><a href="#tokens">۷. توکن و <bdi class="term-en" dir="ltr">Embedding</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="sequence" aria-label="تیک فصل Sequence، RNN و Context"><a href="#sequence">۸. <bdi class="term-en" dir="ltr">Sequence</bdi>، <bdi class="term-en" dir="ltr">RNN</bdi> و گلوگاه <bdi class="term-en" dir="ltr">Context</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="attention" aria-label="تیک فصل Attention"><a href="#attention">۹. <bdi class="term-en" dir="ltr">Attention</bdi> از کجا آمد؟</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="paper" aria-label="تیک فصل مقاله Attention"><a href="#paper">۱۰. ترجمهٔ مفهومی مقاله <bdi class="term-en" dir="ltr">Attention</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="transformer" aria-label="تیک فصل Transformer"><a href="#transformer">۱۱. <bdi class="term-en" dir="ltr">Transformer</bdi> قدم‌به‌قدم</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="llm" aria-label="تیک فصل LLM"><a href="#llm">۱۲. از <bdi class="term-en" dir="ltr">Transformer</bdi> تا <bdi class="term-en" dir="ltr">LLM</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="decoding" aria-label="تیک فصل Inference و Decoding"><a href="#decoding">۱۳. <bdi class="term-en" dir="ltr">Inference</bdi> و <bdi class="term-en" dir="ltr">Decoding</bdi></a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="limits" aria-label="تیک فصل Hallucination و محدودیت"><a href="#limits">۱۴. <bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و تطبیق</a></div>
+      <div class="toc-item"><input type="checkbox" data-progress-id="glossary" aria-label="تیک فصل واژه‌نامه و منابع"><a href="#glossary">۱۵. واژه‌نامه و منابع</a></div>
     </nav>
     <div class="sidebar-actions"><button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button><a class="icon-button" href="../week-01/index.html">هفتهٔ اول</a></div>
   </aside>
@@ -67,6 +75,16 @@
         <div class="diagram"><div class="flow"><span class="flow-node">داده</span><span class="flow-arrow">→</span><span class="flow-node">عدد و بردار</span><span class="flow-arrow">→</span><span class="flow-node">شبکهٔ عصبی</span><span class="flow-arrow">→</span><span class="flow-node">احتمال</span><span class="flow-arrow">→</span><span class="flow-node">توکن و <bdi class="term-en" dir="ltr">Context</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Attention</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Transformer / LLM</bdi></span></div></div>
         <p>مدل زبانی در بنیادی‌ترین سطح یک تابع بسیار بزرگ است: عدد می‌گیرد و عدد برمی‌گرداند. متن قبل از ورود به مدل به <code>token id</code> تبدیل می‌شود؛ هر <bdi class="term-en" dir="ltr">id</bdi> به <code>embedding vector</code> نگاشت می‌شود؛ لایه‌ها این بردارها را با توجه به <bdi class="term-en" dir="ltr">context</bdi> تغییر می‌دهند؛ در پایان برای توکن بعدی مجموعه‌ای <code>logit</code> ساخته و با <bdi class="term-en" dir="ltr">Softmax</bdi> به توزیع احتمال تبدیل می‌شود.</p>
         <div class="callout success"><strong>معیار یادگیری:</strong> در پایان باید بتوانی مسیر <span class="ltr">text → tokens → embeddings → Transformer blocks → logits → Softmax → next token</span> را بدون نگاه‌کردن توضیح بدهی.</div>
+        <div class="deep-dive">
+          <h3>چطور این نقشه را بفهمم؟</h3>
+          <p>به کل مسیر مثل تبدیل چندمرحله‌ای نگاه کن. متن خام برای مدل قابل‌فهم نیست؛ اول باید به واحدهای کوچک‌تر تبدیل شود، بعد هر واحد به بردار عددی برود، بعد لایه‌ها این بردارها را با توجه به بقیهٔ متن اصلاح کنند، و آخر کار مدل برای توکن بعدی چند امتیاز خام بسازد.</p>
+          <ul class="example-list">
+            <li><strong>مثال جمله:</strong> در جملهٔ «امروز هوا خیلی ...»، مدل برای ادامه‌هایی مثل «خوب»، «سرد» یا «گرم» امتیاز می‌سازد. هنوز جواب قطعی نداریم؛ فقط گزینه‌هایی با احتمال متفاوت داریم.</li>
+            <li><strong>مثال ترجمه:</strong> برای ترجمهٔ یک جمله، مدل باید بفهمد کدام کلمهٔ مقصد به کدام بخش جملهٔ مبدأ مربوط است. اینجا <bdi class="term-en" dir="ltr">Attention</bdi> کمک می‌کند بخش‌های مرتبط وزن بیشتری بگیرند.</li>
+            <li><strong>مثال خلاصه‌سازی:</strong> وقتی یک متن بلند خلاصه می‌شود، مدل باید از میان اطلاعات زیاد تشخیص دهد کدام بخش‌ها برای ادامهٔ خروجی مهم‌ترند.</li>
+          </ul>
+          <p>اشتباه رایج این است که فکر کنیم مدل «متن را مثل انسان می‌خواند». دقیق‌تر این است: متن به عدد تبدیل می‌شود، و مدل روی عددها عملیات یادگرفته‌شده انجام می‌دهد.</p>
+        </div>
         <div class="grid-3">
           <article class="card"><h3><bdi class="term-en" dir="ltr">Machine Learning</bdi></h3><p>به‌جای نوشتن همهٔ <bdi class="term-en" dir="ltr">rule</bdi>ها، پارامتر‌های یک مدل از <bdi class="term-en" dir="ltr">example</bdi>ها یاد گرفته می‌شوند.</p></article>
           <article class="card"><h3><bdi class="term-en" dir="ltr">Deep Learning</bdi></h3><p>زیرمجموعه‌ای از <bdi class="term-en" dir="ltr">ML</bdi> که از شبکه‌های عصبی چندلایه برای یادگیری <bdi class="term-en" dir="ltr">representation</bdi> استفاده می‌کند.</p></article>
@@ -91,6 +109,16 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         <p>ضرب داخلی بزرگ‌تر می‌تواند نشانهٔ هم‌جهتی بیشتر باشد، اما طول بردار هم روی آن اثر دارد. <code>cosine similarity</code> جهت را با نرمال‌کردن طول مقایسه می‌کند.</p>
         <h3>بُعد یعنی چه؟</h3>
         <p>وقتی می‌گوییم <bdi class="term-en" dir="ltr">embedding</bdi> دارای ۷۶۸ بُعد است، منظور ۷۶۸ محور آموخته‌شده است. معمولاً نمی‌توان گفت محور ۴۲ دقیقاً «رسمی‌بودن» است؛ معنا میان تعداد زیادی بُعد توزیع شده است.</p>
+        <div class="deep-dive">
+          <h3>چند مثال برای جاافتادن بردار و ماتریس</h3>
+          <p>اگر یک چیز را با چند عدد توصیف کنیم، عملاً یک بردار ساخته‌ایم. برای یک خانه، اعداد می‌توانند متراژ، سن بنا، فاصله تا مرکز شهر و تعداد اتاق باشند. برای یک کلمه، اعداد مستقیم و انسانی نیستند؛ مدل خودش یاد می‌گیرد چه ویژگی‌هایی برای پیش‌بینی مفیدند.</p>
+          <ul class="example-list">
+            <li><strong>بردار ساده:</strong> یک فیلم را با سه عدد توصیف کن: میزان کمدی، میزان هیجان، میزان جدی‌بودن. دو فیلمی که بردارهای نزدیک‌تری دارند احتمالاً حس مشابه‌تری می‌دهند.</li>
+            <li><strong>ماتریس:</strong> اگر برای ۱۰۰ فیلم، هر کدام ۳ ویژگی داشته باشیم، یک جدول ۱۰۰ در ۳ داریم. همین ایده در مدل‌ها با هزاران یا میلیون‌ها ردیف و ستون اتفاق می‌افتد.</li>
+            <li><strong>تنسور:</strong> اگر چند جمله داشته باشیم، هر جمله چند توکن داشته باشد و هر توکن یک بردار چندبعدی داشته باشد، دیگر فقط جدول دوبعدی نداریم؛ یک آرایهٔ چندبعدی داریم.</li>
+          </ul>
+          <p>وقتی فرمول‌ها ترسناک می‌شوند، آن‌ها را به عملیات ساده برگردان: ضرب، جمع، مقایسه و تغییر شکل آرایه‌ها. بخش زیادی از شبکهٔ عصبی همین‌هاست، فقط در ابعاد بسیار بزرگ.</p>
+        </div>
         <details><summary>چرا مدل فقط با عدد کار می‌کند؟</summary><p>پردازنده عملیات جمع و ضرب را روی آرایه‌های عددی بسیار سریع اجرا می‌کند. آموزش هم به تابع‌های پیوسته و قابل‌مشتق نیاز دارد؛ <bdi class="term-en" dir="ltr">string</bdi> خام چنین ساختاری ندارد.</p></details>
       </section>
 
@@ -101,6 +129,16 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         <p>مثلاً برای حدس‌زدن اینکه یک پیام مثبت است یا منفی، <code>x₁</code> می‌تواند تعداد واژه‌های مثبت و <code>x₂</code> تعداد واژه‌های منفی باشد. مدل هنگام <bdi class="term-en" dir="ltr">training</bdi> یاد می‌گیرد کدام ویژگی مهم‌تر است. نورون یک مغز کوچک یا محل ذخیرهٔ یک مفهوم کامل نیست؛ فقط یک محاسبهٔ پارامتری است.</p>
         <div class="callout"><strong>پارامتر:</strong> مقداری که مدل از داده یاد می‌گیرد؛ مانند وزن و بایاس. <strong><bdi class="term-en" dir="ltr">Hyperparameter:</bdi></strong> انتخابی بیرونی مانند نرخ یادگیری، <bdi class="term-en" dir="ltr">batch size</bdi> یا تعداد لایه‌ها.</div>
         <h3><bdi class="term-en" dir="ltr">Forward Pass</bdi></h3><p>حرکت از <bdi class="term-en" dir="ltr">input</bdi> به پیش‌بینی را <code>forward pass</code> می‌نامیم. هنوز چیزی یاد گرفته نشده؛ فقط با پارامتر‌های فعلی خروجی محاسبه شده است.</p>
+        <div class="deep-dive">
+          <h3>نورون را با چند مثال ببین</h3>
+          <p>نورون یک تصمیم‌گیر کوچک نیست که «معنا» را بفهمد؛ یک محاسبه است. چند ورودی می‌گیرد، هر کدام را با وزن خودش ضرب می‌کند، بایاس را اضافه می‌کند و خروجی می‌دهد. اگر وزن یک ویژگی بزرگ‌تر باشد، آن ویژگی در خروجی اثر بیشتری دارد.</p>
+          <ul class="example-list">
+            <li><strong>مثال پیام مثبت/منفی:</strong> اگر واژه‌های مثبت زیاد باشند، وزن مثبت خروجی را بالا می‌برد. اگر واژه‌های منفی زیاد باشند، وزن منفی خروجی را پایین می‌آورد یا به سمت کلاس منفی می‌برد.</li>
+            <li><strong>مثال تصمیم ساده:</strong> برای تشخیص اینکه یک ایمیل تبلیغاتی است، ویژگی‌هایی مثل تعداد لینک، وجود کلمات تخفیف، و فرستندهٔ ناشناس می‌توانند ورودی باشند. نورون یاد می‌گیرد هر نشانه چقدر مهم است.</li>
+            <li><strong>نقش بایاس:</strong> بایاس مثل نقطهٔ شروع است. حتی اگر همهٔ ورودی‌ها صفر باشند، مدل ممکن است یک تمایل پایه داشته باشد؛ این تمایل با بایاس نمایش داده می‌شود.</li>
+          </ul>
+          <p>پس وقتی می‌بینی <span class="ltr">y = Wx + b</span>، آن را این‌طور بخوان: «ویژگی‌ها را با اهمیتشان ترکیب کن، کمی جابه‌جایی پایه اضافه کن، خروجی خام بساز.»</p>
+        </div>
         <details><summary>آیا هر نورون یک کلمه یا مفهوم مشخص را تشخیص می‌دهد؟</summary><p>گاهی واحدهایی به <bdi class="term-en" dir="ltr">pattern</bdi> خاص حساس می‌شوند، اما <bdi class="term-en" dir="ltr">representation</bdi> معمولاً <bdi class="term-en" dir="ltr">distributed</bdi> است. نسبت‌دادن یک مفهوم انسانی ثابت به هر نورون مدل ذهنی قابل‌اعتمادی نیست.</p></details>
       </section>
 
@@ -116,6 +154,16 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         </div>
         <h3>تعمیم و <bdi class="term-en" dir="ltr">Overfitting</bdi></h3>
         <p>هدف حفظ‌کردن <bdi class="term-en" dir="ltr">training set</bdi> نیست؛ مدل باید روی <bdi class="term-en" dir="ltr">example</bdi> ندیده خوب کار کند. اگر <bdi class="term-en" dir="ltr">training loss</bdi> پایین ولی زیان اعتبارسنجی بالا باشد، احتمال <code>overfitting</code> وجود دارد. تقسیم <bdi class="term-en" dir="ltr">train/validation/test</bdi> کمک می‌کند یادگیری را از حفظ‌کردن جدا کنیم.</p>
+        <div class="deep-dive">
+          <h3>چرا شبکهٔ چندلایه لازم می‌شود؟</h3>
+          <p>یک مدل خطی فقط می‌تواند رابطه‌های ساده را خوب بگیرد. اما خیلی از مسائل واقعی ترکیبی‌اند: یک نشانه به‌تنهایی کافی نیست، ولی ترکیب چند نشانه معنی می‌سازد. لایه‌های میانی کمک می‌کنند مدل از ویژگی‌های خام، نمایش‌های پیچیده‌تر بسازد.</p>
+          <ul class="example-list">
+            <li><strong>مثال تصویر:</strong> لایه‌های اولیه شاید لبه و رنگ را تشخیص دهند؛ لایه‌های بعدی ترکیب لبه‌ها را به شکل، و شکل‌ها را به شیء نزدیک کنند.</li>
+            <li><strong>مثال زبان:</strong> یک لایه شاید رابطهٔ نزدیک میان واژه‌ها را بگیرد؛ لایهٔ بعدی ساختار جمله را بهتر بفهمد؛ لایه‌های بالاتر الگوی معنایی و سبک پاسخ را شکل دهند.</li>
+            <li><strong>مثال <bdi class="term-en" dir="ltr">overfitting</bdi>:</strong> دانش‌آموزی که فقط جواب نمونه‌سؤال‌ها را حفظ کرده، در امتحان جدید گیر می‌کند. مدل هم اگر فقط دادهٔ آموزش را حفظ کند، روی دادهٔ جدید خوب کار نمی‌کند.</li>
+          </ul>
+          <p>کلمهٔ «عمیق» یعنی مدل چند مرحله فرصت دارد نمایش ورودی را بهتر کند. هر مرحله قرار نیست مفهوم انسانی واضحی داشته باشد؛ مهم این است که برای کاهش زیان مفید باشد.</p>
+        </div>
       </section>
 
       <section class="chapter" id="training">
@@ -136,6 +184,16 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         </div>
         <h3><bdi class="term-en" dir="ltr">Vanishing</bdi> و گرادیان انفجاری</h3>
         <p>در زنجیره‌های بسیار عمیق یا <bdi class="term-en" dir="ltr">recurrent</bdi>، ضرب مشتق‌ها ممکن است گرادیان را نزدیک صفر یا بسیار بزرگ کند. <bdi class="term-en" dir="ltr">ReLU</bdi>، نرمال‌سازی، <bdi class="term-en" dir="ltr">residual connection</bdi>، <bdi class="term-en" dir="ltr">initialization</bdi> مناسب و محدودسازی گرادیان از ابزارهای کنترل‌اند.</p>
+        <div class="deep-dive">
+          <h3><bdi class="term-en" dir="ltr">Training</bdi> را مثل اصلاح تدریجی بخوان</h3>
+          <p>مدل در آغاز معمولاً جواب‌های خوبی نمی‌دهد، چون پارامترهایش هنوز تنظیم نشده‌اند. در هر دور، یک پیش‌بینی می‌سازد، با جواب درست مقایسه می‌شود، زیان محاسبه می‌شود، سپس گرادیان نشان می‌دهد کدام پارامترها باید کم یا زیاد شوند. این چرخه هزاران یا میلیون‌ها بار تکرار می‌شود.</p>
+          <ul class="example-list">
+            <li><strong>مثال هدف‌گیری:</strong> اگر توپ را همیشه کمی سمت راست می‌زنی، بازخورد می‌گوید دفعهٔ بعد کمی به چپ اصلاح کن. گرادیان هم جهت اصلاح را می‌گوید، نه جواب نهایی را.</li>
+            <li><strong>مثال نرخ یادگیری:</strong> اگر گام اصلاح خیلی بزرگ باشد، از هدف رد می‌شوی و نوسان می‌کنی. اگر خیلی کوچک باشد، رسیدن به جواب خوب خیلی طول می‌کشد.</li>
+            <li><strong>مثال <bdi class="term-en" dir="ltr">batch</bdi>:</strong> به‌جای اینکه بعد از هر نمونه فوراً اصلاح کنی، چند نمونه را با هم می‌بینی و میانگین جهت اصلاح را می‌گیری تا تصمیم پایدارتر شود.</li>
+          </ul>
+          <p><bdi class="term-en" dir="ltr">Backpropagation</bdi> فقط روش حساب‌کردن سهم هر پارامتر در زیان است. خود «حرکت‌دادن پارامترها» کار بهینه‌ساز است.</p>
+        </div>
         <details><summary><bdi class="term-en" dir="ltr">Backpropagation</bdi> با گرادیان کاهشی یکی است؟</summary><p>نه. <bdi class="term-en" dir="ltr">Backpropagation</bdi> گرادیان‌ها را به‌شکل کارآمد محاسبه می‌کند؛ گرادیان کاهشی یا بهینه‌ساز از آن‌ها برای <bdi class="term-en" dir="ltr">update</bdi> کردن پارامتر‌ها استفاده می‌کند.</p></details>
       </section>
 
@@ -148,6 +206,16 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
           <tr><td><bdi class="term-en" dir="ltr">GELU / SiLU</bdi></td><td><bdi class="term-en" dir="ltr">smooth gating</bdi></td><td>در بسیاری از <bdi class="term-en" dir="ltr">Transformer</bdi>های جدید داخل <bdi class="term-en" dir="ltr">MLP</bdi> استفاده می‌شود.</td></tr>
         </tbody></table></div>
         <div class="callout warning"><strong><bdi class="term-en" dir="ltr">Softmax</bdi> با <bdi class="term-en" dir="ltr">ReLU</bdi> فرق دارد:</strong> <bdi class="term-en" dir="ltr">ReLU</bdi> معمولاً روی <bdi class="term-en" dir="ltr">unit</bdi>های <bdi class="term-en" dir="ltr">hidden</bdi> اعمال می‌شود. <bdi class="term-en" dir="ltr">Softmax</bdi> مجموعه‌ای از امتیاز‌های خروجی را به یک توزیع جمع‌شونده به ۱ تبدیل می‌کند.</div>
+        <div class="deep-dive">
+          <h3>تابع فعال‌سازی چرا این‌قدر مهم است؟</h3>
+          <p>اگر بین لایه‌ها فقط ضرب ماتریسی و جمع داشته باشیم، چند لایهٔ پشت سر هم در نهایت مثل یک تبدیل خطی بزرگ رفتار می‌کنند. تابع فعال‌سازی یک پیچ غیرخطی وارد می‌کند تا مدل بتواند مرزهای پیچیده‌تر و رفتارهای متنوع‌تر بسازد.</p>
+          <ul class="example-list">
+            <li><strong><bdi class="term-en" dir="ltr">ReLU</bdi>:</strong> مثل یک دروازهٔ ساده است: مقدار مثبت عبور می‌کند، مقدار منفی صفر می‌شود. به همین سادگی در بسیاری از شبکه‌ها بسیار مفید است.</li>
+            <li><strong><bdi class="term-en" dir="ltr">Sigmoid</bdi>:</strong> خروجی را بین صفر و یک می‌برد، پس برای بعضی تفسیرهای احتمالی جذاب است؛ اما در دو سر بازه اشباع می‌شود و یادگیری می‌تواند کند شود.</li>
+            <li><strong><bdi class="term-en" dir="ltr">GELU</bdi>:</strong> عبور را نرم‌تر می‌کند و در بسیاری از معماری‌های زبانی جدید رایج است.</li>
+          </ul>
+          <p>برای فهم اولیه لازم نیست همهٔ تابع‌ها را حفظ کنی. فقط این را نگه دار: فعال‌سازی به شبکه اجازه می‌دهد فقط خط صاف نکشد، بلکه خم و ترکیب و مرز پیچیده بسازد.</p>
+        </div>
       </section>
 
       <section class="chapter" id="softmax">
@@ -169,6 +237,16 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         <h3><bdi class="term-en" dir="ltr">Cross-Entropy</bdi> چه می‌سنجد؟</h3>
         <p>اگر مقدار هدف صحیح <bdi class="term-en" dir="ltr">class</bdi> شمارهٔ ۲ باشد، زیان ساده برابر <code>-log(p₂)</code> است. احتمال زیاد برای جواب درست زیان کوچک و احتمال کم زیان بزرگ می‌دهد.</p>
         <div class="formula">CrossEntropy(target=k) = −log(softmax(logits)ₖ)</div>
+        <div class="deep-dive">
+          <h3><bdi class="term-en" dir="ltr">Softmax</bdi> را با چند زاویه ببین</h3>
+          <p><bdi class="term-en" dir="ltr">Softmax</bdi> خودش تصمیم‌گیر نهایی نیست؛ یک تبدیل است. ورودی آن امتیازهای خام‌اند و خروجی آن توزیعی است که جمعش ۱ می‌شود. اگر یک امتیاز از بقیه خیلی بزرگ‌تر باشد، خروجی بسیار متمرکز می‌شود؛ اگر امتیازها نزدیک باشند، خروجی پخش‌تر می‌شود.</p>
+          <ul class="example-list">
+            <li><strong>گزینه‌های نزدیک:</strong> اگر امتیازها <code>[1.1, 1.0, 0.9]</code> باشند، مدل بین گزینه‌ها خیلی مطمئن نیست و احتمال‌ها نسبتاً نزدیک می‌مانند.</li>
+            <li><strong>گزینهٔ غالب:</strong> اگر امتیازها <code>[8, 1, 0]</code> باشند، گزینهٔ اول تقریباً همهٔ احتمال را می‌گیرد. اینجا خروجی تیز و کم‌تنوع است.</li>
+            <li><strong><bdi class="term-en" dir="ltr">Temperature</bdi>:</strong> دمای پایین اختلاف‌ها را پررنگ‌تر می‌کند؛ دمای بالا اختلاف‌ها را کم‌رنگ‌تر می‌کند. دانش مدل عوض نمی‌شود، فقط روش انتخاب از همان امتیازها عوض می‌شود.</li>
+          </ul>
+          <p>نکتهٔ مهم: احتمال <bdi class="term-en" dir="ltr">Softmax</bdi> احتمال «درست‌بودن در جهان واقعی» نیست. فقط احتمال نسبی گزینه‌ها در ذهن عددی مدل و در همان لحظه است.</p>
+        </div>
         <details><summary>آیا خروجی <bdi class="term-en" dir="ltr">Softmax</bdi> «اعتماد واقعی» مدل است؟</summary><p>نه لزوماً. احتمال مدل ممکن است <bdi class="term-en" dir="ltr">calibration</bdi> خوبی نداشته باشد. ۹۰٪ در توزیع خروجی تضمین نمی‌کند پاسخ در جهان واقعی ۹۰٪ درست است.</p></details>
       </section>
 
@@ -186,6 +264,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         <h3><bdi class="term-en" dir="ltr">Subword Tokenization</bdi></h3>
         <p>تقسیم به <bdi class="term-en" dir="ltr">subword</bdi> میان <bdi class="term-en" dir="ltr">vocabulary</bdi> کاملاً کلمه‌ای و <bdi class="term-en" dir="ltr">character-level</bdi> تعادل ایجاد می‌کند: واژهٔ نادر می‌تواند از بخش‌های آشناتر ساخته شود. <bdi class="term-en" dir="ltr">BPE</bdi> یکی از روش‌های تاریخی مهم این مسیر است. مرز توکن همیشه با مرز واژه یا معنا یکی نیست.</p>
         <div class="callout warning"><strong>توکن ≠ <bdi class="term-en" dir="ltr">word:</bdi></strong> هزینه، <bdi class="term-en" dir="ltr">context length</bdi> و احتمال خروجی بر حسب توکن محاسبه می‌شوند. یک واژهٔ فارسی ممکن است چند توکن شود.</div>
+        <div class="deep-dive">
+          <h3>چرا توکن‌سازی برای فهم LLM حیاتی است؟</h3>
+          <p>مدل مستقیماً با کلمه کار نمی‌کند؛ با شناسهٔ توکن کار می‌کند. همین نکته روی هزینه، طول متن قابل‌پردازش، سرعت، و حتی کیفیت پاسخ اثر دارد. گاهی یک واژهٔ کوتاه یک توکن است، گاهی یک واژهٔ ناآشنا یا فارسی چند توکن می‌شود.</p>
+          <ul class="example-list">
+            <li><strong>شناسه معنا نیست:</strong> اگر شناسهٔ «کتاب» ۵۰۰ و شناسهٔ «دفتر» ۹۰۰ باشد، نزدیکی یا دوری عددها معنی زبانی ندارد. معنا بعداً در <bdi class="term-en" dir="ltr">embedding</bdi> ساخته می‌شود.</li>
+            <li><strong><bdi class="term-en" dir="ltr">One-Hot</bdi>:</strong> فقط می‌گوید کدام توکن حاضر است؛ دربارهٔ شباهت واژه‌ها چیزی نمی‌گوید. برای همین به <bdi class="term-en" dir="ltr">embedding</bdi> نیاز داریم.</li>
+            <li><strong><bdi class="term-en" dir="ltr">Embedding</bdi>:</strong> به جای یک خانهٔ روشن در بردار عظیم، برای هر توکن یک بردار فشرده و آموخته‌شده می‌سازد که در ترکیب با متن معنا پیدا می‌کند.</li>
+          </ul>
+          <p>اگر یک پاسخ عجیب دیدی، یکی از چیزهایی که می‌تواند دخیل باشد مرزبندی توکن‌هاست؛ مخصوصاً در زبان‌هایی که فاصله، نیم‌فاصله یا شکل نوشتاری متنوع دارند.</p>
+        </div>
       </section>
 
       <section class="chapter" id="sequence">
@@ -199,6 +287,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
           <article class="card"><h3><bdi class="term-en" dir="ltr">Fixed bottleneck</bdi></h3><p><bdi class="term-en" dir="ltr">Encoder</bdi> کلاسیک کل ورودی را به یک بردار ثابت برای <bdi class="term-en" dir="ltr">Decoder</bdi> تحویل می‌داد.</p></article>
         </div>
         <p><bdi class="term-en" dir="ltr">Attention</bdi> ابتدا برای رفع گلوگاه آخر در <bdi class="term-en" dir="ltr">Neural Machine Translation</bdi> مطرح شد: <bdi class="term-en" dir="ltr">Decoder</bdi> به‌جای تکیه بر یک خلاصهٔ ثابت، در هر گام به همهٔ <bdi class="term-en" dir="ltr">state</bdi>های <bdi class="term-en" dir="ltr">Encoder</bdi> نگاه می‌کند.</p>
+        <div class="deep-dive">
+          <h3>چرا ترتیب جمله دردسر درست می‌کند؟</h3>
+          <p>در زبان، جای کلمه‌ها مهم است. «علی به سارا کتاب داد» با «سارا به علی کتاب داد» کلمات مشابه دارد، اما نقش‌ها عوض شده‌اند. مدل باید هم ترتیب را بفهمد، هم رابطهٔ کلمه‌های دور از هم را نگه دارد.</p>
+          <ul class="example-list">
+            <li><strong>مشکل حافظهٔ فشرده:</strong> اگر کل جملهٔ بلند را مجبور کنیم در یک بردار ثابت خلاصه شود، بخشی از اطلاعات ظریف از دست می‌رود.</li>
+            <li><strong>مشکل محاسبهٔ ترتیبی:</strong> در <bdi class="term-en" dir="ltr">RNN</bdi> برای رسیدن به گام دهم باید گام‌های قبل طی شوند؛ این برای آموزش روی دادهٔ عظیم کند است.</li>
+            <li><strong>مشکل وابستگی دور:</strong> اگر فاعل اول جمله باشد و فعل خیلی آخر جمله بیاید، رابطه باید از مسیر طولانی عبور کند. <bdi class="term-en" dir="ltr">Attention</bdi> این مسیر را کوتاه‌تر می‌کند.</li>
+          </ul>
+          <p>پس <bdi class="term-en" dir="ltr">Attention</bdi> فقط یک فرمول شیک نبود؛ پاسخی به یک محدودیت عملی در مدل‌های ترتیبی بود.</p>
+        </div>
       </section>
 
       <section class="chapter" id="attention">
@@ -220,6 +318,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         <p>اگر امتیاز‌های یک <bdi class="term-en" dir="ltr">Query</bdi> برای سه توکن برابر <code>[2, 1, 0]</code> باشند، <bdi class="term-en" dir="ltr">Softmax</bdi> تقریباً وزن‌های <code>[0.665, 0.245, 0.090]</code> می‌سازد. خروجی <code>0.665V₁ + 0.245V₂ + 0.090V₃</code> است؛ مدل فقط یک توکن را انتخاب نکرده است.</p>
         <h3>چرا مقیاس‌بندی؟</h3>
         <p>با بزرگ‌شدن بُعد، ضرب‌های داخلی می‌توانند <bdi class="term-en" dir="ltr">magnitude</bdi> بزرگی پیدا کنند. <bdi class="term-en" dir="ltr">Softmax</bdi> روی اختلاف‌های بزرگ اشباع و گرادیان کوچک می‌شود. تقسیم بر ریشهٔ بُعد کلید، واریانس امتیازها را کنترل می‌کند.</p>
+        <div class="deep-dive">
+          <h3><bdi class="term-en" dir="ltr">Q/K/V</bdi> را با مثال عمومی بفهم</h3>
+          <p>فرض کن در یک متن، واژهٔ «آن» آمده و مدل باید بفهمد «آن» به چه چیزی اشاره می‌کند. <bdi class="term-en" dir="ltr">Query</bdi> نیاز موقعیت فعلی است: «مرجع من چیست؟» <bdi class="term-en" dir="ltr">Key</bdi>های بقیهٔ کلمه‌ها نشانه‌های قابل‌مقایسه‌اند، و <bdi class="term-en" dir="ltr">Value</bdi>ها محتوایی هستند که اگر مرتبط باشند وارد نمایش جدید می‌شوند.</p>
+          <ul class="example-list">
+            <li><strong>سؤال و جواب:</strong> در پرسش «پایتخت فرانسه کجاست؟»، توکن‌های مربوط به «فرانسه» و «پایتخت» باید وزن بیشتری در ساخت پاسخ بگیرند.</li>
+            <li><strong>ضمیر:</strong> در جملهٔ «مریم کتاب را برداشت چون آن را لازم داشت»، مدل باید ارتباط «آن» با «کتاب» را پیدا کند.</li>
+            <li><strong>ترجمه:</strong> هنگام ساختن کلمهٔ مقصد، مدل شاید به چند کلمهٔ مبدأ هم‌زمان توجه کند، نه فقط به یک کلمه.</li>
+          </ul>
+          <p>اشتباه رایج: <bdi class="term-en" dir="ltr">Attention weight</bdi> را توضیح کامل فکر مدل بدانیم. این وزن‌ها سرنخ‌اند، اما همیشه علت کامل رفتار مدل نیستند.</p>
+        </div>
         <div class="callout warning"><strong><bdi class="term-en" dir="ltr">Q/K/V</bdi> خود توکن نیستند:</strong> <bdi class="term-en" dir="ltr">projection</bdi>های متفاوتی از <bdi class="term-en" dir="ltr">representation</bdi> هستند: <span class="ltr">Q=XWQ, K=XWK, V=XWV</span>.</div>
         <div class="table-wrap"><table><thead><tr><th>نوع</th><th>منبع <bdi class="term-en" dir="ltr">Q</bdi></th><th>منبع <bdi class="term-en" dir="ltr">K/V</bdi></th><th>محدودیت دید</th></tr></thead><tbody>
           <tr><td><bdi class="term-en" dir="ltr">Self-Attention</bdi></td><td>همان <bdi class="term-en" dir="ltr">sequence</bdi></td><td>همان <bdi class="term-en" dir="ltr">sequence</bdi></td><td>موقعیت‌های مجاز همان ورودی</td></tr>
@@ -287,6 +395,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         <p>اگر <code>d_model=512</code> و <code>h=8</code> باشد، معمولاً هر <bdi class="term-en" dir="ltr">head</bdi> بعد ۶۴ دارد. <bdi class="term-en" dir="ltr">Q/K/V</bdi> برای همهٔ توکن‌ها ساخته و به <bdi class="term-en" dir="ltr">head</bdi>ها <bdi class="term-en" dir="ltr">reshape</bdi> می‌شوند. خروجی <bdi class="term-en" dir="ltr">head</bdi>ها دوباره به بُعد اصلی برمی‌گردد.</p>
         <h3><bdi class="term-en" dir="ltr">Residual Stream</bdi></h3>
         <p>می‌توان <bdi class="term-en" dir="ltr">representation</bdi> هر توکن را یک <bdi class="term-en" dir="ltr">stream</bdi> در نظر گرفت. <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">MLP</bdi> تغییراتی به آن اضافه می‌کنند. <bdi class="term-en" dir="ltr">Residual</bdi> باعث می‌شود هر زیرلایه لازم نباشد <bdi class="term-en" dir="ltr">representation</bdi> را از صفر بازسازی کند.</p>
+        <div class="deep-dive">
+          <h3>یک بلوک <bdi class="term-en" dir="ltr">Transformer</bdi> را مثل ایستگاه پردازش ببین</h3>
+          <p>هر توکن وارد بلوک می‌شود، اول با بقیهٔ توکن‌های مجاز ارتباط می‌گیرد، بعد نمایش خودش را با یک شبکهٔ کوچک‌تر در همان موقعیت تغییر می‌دهد. اتصال <bdi class="term-en" dir="ltr">residual</bdi> باعث می‌شود اطلاعات قبلی کامل پاک نشود؛ تغییرات جدید به جریان قبلی اضافه می‌شوند.</p>
+          <ul class="example-list">
+            <li><strong><bdi class="term-en" dir="ltr">Causal Mask</bdi>:</strong> اگر مدل هنگام آموزش جواب آینده را ببیند، تقلب کرده است. ماسک باعث می‌شود فقط گذشته و موقعیت فعلی دیده شود.</li>
+            <li><strong><bdi class="term-en" dir="ltr">Multi-Head</bdi>:</strong> چند نگاه هم‌زمان است؛ یک نگاه شاید رابطهٔ ضمیر را بگیرد، یکی نزدیکی موضوعی، یکی نشانهٔ ساختار جمله. البته این تفسیر همیشه قطعی نیست.</li>
+            <li><strong><bdi class="term-en" dir="ltr">MLP / FFN</bdi>:</strong> بعد از جابه‌جایی اطلاعات میان توکن‌ها، هر موقعیت یک تبدیل غیرخطی جدا می‌گیرد تا نمایش خودش غنی‌تر شود.</li>
+          </ul>
+          <p>اگر معماری را گم کردی، فقط این چرخه را حفظ کن: ارتباط میان توکن‌ها، پردازش داخل هر توکن، اضافه‌کردن به جریان قبلی، تکرار در لایه‌های بعدی.</p>
+        </div>
         <div class="table-wrap"><table><thead><tr><th>خانواده</th><th><bdi class="term-en" dir="ltr">Attention pattern</bdi></th><th>هدف رایج</th><th>نمونه</th></tr></thead><tbody>
           <tr><td><bdi class="term-en" dir="ltr">Encoder-only</bdi></td><td><bdi class="term-en" dir="ltr">Bidirectional Self-Attention</bdi></td><td><bdi class="term-en" dir="ltr">representation</bdi> و فهم ورودی</td><td><bdi class="term-en" dir="ltr">BERT</bdi></td></tr>
           <tr><td><bdi class="term-en" dir="ltr">Decoder-only</bdi></td><td><bdi class="term-en" dir="ltr">Causal Self-Attention</bdi></td><td>تولید توکن بعدی</td><td><bdi class="term-en" dir="ltr">GPT</bdi>، <bdi class="term-en" dir="ltr">Llama</bdi></td></tr>
@@ -308,6 +426,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         </div>
         <h3><bdi class="term-en" dir="ltr">Context Window</bdi> و حافظهٔ پارامترها</h3>
         <p><code>Context window</code> فضای موقت توکن‌های همین <bdi class="term-en" dir="ltr">request</bdi> است. پارامتر‌ها الگوهای فشردهٔ <bdi class="term-en" dir="ltr">training</bdi> هستند. افزودن سند به <bdi class="term-en" dir="ltr">prompt</bdi> با تغییر وزن‌ها یکی نیست؛ <bdi class="term-en" dir="ltr">Retrieval</bdi> اطلاعات را موقتاً در <bdi class="term-en" dir="ltr">context</bdi> می‌آورد، <bdi class="term-en" dir="ltr">Fine-tuning behavior</bdi> را در پارامتر‌ها تغییر می‌دهد.</p>
+        <div class="deep-dive">
+          <h3>LLM دقیقاً چه چیزی را یاد گرفته است؟</h3>
+          <p>مدل زبانی در آموزش بارها با این تمرین روبه‌رو می‌شود: «با دیدن متن قبلی، توکن بعدی را حدس بزن.» این تمرین ساده، مدل را مجبور می‌کند چیزهای زیادی را غیرمستقیم یاد بگیرد: دستور زبان، سبک نوشتن، رابطهٔ مفاهیم، الگوهای استدلالی رایج و بخشی از دانسته‌های موجود در داده.</p>
+          <ul class="example-list">
+            <li><strong>دانش در پارامترها:</strong> چیزی است که مدل در وزن‌هایش فشرده کرده و بدون سند تازه می‌تواند از آن استفاده کند؛ اما ممکن است قدیمی یا ناقص باشد.</li>
+            <li><strong>دانش در <bdi class="term-en" dir="ltr">context</bdi>:</strong> چیزی است که همین حالا در prompt یا فایل/سند داده‌ایم. این حافظه موقت‌تر اما قابل‌کنترل‌تر است.</li>
+            <li><strong><bdi class="term-en" dir="ltr">Fine-tuning</bdi>:</strong> بیشتر برای تغییر رفتار، سبک یا مهارت روی نمونه‌های تکرارشونده مناسب است؛ برای دانش تازهٔ مدام‌تغییر، معمولاً <bdi class="term-en" dir="ltr">Retrieval</bdi> بهتر است.</li>
+          </ul>
+          <p>پس LLM پایگاه داده نیست. یک مدل پیش‌بینی توکن است که به دلیل مقیاس زیاد، رفتارهای زبانی و دانشی پیچیده از خود نشان می‌دهد.</p>
+        </div>
       </section>
 
       <section class="chapter" id="decoding">
@@ -326,6 +454,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         </tbody></table></div>
         <h3><bdi class="term-en" dir="ltr">KV Cache</bdi></h3>
         <p>در <bdi class="term-en" dir="ltr">generation</bdi> لازم نیست <bdi class="term-en" dir="ltr">Key</bdi> و توکن‌های <bdi class="term-en" dir="ltr">Value</bdi> قبلی در هر <bdi class="term-en" dir="ltr">step</bdi> دوباره محاسبه شوند؛ <code>KV cache</code> آن‌ها را نگه می‌دارد. تأخیر کم می‌شود ولی <bdi class="term-en" dir="ltr">memory</bdi> با طول <bdi class="term-en" dir="ltr">context</bdi> رشد می‌کند.</p>
+        <div class="deep-dive">
+          <h3>چرا خروجی مدل یک‌باره تولید نمی‌شود؟</h3>
+          <p>مدل‌های زبانی معمولاً توکن بعدی را تولید می‌کنند، بعد همان توکن را به متن قبلی اضافه می‌کنند و دوباره توکن بعدی را می‌سازند. یعنی هر خروجی بلند، حاصل یک حلقهٔ تکراری است. به همین دلیل انتخاب‌های اول روی ادامهٔ پاسخ اثر می‌گذارند.</p>
+          <ul class="example-list">
+            <li><strong><bdi class="term-en" dir="ltr">Greedy</bdi>:</strong> همیشه محتمل‌ترین توکن را انتخاب می‌کند. پاسخ قابل‌تکرارتر می‌شود، اما ممکن است خشک، تکراری یا گیرکرده باشد.</li>
+            <li><strong><bdi class="term-en" dir="ltr">Top-p</bdi>:</strong> از میان مجموعه‌ای از گزینه‌های محتمل نمونه‌گیری می‌کند. اگر مدل مطمئن باشد مجموعه کوچک می‌شود؛ اگر نامطمئن باشد گزینه‌های بیشتری وارد می‌شوند.</li>
+            <li><strong><bdi class="term-en" dir="ltr">KV Cache</bdi>:</strong> مثل نگه‌داشتن محاسبات قبلی است تا برای هر توکن جدید همهٔ گذشته از صفر محاسبه نشود.</li>
+          </ul>
+          <p>هرچه خروجی طولانی‌تر شود، تصمیم‌های قبلی بیشتر روی مسیر بعدی اثر می‌گذارند؛ برای همین prompt خوب و محدودیت خروجی مهم است.</p>
+        </div>
         <div class="callout warning"><strong>قطعی ≠ <bdi class="term-en" dir="ltr">correct:</bdi></strong> <bdi class="term-en" dir="ltr">temperature</bdi> پایین ممکن است خروجی را تکرارپذیرتر کند، اما اگر محتمل‌ترین ادامه غلط باشد همان غلط را انتخاب می‌کند.</div>
       </section>
 
@@ -334,7 +472,7 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         <p><code>Hallucination</code> یعنی خروجی روان و ظاهراً معتبر که با شواهد یا واقعیت پشتیبانی نمی‌شود. مدل برای تولید <bdi class="term-en" dir="ltr">continuation</bdi> محتمل آموزش دیده، نه برای <bdi class="term-en" dir="ltr">query</bdi> خودکار روی حقیقت بیرونی. عبارت <code>hallucinated</code> در این حوزه یعنی تولید بدون پشتوانه، نه تجربهٔ انسانی یا پزشکی.</p>
         <div class="grid-2">
           <article class="card"><h3><bdi class="term-en" dir="ltr">Retrieval / RAG</bdi></h3><p>سند مرتبط را هنگام <bdi class="term-en" dir="ltr">request</bdi> وارد <bdi class="term-en" dir="ltr">context</bdi> کن؛ مناسب دانش تازه، خصوصی و قابل‌استناد.</p></article>
-          <article class="card"><h3>استفاده از ابزار</h3><p>برای <bdi class="term-en" dir="ltr">log</bdi>، <bdi class="term-en" dir="ltr">database</bdi>، <bdi class="term-en" dir="ltr">calculator</bdi> یا <bdi class="term-en" dir="ltr">API</bdi> به‌جای حدس، <bdi class="term-en" dir="ltr">observation</bdi> واقعی بگیر.</p></article>
+          <article class="card"><h3>استفاده از ابزار</h3><p>برای فایل، ماشین‌حساب، <bdi class="term-en" dir="ltr">API</bdi> یا دادهٔ زنده به‌جای حدس، <bdi class="term-en" dir="ltr">observation</bdi> واقعی بگیر.</p></article>
           <article class="card"><h3>خروجی ساختاریافته</h3><p><bdi class="term-en" dir="ltr">schema</bdi> شکل خروجی را کنترل می‌کند؛ صحت <bdi class="term-en" dir="ltr">factual</bdi> را به‌تنهایی تضمین نمی‌کند.</p></article>
           <article class="card"><h3>ارزیابی</h3><p>روی <bdi class="term-en" dir="ltr">dataset</bdi> دیده‌نشده، <bdi class="term-en" dir="ltr">metric</bdi> و <bdi class="term-en" dir="ltr">baseline</bdi> تعریف کن.</p></article>
         </div>
@@ -343,6 +481,16 @@ token_ids: [8142, 391, 2207, 118, 9201]   # illustrative only</code></pre>
         <div class="formula">W′ = W + BA &nbsp;&nbsp; where rank r ≪ model dimension</div>
         <h3><bdi class="term-en" dir="ltr">Quantization</bdi></h3>
         <p>نمایش وزن‌ها با <bdi class="term-en" dir="ltr">bit</bdi> کمتر <bdi class="term-en" dir="ltr">memory</bdi> و <bdi class="term-en" dir="ltr">bandwidth</bdi> را کاهش می‌دهد، اما ممکن است <bdi class="term-en" dir="ltr">approximation error</bdi> وارد کند. <bdi class="term-en" dir="ltr">storage dtype</bdi>، <bdi class="term-en" dir="ltr">compute dtype</bdi> و <bdi class="term-en" dir="ltr">dtype</bdi> پارامترهای <bdi class="term-en" dir="ltr">trainable</bdi> جدا هستند؛ «مدل ۴ بیتی» به معنی ۴ بیتی‌بودن همهٔ عملیات نیست.</p>
+        <div class="deep-dive">
+          <h3>چه زمانی از کدام راه استفاده کنیم؟</h3>
+          <p>خیلی از خطاها از اینجا می‌آیند که برای هر مشکل، یک راه‌حل محبوب را انتخاب کنیم. اما هر راه‌حل برای نوع خاصی از مشکل مناسب است. اگر مدل چیزی را نمی‌داند، همیشه جواب <bdi class="term-en" dir="ltr">Fine-tuning</bdi> نیست؛ اگر خروجی قالب بدی دارد، همیشه جواب <bdi class="term-en" dir="ltr">RAG</bdi> نیست.</p>
+          <ul class="example-list">
+            <li><strong>دانش تازه یا قابل‌استناد:</strong> سند را بیاور، یعنی <bdi class="term-en" dir="ltr">Retrieval / RAG</bdi>. مدل با سند پاسخ می‌دهد و امکان ارجاع بهتر می‌شود.</li>
+            <li><strong>رفتار تکرارشونده:</strong> اگر مدل باید سبک، قالب یا الگوی پاسخ مشخصی را بارها رعایت کند، <bdi class="term-en" dir="ltr">Fine-tuning</bdi> یا نمونه‌های خوب در prompt می‌تواند کمک کند.</li>
+            <li><strong>محاسبه یا مشاهدهٔ بیرونی:</strong> اگر جواب باید از ماشین حساب، فایل، API یا دادهٔ زنده بیاید، استفاده از ابزار بهتر از حدس مدل است.</li>
+          </ul>
+          <p>قاعدهٔ طلایی: هرجا پاسخ باید به واقعیت بیرونی وصل باشد، مدل را تنها نگذار؛ شواهد، ابزار یا ارزیابی کنار آن بگذار.</p>
+        </div>
         <div class="callout success"><strong>قاعدهٔ تصمیم:</strong> دانش متغیر → <bdi class="term-en" dir="ltr">Retrieval</bdi>؛ اقدام/مشاهدهٔ بیرونی → <bdi class="term-en" dir="ltr">Tool</bdi>؛ قالب معتبر → <bdi class="term-en" dir="ltr">Schema</bdi>؛ رفتار تکراری با <bdi class="term-en" dir="ltr">example</bdi> کافی → <bdi class="term-en" dir="ltr">Fine-tuning</bdi>؛ و در همهٔ حالت‌ها → ارزیابی.</div>
       </section>
 

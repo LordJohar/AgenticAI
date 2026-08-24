@@ -12,6 +12,11 @@
   const saveLocal = () => {
     try { localStorage.setItem(key, JSON.stringify(state)); } catch (_) { /* optional */ }
   };
+  const syncBoxes = (id) => {
+    boxes
+      .filter((box) => box.dataset.progressId === id)
+      .forEach((box) => { box.checked = Boolean(state[id]); });
+  };
   const renderProgress = () => {
     const done = ids.filter((id) => Boolean(state[id])).length;
     const pct = Math.round(done / ids.length * 100);
@@ -24,6 +29,7 @@
       box.checked = Boolean(state[box.dataset.progressId]);
       box.addEventListener('change', () => {
         state[box.dataset.progressId] = box.checked;
+        syncBoxes(box.dataset.progressId);
         saveLocal();
         renderProgress();
       });
@@ -43,7 +49,7 @@
   document.querySelectorAll('[data-action="print"]').forEach((button) => button.addEventListener('click', () => window.print()));
   document.querySelector('#toc-search')?.addEventListener('input', (event) => {
     const query = event.target.value.trim().toLocaleLowerCase('fa');
-    links.forEach((link) => link.classList.toggle('hidden', query && !link.textContent.toLocaleLowerCase('fa').includes(query)));
+    links.forEach((link) => link.closest('.toc-item')?.classList.toggle('hidden', query && !link.textContent.toLocaleLowerCase('fa').includes(query)));
   });
 
   const sections = [...document.querySelectorAll('.chapter[id]')];
