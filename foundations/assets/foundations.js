@@ -8,6 +8,7 @@
   let state = {};
   let volatileProgress = {};
   let volatileHighlights = [];
+  let activeHighlightSignature = '';
 
   const readLocal = () => {
     try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch (_) { return volatileProgress; }
@@ -77,6 +78,18 @@
   const setHighlightStatus = (message) => {
     if (highlightStatus) highlightStatus.textContent = message;
   };
+  const highlightSignature = (item) => [item.id, item.start, item.end, item.text || ''].join('|');
+  const rangesOverlap = (aStart, aEnd, bStart, bEnd) => Math.max(aStart, bStart) < Math.min(aEnd, bEnd);
+  const updateEraseState = () => {
+    document.querySelector('[data-action="clear-highlights"]')?.classList.toggle('ready', Boolean(activeHighlightSignature));
+  };
+  const setActiveHighlight = (signature) => {
+    activeHighlightSignature = signature || '';
+    document.querySelectorAll('mark.study-highlight').forEach((mark) => {
+      mark.classList.toggle('active-highlight', mark.dataset.highlightSignature === activeHighlightSignature);
+    });
+    updateEraseState();
+  };
   const closestChapter = (node) => {
     const element = node?.nodeType === Node.TEXT_NODE ? node.parentElement : node;
     return element?.closest?.('.chapter[id]') || null;
@@ -96,7 +109,7 @@
       text.parentElement?.normalize();
     });
   };
-  const wrapTextRange = (section, start, end) => {
+  const wrapTextRange = (section, start, end, signature) => {
     if (end <= start) return;
     const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
     const nodes = [];
@@ -120,6 +133,8 @@
       const selected = node.splitText(nodeStart);
       const mark = document.createElement('mark');
       mark.className = 'study-highlight';
+      mark.dataset.highlightSignature = signature;
+      mark.title = 'برای حذف این هایلایت، اول روی آن بزن و بعد پاک‌کن را بزن.';
       mark.textContent = selected.nodeValue;
       selected.replaceWith(mark);
       after.parentElement?.normalize();
@@ -127,13 +142,17 @@
   };
   const renderHighlights = () => {
     clearRenderedHighlights();
-    readHighlights()
-      .filter((item) => item?.id && Number.isFinite(item.start) && Number.isFinite(item.end))
+    const highlights = readHighlights()
+      .filter((item) => item?.id && Number.isFinite(item.start) && Number.isFinite(item.end));
+    const signatures = new Set(highlights.map(highlightSignature));
+    if (!signatures.has(activeHighlightSignature)) activeHighlightSignature = '';
+    highlights
       .sort((a, b) => b.start - a.start)
       .forEach((item) => {
         const section = document.getElementById(item.id);
-        if (section) wrapTextRange(section, item.start, item.end);
+        if (section) wrapTextRange(section, item.start, item.end, highlightSignature(item));
       });
+    setActiveHighlight(activeHighlightSignature);
   };
   const addHighlight = () => {
     const selection = window.getSelection();
@@ -162,16 +181,53 @@
     selection.removeAllRanges();
     setHighlightStatus('هایلایت ذخیره شد.');
   };
-  const clearHighlights = () => {
-    saveHighlights([]);
-    clearRenderedHighlights();
-    setHighlightStatus('همهٔ هایلایت‌های همین مرورگر پاک شد.');
+  const removeSelectedHighlight = () => {
+    const selection = window.getSelection();
+    let highlights = readHighlights();
+    if (selection && selection.rangeCount > 0 && !selection.isCollapsed) {
+      const range = selection.getRangeAt(0);
+      const section = closestChapter(range.commonAncestorContainer);
+      if (section && section.contains(range.startContainer) && section.contains(range.endContainer)) {
+        const start = textOffset(section, range.startContainer, range.startOffset);
+        const end = textOffset(section, range.endContainer, range.endOffset);
+        const selectedStart = Math.min(start, end);
+        const selectedEnd = Math.max(start, end);
+        const before = highlights.length;
+        highlights = highlights.filter((item) => item.id !== section.id || !rangesOverlap(item.start, item.end, selectedStart, selectedEnd));
+        const removed = before - highlights.length;
+        if (removed > 0) {
+          saveHighlights(highlights);
+          activeHighlightSignature = '';
+          renderHighlights();
+          selection.removeAllRanges();
+          setHighlightStatus(`${removed.toLocaleString('fa-IR')} هایلایت انتخاب‌شده پاک شد.`);
+          return;
+        }
+      }
+    }
+    if (activeHighlightSignature) {
+      const before = highlights.length;
+      highlights = highlights.filter((item) => highlightSignature(item) !== activeHighlightSignature);
+      const removed = before - highlights.length;
+      saveHighlights(highlights);
+      activeHighlightSignature = '';
+      renderHighlights();
+      setHighlightStatus(removed > 0 ? 'هایلایت انتخاب‌شده پاک شد.' : 'این هایلایت قبلاً پاک شده بود.');
+      return;
+    }
+    setHighlightStatus('برای پاک‌کردن، اول روی یک هایلایت بزن یا متن هایلایت‌شده را انتخاب کن.');
   };
+  document.addEventListener('click', (event) => {
+    const mark = event.target.closest?.('mark.study-highlight');
+    if (!mark) return;
+    setActiveHighlight(mark.dataset.highlightSignature || '');
+    setHighlightStatus('هایلایت انتخاب شد؛ برای حذف، پاک‌کن را بزن.');
+  });
   document.querySelectorAll('[data-action="highlight"], [data-action="clear-highlights"]').forEach((button) => {
     button.addEventListener('mousedown', (event) => event.preventDefault());
   });
   document.querySelector('[data-action="highlight"]')?.addEventListener('click', addHighlight);
-  document.querySelector('[data-action="clear-highlights"]')?.addEventListener('click', clearHighlights);
+  document.querySelector('[data-action="clear-highlights"]')?.addEventListener('click', removeSelectedHighlight);
   renderHighlights();
 
   const softmaxInput = document.querySelector('[data-softmax-input]');
