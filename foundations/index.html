@@ -38,13 +38,18 @@
       <div class="toc-item"><input type="checkbox" data-progress-id="limits" aria-label="تیک فصل Hallucination و محدودیت"><a href="#limits">۱۴. <bdi class="term-en" dir="ltr">Hallucination</bdi>، محدودیت و تطبیق</a></div>
       <div class="toc-item"><input type="checkbox" data-progress-id="glossary" aria-label="تیک فصل واژه‌نامه و منابع"><a href="#glossary">۱۵. واژه‌نامه و منابع</a></div>
     </nav>
-    <div class="study-tools" aria-label="ابزار مطالعه">
-      <button class="icon-button" type="button" data-action="highlight">هایلایت زرد</button>
-      <button class="icon-button" type="button" data-action="clear-highlights">پاک‌کردن هایلایت‌ها</button>
-      <p class="small" data-highlight-status>متن نامفهوم را انتخاب کن و هایلایت بزن.</p>
-    </div>
     <div class="sidebar-actions"><button class="icon-button" type="button" data-action="print">چاپ / <bdi class="term-en" dir="ltr">PDF</bdi></button><a class="icon-button" href="../week-01/index.html">هفتهٔ اول</a></div>
   </aside>
+
+  <div class="floating-study-tools" aria-label="ابزار هایلایت">
+    <button class="floating-tool highlight-tool" type="button" data-action="highlight" title="هایلایت زرد" aria-label="هایلایت زرد">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.4 19.6 8.6 9.2 19H5v-4.2L15.4 4.4Z"/><path d="M13.8 6 18 10.2"/><path d="M4 21h16"/></svg>
+    </button>
+    <button class="floating-tool erase-tool" type="button" data-action="clear-highlights" title="پاک‌کردن هایلایت‌ها" aria-label="پاک‌کردن هایلایت‌ها">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16 14.5 5.5a2.1 2.1 0 0 1 3 0l1 1a2.1 2.1 0 0 1 0 3L10 18H6l-2-2Z"/><path d="M10 18h10"/><path d="M12.5 7.5l4 4"/></svg>
+    </button>
+    <p class="sr-only" data-highlight-status aria-live="polite">متن نامفهوم را انتخاب کن و هایلایت بزن.</p>
+  </div>
 
   <div class="main">
     <div class="mobile-bar"><button class="icon-button" type="button" data-action="menu">فهرست</button><strong data-progress-text>۰٪</strong></div>
@@ -152,13 +157,24 @@ batch:   32 × 4 × 8       shape: [32, 4, 8]</code></pre></article>
         <div class="diagram"><div class="flow"><span class="flow-node">لایهٔ ورودی<br><bdi class="term-en" dir="ltr">x</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Linear + Activation</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Hidden representation</bdi></span><span class="flow-arrow">→</span><span class="flow-node"><bdi class="term-en" dir="ltr">Output logits</bdi></span></div></div>
         <p>ترکیب چند تابع خطی بدون <bdi class="term-en" dir="ltr">activation</bdi> هنوز یک تابع خطی است. غیرخطی‌بودن اجازه می‌دهد شبکه رابطه‌های پیچیده را مدل کند. <code>Deep</code> یعنی چندین مرحلهٔ <bdi class="term-en" dir="ltr">representation</bdi> پشت سر هم قرار گرفته‌اند.</p>
         <div class="grid-2">
-          <article class="card"><h3>لایه</h3><p>یک تبدیل مشخص روی تنسور. در <bdi class="term-en" dir="ltr">Transformer</bdi>، <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">Feed-Forward</bdi> هر دو نوعی لایه / زیرلایه هستند.</p></article>
+          <article class="card"><h3>لایه</h3><p>لایه یک مرحلهٔ مشخص از پردازش است: تنسور را می‌گیرد، روی آن محاسبه انجام می‌دهد و تنسور تازه‌ای برمی‌گرداند. بعضی لایه‌ها پارامتر آموختنی دارند، مثل لایهٔ خطی؛ بعضی فقط شکل یا مقیاس داده را عوض می‌کنند. در <bdi class="term-en" dir="ltr">Transformer</bdi>، <bdi class="term-en" dir="ltr">Attention</bdi> و <bdi class="term-en" dir="ltr">Feed-Forward</bdi> معمولاً زیرلایه‌های یک بلوک بزرگ‌تر هستند.</p></article>
           <article class="card"><h3><bdi class="term-en" dir="ltr">Representation</bdi></h3><p>شکل عددی‌ای که مدل در یک مرحله برای بیان اطلاعات ساخته است.</p></article>
           <article class="card"><h3>تعداد پارامترها</h3><p>تعداد وزن‌ها و بایاس‌های قابل‌یادگیری. <bdi class="term-en" dir="ltr">7B</bdi> تقریباً یعنی هفت میلیارد پارامتر، نه هفت میلیارد خط کد.</p></article>
           <article class="card"><h3>معماری</h3><p>نقشهٔ اتصال لایه‌ها و جریان داده. <bdi class="term-en" dir="ltr">Training</bdi> پارامترها را تعیین می‌کند؛ معماری ظرف محاسبات است.</p></article>
         </div>
         <h3>تعمیم و <bdi class="term-en" dir="ltr">Overfitting</bdi></h3>
         <p>هدف حفظ‌کردن <bdi class="term-en" dir="ltr">training set</bdi> نیست؛ مدل باید روی <bdi class="term-en" dir="ltr">example</bdi> ندیده خوب کار کند. اگر <bdi class="term-en" dir="ltr">training loss</bdi> پایین ولی زیان اعتبارسنجی بالا باشد، احتمال <code>overfitting</code> وجود دارد. تقسیم <bdi class="term-en" dir="ltr">train/validation/test</bdi> کمک می‌کند یادگیری را از حفظ‌کردن جدا کنیم.</p>
+        <div class="deep-dive">
+          <h3>لایه را دقیق‌تر بفهمیم</h3>
+          <p>وقتی می‌گوییم «لایه»، منظورمان یک مرحله از خط تولید عددی مدل است. ورودی و خروجی هر لایه معمولاً تنسور است، اما معنی تنسور در هر مرحله فرق می‌کند. اول مسیر، تنسور ممکن است نمایش عددی توکن‌ها باشد؛ وسط مسیر، همان تنسور تبدیل به نمایش غنی‌تر متن می‌شود؛ آخر مسیر، تنسور به امتیاز توکن‌های بعدی نزدیک می‌شود.</p>
+          <ul class="example-list">
+            <li><strong>لایهٔ خطی:</strong> شبیه یک ترکیب وزن‌دار است. ورودی را با ماتریس وزن‌ها ضرب می‌کند و بایاس را اضافه می‌کند. این لایه پارامتر آموختنی دارد.</li>
+            <li><strong>تابع فعال‌سازی:</strong> بعد از یک تبدیل خطی می‌آید تا غیرخطی‌بودن اضافه کند. همیشه به اندازهٔ لایهٔ خطی پارامتر ندارد، اما رفتار مدل را عوض می‌کند.</li>
+            <li><strong>لایهٔ <bdi class="term-en" dir="ltr">Attention</bdi>:</strong> برای هر توکن تصمیم می‌گیرد از بقیهٔ توکن‌های مجاز چقدر اطلاعات بگیرد. خروجی هنوز تنسور است، اما هر موقعیت با زمینهٔ اطرافش غنی‌تر شده است.</li>
+            <li><strong>لایهٔ <bdi class="term-en" dir="ltr">Feed-Forward</bdi>:</strong> بعد از <bdi class="term-en" dir="ltr">Attention</bdi> روی هر موقعیت جداگانه پردازش غیرخطی انجام می‌دهد؛ انگار هر توکن فرصت دارد نمایش خودش را دوباره بازنویسی کند.</li>
+          </ul>
+          <p>پس «لایه» الزاماً یک جعبهٔ یکسان نیست. بیشتر شبیه اسم عمومی برای مرحله‌های پردازش است. «معماری» می‌گوید این مرحله‌ها با چه ترتیبی کنار هم چیده شده‌اند؛ «پارامترها» مقدارهای قابل‌یادگیری داخل بعضی از همین مرحله‌ها هستند.</p>
+        </div>
         <div class="deep-dive">
           <h3>چرا شبکهٔ چندلایه لازم می‌شود؟</h3>
           <p>یک مدل خطی فقط می‌تواند رابطه‌های ساده را خوب بگیرد. اما خیلی از مسائل واقعی ترکیبی‌اند: یک نشانه به‌تنهایی کافی نیست، ولی ترکیب چند نشانه معنی می‌سازد. لایه‌های میانی کمک می‌کنند مدل از ویژگی‌های خام، نمایش‌های پیچیده‌تر بسازد.</p>

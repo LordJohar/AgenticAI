@@ -22,10 +22,15 @@ button, input { font: inherit; }
 .toc a { min-width: 0; padding: .43rem .35rem; border-radius: 9px; color: var(--muted); text-decoration: none; font-size: .87rem; }
 .toc a:hover, .toc a.active { color: var(--text); background: var(--surface-2); }
 .toc-item.hidden { display: none; }
-.study-tools { display: grid; gap: .5rem; margin-top: 1rem; padding: .8rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); }
-.study-tools .small { margin: 0; }
 .sidebar-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1rem; }
 .icon-button { cursor: pointer; padding: .6rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); }
+.floating-study-tools { position: fixed; left: 18px; top: 50%; transform: translateY(-50%); z-index: 30; display: grid; gap: .55rem; padding: .45rem; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.92); box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+.floating-tool { display: grid; place-items: center; width: 48px; height: 48px; cursor: pointer; border: 1px solid var(--line); border-radius: 12px; color: var(--text); background: var(--surface); transition: transform .15s ease, border-color .15s ease, background .15s ease; }
+.floating-tool:hover { transform: translateY(-1px); border-color: var(--primary); }
+.floating-tool svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.highlight-tool { color: #7c5a00; background: #fff1a8; }
+.erase-tool { color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; clip-path: inset(50%); }
 .main { min-width: 0; }
 .mobile-bar { display: none; position: sticky; top: 0; z-index: 15; align-items: center; justify-content: space-between; padding: .65rem 1rem; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
 .content { width: min(1080px, calc(100% - 42px)); margin: 0 auto; padding: 2rem 0 5rem; }
@@ -119,6 +124,8 @@ button, input { font: inherit; }
   .sidebar { position: fixed; right: 0; width: min(88vw, 340px); transform: translateX(105%); transition: transform .2s ease; box-shadow: var(--shadow); }
   .sidebar.open { transform: translateX(0); }
   .content { width: min(100% - 18px, 1080px); padding-top: .8rem; }
+  .floating-study-tools { left: .65rem; top: auto; bottom: 1rem; transform: none; grid-auto-flow: column; }
+  .floating-tool { width: 44px; height: 44px; }
   .grid-2, .grid-3, .learning-grid { grid-template-columns: 1fr; }
   .chapter-header { flex-wrap: wrap; }
   .chapter-complete { width: 100%; }
@@ -128,7 +135,7 @@ button, input { font: inherit; }
 }
 
 @media print {
-  .sidebar, .mobile-bar, .chapter-complete, .sidebar-actions, .search-box, .progress-wrap, .study-tools { display: none !important; }
+  .sidebar, .mobile-bar, .chapter-complete, .sidebar-actions, .search-box, .progress-wrap, .floating-study-tools { display: none !important; }
   .app-shell { display: block; }
   .content { width: 100%; padding: 0; }
   .hero, .chapter { box-shadow: none; }
