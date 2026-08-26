@@ -4,6 +4,9 @@
 /recordings/
 /local-media/
 
+# Personal homework workspaces and submitted exercise artifacts
+/week-01/exercises/
+
 # Python and local environments
 **/__pycache__/
 *.py[cod]
