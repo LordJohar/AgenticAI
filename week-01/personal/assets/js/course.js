@@ -178,4 +178,13 @@
     }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.01, 0.2, 0.5] });
     sections.forEach((section) => observer.observe(section));
   }
+
+  {
+    const sharedNavigation = document.createElement('script');
+    sharedNavigation.src = scriptUrl
+      ? new URL('../../../../assets/js/personal-learning-nav.js', scriptUrl).href
+      : new URL('../../assets/js/personal-learning-nav.js', window.location.href).href;
+    sharedNavigation.dataset.currentWeek = 'week-01';
+    document.body.appendChild(sharedNavigation);
+  }
 })();

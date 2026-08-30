@@ -5,7 +5,7 @@
 /local-media/
 
 # Personal homework workspaces and submitted exercise artifacts
-/week-01/exercises/
+/week-*/exercises/
 
 # Python and local environments
 **/__pycache__/

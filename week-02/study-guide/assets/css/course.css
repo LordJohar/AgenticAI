@@ -1,0 +1,20 @@
+@import url("../../../../week-01/personal/assets/css/course.css");
+
+.toc-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: .4rem;
+}
+.toc-row input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.toc-row a { min-width: 0; }
+
+@media print {
+  .toc-row input { display: none; }
+}
