@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>جلسهٔ اول — تنظیم تولید، Prompting و RAG</title>
+  <link rel="stylesheet" href="../../../assets/css/vazirmatn.css">
+  <link rel="stylesheet" href="../assets/notes.css">
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="eyebrow"><bdi class="term-en" dir="ltr">SESSION</bdi> 01 · ۱۴۰۵/۰۶/۰۵</div>
+    <h1>تنظیم تولید، <bdi class="term-en" dir="ltr">Prompting</bdi> و <bdi class="term-en" dir="ltr">RAG</bdi></h1>
+    <p class="lead">این جلسه یک زنجیره می‌سازد: مدل ابتدا برای هر توکن «امتیاز» می‌دهد، تنظیمات تولید از میان گزینه‌ها انتخاب را کنترل می‌کنند، <bdi class="term-en" dir="ltr">Prompt</bdi> مسئله را روشن می‌کند و در نهایت <bdi class="term-en" dir="ltr">RAG</bdi> دانشی را که مدل در ورودی ندارد به آن می‌رساند.</p>
+    <div class="meta">
+      <div><small>خروجی مطلوب</small><strong>انتخاب تنظیم متناسب با کار</strong></div>
+      <div><small>سؤال کلیدی</small><strong>کدام اطلاعات باید داخل <bdi class="term-en" dir="ltr">context</bdi> باشد؟</strong></div>
+      <div><small>خطای رایج</small><strong>تنظیم بیشتر ≠ پاسخ بهتر</strong></div>
+      <div><small>سطح</small><strong>مفهومی + کاربردی</strong></div>
+    </div>
+  </header>
+
+  <nav class="section" aria-label="فهرست جلسه">
+    <h2>فهرست سریع</h2>
+    <ul class="toc">
+      <li><a href="#timeline">تایم‌لاین</a></li>
+      <li><a href="#sampling">انتخاب توکن و تنظیم‌ها</a></li>
+      <li><a href="#temperature"><bdi class="term-en" dir="ltr">Temperature</bdi> و <bdi class="term-en" dir="ltr">top-p</bdi></a></li>
+      <li><a href="#messages">پیام‌ها، نقش‌ها و اطمینان</a></li>
+      <li><a href="#prompt">تکنیک‌های <bdi class="term-en" dir="ltr">Prompting</bdi></a></li>
+      <li><a href="#rag"><bdi class="term-en" dir="ltr">RAG</bdi></a></li>
+      <li><a href="#practice">خودآزمایی</a></li>
+    </ul>
+  </nav>
+
+  <section class="section" id="timeline">
+    <h2>۱. تایم‌لاین آموزشی</h2>
+    <p class="callout">تایم‌کدها برای بازگشت به فایل شخصی مفیدند. عنوان‌ها بازنویسی آموزشی‌اند و متن خام گفتار در این مخزن وجود ندارد.</p>
+    <table class="timeline">
+      <thead><tr><th>بازهٔ تقریبی</th><th>موضوع</th><th>چیزی که باید بفهمی</th></tr></thead>
+      <tbody>
+        <tr><td class="ltr">05-01 · 00:08–00:37</td><td>انتخاب توکن و تنظیم‌های تولید</td><td><bdi class="term-en" dir="ltr">temperature</bdi>، <bdi class="term-en" dir="ltr">top-p</bdi>، سقف خروجی، توقف و جریمهٔ تکرار.</td></tr>
+        <tr><td class="ltr">05-01 · 00:40–01:24</td><td>پیام‌ها، نقش‌ها و دموی API</td><td>ساختار <bdi class="term-en" dir="ltr">system/user</bdi>، خروجی ساختاریافته و تفاوت اطمینان با صحت.</td></tr>
+        <tr><td class="ltr">05-01 · 01:30–01:43</td><td>اجزای Prompt و آزمایش context</td><td>مدل به اطلاعاتی پاسخ می‌دهد که واقعاً در ورودیِ همان نوبت در اختیارش است.</td></tr>
+        <tr><td class="ltr">05-02 · 00:16–01:34</td><td>تکنیک‌های <bdi class="term-en" dir="ltr">Prompting</bdi></td><td>از نمونه‌دادن تا تفکیک گام‌ها و استدلال کنترل‌شده.</td></tr>
+        <tr><td class="ltr">05-02 · 01:34–01:48</td><td><bdi class="term-en" dir="ltr">RAG</bdi> و نمودار بازیابی</td><td>مدل پاسخ را از «حافظهٔ پارامتری» و «شواهد بازیابی‌شده» جدا می‌سازد.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="sampling">
+    <h2>۲. قبل از <bdi class="term-en" dir="ltr">Prompt</bdi>: مدل چگونه یک توکن برمی‌دارد؟</h2>
+    <p>پس از دیدن ورودی، مدل برای همهٔ توکن‌های ممکن یک امتیاز می‌سازد. این امتیازها پس از <bdi class="term-en" dir="ltr">softmax</bdi> به احتمال تبدیل می‌شوند. سپس سیاست انتخاب تصمیم می‌گیرد که همیشه محتمل‌ترین توکن را بردارد یا از میان چند گزینه نمونه‌گیری کند.</p>
+    <div class="grid">
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Greedy</bdi></h3><p>همیشه محتمل‌ترین توکن را برمی‌دارد. تکرارپذیرتر است، ولی می‌تواند خشک، تکراری یا گرفتار یک مسیر بد شود.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Sampling</bdi></h3><p>از روی احتمال‌ها نمونه می‌گیرد. تنوع می‌دهد، اما اگر فضای گزینه‌ها را کنترل نکنی، خطا و بی‌ربطی هم بیشتر می‌شود.</p></article>
+      <article class="card"><h3>مرز مهم</h3><p>این تنظیم‌ها دانش جدیدی به مدل اضافه نمی‌کنند. آن‌ها فقط رفتار انتخاب از دانشی را کنترل می‌کنند که مدل و <bdi class="term-en" dir="ltr">context</bdi> فعلی فراهم کرده‌اند.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="temperature">
+    <h2>۳. <bdi class="term-en" dir="ltr">Temperature</bdi>، <bdi class="term-en" dir="ltr">top-p</bdi> و جریمهٔ تکرار</h2>
+    <h3><bdi class="term-en" dir="ltr">Temperature</bdi> واقعاً چه می‌کند؟</h3>
+    <p>پیش از <bdi class="term-en" dir="ltr">softmax</bdi>، امتیازها بر دما تقسیم می‌شوند:</p>
+    <div class="formula">pᵢ = softmax(zᵢ / T)</div>
+    <p>اگر <bdi class="term-en" dir="ltr">T</bdi> کوچک‌تر از یک باشد، فاصلهٔ امتیازها اثر بیشتری می‌گیرد؛ احتمال گزینهٔ اول برجسته‌تر و خروجی محافظه‌کارتر می‌شود. اگر <bdi class="term-en" dir="ltr">T</bdi> بزرگ‌تر شود، احتمال‌ها به‌هم نزدیک‌تر می‌شوند و انتخاب‌های کم‌احتمال‌تر شانس بیشتری پیدا می‌کنند.</p>
+    <p class="warning callout"><strong>ترجمهٔ دقیق‌ترِ «خلاقیت»:</strong> دما، کیفیت یا هوش مدل را زیاد نمی‌کند. فقط پخش‌شدگی توزیع انتخاب را تغییر می‌دهد. برای محاسبه، استخراج و خروجی ساختاریافته، دمای پایین معمولاً انتخاب معقول‌تری است؛ برای ایده‌پردازی می‌توان کمی آن را بالا برد.</p>
+    <h3><bdi class="term-en" dir="ltr">top-p</bdi> یا <bdi class="term-en" dir="ltr">nucleus sampling</bdi></h3>
+    <p>توکن‌ها را از بیشترین احتمال مرتب کن و کوچک‌ترین مجموعه‌ای را بردار که مجموع احتمال آن به <bdi class="term-en" dir="ltr">p</bdi> برسد. فقط از همان مجموعه نمونه‌گیری می‌شود. بنابراین اندازهٔ مجموعه ثابت نیست: وقتی مدل مطمئن است، کوچک؛ وقتی مردد است، بزرگ‌تر می‌شود.</p>
+    <h3>سقف توکن و پایان پاسخ</h3>
+    <p><bdi class="term-en" dir="ltr">max tokens</bdi> فقط سقف طول خروجی است. اگر پاسخ وسط جمله برید، ابتدا بررسی کن که آیا مدل به سقف خورده، نشانهٔ پایان تولید را دیده، یا ورودی/دستور باعث پاسخ کوتاه شده است. افزایش کورکورانهٔ سقف، هزینه و تأخیر را بالا می‌برد.</p>
+    <h3>دو جریمهٔ شبیه، اما متفاوت</h3>
+    <table class="timeline">
+      <thead><tr><th>تنظیم</th><th>به چه چیزی حساس است؟</th><th>نتیجهٔ مورد انتظار</th></tr></thead>
+      <tbody>
+        <tr><td><bdi class="term-en" dir="ltr">frequency penalty</bdi></td><td>تعداد دفعات تکرار توکن</td><td>توکنی که بارها آمده، دوباره کمتر ترجیح داده شود.</td></tr>
+        <tr><td><bdi class="term-en" dir="ltr">presence penalty</bdi></td><td>این‌که توکن دست‌کم یک‌بار دیده شده یا نه</td><td>مدل تشویق شود سراغ واژه یا موضوع تازه‌تری برود.</td></tr>
+      </tbody>
+    </table>
+    <p>این‌ها درمان قطعی برای تکرار یا کیفیت بد نیستند. اگر ریشهٔ مشکل <bdi class="term-en" dir="ltr">Prompt</bdi> مبهم، دادهٔ ناقص یا چرخهٔ ابزار بی‌پایان باشد، جریمه فقط نشانه را دست‌کاری می‌کند.</p>
+  </section>
+
+  <section class="section" id="prompt">
+    <h2>۴. تکنیک‌های <bdi class="term-en" dir="ltr">Prompting</bdi>: انتخاب ابزار، نه ورد جادویی</h2>
+    <p>نام‌های زیادِ تکنیک‌ها ترسناک‌اند؛ اما بیشترشان پاسخ به یک سؤال‌اند: «مدل برای حل این کار، چه راهنمایی یا چه مرحلهٔ میانی‌ای لازم دارد؟»</p>
+    <div class="grid">
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Zero-shot</bdi></h3><p>فقط دستور روشن می‌دهی. وقتی کار آشنا و قالب پاسخ ساده است، از همین شروع کن.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Few-shot</bdi></h3><p>چند نمونهٔ ورودی/خروجی می‌دهی تا مدل قرارداد، لحن یا لبه‌های مسئله را تقلید کند.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Chain-of-thought</bdi></h3><p>برای استدلال چندگام، مسئله را به گام‌های قابل‌بررسی می‌شکنی. در محصول، لازم نیست دلیل خام مدل را به کاربر نشان دهی؛ نتیجه و شواهد را اعتبارسنجی کن.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Self-consistency</bdi></h3><p>چند مسیر پاسخ می‌گیری و روی نتیجهٔ سازگارتر توافق می‌کنی. هزینه بیشتر است و جای ارزیابی واقعی را نمی‌گیرد.</p></article>
+      <article class="card"><h3><bdi class="term-en" dir="ltr">Prompt chaining</bdi></h3><p>یک کار بزرگ را به خروجی‌های کوچک و مشخص تقسیم می‌کنی؛ خروجی هر مرحله ورودی مرحلهٔ بعد است.</p></article>
+      <article class="card"><h3>اصل مشترک</h3><p>هر مرحله باید ورودی، خروجی و معیار پذیرش روشن داشته باشد. «خوب انجام بده» قابل آزمایش نیست.</p></article>
+    </div>
+    <h3>مثال: تبدیل یک درخواست مبهم به قرارداد قابل‌اجرا</h3>
+    <pre><code>کاربر: «این پیام‌ها را بررسی کن.»
+
+نسخهٔ قابل‌اجرا:
+نقش: تحلیل‌گر پشتیبانی
+ورودی: آرایه‌ای از پیام‌ها
+کار: برای هر پیام، موضوع و فوریت را تعیین کن.
+خروجی: JSON با کلیدهای topic, urgency, reason.
+محدودیت: اگر شواهد کافی نیست، urgency را "unknown" بگذار.</code></pre>
+    <p>در این نسخه، مدل می‌فهمد چه داده‌ای دارد، چه تصمیمی باید بگیرد و برنامه چگونه نتیجه را مصرف می‌کند. این مهم‌تر از افزودن چند صفت ظاهراً هوشمند به دستور است.</p>
+  </section>
+
+  <section class="section" id="messages">
+    <h2>۵. پیام‌ها، نقش‌ها و نمرهٔ اطمینان</h2>
+    <h3>ورودیِ گفتگو فقط یک رشته نیست</h3>
+    <p>در رابط‌های گفت‌وگویی جدید، ورودی معمولاً فهرستی از پیام‌هاست. هر پیام نقش و محتوا دارد. نقش‌ها قراردادِ برنامه با مدل هستند؛ آن‌ها کمک می‌کنند قاعدهٔ پایدار محصول با درخواست همان نوبت قاطی نشود.</p>
+    <pre><code>[
+  {"role": "system", "content": "... قواعد پایدار ..."},
+  {"role": "user", "content": "... درخواست و دادهٔ این نوبت ..."},
+  {"role": "tool", "content": "... نتیجهٔ معتبر ابزار ..."}
+]</code></pre>
+    <p><bdi class="term-en" dir="ltr">system</bdi> جای دستورهای پایدار، لحن، مرز محصول و قرارداد خروجی است؛ <bdi class="term-en" dir="ltr">user</bdi> مسئله و دادهٔ همان کاربر را دارد؛ و پیام ابزار نتیجه‌ای است که <strong>برنامه</strong> پس از اجرای کنترل‌شده برمی‌گرداند. نقش‌ها دیوار امنیتی کامل نیستند؛ کنترل مجوز و اعتبارسنجی باید در کد هم وجود داشته باشد.</p>
+    <h3><bdi class="term-en" dir="ltr">logprob</bdi> چه می‌گوید؟</h3>
+    <p>برخی APIها نمرهٔ لگاریتم احتمال توکن‌های خروجی و گزینه‌های نزدیک را می‌دهند. این اطلاعات برای مشاهدهٔ رفتار نمونه‌گیری، مقایسهٔ گزینه‌ها یا ساخت معیار کمکی مفید است، اما «مدل مطمئن است» به معنی «جواب درست است» نیست. مدل می‌تواند با احتمال بالا، اطلاعات کهنه یا نادرست را روان بیان کند.</p>
+    <p class="warning callout"><strong>مرز مهم:</strong> از <bdi class="term-en" dir="ltr">logprob</bdi> برای تشخیص قطعی hallucination استفاده نکن. برای ادعای بیرونی، به شاهد، منبع، اعتبارسنجی و ارزیابی روی مثال‌های واقعی نیاز داری.</p>
+  </section>
+
+  <section class="section" id="rag">
+    <h2>۶. <bdi class="term-en" dir="ltr">RAG</bdi>: قبل از پاسخ، شواهد مناسب را پیدا کن</h2>
+    <p><bdi class="term-en" dir="ltr">Retrieval-Augmented Generation</bdi> یعنی برنامه پیش از تولید پاسخ، سندهای مرتبط را پیدا کند و بخش مناسب آن‌ها را در <bdi class="term-en" dir="ltr">context</bdi> مدل بگذارد. مدل به‌جای تکیهٔ صرف بر حافظهٔ آموزش، با یک بستهٔ شاهد پاسخ می‌دهد.</p>
+    <pre><code>سؤال کاربر
+  → تبدیل سؤال به عبارت جست‌وجو
+  → بازیابی چند سند یا قطعهٔ کاندید
+  → انتخاب/رتبه‌بندی قطعه‌های مرتبط
+  → قراردادن شواهد در context
+  → تولید پاسخِ محدود به شواهد</code></pre>
+    <h3>چرا این کار با «فرستادن همهٔ اسناد» فرق دارد؟</h3>
+    <p>مدل پنجرهٔ <bdi class="term-en" dir="ltr">context</bdi> محدود دارد. فرستادن همه‌چیز هم هزینه را بالا می‌برد، هم سیگنال را در نویز گم می‌کند و هم احتمال اتکا به بخش نامرتبط را افزایش می‌دهد. بازیابی خوب باید هم <strong>پوشش</strong> داشته باشد، هم <strong>دقت</strong>.</p>
+    <div class="grid">
+      <article class="card"><h3>بازیابی خراب</h3><p>سندهای نامرتبط، قطعه‌های بیش از حد بزرگ یا کوچک، متن قدیمی، و نبود منبع قابل استناد.</p></article>
+      <article class="card"><h3>تولید خراب</h3><p>مدل از شواهد فراتر می‌رود، نبود اطلاعات را پر می‌کند یا منبع را اشتباه نسبت می‌دهد.</p></article>
+      <article class="card"><h3>دفاع پایه</h3><p>شواهد را جدا و برچسب‌دار بده، درخواست کن نبودِ پاسخ را اعلام کند و پاسخ را به شناسهٔ منبع پیوند بده.</p></article>
+    </div>
+    <p class="callout"><strong>مدل ذهنی:</strong> <bdi class="term-en" dir="ltr">RAG</bdi> حافظهٔ مدل را به‌روزرسانی نمی‌کند. یک کتابِ بازِ کوچک و موقت برای همان نوبت پاسخ کنار دست مدل می‌گذارد.</p>
+  </section>
+
+  <section class="section" id="practice">
+    <h2>۷. خودآزمایی</h2>
+    <ol>
+      <li>برای تولید یک پاسخ <bdi class="term-en" dir="ltr">JSON</bdi> که برنامه باید بخواند، چرا دمای پایین‌تر از ایده‌پردازی مناسب‌تر است؟</li>
+      <li><bdi class="term-en" dir="ltr">temperature</bdi> و <bdi class="term-en" dir="ltr">top-p</bdi> هر دو تنوع را تغییر می‌دهند؛ فرق مکانیزمشان چیست؟</li>
+      <li>یک <bdi class="term-en" dir="ltr">Prompt</bdi> مبهمِ واقعی بنویس و آن را با «نقش، ورودی، کار، خروجی و حالت نامعلوم» بازنویسی کن.</li>
+      <li>اگر پاسخ <bdi class="term-en" dir="ltr">RAG</bdi> اشتباه است، چه‌طور تشخیص می‌دهی مشکل از بازیابی است یا تولید؟</li>
+    </ol>
+    <details><summary>پاسخ کوتاه پرسش دوم</summary><p><bdi class="term-en" dir="ltr">temperature</bdi> شکل کل توزیع احتمال را صاف یا تیز می‌کند؛ <bdi class="term-en" dir="ltr">top-p</bdi> ابتدا مجموعهٔ گزینه‌های مجاز را بر اساس جرم احتمال تعیین می‌کند و بعد از همان مجموعه نمونه‌گیری می‌شود.</p></details>
+  </section>
+
+  <footer class="footer"><a href="../index.html">بازگشت به فهرست جزوه‌ها</a> · جزوهٔ منتشرشده؛ ویدئو و رونویسی خام خارج از <bdi class="term-en" dir="ltr">Git</bdi></footer>
+</main>
+<script src="../../../assets/js/study-highlights.js"></script>
+</body>
+</html>
